@@ -36,6 +36,8 @@
   --white:#ffffff;
   --paper:#fcfbfa;          /* barely-there warm white */
   --mist:#f5f4f2;           /* second white */
+  --blush:#fdf7f1;          /* warm panel tint */
+  --blush-dp:#f8f1ea;
   --line:rgba(17,17,17,.11);
   --line-soft:rgba(17,17,17,.07);
   --line-gold:rgba(220,162,119,.42);
@@ -80,6 +82,7 @@ p:last-child{margin-bottom:0}
 .section--tight{padding-block:clamp(44px,5.5vw,78px)}
 .section--cream{background:var(--paper)}
 .section--sand{background:var(--mist)}
+.section--blush{background:var(--blush-dp)}
 
 /* ---------- type ---------- */
 .eyebrow{
@@ -280,10 +283,10 @@ p:last-child{margin-bottom:0}
    ============================================================ */
 .hero{position:relative;background:#d8d4d1;overflow:hidden}
 .hero__media{position:absolute;inset:0}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:72% 40%}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:62% 30%}
 .hero__media::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(14,12,11,.82) 0%,rgba(14,12,11,.62) 38%,rgba(14,12,11,.24) 62%,rgba(14,12,11,0) 88%)
+  background:linear-gradient(100deg,rgba(12,10,9,.88) 0%,rgba(12,10,9,.74) 34%,rgba(12,10,9,.5) 62%,rgba(12,10,9,.34) 100%)
 }
 .hero__inner{position:relative;z-index:2;min-height:clamp(540px,78vh,800px);display:flex;align-items:center;padding-block:clamp(68px,9vw,116px)}
 .hero__copy{max-width:min(760px,62%);color:#fff}
@@ -409,30 +412,89 @@ p:last-child{margin-bottom:0}
 .course:hover .course__cap span{opacity:1;transform:none}
 
 /* ============================================================
-   SUCCESS STORY — the one full black moment
+   SUCCESS STORY — cream panel, portrait, awards, thumbnails
    ============================================================ */
-.band{background:var(--black);color:rgba(255,255,255,.7)}
-.band .h-lg,.band h2,.band h3{color:#fff}
-.band .eyebrow{color:var(--gold)}
-.band .rule{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.band p{color:rgba(255,255,255,.7)}
-.band .btn--ghost{--btn-bg:transparent;--btn-fg:#fff;--btn-bd:rgba(255,255,255,.4);
-                  --btn-bg-h:var(--gold);--btn-fg-h:#241a12;--btn-bd-h:var(--gold)}
-.band__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,72px);align-items:start}
-.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(8px,1vw,16px);margin-top:clamp(38px,4.5vw,60px)}
-.gallery figure{margin:0;overflow:hidden;position:relative}
-.gallery img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform 1s var(--ease),opacity .5s}
-.gallery figure:hover img{transform:scale(1.07)}
+.ss{
+  background:var(--blush);border:1px solid rgba(220,162,119,.28);border-radius:22px;
+  padding:clamp(30px,4.4vw,72px)
+}
+.ss__head{text-align:center;max-width:860px;margin:0 auto clamp(34px,4vw,58px)}
+.ornament{
+  display:inline-flex;align-items:center;gap:18px;
+  font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-dp);margin:0 0 20px
+}
+.ornament::before,.ornament::after{content:"";width:clamp(28px,4.5vw,64px);height:1px;background:var(--gold)}
+.ss__head h2 em{font-style:italic;color:var(--gold-dp)}
+.swash{display:block;margin:20px auto 0;color:var(--gold)}
+
+.ss__grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(28px,4vw,64px);align-items:start}
+
+.ss__portrait{
+  margin:0;position:relative;border-radius:14px;overflow:hidden;
+  box-shadow:0 26px 62px rgba(17,17,17,.14)
+}
+.ss__portrait img{width:100%;aspect-ratio:3/4.05;object-fit:cover;object-position:center 20%}
+.ss__portrait::after{
+  content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5);
+  border-radius:7px;pointer-events:none
+}
+
+.ss__body{max-width:none}
+.ss__name{font-family:var(--serif);font-size:clamp(23px,2.1vw,31px);font-weight:400;margin-bottom:18px}
+.ss__body p{font-size:15px;line-height:1.8;margin-bottom:1.05em}
+.ss__body b{font-weight:500;color:var(--black)}
+.ss-link{
+  color:var(--gold-dp);
+  background:linear-gradient(currentColor,currentColor) left bottom/100% 1px no-repeat;
+  transition:color .3s
+}
+.ss-link:hover{color:var(--black)}
+
+.ss__awards{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:24px 0;padding:0}
+.ss__awards li{
+  display:inline-flex;align-items:center;gap:9px;padding:10px 17px;
+  background:#fff;border:1px solid rgba(220,162,119,.4);border-radius:40px;
+  font-size:11.5px;letter-spacing:.01em;color:var(--black);line-height:1.4
+}
+.ss__awards svg{color:var(--gold);flex:none}
+
+.ss__ig{
+  display:inline-flex;align-items:center;gap:10px;margin-top:4px;
+  font-size:14px;color:var(--gold-dp);transition:color .3s
+}
+.ss__ig:hover{color:var(--black)}
+
+.ss__thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 32px}
+.ss__thumbs figure{margin:0;overflow:hidden;border-radius:10px;background:var(--mist)}
+.ss__thumbs img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.ss__thumbs figure:hover img{transform:scale(1.07)}
 
 /* ============================================================
-   TESTIMONIALS
+   FOUNDER
    ============================================================ */
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,36px)}
-.tcard{background:#fff;border:1px solid var(--line-soft);border-top:2px solid var(--gold);padding:clamp(28px,2.8vw,44px);position:relative;transition:box-shadow var(--slow),transform var(--slow)}
-.tcard:hover{box-shadow:0 20px 48px rgba(17,17,17,.07);transform:translateY(-3px)}
-.tcard__mark{font-family:var(--serif);font-size:76px;line-height:.55;color:var(--gold);opacity:.42}
-.tcard p{font-family:var(--serif);font-size:clamp(16.5px,1.3vw,20px);line-height:1.7;color:var(--ink-soft);margin:20px 0 24px}
-.tcard cite{font-style:normal;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--black)}
+.founder{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,88px);align-items:center}
+.founder__media{
+  margin:0;position:relative;background:#fff;padding:10px;
+  box-shadow:0 28px 66px rgba(17,17,17,.12)
+}
+.founder__media img{
+  width:100%;aspect-ratio:3/3.9;object-fit:cover;object-position:center 15%;
+  filter:grayscale(1) contrast(1.03)
+}
+.founder__media::after{
+  content:"";position:absolute;inset:22px;border:1px solid rgba(255,255,255,.5);pointer-events:none
+}
+.founder__body{max-width:58ch}
+.eyebrow--rule{display:inline-flex;align-items:center;gap:16px}
+.eyebrow--rule::before{content:"";width:clamp(26px,3vw,46px);height:1px;background:var(--gold)}
+.founder__role{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(20px,1.75vw,27px);color:var(--gold-dp);margin:12px 0 22px
+}
+.founder__list{list-style:none;margin:28px 0 34px;padding:0;display:grid;gap:17px}
+.founder__list li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--ink-soft);line-height:1.65}
+.founder__list svg{color:var(--gold);flex:none;margin-top:4px}
+.founder__list b{font-weight:500;color:var(--black)}
 
 /* ============================================================
    STUDENT STORIES
@@ -450,7 +512,7 @@ p:last-child{margin-bottom:0}
 .newsletter{position:relative;text-align:center;background:var(--black);isolation:isolate;overflow:hidden}
 .newsletter::before{
   content:"";position:absolute;inset:0;z-index:-2;
-  background:url("Banner1.webp") center/cover no-repeat
+  background:url("Banner.webp") center/cover no-repeat
 }
 .newsletter::after{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -542,13 +604,14 @@ p:last-child{margin-bottom:0}
   .navbar,.utility{display:none}
   .mobilebar{display:block}
   .courses{grid-template-columns:repeat(3,1fr)}
-  .gallery{grid-template-columns:repeat(3,1fr)}
   .hero__copy{max-width:none}
   .hero__media::after{background:linear-gradient(180deg,rgba(12,10,9,.45) 0%,rgba(12,10,9,.66) 55%,rgba(12,10,9,.82) 100%)}
 }
 @media (max-width:860px){
-  .split,.band__grid,.contact__grid,.tgrid,.stories{grid-template-columns:1fr}
+  .split,.contact__grid,.stories,.founder,.ss__grid{grid-template-columns:1fr}
   .split--reverse .split__media{order:0}
+  .founder__media,.ss__portrait{max-width:520px;margin-inline:auto}
+  .ss__body,.founder__body{max-width:none}
   .split__media--frame::before{display:none}
   .courses{grid-template-columns:repeat(2,1fr)}
   .featured__logos{grid-template-columns:1fr;gap:14px}
@@ -560,7 +623,6 @@ p:last-child{margin-bottom:0}
     padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.11);margin-bottom:18px}
 }
 @media (max-width:640px){
-  .gallery{grid-template-columns:repeat(2,1fr)}
   .formrow{grid-template-columns:1fr}
   .nform{flex-direction:column}
   .hero__badges{gap:12px 22px;font-size:9.5px;letter-spacing:.22em}
@@ -747,7 +809,7 @@ p:last-child{margin-bottom:0}
 <!-- ============================== HERO ============================== -->
 <section class="hero">
   <div class="hero__media">
-    <img src="Banner.webp" alt="Professional makeup artistry at Tamarua Beauty Academy Melbourne" fetchpriority="high" width="1000" height="500">
+    <img src="Banner1.webp" alt="Tamarua Beauty Academy Melbourne — professional makeup and hair artistry" fetchpriority="high" width="2000" height="763">
   </div>
   <div class="shell hero__inner">
     <div class="hero__copy">
@@ -957,90 +1019,82 @@ p:last-child{margin-bottom:0}
   </div>
 </section>
 
-<!-- ============================== SUCCESS STORY BAND ============================== -->
-<section class="band section" aria-labelledby="story-title">
+<!-- ============================== SUCCESS STORY ============================== -->
+<section class="section" aria-labelledby="story-title">
   <div class="shell">
-    <div class="band__grid">
-      <div>
-        <p class="eyebrow">Graduate spotlight</p>
-        <h2 class="h-lg" id="story-title">Success Story</h2>
-        <hr class="rule">
-        <p>We are thrilled to spotlight one of our incredible graduates, Ashleigh, who has truly made her mark in the beauty industry!</p>
-        <p>Ashleigh completed her hair apprenticeship with one of our esteemed former hairstyling trainers Elesha at @hairbyelesharae and both the beginners and advanced makeup courses at TBA. She also gained hands-on experience by participating in wedding expos with Maggie.</p>
-        <p>Ashleigh is the proud owner of @loveisinthehairbyashleigh where she works as a hairdresser in Hoppers Crossing part-time. She is also a full-time mobile hair stylist for weddings and events, and she operates a home studio, showcasing her versatility and dedication to her craft.</p>
-      </div>
-      <div>
-        <p>Currently, Ashleigh is busy freelancing for weddings and events, traveling all over Victoria to provide her amazing services.</p>
-        <p>Ashleigh's talent hasn't gone unnoticed! She recently secured 2nd place in the ABIA Bridal Hairstylist Award for Victoria 2024 and also achieved 2nd place in the WIA Award for Greater Melbourne 2024.</p>
-        <p>We couldn't be prouder of Ashleigh and all that she has accomplished since graduating from TBA. Her journey is a testament to the hard work and passion that drives our students to success!</p>
-        <p>Keep shining, Ashleigh! We can't wait to see what you achieve next! &#10024;</p>
-      </div>
-    </div>
-  </div>
+    <div class="ss">
 
-  <div class="shell">
-      <div class="gallery">
-        <figure><img src="SuccessStory01.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1080" height="1080"></figure>
-        <figure><img src="SuccessStory02.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1179"></figure>
-        <figure><img src="SuccessStory03.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1179"></figure>
-        <figure><img src="SuccessStory04.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1179"></figure>
-        <figure><img src="SuccessStory05.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1178"></figure>
-      </div>
-  </div>
+      <header class="ss__head">
+        <p class="ornament">Success Story</p>
+        <h2 class="h-lg" id="story-title">From Student to <em>Award-Winning Stylist</em></h2>
+        <svg class="swash" width="128" height="16" viewBox="0 0 128 16" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+          <path d="M2 12C24 3 44 3 64 8s40 4 62-5"/>
+        </svg>
+      </header>
 
-  <div class="shell center btn-row" style="justify-content:center;margin-top:clamp(34px,4vw,50px)">
-    <a class="btn btn--ghost" href="#contact" style="--btn-fg:#3a2b1e;--btn-bd:#3a2b1e">Book A Free Consultation</a>
-  </div>
-</section>
+      <div class="ss__grid">
 
-<!-- ============================== MAGGIE ============================== -->
-<section class="section" aria-labelledby="maggie-title">
-  <div class="shell">
-    <div class="split">
-      <div class="split__media split__media--frame">
-        <img src="Maggie.webp" alt="Maggie Tamarua, founder of Tamarua Beauty Academy" loading="lazy" width="599" height="763">
-      </div>
-      <div class="split__body">
-        <p class="eyebrow">Founder &amp; Head Trainer</p>
-        <h2 class="h-lg" id="maggie-title">Maggie Tamarua</h2>
-        <hr class="rule">
-        <p class="lede">Maggie is a renowned makeup artist and premier trainer with years of experience and a stellar industry reputation. She completed formal training with Napoleon in 2004 and has since excelled in the field. With a background in working for Napoleon and freelancing as a wedding makeup artist, Maggie has showcased her talent by creating stunning fashion looks for numerous red-carpet events.</p>
-        <p class="lede">Her work has been featured in prestigious publications like Vogue, Girlfriend Magazine, and Melbourne Bridal and Fashion World. Maggie's exceptional skills and dedication earned her the Makeup Artist of the Year ABIA Awards in both 2013 and 2014. As the founder of Tamarua Beauty Academy, which has been operating successfully for over 10 years, Maggie has led the school to a top 4 ranking in Australia.</p>
-        <p class="lede">Maggie's expertise, creativity, and industry recognition make her a standout figure in the world of makeup artistry and beauty.</p>
-        <div style="margin-top:30px">
-          <a class="link-arrow" href="/pages/our-teachers">Read More
-            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg>
-          </a>
+        <figure class="ss__portrait">
+          <img src="SuccessStory02.webp" alt="Ashleigh with her ABIA Wedding Australia runner-up award" loading="lazy" width="1179" height="1179">
+        </figure>
+
+        <div class="ss__body">
+          <h3 class="ss__name">Meet Ashleigh</h3>
+
+          <p>We're thrilled to spotlight one of our incredible graduates, <b>Ashleigh</b>, who has truly made her mark in the beauty industry!</p>
+
+          <p>Ashleigh completed her hair apprenticeship with one of our esteemed former hairstyling trainers, Elesha (<a class="ss-link" href="https://www.instagram.com/hairbyelesharae" target="_blank" rel="noopener">@hairbyelesharae</a>), plus both the beginners and advanced makeup courses at TBA &mdash; and gained hands-on experience at wedding expos with Maggie.</p>
+
+          <p>Today she's the proud owner of <a class="ss-link" href="https://www.instagram.com/loveisinthehairbyashleigh" target="_blank" rel="noopener">@loveisinthehairbyashleigh</a>, working as a hairdresser in Hoppers Crossing, a full-time mobile stylist for weddings and events, and running her own home studio &mdash; travelling all over Victoria to deliver her amazing services.</p>
+
+          <ul class="ss__awards">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>2nd &mdash; ABIA Bridal Hairstylist, VIC 2024</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>2nd &mdash; WIA Award, Greater Melbourne 2024</span></li>
+          </ul>
+
+          <p>We couldn't be prouder of all Ashleigh has accomplished since graduating from TBA. Her journey is a testament to the hard work and passion that drives our students to success. Keep shining, Ashleigh! &#10024;</p>
+
+          <a class="ss__ig" href="https://www.instagram.com/loveisinthehairbyashleigh" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg> @loveisinthehairbyashleigh</a>
+
+          <div class="ss__thumbs">
+            <figure><img src="SuccessStory03.webp" alt="ABIA Bridal Hair Stylist runner-up 2024, Victoria" loading="lazy" width="1179" height="1179"></figure>
+            <figure><img src="SuccessStory04.webp" alt="Bridal hairstyling by Ashleigh" loading="lazy" width="1179" height="1179"></figure>
+            <figure><img src="SuccessStory05.webp" alt="Wedding Industry Awards 2024 &mdash; #2 Highly Commended, Greater Melbourne" loading="lazy" width="1179" height="1178"></figure>
+          </div>
+
+          <a class="btn btn--gold" href="#contact">Claim My $500 Discount</a>
         </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================== TESTIMONIALS ============================== -->
-<section class="section section--cream" aria-labelledby="testi-title">
+<!-- ============================== FOUNDER ============================== -->
+<section class="section section--blush" aria-labelledby="maggie-title">
   <div class="shell">
-    <div class="center" style="margin-bottom:clamp(30px,3.5vw,48px)">
-      <p class="eyebrow">In their words</p>
-      <h2 class="h-lg" id="testi-title">Customer Testimonials</h2>
-      <hr class="rule rule--center">
-    </div>
-    <div class="tgrid">
-      <figure class="tcard" style="margin:0">
-        <div class="tcard__mark">&ldquo;</div>
-        <blockquote style="margin:0"><p>I have just completed the Pro Nail course and I loved every second of it!! Pamela, our teacher was so informative, patient and helpful throughout the whole course especially when we transitioned from in-class to online! The online sections were just like being in the classroom, with Pamela answering our questions during the live demos and providing us with helpful tips and tricks of the trade.</p></blockquote>
-        <figcaption><cite>Vivien Karmi</cite></figcaption>
+    <div class="founder">
+
+      <figure class="founder__media">
+        <img src="Maggie.webp" alt="Maggie Tamarua, founder and master educator at Tamarua Beauty Academy" loading="lazy" width="599" height="763">
       </figure>
-      <figure class="tcard" style="margin:0">
-        <div class="tcard__mark">&ldquo;</div>
-        <blockquote style="margin:0"><p>Tamarua Beauty Academy is by far the best Academy. All the trainers are down to earth, friendly and approachable and they are all working in the field they teach. The content they teach is current, up to date and relevant to industry standards and professional expectations. The support the TBA provides during and post your course is invaluable. Second to none.</p></blockquote>
-        <figcaption><cite>Abc's Cruz</cite></figcaption>
-      </figure>
-      <figure class="tcard" style="margin:0">
-        <div class="tcard__mark">&ldquo;</div>
-        <blockquote style="margin:0"><p>I love this academy and I'm obsessed with them. The feedback you get after every class and the support you get is next level. You always get encouraged to keep going and make it far in the beauty industry. All the trainers are extremely talented at what they do and they teach you high standards so when you go into the industry alone you stand out from everyone.</p></blockquote>
-        <figcaption><cite>Katerina Mitrevska</cite></figcaption>
-      </figure>
+
+      <div class="founder__body">
+        <p class="eyebrow eyebrow--rule">Meet Your Lead Trainer</p>
+        <h2 class="h-lg" id="maggie-title">Maggie Tamarua</h2>
+        <p class="founder__role">Founder &amp; Master Educator</p>
+
+        <p class="lede">A renowned makeup artist and premier trainer, Maggie completed her formal training with Napoleon in 2004 and has built a stellar reputation over two decades &mdash; creating red-carpet looks and mentoring the next generation of beauty professionals.</p>
+
+        <ul class="founder__list">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span><b>Makeup Artist of the Year</b> &mdash; ABIA Awards 2013 &amp; 2014</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>Featured in <b>Vogue</b>, Girlfriend Magazine &amp; Melbourne Bridal &amp; Fashion World</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>Founder of a <b>Top 4-ranked academy</b> in Australia, running for over a decade</span></li>
+        </ul>
+
+        <a class="btn btn--gold" href="#contact">Claim My $500 Discount</a>
+      </div>
+
     </div>
   </div>
 </section>
