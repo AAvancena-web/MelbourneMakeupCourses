@@ -1,0 +1,93 @@
+{%- comment -%}
+  Award-winning band: trophy photo on the right, copy on the left, press logos
+  under the second paragraph, then the two CTAs.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section tba-section--blush" aria-labelledby="tba-award-title">
+  <div class="tba-shell">
+    <div class="tba-split tba-split--reverse">
+      <div class="tba-split__media tba-split__media--frame">
+        {% render 'tba-image', image: s.image, fallback: 'tba-award-1.webp', alt: s.image_alt,
+           width: 800, height: 800, url_width: 1000, loading: 'lazy' %}
+      </div>
+      <div class="tba-split__body">
+        {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="tba-h-lg" id="tba-award-title">{{ s.heading }}</h2>
+        <hr class="tba-rule">
+        <p class="tba-lede">{{ s.body_1 }}</p>
+        <p class="tba-lede">{{ s.body_2 }}</p>
+
+        <div class="tba-press">
+          {%- for block in section.blocks -%}
+            {%- assign b = block.settings -%}
+            <a href="{{ b.url }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+              {% render 'tba-image', image: b.image, fallback: b.fallback, alt: b.alt,
+                 width: b.width, height: b.height, url_width: 900, loading: 'lazy' %}
+            </a>
+          {%- endfor -%}
+        </div>
+        <div class="tba-btn-row" style="margin-top:30px">
+          {%- if s.cta1_label != blank -%}
+            <a class="tba-btn tba-btn--gold" href="{{ s.cta1_url }}">{{ s.cta1_label }}</a>
+          {%- endif -%}
+          {%- if s.cta2_label != blank -%}
+            <a class="tba-btn tba-btn--ghost" href="{{ s.cta2_url }}">{{ s.cta2_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA award",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Award image" },
+    { "type": "text", "id": "image_alt", "label": "Award image alt text",
+      "default": "Best of Best Review 2025 award trophies — Best Beauty Academy in Australia" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Award Winning" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "2025 Best Beauty Academy in Australia" },
+    { "type": "textarea", "id": "body_1", "label": "Paragraph 1",
+      "default": "We're proud to announce that Tamarua Beauty Academy has been recognized as the Best Beauty Academy in Australia for 2025 by Best of Best Review." },
+    { "type": "textarea", "id": "body_2", "label": "Paragraph 2",
+      "default": "This award reflects our commitment to providing top-tier beauty education and empowering future professionals in the industry. Thank you for being part of our journey!" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "cta1_label", "label": "Primary button", "default": "Book A Free Consultation" },
+    { "type": "text", "id": "cta1_url", "label": "Primary button link", "default": "#contact" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary button", "default": "View Courses" },
+    { "type": "text", "id": "cta2_url", "label": "Secondary button link", "default": "#courses" }
+  ],
+  "blocks": [
+    { "type": "press", "name": "Press logo", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Logo" },
+      { "type": "text", "id": "fallback", "label": "Bundled image",
+        "info": "Filename in assets/ used when no image is chosen above." },
+      { "type": "text", "id": "url", "label": "Article link" },
+      { "type": "text", "id": "alt", "label": "Alt text" },
+      { "type": "text", "id": "width", "label": "Bundled image width",
+        "info": "Pixel width of the bundled image, so the space is reserved before it loads." },
+      { "type": "text", "id": "height", "label": "Bundled image height" }
+    ]}
+  ],
+  "presets": [
+    { "name": "TBA award", "blocks": [
+      { "type": "press", "settings": {
+        "fallback": "tba-as-seen-on-1.webp", "width": "1920", "height": "453",
+        "url": "https://bizweekly.com/from-humble-beginnings-to-industry-leadership-the-inspirational-journey-behind-tamarua-beauty-academy/",
+        "alt": "Tamarua Beauty Academy featured in Biz Weekly" } },
+      { "type": "press", "settings": {
+        "fallback": "tba-as-seen-on-2.webp", "width": "1920", "height": "449",
+        "url": "https://womensinsider.com/tamarua-beauty-academy-empowering-future-beauty-professionals-through-innovation-and-excellence/",
+        "alt": "Tamarua Beauty Academy featured in Women's Insider" } },
+      { "type": "press", "settings": {
+        "fallback": "tba-as-seen-on-3.webp", "width": "1920", "height": "434",
+        "url": "https://leadrmagazine.com/how-tamarua-beauty-academy-is-turning-beauty-passion-into-real-careers-across-australia/",
+        "alt": "Tamarua Beauty Academy featured in Leadr Magazine" } }
+    ]}
+  ]
+}
+{% endschema %}

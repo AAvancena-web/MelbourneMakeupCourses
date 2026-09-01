@@ -1,0 +1,25 @@
+{%- comment -%}
+  Shared brand lockup for the header, the mobile bar, the drawer and the footer.
+  Uses the redesign's own logo setting, then the theme's `settings.logo`,
+  then the bundled SVG, then the CSS wordmark (handled by tba-redesign.js).
+
+  {% render 'tba-logo', logo: section.settings.logo, width: 200, class: '' %}
+{%- endcomment -%}
+{%- liquid
+  assign tba_logo = logo
+  if tba_logo == blank
+    assign tba_logo = settings.logo
+  endif
+-%}
+<a class="tba-brand{% if class %} {{ class }}{% endif %}" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }} — home">
+  {%- if tba_logo != blank -%}
+    <img src="{{ tba_logo | image_url: width: 410 }}" data-logo-fallback="{{ 'tba-logo.svg' | asset_url }}"
+         alt="{{ shop.name | escape }}" width="410" height="154" data-logo
+         {%- if width %} style="width:{{ width }}px"{% endif %}>
+  {%- else -%}
+    <img src="{{ 'tba-logo.svg' | asset_url }}" alt="{{ shop.name | escape }}"
+         width="410" height="154" data-logo
+         {%- if width %} style="width:{{ width }}px"{% endif %}>
+  {%- endif -%}
+  <span class="tba-brand__fallback"><b{% if fallback_size %} style="font-size:{{ fallback_size }}px"{% endif %}>Tamarua</b><span>Beauty Academy</span></span>
+</a>

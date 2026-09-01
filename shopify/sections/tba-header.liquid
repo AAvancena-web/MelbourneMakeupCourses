@@ -1,0 +1,308 @@
+{%- comment -%}
+  Sticky black header: three mega menus, centred logo, CTA, cart/search,
+  plus the mobile bar and slide-in drawer.
+
+  Render this in layout/theme.liquid, directly after the announcement bar.
+  The mega-menu and drawer link lists mirror the live store's navigation and
+  are edited in this file — Shopify's navigation menus can't express the
+  three-level, image-led structure the design uses.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<header class="tba-header">
+
+  <!-- desktop nav -->
+  <div class="tba-navbar">
+    <div class="tba-shell">
+      <nav class="tba-nav" aria-label="Primary">
+        <div class="tba-nav__item">
+          <a class="tba-nav__link" href="/collections">Courses
+            <svg class="tba-chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="tba-mega">
+            <div class="tba-mega__grid">
+              <a class="tba-mega__card" href="/collections/makeup-courses">
+                <figure>{% render 'tba-image', image: s.mega_img_1, fallback: 'tba-makeupcourses.webp', alt: 'Make Up Courses', url_width: 600, loading: 'lazy' %}</figure>
+                <h4>Make Up Courses</h4>
+              </a>
+              <a class="tba-mega__card" href="/collections/hair-styling">
+                <figure>{% render 'tba-image', image: s.mega_img_2, fallback: 'tba-hairstylingcourses.webp', alt: 'Hair Styling Courses', url_width: 600, loading: 'lazy' %}</figure>
+                <h4>Hair Styling Courses</h4>
+              </a>
+              <a class="tba-mega__card" href="/collections/nails">
+                <figure>{% render 'tba-image', image: s.mega_img_3, fallback: 'tba-nailcourses.webp', alt: 'Nails Courses', url_width: 600, loading: 'lazy' %}</figure>
+                <h4>Nails Courses</h4>
+              </a>
+              <a class="tba-mega__card" href="/collections/barbering">
+                <figure>{% render 'tba-image', image: s.mega_img_4, fallback: 'tba-barberingcourse.webp', alt: 'Barbering Course', url_width: 600, loading: 'lazy' %}</figure>
+                <h4>Barbering Course</h4>
+              </a>
+              <div class="tba-mega__list">
+                <h4>Other Beauty Courses</h4>
+                <ul>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/eyelash-extensions">Eyelash Extensions Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/master-classes">Master Classes</a></li>
+                  <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tba-nav__item">
+          <a class="tba-nav__link" href="/collections/online-beauty-courses-melbourne">Online Courses
+            <svg class="tba-chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="tba-mega">
+            <div class="tba-mega__cols">
+              <div class="tba-mega__list">
+                <h4><a href="/collections/makeup-courses">Makeup Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+                  <li><a href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/hair-styling">Hairstyling Courses</a></h4>
+                <ul>
+                  <li><a href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/nails">Nail Courses</a></h4>
+                <ul>
+                  <li><a href="/products/nails-on-site-nail-technology-fundamentals-pro-includes-drill-techniques">ON-SITE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+                  <li><a href="/products/nails-live-online-nail-technology-fundamentals-pro-includes-drill-techniques">ONLINE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></h4>
+                <ul>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections">Other Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/barbering">Barbering Course</a></li>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tba-nav__item">
+          <a class="tba-nav__link" href="/collections/beauty-courses-melbourne">On-Site Courses
+            <svg class="tba-chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="tba-mega">
+            <div class="tba-mega__cols">
+              <div class="tba-mega__list">
+                <h4><a href="/collections/makeup-courses">Makeup Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+                  <li><a href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/hair-styling">Hairstyling Courses</a></h4>
+                <ul>
+                  <li><a href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></h4>
+                <ul>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections">Other Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/barbering">Barbering Course</a></li>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+                  <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tba-nav__item"><a class="tba-nav__link" href="/collections/tba-beauty-products">Shop</a></div>
+      </nav>
+
+      {% render 'tba-logo', logo: s.logo %}
+
+      <div class="tba-nav tba-nav--right">
+        <div class="tba-nav__item"><a class="tba-nav__link" href="/pages/contact-us">Contact Us</a></div>
+        <a class="tba-btn tba-btn--gold tba-btn--sm" href="{{ routes.root_url }}#contact">{{ s.cta_label }}</a>
+        <div class="tba-tools">
+          <a class="tba-icon-btn" href="{{ routes.search_url }}" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+          </a>
+          <a class="tba-icon-btn" href="{{ routes.cart_url }}" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+            <span class="tba-cart-count">{{ cart.item_count }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mobile bar -->
+  <div class="tba-mobilebar">
+    <div class="tba-shell">
+      {% render 'tba-logo', logo: s.logo, width: 140, fallback_size: 24 %}
+
+      <div class="tba-mobilebar__right">
+        <a class="tba-icon-btn" href="{{ routes.cart_url }}" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="tba-cart-count">{{ cart.item_count }}</span>
+        </a>
+        <a class="tba-call-pill" href="tel:{{ s.phone | remove: ' ' }}" aria-label="Call {{ shop.name | escape }} on {{ s.phone }}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.55 1 1 0 01-.24 1.05z"/></svg>
+        </a>
+        <button class="tba-burger" aria-label="Open menu" aria-expanded="false" aria-controls="tba-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- drawer -->
+<div class="tba-scrim"></div>
+<aside class="tba-drawer" id="tba-drawer" aria-label="Mobile menu">
+  <div class="tba-drawer__head">
+    {% render 'tba-logo', logo: s.logo, fallback_size: 22 %}
+    <button class="tba-icon-btn" data-tba-drawer-close aria-label="Close menu">
+      <svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l10 10M11 1L1 11"/></svg>
+    </button>
+  </div>
+  <nav>
+    <button class="tba-drawer__link" data-acc aria-expanded="false">Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="tba-drawer__sub">
+      <li><a href="/collections/makeup-courses">Make Up Courses</a></li>
+      <li><a href="/collections/hair-styling">Hair Styling Courses</a></li>
+      <li><a href="/collections/nails">Nails Courses</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extensions Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/master-classes">Master Classes</a></li>
+      <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
+    </ul>
+    <button class="tba-drawer__link" data-acc aria-expanded="false">Online Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="tba-drawer__sub">
+      <li><a href="/collections/makeup-courses">Makeup Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+      <li><a href="/collections/nails">Nail Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/nails-on-site-nail-technology-fundamentals-pro-includes-drill-techniques">ON-SITE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/nails-live-online-nail-technology-fundamentals-pro-includes-drill-techniques">ONLINE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+    </ul>
+    <button class="tba-drawer__link" data-acc aria-expanded="false">On-Site Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="tba-drawer__sub">
+      <li><a href="/collections/makeup-courses">Makeup Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+      <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+    </ul>
+    <a class="tba-drawer__link" href="/pages/contact-us">Contact Us</a>
+    <a class="tba-drawer__link" href="/collections/tba-beauty-products">Shop</a>
+    <a class="tba-drawer__link" href="tel:{{ s.phone | remove: ' ' }}">{{ s.phone }}</a>
+    <a class="tba-drawer__link" href="{{ routes.account_login_url }}">Login</a>
+  </nav>
+  <div class="tba-drawer__foot">
+    <a class="tba-btn tba-btn--gold" href="{{ routes.root_url }}#contact">{{ s.cta_label }}</a>
+    <ul class="tba-socials" style="list-style:none;margin:18px 0 0;padding:0">
+      <li><a href="{{ s.facebook }}" target="_blank" rel="noopener me" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+      <li><a href="{{ s.instagram }}" target="_blank" rel="noopener me" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+    </ul>
+  </div>
+</aside></div>
+
+{% schema %}
+{
+  "name": "TBA header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo",
+      "info": "Falls back to the theme logo, then to the bundled wordmark." },
+    { "type": "text", "id": "phone", "label": "Phone number", "default": "0421 864 557" },
+    { "type": "text", "id": "cta_label", "label": "Header button text", "default": "Book A Free Consultation" },
+    { "type": "header", "content": "Courses mega menu images" },
+    { "type": "image_picker", "id": "mega_img_1", "label": "Make Up Courses" },
+    { "type": "image_picker", "id": "mega_img_2", "label": "Hair Styling Courses" },
+    { "type": "image_picker", "id": "mega_img_3", "label": "Nails Courses" },
+    { "type": "image_picker", "id": "mega_img_4", "label": "Barbering Course" },
+    { "type": "header", "content": "Drawer social links" },
+    { "type": "text", "id": "facebook", "label": "Facebook URL",
+      "default": "https://www.facebook.com/tamaruabeautyacademy/" },
+    { "type": "text", "id": "instagram", "label": "Instagram URL",
+      "default": "https://www.instagram.com/tamaruabeautyacademy" }
+  ],
+  "presets": [{ "name": "TBA header" }]
+}
+{% endschema %}

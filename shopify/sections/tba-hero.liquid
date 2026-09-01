@@ -1,0 +1,144 @@
+{%- comment -%}
+  Hero: full-bleed banner, headline + CTAs on the left, consultation form on
+  the right, four proof cards across the bottom.
+
+  The form posts through Shopify's own contact form, so submissions land in
+  the store's Notifications > Contact customer email. If you would rather keep
+  using Hulk Form Builder, set "Form provider" to "Custom embed code" and paste
+  the app's embed into "Custom form embed".
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-hero">
+  <div class="tba-hero__media">
+    {% render 'tba-image', image: s.image, fallback: 'tba-banner1.webp', alt: s.image_alt,
+       width: 2000, height: 763, url_width: 2000, fetchpriority: 'high' %}
+  </div>
+  <div class="tba-shell tba-hero__inner">
+    <div class="tba-hero__grid">
+    <div class="tba-hero__copy">
+      {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="tba-h-xl">{{ s.heading }}</h1>
+      <hr class="tba-rule">
+      <h2>{{ s.subheading }}</h2>
+      <div class="tba-btn-row">
+        {%- if s.cta1_label != blank -%}
+          <a class="tba-btn tba-btn--gold" href="{{ s.cta1_url | default: '#courses' }}">{{ s.cta1_label }}</a>
+        {%- endif -%}
+        {%- if s.cta2_label != blank -%}
+          <a class="tba-btn tba-btn--light" href="{{ s.cta2_url | default: routes.all_products_collection_url }}">{{ s.cta2_label }}</a>
+        {%- endif -%}
+      </div>
+
+    </div>
+
+    {%- if s.form_provider == 'custom' -%}
+      <div class="tba-heroform">
+        <div class="tba-heroform__inner">
+          <h2 class="tba-heroform__title">{{ s.form_title }}</h2>
+          <p class="tba-heroform__sub">{{ s.form_sub }}</p>
+          {%- if s.form_promo != blank -%}<p class="tba-heroform__promo">{{ s.form_promo }}</p>{%- endif -%}
+          {{ s.form_embed }}
+        </div>
+      </div>
+    {%- else -%}
+      {%- form 'contact', class: 'tba-heroform', novalidate: 'novalidate' -%}
+      <div class="tba-heroform__inner">
+        <h2 class="tba-heroform__title">{{ s.form_title }}</h2>
+        <p class="tba-heroform__sub">{{ s.form_sub }}</p>
+
+        {%- if s.form_promo != blank -%}<p class="tba-heroform__promo">{{ s.form_promo }}</p>{%- endif -%}
+
+        {%- if form.posted_successfully? -%}
+          <p class="tba-heroform__sub" role="status">{{ s.form_success }}</p>
+        {%- elsif form.errors -%}
+          <p class="tba-heroform__sub" role="alert">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+
+        <div class="tba-heroform__row">
+          <label class="tba-hfield"><span>Full Name</span><input type="text" name="contact[name]" placeholder="Your name" autocomplete="name" required></label>
+          <label class="tba-hfield"><span>Email Address</span><input type="email" name="contact[email]" placeholder="you@email.com" autocomplete="email" required></label>
+        </div>
+        <div class="tba-heroform__row">
+          <label class="tba-hfield"><span>Mobile Number</span><input type="tel" name="contact[phone]" placeholder="04XX XXX XXX" autocomplete="tel" required></label>
+          <label class="tba-hfield"><span>Course of Interest</span>
+            <select name="contact[course]">
+              <option value="">Select a course&hellip;</option>
+              {%- assign courses = s.course_options | newline_to_br | split: '<br />' -%}
+              {%- for c in courses -%}
+                {%- assign c = c | strip -%}
+                {%- if c != blank -%}<option>{{ c }}</option>{%- endif -%}
+              {%- endfor -%}
+            </select>
+          </label>
+        </div>
+        <label class="tba-hfield"><span>Message</span><textarea name="contact[body]" placeholder="Tell us a little about what you&#39;re looking for (optional)"></textarea></label>
+
+        <button class="tba-btn tba-btn--bronze" type="submit">{{ s.form_button }}</button>
+        <p class="tba-heroform__fine">{{ s.form_fine }}</p>
+      </div>
+      {%- endform -%}
+    {%- endif -%}
+
+    </div>
+  </div>
+
+  <div class="tba-shell">
+    <ul class="tba-hero__proof">
+      {%- for i in (1..4) -%}
+        {%- assign key = 'proof_' | append: i -%}
+        {%- assign val = s[key] -%}
+        {%- if val != blank -%}<li>{{ val }}</li>{%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Banner image" },
+    { "type": "text", "id": "image_alt", "label": "Banner alt text",
+      "default": "Tamarua Beauty Academy Melbourne — professional makeup and hair artistry" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Melbourne · Est. 2010" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Tamarua Beauty Academy" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading",
+      "default": "Join us and become part of a legacy of success at a premier beauty academy in Melbourne. Enroll today and take the first step toward a rewarding career in beauty!" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "cta1_label", "label": "Primary button", "default": "View Courses" },
+    { "type": "text", "id": "cta1_url", "label": "Primary button link", "default": "#courses" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary button", "default": "Shop Products" },
+    { "type": "text", "id": "cta2_url", "label": "Secondary button link", "default": "/collections/tba-beauty-products" },
+    { "type": "header", "content": "Proof cards" },
+    { "type": "text", "id": "proof_1", "label": "Card 1", "default": "5.0 from 88 Google reviews" },
+    { "type": "text", "id": "proof_2", "label": "Card 2", "default": "Best Beauty Academy in Australia 2025" },
+    { "type": "text", "id": "proof_3", "label": "Card 3", "default": "On-site & live online training" },
+    { "type": "text", "id": "proof_4", "label": "Card 4", "default": "Lifetime alumni support" },
+    { "type": "header", "content": "Consultation form" },
+    { "type": "select", "id": "form_provider", "label": "Form provider",
+      "options": [
+        { "value": "shopify", "label": "Shopify contact form" },
+        { "value": "custom", "label": "Custom embed code" }
+      ],
+      "default": "shopify" },
+    { "type": "html", "id": "form_embed", "label": "Custom form embed",
+      "info": "Only used when Form provider is set to Custom embed code. Paste your Hulk Form Builder embed here." },
+    { "type": "text", "id": "form_title", "label": "Form title", "default": "Book a Free Consultation" },
+    { "type": "text", "id": "form_sub", "label": "Form subtitle",
+      "default": "A no-obligation chat about the right course for you" },
+    { "type": "text", "id": "form_promo", "label": "Promo line",
+      "default": "✦ Limited time — <b>$500 OFF</b> your course this month ✦" },
+    { "type": "text", "id": "form_button", "label": "Submit button", "default": "Book A Free Consultation" },
+    { "type": "text", "id": "form_fine", "label": "Fine print",
+      "default": "We'll only use your details to reply to your enquiry." },
+    { "type": "text", "id": "form_success", "label": "Success message",
+      "default": "Thank you — we'll be in touch shortly." },
+    { "type": "textarea", "id": "course_options", "label": "Course dropdown options",
+      "info": "One course per line.",
+      "default": "Make Up Courses\nHairstyling Courses\nNail Courses\nEyelash Extension Courses\nBarbering Course\nFacial Course\nSpray Tanning Course\nWaxing Course\nMaster Classes" }
+  ],
+  "presets": [{ "name": "TBA hero" }]
+}
+{% endschema %}

@@ -1,0 +1,181 @@
+{%- comment -%}
+  Ashleigh's success story: portrait on the left, story on the right with the
+  award list, Instagram link, three thumbnails and the CTA.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section tba-section--sand" aria-labelledby="tba-story-title">
+  <div class="tba-shell">
+    <div class="tba-ss">
+
+      <header class="tba-ss__head">
+        {%- if s.ornament != blank -%}<p class="tba-ornament">{{ s.ornament }}</p>{%- endif -%}
+        <h2 class="tba-h-lg" id="tba-story-title">{{ s.heading }}</h2>
+        <svg class="tba-swash" width="128" height="16" viewBox="0 0 128 16" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+          <path d="M2 12C24 3 44 3 64 8s40 4 62-5"/>
+        </svg>
+      </header>
+
+      <div class="tba-ss__grid">
+
+        <figure class="tba-ss__portrait">
+          {% render 'tba-image', image: s.portrait, fallback: 'tba-successstory02.webp', alt: s.portrait_alt,
+             width: 1179, height: 1179, url_width: 1200, loading: 'lazy' %}
+        </figure>
+
+        <div class="tba-ss__body">
+          <h3 class="tba-ss__name">{{ s.name }}</h3>
+
+{{ s.copy }}
+
+          {%- if s.instagram_handle != blank -%}
+            <a class="tba-ss__ig" href="{{ s.instagram_url }}" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg> {{ s.instagram_handle }}</a>
+          {%- endif -%}
+
+          <div class="tba-ss__thumbs">
+            {%- for block in section.blocks -%}
+              <figure {{ block.shopify_attributes }}>{% render 'tba-image', image: block.settings.image,
+                fallback: block.settings.fallback, alt: block.settings.alt,
+                width: 1179, height: 1179, url_width: 700, loading: 'lazy' %}</figure>
+            {%- endfor -%}
+          </div>
+
+          {%- if s.cta_label != blank -%}
+            <a class="tba-btn tba-btn--gold" href="{{ s.cta_url }}">{{ s.cta_label }}</a>
+          {%- endif -%}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA success story",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "ornament",
+      "label": "Eyebrow",
+      "default": "Success Story"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "HTML is allowed — <em> sets the italic serif accent.",
+      "default": "From Student to <em>Award-Winning Stylist</em>"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Student name",
+      "default": "Meet Ashleigh"
+    },
+    {
+      "type": "image_picker",
+      "id": "portrait",
+      "label": "Portrait"
+    },
+    {
+      "type": "text",
+      "id": "portrait_alt",
+      "label": "Portrait alt text",
+      "default": "Ashleigh with her ABIA Wedding Australia runner-up award"
+    },
+    {
+      "type": "html",
+      "id": "copy",
+      "label": "Story copy",
+      "default": "          <p>We're thrilled to spotlight one of our incredible graduates, <b>Ashleigh</b>, who has truly made her mark in the beauty industry!</p>\n\n          <p>Ashleigh completed her hair apprenticeship with one of our esteemed former hairstyling trainers, Elesha (<a class=\"tba-ss-link\" href=\"https://www.instagram.com/hairbyelesharae\" target=\"_blank\" rel=\"noopener\">@hairbyelesharae</a>), plus both the beginners and advanced makeup courses at TBA &mdash; and gained hands-on experience at wedding expos with Maggie.</p>\n\n          <p>Today she's the proud owner of <a class=\"tba-ss-link\" href=\"https://www.instagram.com/loveisinthehairbyashleigh\" target=\"_blank\" rel=\"noopener\">@loveisinthehairbyashleigh</a>, working as a hairdresser in Hoppers Crossing, a full-time mobile stylist for weddings and events, and running her own home studio &mdash; travelling all over Victoria to deliver her amazing services.</p>\n\n          <ul class=\"tba-ss__awards\">\n            <li><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z\"/></svg> <span>2nd &mdash; ABIA Bridal Hairstylist, VIC 2024</span></li>\n            <li><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z\"/></svg> <span>2nd &mdash; WIA Award, Greater Melbourne 2024</span></li>\n          </ul>\n\n          <p>We couldn't be prouder of all Ashleigh has accomplished since graduating from TBA. Her journey is a testament to the hard work and passion that drives our students to success. Keep shining, Ashleigh! &#10024;</p>"
+    },
+    {
+      "type": "header",
+      "content": "Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_handle",
+      "label": "Handle",
+      "default": "@loveisinthehairbyashleigh"
+    },
+    {
+      "type": "text",
+      "id": "instagram_url",
+      "label": "Profile URL",
+      "default": "https://www.instagram.com/loveisinthehairbyashleigh"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Book A Free Consultation"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "Button link",
+      "default": "#contact"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "thumb",
+      "name": "Thumbnail",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "fallback",
+          "label": "Bundled image",
+          "info": "Filename in assets/ used when no image is chosen above."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TBA success story",
+      "blocks": [
+        {
+          "type": "thumb",
+          "settings": {
+            "fallback": "tba-successstory03.webp",
+            "alt": "ABIA Bridal Hair Stylist runner-up 2024, Victoria"
+          }
+        },
+        {
+          "type": "thumb",
+          "settings": {
+            "fallback": "tba-successstory04.webp",
+            "alt": "Bridal hairstyling by Ashleigh"
+          }
+        },
+        {
+          "type": "thumb",
+          "settings": {
+            "fallback": "tba-successstory05.webp",
+            "alt": "Wedding Industry Awards 2024 — #2 Highly Commended, Greater Melbourne"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

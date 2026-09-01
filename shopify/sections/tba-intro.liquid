@@ -1,0 +1,116 @@
+{%- comment -%}
+  SEO intro: copy on the left with the "Read More" panel, video on the right.
+  The long-form copy lives in the "Expanded copy" rich-text setting so it stays
+  editable, and it is in the HTML on every page load (the toggle only animates
+  max-height), so search engines still see all of it.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section" aria-labelledby="tba-intro-title">
+  <div class="tba-shell">
+    <div class="tba-intro">
+
+      <div class="tba-intro__body">
+        {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="tba-h-lg" id="tba-intro-title">{{ s.heading }}</h2>
+        <hr class="tba-rule">
+        <p class="tba-lede">{{ s.lede }}</p>
+
+        <div class="tba-readmore" id="tba-readmore">
+          <div class="tba-readmore__body">
+{{ s.expanded }}
+          </div>
+          <div class="tba-readmore__toggle">
+            <button class="tba-link-arrow" type="button" data-tba-readmore aria-expanded="false" aria-controls="tba-readmore">
+              <span>Read More</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+            </button>
+          </div>
+        </div>
+
+        {%- if s.cta_label != blank -%}
+        <div class="tba-btn-row" style="margin-top:34px">
+          <a class="tba-btn tba-btn--gold" href="{{ s.cta_url }}">{{ s.cta_label }}</a>
+        </div>
+        {%- endif -%}
+      </div>
+
+      <div class="tba-intro__media">
+        <div class="tba-video-wrap">
+          {%- if s.video != blank -%}
+            <video controls preload="metadata" playsinline src="{{ s.video }}">
+              Your browser does not support the video tag.
+            </video>
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA intro",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Melbourne & Australia"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We Are the Premier Industry Based Training Beauty Academy in Melbourne and Australia"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Intro paragraph",
+      "default": "Established in 2010, the Tamarua Beauty Academy is an industry based beauty training academy in Melbourne that specialises in delivering short on-site and live-online courses relating to the beauty industry. Location: Building 8/36 Aylesbury Dr, Altona VIC 3018"
+    },
+    {
+      "type": "html",
+      "id": "expanded",
+      "label": "Expanded copy",
+      "info": "Shown when a visitor taps Read More. Always present in the page source for SEO.",
+      "default": "      <h3>Elevate Your Career with Australia's Leading Beauty Academy</h3>\n      <p>For over 10 years, Tamarua beauty academy has proudly offered industry-leading courses that have transformed the careers of countless graduates. Our comprehensive programs go beyond just a few hours of instruction; they provide in-depth, practical training designed to equip you with the skills you need to thrive in the beauty industry.</p>\n      <p>Learn from the best in the field—our experienced beauty training academy instructors are industry leaders who bring real-world expertise and insights directly to you. With a strong focus on relevant, hands-on learning, our courses are tailored to meet the demands of today's dynamic beauty landscape.</p>\n      <p>Join us and become part of a legacy of success. Enroll today and take the first step toward a rewarding career in beauty!</p>\n\n      <h3>Welcome to Your Future in Beauty</h3>\n      <p>Tired of the 9-5 Grind?</p>\n\n      <h3>Why Choose Us?</h3>\n      <p>- Expert Guidance: Learn from industry leaders who have successfully navigated the beauty world.</p>\n      <p>- Hands-On Experience: Gain practical skills and insights that will set you apart in the industry.</p>\n      <p>- Flexible Learning: Tailored programs that fit your busy lifestyle, allowing you to learn onsite or LIVE online.</p>\n\n      <h3>Success Stories</h3>\n      <p>Join countless others like Ashleigh, who turned their passion for beauty into a thriving business with our support. Discover how you can transform your dreams into reality.</p>\n      <p>Break free from the ordinary and step into a world of beauty and creativity. Here at Tamarua Beauty Academy, we empower you to build your own beauty empire on your terms.</p>\n\n      <h3>Join Our Supportive Alumni Community</h3>\n      <p>We believe that your journey doesn't end with graduation. All students are welcomed into our exclusive alumni community, where we continue to support your success every step of the way.</p>\n      <p>As a member of our alumni network, you'll have access to exclusive job opportunities and industry insights, ensuring that you remain connected and informed as you advance in your career.</p>\n      <p>We take pride in the achievements of our graduates, who have recently worked with prestigious events such as the Australian Open, Indian Fashion week, major bridal expos, and various media outlets. Our students have had the opportunity to assist with front cover shoots for leading magazines, gaining invaluable experience and exposure in the beauty industry.</p>\n      <p>Join us and be part of a vibrant community that is dedicated to your success. Together, we'll open doors to extraordinary opportunities and help you thrive in your career!</p>"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "text",
+      "id": "video",
+      "label": "Video file URL",
+      "info": "Paste the URL of an MP4 uploaded to Settings > Files.",
+      "default": "https://cdn.shopify.com/videos/c/o/v/43db20c4751d4203b0af43770cda280e.mp4"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Book A Free Consultation"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "Button link",
+      "default": "#contact"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TBA intro"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,169 @@
+{%- comment -%}
+  "Choose your path" — the eight course cards. Each card is a block: set its
+  title, link and image in the theme editor. Leave the image empty to use the
+  photo bundled in assets/ (named in the block's "Bundled image" field).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section" id="courses" aria-labelledby="tba-courses-title">
+  <div class="tba-shell">
+    <div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)">
+      {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h2 class="tba-h-lg" id="tba-courses-title">{{ s.heading }}</h2>
+      <hr class="tba-rule tba-rule--center">
+    </div>
+
+    <div class="tba-courses">
+      {%- for block in section.blocks -%}
+        {%- assign b = block.settings -%}
+        <a class="tba-course" href="{{ b.url | default: '#' }}" {{ block.shopify_attributes }}>
+          <figure>{% render 'tba-image', image: b.image, fallback: b.fallback, alt: b.alt,
+             width: 400, height: 400, url_width: 800, loading: 'lazy' %}</figure>
+          <span class="tba-course__veil"></span>
+          <div class="tba-course__cap"><h3>{{ b.title }}</h3><span>{{ s.link_label }} <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA courses",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Choose your path"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Tamarua Beauty Academy Courses"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Card link text",
+      "default": "Explore"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "course",
+      "name": "Course",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Course title"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "fallback",
+          "label": "Bundled image",
+          "info": "Filename in assets/ used when no image is chosen above."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TBA courses",
+      "blocks": [
+        {
+          "type": "course",
+          "settings": {
+            "title": "Make Up Courses",
+            "url": "/collections/makeup-courses",
+            "fallback": "tba-makeupcourses.webp",
+            "alt": "Make Up Courses at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Barbering Course",
+            "url": "/collections/barbering",
+            "fallback": "tba-barberingcourse.webp",
+            "alt": "Barbering Course at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Spray Tanning Course",
+            "url": "/collections/spray-tanning",
+            "fallback": "tba-spraytanningcourse.webp",
+            "alt": "Spray Tanning Course at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Facial Course",
+            "url": "/collections/facials",
+            "fallback": "tba-facialcourse.webp",
+            "alt": "Facial Course at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Eyelash Extension Courses",
+            "url": "/collections/eyelash-extensions",
+            "fallback": "tba-eyelashextensioncourses.webp",
+            "alt": "Eyelash Extension Courses at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Nail Courses",
+            "url": "/collections/nails",
+            "fallback": "tba-nailcourses.webp",
+            "alt": "Nail Courses at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Hairstyling Courses",
+            "url": "/collections/hair-styling",
+            "fallback": "tba-hairstylingcourses.webp",
+            "alt": "Hairstyling Courses at Tamarua Beauty Academy"
+          }
+        },
+        {
+          "type": "course",
+          "settings": {
+            "title": "Waxing Course",
+            "url": "/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing",
+            "fallback": "tba-waxingcourse.webp",
+            "alt": "Waxing Course at Tamarua Beauty Academy"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

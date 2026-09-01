@@ -1,0 +1,50 @@
+{%- comment -%}
+  Newsletter band — full-bleed image behind a dark veil.
+  Signing up creates a customer with the "newsletter" tag, the standard
+  Shopify way, so the address flows into Shopify Email / Klaviyo as usual.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- if s.image != blank -%}
+  {%- assign bg = s.image | image_url: width: 2000 -%}
+{%- else -%}
+  {%- assign bg = 'tba-banner.webp' | asset_url -%}
+{%- endif -%}
+<div class="tba-scope">
+<section class="tba-section tba-newsletter" aria-labelledby="tba-news-title"
+         style="--tba-news-bg:url('{{ bg }}')">
+  <div class="tba-shell">
+    {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+    <h2 class="tba-h-lg" id="tba-news-title">{{ s.heading }}</h2>
+    <hr class="tba-rule tba-rule--center">
+    <p>{{ s.body }}</p>
+    {%- form 'customer', class: 'tba-nform', novalidate: 'novalidate' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label for="tba-news-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+      <input id="tba-news-email" type="email" name="contact[email]" placeholder="{{ s.placeholder }}" autocomplete="email" required>
+      <button class="tba-btn tba-btn--gold" type="submit">{{ s.button }}</button>
+      {%- if form.posted_successfully? -%}
+        <p role="status">{{ s.success }}</p>
+      {%- elsif form.errors -%}
+        <p role="alert">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA newsletter",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Stay in the loop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Sign up today!" },
+    { "type": "textarea", "id": "body", "label": "Body",
+      "default": "Subscribe to our newsletter for exclusive deals and early access." },
+    { "type": "text", "id": "placeholder", "label": "Field placeholder", "default": "Enter your email address..." },
+    { "type": "text", "id": "button", "label": "Button text", "default": "Sign Up" },
+    { "type": "text", "id": "success", "label": "Success message", "default": "Thanks for subscribing!" }
+  ],
+  "presets": [{ "name": "TBA newsletter" }]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+{%- comment -%}
+  Meet your lead trainer: copy on the left, portrait on the right.
+  Each credential line is a block.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section tba-section--blush" aria-labelledby="tba-founder-title">
+  <div class="tba-shell">
+    <div class="tba-founder">
+
+      <div class="tba-founder__body">
+        {%- if s.eyebrow != blank -%}<p class="tba-eyebrow tba-eyebrow--rule">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="tba-h-lg" id="tba-founder-title">{{ s.heading }}</h2>
+        {%- if s.role != blank -%}<p class="tba-founder__role">{{ s.role }}</p>{%- endif -%}
+
+        <p class="tba-lede">{{ s.lede }}</p>
+
+        <ul class="tba-founder__list">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>{{ block.settings.text }}</span></li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if s.cta_label != blank -%}
+          <a class="tba-btn tba-btn--gold" href="{{ s.cta_url }}">{{ s.cta_label }}</a>
+        {%- endif -%}
+      </div>
+
+      <figure class="tba-founder__media">
+        {% render 'tba-image', image: s.image, fallback: 'tba-maggie.webp', alt: s.image_alt,
+           width: 599, height: 763, url_width: 900, loading: 'lazy' %}
+      </figure>
+
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA founder",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Meet Your Lead Trainer" },
+    { "type": "text", "id": "heading", "label": "Name", "default": "Maggie Tamarua" },
+    { "type": "text", "id": "role", "label": "Role", "default": "Founder & Master Educator" },
+    { "type": "textarea", "id": "lede", "label": "Intro",
+      "default": "A renowned makeup artist and premier trainer, Maggie completed her formal training with Napoleon in 2004 and has built a stellar reputation over two decades — creating red-carpet looks and mentoring the next generation of beauty professionals." },
+    { "type": "image_picker", "id": "image", "label": "Portrait" },
+    { "type": "text", "id": "image_alt", "label": "Portrait alt text",
+      "default": "Maggie Tamarua, founder and master educator at Tamarua Beauty Academy" },
+    { "type": "header", "content": "Button" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Book A Free Consultation" },
+    { "type": "text", "id": "cta_url", "label": "Button link", "default": "#contact" }
+  ],
+  "blocks": [
+    { "type": "credential", "name": "Credential", "settings": [
+      { "type": "text", "id": "text", "label": "Text", "info": "HTML is allowed — use <b> for emphasis." }
+    ]}
+  ],
+  "presets": [
+    { "name": "TBA founder", "blocks": [
+      { "type": "credential", "settings": { "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 & 2014" } },
+      { "type": "credential", "settings": { "text": "Featured in <b>Vogue</b>, Girlfriend Magazine & Melbourne Bridal & Fashion World" } },
+      { "type": "credential", "settings": { "text": "Founder of a <b>Top 4-ranked academy</b> in Australia, running for over a decade" } }
+    ]}
+  ]
+}
+{% endschema %}

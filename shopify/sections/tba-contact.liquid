@@ -1,0 +1,148 @@
+{%- comment -%}
+  Contact block above the footer: details + Google map on the left,
+  consultation form on the right.
+
+  The form posts through Shopify's own contact form. To keep using Hulk Form
+  Builder instead, set "Form provider" to "Custom embed code" and paste the
+  app's embed into "Custom form embed".
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section tba-section--cream" id="contact" aria-labelledby="tba-contact-title">
+  <div class="tba-shell">
+    <div class="tba-contact__grid">
+
+      <div>
+        {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="tba-h-lg" id="tba-contact-title">{{ s.heading }}</h2>
+        <hr class="tba-rule">
+        <p class="tba-lede">{{ s.lede }}</p>
+
+        <ul class="tba-info-list">
+          {%- if s.phone != blank -%}
+          <li>
+            <span class="tba-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.55 1 1 0 01-.24 1.05z"/></svg></span>
+            <div><h4>Phone</h4><a href="tel:{{ s.phone | remove: ' ' }}">{{ s.phone }}</a></div>
+          </li>
+          {%- endif -%}
+          {%- if s.email != blank -%}
+          <li>
+            <span class="tba-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <div><h4>Email</h4><a href="mailto:{{ s.email }}">{{ s.email }}</a></div>
+          </li>
+          {%- endif -%}
+          {%- if s.address != blank -%}
+          <li>
+            <span class="tba-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <div><h4>Studio</h4><a href="https://maps.google.com/?q={{ s.address | strip_newlines | url_encode }}" target="_blank" rel="noopener">{{ s.address | newline_to_br }}</a></div>
+          </li>
+          {%- endif -%}
+          {%- if s.hours != blank -%}
+          <li>
+            <span class="tba-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <div><h4>Opening Hours</h4><p>{{ s.hours | newline_to_br }}</p></div>
+          </li>
+          {%- endif -%}
+        </ul>
+
+        {%- if s.show_map -%}
+        <div class="tba-map">
+          <iframe
+            title="Map to {{ shop.name | escape }}, {{ s.address | strip_newlines | escape }}"
+            src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={{ s.address | strip_newlines | url_encode }}&amp;z={{ s.map_zoom }}&amp;output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        {%- endif -%}
+      </div>
+
+      {%- if s.form_provider == 'custom' -%}
+        <div class="tba-cform">
+          <h3 class="tba-h-md">{{ s.form_title }}</h3>
+          <p>{{ s.form_sub }}</p>
+          {%- if s.form_promo != blank -%}<p class="tba-cform__promo">{{ s.form_promo }}</p>{%- endif -%}
+          {{ s.form_embed }}
+        </div>
+      {%- else -%}
+        {%- form 'contact', class: 'tba-cform', novalidate: 'novalidate' -%}
+          <h3 class="tba-h-md">{{ s.form_title }}</h3>
+          <p>{{ s.form_sub }}</p>
+
+          {%- if s.form_promo != blank -%}<p class="tba-cform__promo">{{ s.form_promo }}</p>{%- endif -%}
+
+          {%- if form.posted_successfully? -%}
+            <p role="status">{{ s.form_success }}</p>
+          {%- elsif form.errors -%}
+            <p role="alert">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+
+          <div class="tba-formrow">
+            <label class="tba-field"><span>Full Name *</span><input type="text" name="contact[name]" required autocomplete="name"></label>
+            <label class="tba-field"><span>Phone Number *</span><input type="tel" name="contact[phone]" required autocomplete="tel"></label>
+          </div>
+          <label class="tba-field"><span>Email *</span><input type="email" name="contact[email]" required autocomplete="email"></label>
+          <label class="tba-field"><span>Course of Interest</span>
+            <select name="contact[course]">
+              <option value="">Please select&hellip;</option>
+              {%- assign courses = s.course_options | newline_to_br | split: '<br />' -%}
+              {%- for c in courses -%}
+                {%- assign c = c | strip -%}
+                {%- if c != blank -%}<option>{{ c }}</option>{%- endif -%}
+              {%- endfor -%}
+            </select>
+          </label>
+          <label class="tba-field"><span>Message *</span><textarea name="contact[body]" required></textarea></label>
+
+          <button class="tba-btn tba-btn--gold" type="submit">{{ s.form_button }}</button>
+          <p class="tba-cform__note">{{ s.form_note }}</p>
+        {%- endform -%}
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA contact",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get in touch" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Visit the Academy" },
+    { "type": "textarea", "id": "lede", "label": "Intro",
+      "default": "Have a question about a course, payment plans or start dates? Talk to our team — we're happy to help you find the right path into the beauty industry." },
+    { "type": "header", "content": "Details" },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "0421 864 557" },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@tamaruabeautyacademy.com.au" },
+    { "type": "textarea", "id": "address", "label": "Address",
+      "default": "Building 8/36 Aylesbury Dr,\nAltona VIC 3018, Australia" },
+    { "type": "textarea", "id": "hours", "label": "Opening hours",
+      "default": "Monday – Saturday, by appointment\nCourse times vary by program" },
+    { "type": "header", "content": "Map" },
+    { "type": "checkbox", "id": "show_map", "label": "Show Google map", "default": true },
+    { "type": "range", "id": "map_zoom", "label": "Zoom", "min": 8, "max": 18, "step": 1, "default": 14 },
+    { "type": "header", "content": "Form" },
+    { "type": "select", "id": "form_provider", "label": "Form provider",
+      "options": [
+        { "value": "shopify", "label": "Shopify contact form" },
+        { "value": "custom", "label": "Custom embed code" }
+      ],
+      "default": "shopify" },
+    { "type": "html", "id": "form_embed", "label": "Custom form embed",
+      "info": "Only used when Form provider is set to Custom embed code. Paste your Hulk Form Builder embed here." },
+    { "type": "text", "id": "form_title", "label": "Form title", "default": "Book A Free Consultation" },
+    { "type": "text", "id": "form_sub", "label": "Form subtitle",
+      "default": "Tell us a little about your goals and we'll be in touch." },
+    { "type": "text", "id": "form_promo", "label": "Promo line",
+      "default": "✦ Limited time — <b>$500 OFF</b> your course this month ✦" },
+    { "type": "text", "id": "form_button", "label": "Submit button", "default": "Book A Free Consultation" },
+    { "type": "text", "id": "form_note", "label": "Fine print",
+      "default": "We'll only use your details to reply to your enquiry." },
+    { "type": "text", "id": "form_success", "label": "Success message",
+      "default": "Thank you — we'll be in touch shortly." },
+    { "type": "textarea", "id": "course_options", "label": "Course dropdown options",
+      "info": "One course per line.",
+      "default": "Make Up Courses\nHairstyling Courses\nNail Courses\nEyelash Extension Courses\nBarbering Course\nFacial Course\nSpray Tanning Course\nWaxing Course\nMaster Classes" }
+  ],
+  "presets": [{ "name": "TBA contact" }]
+}
+{% endschema %}
