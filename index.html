@@ -346,13 +346,21 @@ p:last-child{margin-bottom:0}
 .heroform__fine{font-size:12.5px;line-height:1.65;color:var(--ink-mute);text-align:center;margin:16px 0 0}
 
 .hero__list{
-  list-style:none;margin:0 0 34px;padding:0;display:grid;gap:13px
+  list-style:none;margin:0 0 32px;padding:0;
+  display:flex;flex-wrap:wrap;gap:10px
 }
 .hero__list li{
-  display:flex;align-items:flex-start;gap:12px;
-  color:rgba(255,255,255,.94);font-size:16px;line-height:1.55
+  display:inline-flex;align-items:center;gap:9px;
+  padding:10px 18px 10px 14px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(220,162,119,.5);
+  border-radius:40px;
+  -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
+  color:#fff;font-size:14.5px;font-weight:500;line-height:1.3;
+  transition:background var(--slow),border-color var(--slow)
 }
-.hero__list svg{color:var(--gold);flex:none;margin-top:4px}
+.hero__list li:hover{background:rgba(220,162,119,.24);border-color:var(--gold)}
+.hero__list svg{color:var(--gold);flex:none}
 
 /* ============================================================
    REVIEWS MARQUEE
@@ -416,17 +424,20 @@ p:last-child{margin-bottom:0}
 .split__body{max-width:56ch}
 
 /* featured in */
-.presslogos{padding-block:clamp(34px,4vw,56px)}
-.featured__logos{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,44px);align-items:center
+/* Press badges in the hero. Two of the three logos are opaque white, so they
+   can't be inverted to sit directly on the photo - they get light cards. */
+.hero__press{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin-top:clamp(26px,3vw,38px);max-width:580px
 }
-.featured__logos a{
-  display:block;padding:26px clamp(14px,2.2vw,34px);background:#fff;border:1px solid var(--line-soft);
-  transition:border-color var(--slow),transform var(--slow),box-shadow var(--slow)
+.hero__press a{
+  display:grid;place-items:center;padding:11px 14px;
+  background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.55);border-radius:6px;
+  transition:background var(--slow),transform var(--slow),box-shadow var(--slow)
 }
-.featured__logos a:hover{border-color:var(--line-gold);transform:translateY(-4px);box-shadow:0 18px 40px rgba(17,17,17,.07)}
-.featured__logos img{width:100%;filter:grayscale(1);opacity:.6;transition:.5s var(--ease)}
-.featured__logos a:hover img{filter:none;opacity:1}
+.hero__press a:hover{background:#fff;transform:translateY(-3px);box-shadow:0 14px 30px rgba(12,10,9,.3)}
+.hero__press img{width:100%;opacity:.88;transition:opacity var(--slow)}
+.hero__press a:hover img{opacity:1}
 
 /* read more */
 .readmore{position:relative}
@@ -686,7 +697,6 @@ p:last-child{margin-bottom:0}
   .ss__body,.founder__body{max-width:none}
   .split__media--frame::before{display:none}
   .courses{grid-template-columns:repeat(2,1fr)}
-  .featured__logos{grid-template-columns:1fr;gap:14px}
   .footer__grid{grid-template-columns:1fr}
   .footer__acc{display:block}
   .footer .footer__menu{display:none}
@@ -698,8 +708,10 @@ p:last-child{margin-bottom:0}
   .formrow,.heroform__row{grid-template-columns:1fr}
   .heroform__row{gap:0}
   .nform{flex-direction:column}
-  .hero__list{gap:11px}
-  .hero__list li{font-size:14px}
+  .hero__list{gap:8px}
+  .hero__list li{font-size:13.5px;padding:8px 14px 8px 11px}
+  .hero__press{gap:8px;max-width:none}
+  .hero__press a{padding:8px 9px}
   .btn{width:100%}
   .btn-row{flex-direction:column}
   .reviews__divider{display:none}
@@ -888,14 +900,20 @@ p:last-child{margin-bottom:0}
       <hr class="rule">
       <h2>Join us and become part of a legacy of success at a premier beauty academy in Melbourne. Enroll today and take the first step toward a rewarding career in beauty!</h2>
       <ul class="hero__list">
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>5.0 from 88 Google reviews</span></li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Best Beauty Academy in Australia 2025</span></li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>On-site &amp; live online training</span></li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Lifetime alumni support</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>5.0 from 88 Google reviews</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>Best Beauty Academy in Australia 2025</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>On-site &amp; live online training</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>Lifetime alumni support</span></li>
       </ul>
       <div class="btn-row">
         <a class="btn btn--gold" href="#courses">View Courses</a>
         <a class="btn btn--light" href="/collections/tba-beauty-products">Shop Products</a>
+      </div>
+
+      <div class="hero__press">
+        <a href="https://bizweekly.com/from-humble-beginnings-to-industry-leadership-the-inspirational-journey-behind-tamarua-beauty-academy/" target="_blank" rel="noopener"><img src="as-seen-on-1.webp" alt="Tamarua Beauty Academy featured in Biz Weekly" loading="lazy" width="1920" height="453"></a>
+        <a href="https://womensinsider.com/tamarua-beauty-academy-empowering-future-beauty-professionals-through-innovation-and-excellence/" target="_blank" rel="noopener"><img src="as-seen-on-2.webp" alt="Tamarua Beauty Academy featured in Women's Insider" loading="lazy" width="1920" height="453"></a>
+        <a href="https://leadrmagazine.com/how-tamarua-beauty-academy-is-turning-beauty-passion-into-real-careers-across-australia/" target="_blank" rel="noopener"><img src="as-seen-on-3.webp" alt="Tamarua Beauty Academy featured in Leadr Magazine" loading="lazy" width="1920" height="453"></a>
       </div>
     </div>
 
@@ -935,22 +953,6 @@ p:last-child{margin-bottom:0}
     </form>
 
     </div>
-  </div>
-</section>
-
-<!-- ============================== AS SEEN ON ============================== -->
-<section class="section section--tight presslogos" aria-label="As seen in the press">
-  <div class="shell">
-    <div class="featured__logos">
-      <a href="https://bizweekly.com/from-humble-beginnings-to-industry-leadership-the-inspirational-journey-behind-tamarua-beauty-academy/" target="_blank" rel="noopener">
-        <img src="as-seen-on-1.webp" alt="Tamarua Beauty Academy featured in Biz Weekly" loading="lazy" width="1920" height="453">
-      </a>
-      <a href="https://womensinsider.com/tamarua-beauty-academy-empowering-future-beauty-professionals-through-innovation-and-excellence/" target="_blank" rel="noopener">
-        <img src="as-seen-on-2.webp" alt="Tamarua Beauty Academy featured in Women's Insider" loading="lazy" width="1920" height="449">
-      </a>
-      <a href="https://leadrmagazine.com/how-tamarua-beauty-academy-is-turning-beauty-passion-into-real-careers-across-australia/" target="_blank" rel="noopener">
-        <img src="as-seen-on-3.webp" alt="Tamarua Beauty Academy featured in Leadr Magazine" loading="lazy" width="1920" height="434">
-      </a></div>
   </div>
 </section>
 
