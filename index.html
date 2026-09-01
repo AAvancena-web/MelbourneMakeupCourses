@@ -34,10 +34,10 @@
   --ink-mute:#6f6f6f;
 
   --white:#ffffff;
-  --paper:#fcfbfa;          /* barely-there warm white */
-  --mist:#f5f4f2;           /* second white */
-  --blush:#fdf7f1;          /* warm panel tint */
-  --blush-dp:#f8f1ea;
+  --paper:#faf7f4;          /* warm off-white  */
+  --mist:#f3efeb;           /* deeper neutral  */
+  --blush:#fdf8f3;          /* warm panel tint */
+  --blush-dp:#f8efe6;
   --line:rgba(17,17,17,.11);
   --line-soft:rgba(17,17,17,.07);
   --line-gold:rgba(220,162,119,.42);
@@ -459,16 +459,19 @@ p:last-child{margin-bottom:0}
 .readmore__body{max-height:340px;overflow:hidden;transition:max-height .7s var(--ease)}
 .readmore__body::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:170px;
-  background:linear-gradient(rgba(252,251,250,0),var(--paper));pointer-events:none;transition:opacity .5s
+  background:linear-gradient(rgba(255,255,255,0),#fff);pointer-events:none;transition:opacity .5s
 }
 .readmore.is-open .readmore__body{max-height:6000px}
 .readmore.is-open .readmore__body::after{opacity:0}
 .readmore h3{font-family:var(--serif);font-size:clamp(22px,2.1vw,30px);font-weight:400;margin:38px 0 14px}
 .readmore h3:first-child{margin-top:0}
-.readmore__toggle{margin-top:30px}
+.readmore__toggle{margin-top:26px}
 
-.video-wrap{max-width:540px;margin:52px auto 0;background:#000;border:1px solid var(--line-gold);padding:8px}
-.video-wrap video{width:100%;display:block}
+.intro{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,5vw,80px);align-items:start}
+.intro__body{max-width:64ch}
+.intro__media{position:relative}
+.video-wrap{width:100%;margin:0;background:#000;border:1px solid var(--line-gold);padding:8px}
+.video-wrap video{width:100%;display:block;aspect-ratio:1;object-fit:cover;background:#000}
 
 /* ============================================================
    COURSE GRID
@@ -719,7 +722,7 @@ p:last-child{margin-bottom:0}
   .hero__media::after{background:linear-gradient(180deg,rgba(12,10,9,.45) 0%,rgba(12,10,9,.66) 55%,rgba(12,10,9,.82) 100%)}
 }
 @media (max-width:860px){
-  .split,.contact__grid,.stories,.founder,.ss__grid{grid-template-columns:1fr}
+  .split,.contact__grid,.stories,.founder,.ss__grid,.intro{grid-template-columns:1fr}
   .split--reverse .split__media{order:0}
   .founder__media{order:-1}
   .founder__media,.ss__portrait{max-width:520px;margin-inline:auto}
@@ -1061,7 +1064,7 @@ p:last-child{margin-bottom:0}
 </section>
 
 <!-- ============================== AWARD ============================== -->
-<section class="section" aria-labelledby="award-title">
+<section class="section section--blush" aria-labelledby="award-title">
   <div class="shell">
     <div class="split split--reverse">
       <div class="split__media split__media--frame">
@@ -1083,16 +1086,18 @@ p:last-child{margin-bottom:0}
 </section>
 
 <!-- ============================== SEO INTRO / READ MORE ============================== -->
-<section class="section section--cream" aria-labelledby="intro-title">
-  <div class="shell shell--narrow center">
-    <p class="eyebrow">Melbourne &amp; Australia</p>
-    <h2 class="h-lg" id="intro-title">We Are the Premier Industry Based Training Beauty Academy in Melbourne and Australia</h2>
-    <hr class="rule rule--center">
-    <p class="lede">Established in 2010, the Tamarua Beauty Academy is an industry based beauty training academy in Melbourne that specialises in delivering short on-site and live-online courses relating to the beauty industry. Location: Building 8/36 Aylesbury Dr, Altona VIC 3018</p>
-  </div>
+<section class="section" aria-labelledby="intro-title">
+  <div class="shell">
+    <div class="intro">
 
-  <div class="shell shell--narrow readmore" id="readmore" style="margin-top:34px">
-    <div class="readmore__body" style="text-align:left">
+      <div class="intro__body">
+        <p class="eyebrow">Melbourne &amp; Australia</p>
+        <h2 class="h-lg" id="intro-title">We Are the Premier Industry Based Training Beauty Academy in Melbourne and Australia</h2>
+        <hr class="rule">
+        <p class="lede">Established in 2010, the Tamarua Beauty Academy is an industry based beauty training academy in Melbourne that specialises in delivering short on-site and live-online courses relating to the beauty industry. Location: Building 8/36 Aylesbury Dr, Altona VIC 3018</p>
+
+        <div class="readmore" id="readmore">
+          <div class="readmore__body">
       <h3>Elevate Your Career with Australia's Leading Beauty Academy</h3>
       <p>For over 10 years, Tamarua beauty academy has proudly offered industry-leading courses that have transformed the careers of countless graduates. Our comprehensive programs go beyond just a few hours of instruction; they provide in-depth, practical training designed to equip you with the skills you need to thrive in the beauty industry.</p>
       <p>Learn from the best in the field—our experienced beauty training academy instructors are industry leaders who bring real-world expertise and insights directly to you. With a strong focus on relevant, hands-on learning, our courses are tailored to meet the demands of today's dynamic beauty landscape.</p>
@@ -1115,30 +1120,35 @@ p:last-child{margin-bottom:0}
       <p>As a member of our alumni network, you'll have access to exclusive job opportunities and industry insights, ensuring that you remain connected and informed as you advance in your career.</p>
       <p>We take pride in the achievements of our graduates, who have recently worked with prestigious events such as the Australian Open, Indian Fashion week, major bridal expos, and various media outlets. Our students have had the opportunity to assist with front cover shoots for leading magazines, gaining invaluable experience and exposure in the beauty industry.</p>
       <p>Join us and be part of a vibrant community that is dedicated to your success. Together, we'll open doors to extraordinary opportunities and help you thrive in your career!</p>
-    </div>
-    <div class="center readmore__toggle">
-      <button class="link-arrow" id="readmoreBtn" aria-expanded="false" aria-controls="readmore">
-        <span>Read More</span>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
-      </button>
-    </div>
-  </div>
+          </div>
+          <div class="readmore__toggle">
+            <button class="link-arrow" id="readmoreBtn" aria-expanded="false" aria-controls="readmore">
+              <span>Read More</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+            </button>
+          </div>
+        </div>
 
-  <div class="shell">
-    <div class="video-wrap">
-      <video controls preload="metadata" playsinline
-        src="https://cdn.shopify.com/videos/c/o/v/43db20c4751d4203b0af43770cda280e.mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="center btn-row" style="margin-top:34px">
-      <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+        <div class="btn-row" style="margin-top:34px">
+          <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+        </div>
+      </div>
+
+      <div class="intro__media">
+        <div class="video-wrap">
+          <video controls preload="metadata" playsinline
+            src="https://cdn.shopify.com/videos/c/o/v/43db20c4751d4203b0af43770cda280e.mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ============================== SUCCESS STORY ============================== -->
-<section class="section" aria-labelledby="story-title">
+<section class="section section--sand" aria-labelledby="story-title">
   <div class="shell">
     <div class="ss">
 
