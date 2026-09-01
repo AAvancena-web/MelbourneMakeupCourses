@@ -170,7 +170,7 @@ p:last-child{margin-bottom:0}
 .announce .socials a:hover{background:#fff;color:var(--black);transform:translateY(-2px)}
 .announce__links{
   justify-self:end;display:flex;align-items:center;gap:clamp(14px,1.6vw,24px);
-  font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap
+  font-size:13.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap
 }
 .announce__links a{
   display:inline-flex;align-items:center;gap:8px;color:#241a12;
@@ -306,14 +306,14 @@ p:last-child{margin-bottom:0}
   background:linear-gradient(100deg,rgba(12,10,9,.88) 0%,rgba(12,10,9,.74) 34%,rgba(12,10,9,.5) 62%,rgba(12,10,9,.34) 100%)
 }
 .hero__inner{position:relative;z-index:2;min-height:clamp(540px,78vh,800px);display:flex;align-items:center;padding-block:clamp(52px,6vw,88px)}
-.hero__grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,4vw,68px);align-items:center;width:100%}
+.hero__grid{display:grid;grid-template-columns:1fr minmax(0,600px);gap:clamp(38px,7vw,124px);align-items:center;width:100%}
 .hero__copy{max-width:none;color:#fff}
 .hero__copy .eyebrow{color:var(--gold-lt)}
 .hero h1{color:#fff;margin-bottom:14px}
 .hero .rule{margin:0 0 26px}
 .hero__copy h2{
   font-family:var(--sans);font-size:clamp(15px,1.15vw,17.5px);font-weight:300;line-height:1.85;
-  color:rgba(255,255,255,.85);max-width:52ch;margin-bottom:38px
+  color:rgba(255,255,255,.85);margin-bottom:30px
 }
 
 /* ---------- hero consultation form ---------- */
@@ -345,13 +345,14 @@ p:last-child{margin-bottom:0}
 .heroform .btn{width:100%;margin-top:6px;border-radius:8px}
 .heroform__fine{font-size:11.5px;line-height:1.6;color:var(--ink-mute);text-align:center;margin:16px 0 0}
 
-.hero__badges{
-  position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.15);
-  display:flex;flex-wrap:wrap;gap:clamp(16px,4vw,56px);padding-block:22px;color:rgba(255,255,255,.8);
-  font-size:10px;letter-spacing:.26em;text-transform:uppercase
+.hero__list{
+  list-style:none;margin:0 0 34px;padding:0;display:grid;gap:13px
 }
-.hero__badges span{display:inline-flex;align-items:center;gap:11px}
-.hero__badges svg{color:var(--gold);flex:none}
+.hero__list li{
+  display:flex;align-items:flex-start;gap:12px;
+  color:rgba(255,255,255,.92);font-size:15px;line-height:1.5
+}
+.hero__list svg{color:var(--gold);flex:none;margin-top:4px}
 
 /* ============================================================
    REVIEWS MARQUEE
@@ -359,11 +360,11 @@ p:last-child{margin-bottom:0}
 .reviews{background:var(--paper);padding-block:clamp(52px,6vw,86px);overflow:hidden;border-block:1px solid var(--line-soft)}
 .reviews__head{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 30px;text-align:center;margin-bottom:40px}
 .reviews__score{display:flex;align-items:center;gap:14px}
-.reviews__score b{font-family:var(--serif);font-size:42px;font-weight:300;line-height:1;color:var(--black)}
+.reviews__score>b{font-family:var(--serif);font-size:42px;font-weight:300;line-height:1;color:var(--black)}
 .stars{display:inline-flex;gap:3px;color:var(--gold)}
 .stars svg{width:16px;height:16px}
 .reviews__meta{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute)}
-.reviews__meta b{font-weight:400;color:var(--black)}
+.reviews__meta b{font-family:var(--sans);font-size:10.5px;font-weight:500;color:var(--black)}
 .reviews__divider{width:1px;height:38px;background:var(--line-gold)}
 .reviews__google{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mute);font-family:var(--sans);font-weight:300}
 
@@ -382,15 +383,25 @@ p:last-child{margin-bottom:0}
 .rcard__top{display:flex;align-items:center;gap:13px}
 .rcard__avatar{
   width:42px;height:42px;flex:0 0 42px;border-radius:50%;
-  background:var(--black);color:var(--gold);
-  display:grid;place-items:center;font-size:15px;font-family:var(--serif)
+  background:var(--g-color,var(--black));color:#fff;
+  display:grid;place-items:center;font-size:16px;font-weight:500;line-height:1
 }
+.rcard__g{margin-left:auto;flex:none;align-self:flex-start}
 .rcard__who{min-width:0}
 .rcard__name{font-size:13.5px;letter-spacing:.03em;color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rcard__when{font-size:11px;color:var(--ink-mute);letter-spacing:.06em}
 .rcard__body{font-size:14px;line-height:1.8;color:var(--ink-soft);margin:0;
   display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.rcard.is-open .rcard__body{-webkit-line-clamp:unset;display:block;overflow:visible}
 .rcard .stars svg{width:13px;height:13px}
+.rcard__more{
+  align-self:flex-start;margin-top:2px;padding:0;
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-dp);border-bottom:1px solid transparent;transition:.3s var(--ease)
+}
+.rcard__more:hover{color:var(--black);border-bottom-color:var(--gold)}
+/* only the expanded card grows; its neighbours keep their height */
+.marquee__track{align-items:flex-start}
 
 /* ============================================================
    SPLIT BLOCKS
@@ -686,7 +697,8 @@ p:last-child{margin-bottom:0}
   .formrow,.heroform__row{grid-template-columns:1fr}
   .heroform__row{gap:0}
   .nform{flex-direction:column}
-  .hero__badges{gap:12px 22px;font-size:9.5px;letter-spacing:.22em}
+  .hero__list{gap:11px}
+  .hero__list li{font-size:14px}
   .btn{width:100%}
   .btn-row{flex-direction:column}
   .reviews__divider{display:none}
@@ -874,6 +886,12 @@ p:last-child{margin-bottom:0}
       <h1 class="h-xl">Tamarua Beauty Academy</h1>
       <hr class="rule">
       <h2>Join us and become part of a legacy of success at a premier beauty academy in Melbourne. Enroll today and take the first step toward a rewarding career in beauty!</h2>
+      <ul class="hero__list">
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>5.0 from 88 Google reviews</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Best Beauty Academy in Australia 2025</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>On-site &amp; live online training</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Lifetime alumni support</span></li>
+      </ul>
       <div class="btn-row">
         <a class="btn btn--gold" href="#courses">View Courses</a>
         <a class="btn btn--light" href="/collections/tba-beauty-products">Shop Products</a>
@@ -917,14 +935,6 @@ p:last-child{margin-bottom:0}
 
     </div>
   </div>
-  <div class="shell">
-    <div class="hero__badges">
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> 4.9 from 88 Google reviews</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 22l5-2.5L17 22l-1.5-8.5"/></svg> Best Beauty Academy in Australia 2025</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg> On-site &amp; live online training</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 6L9 17l-5-5"/></svg> Lifetime alumni support</span>
-    </div>
-  </div>
 </section>
 
 <!-- ============================== REVIEWS MARQUEE ============================== -->
@@ -932,7 +942,7 @@ p:last-child{margin-bottom:0}
   <div class="shell">
     <div class="reviews__head">
       <div class="reviews__score">
-        <b>4.9</b>
+        <b>5.0</b>
         <div>
           <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>
@@ -1490,7 +1500,15 @@ p:last-child{margin-bottom:0}
 
   var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>';
 
-  function card(r){
+  // Google's four brand colours, cycled across the avatars
+  var G_COLORS = ['#4285F4','#EA4335','#FBBC05','#34A853'];
+  var G_MARK = '<svg class="rcard__g" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/>' +
+    '<path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.6-2-6.5-4.8H1.6v3C3.5 21.4 7.5 24 12 24z"/>' +
+    '<path fill="#FBBC05" d="M5.5 14.6a7.2 7.2 0 010-4.6v-3H1.6a12 12 0 000 10.6l3.9-3z"/>' +
+    '<path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.5 2.6 1.6 6.4l3.9 3C6.4 6.7 9 4.8 12 4.8z"/></svg>';
+
+  function card(r, i){
     var el = document.createElement('article');
     el.className = 'rcard';
     var initial = (r.n.trim()[0] || 'T').toUpperCase();
@@ -1501,9 +1519,11 @@ p:last-child{margin-bottom:0}
           '<div class="rcard__name"></div>' +
           '<div class="rcard__when"></div>' +
         '</div>' +
+        G_MARK +
       '</div>' +
       '<div class="stars" role="img" aria-label="Rated 5 out of 5 stars">' + STAR.repeat(5) + '</div>' +
       '<p class="rcard__body"></p>';
+    el.querySelector('.rcard__avatar').style.setProperty('--g-color', G_COLORS[i % G_COLORS.length]);
     el.querySelector('.rcard__name').textContent = r.n;
     el.querySelector('.rcard__when').textContent = r.t;
     el.querySelector('.rcard__body').textContent = r.b;
@@ -1513,12 +1533,38 @@ p:last-child{margin-bottom:0}
   var track = document.getElementById('marqueeTrack');
   // Two identical passes so the -50% keyframe loops seamlessly.
   for (var pass = 0; pass < 2; pass++){
-    REVIEWS.forEach(function(r){
-      var node = card(r);
+    REVIEWS.forEach(function(r, i){
+      var node = card(r, i);
       if (pass === 1) node.setAttribute('aria-hidden','true');
       track.appendChild(node);
     });
   }
+
+  // Add "Read more" only to the cards whose text is actually clipped,
+  // and hold the marquee still while one is open.
+  var marquee = document.getElementById('marquee');
+  function syncMarquee(){
+    var anyOpen = !!track.querySelector('.rcard.is-open');
+    track.style.animationPlayState = anyOpen ? 'paused' : '';
+  }
+  requestAnimationFrame(function(){
+    track.querySelectorAll('.rcard').forEach(function(cardEl){
+      var bodyEl = cardEl.querySelector('.rcard__body');
+      if (bodyEl.scrollHeight <= bodyEl.clientHeight + 2) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'rcard__more';
+      btn.textContent = 'Read more';
+      btn.setAttribute('aria-expanded','false');
+      btn.addEventListener('click', function(){
+        var open = cardEl.classList.toggle('is-open');
+        btn.textContent = open ? 'Read less' : 'Read more';
+        btn.setAttribute('aria-expanded', String(open));
+        syncMarquee();
+      });
+      cardEl.appendChild(btn);
+    });
+  });
   // Pace the scroll by content width so speed stays constant regardless of card count.
   requestAnimationFrame(function(){
     var w = track.scrollWidth / 2;
