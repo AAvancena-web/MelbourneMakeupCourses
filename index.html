@@ -298,14 +298,14 @@ p:last-child{margin-bottom:0}
 /* ============================================================
    HERO
    ============================================================ */
-.hero{position:relative;background:#d8d4d1;overflow:hidden}
+.hero{position:relative;background:#d8d4d1;overflow:hidden;padding-bottom:clamp(34px,4.5vw,64px)}
 .hero__media{position:absolute;inset:0}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:62% 30%}
 .hero__media::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(100deg,rgba(12,10,9,.88) 0%,rgba(12,10,9,.74) 34%,rgba(12,10,9,.5) 62%,rgba(12,10,9,.34) 100%)
 }
-.hero__inner{position:relative;z-index:2;min-height:clamp(540px,78vh,800px);display:flex;align-items:center;padding-block:clamp(52px,6vw,88px)}
+.hero__inner{position:relative;z-index:2;min-height:clamp(520px,72vh,760px);display:flex;align-items:center;padding-block:clamp(52px,6vw,88px) clamp(28px,3.2vw,44px)}
 .hero__grid{display:grid;grid-template-columns:1fr minmax(0,600px);gap:clamp(38px,7vw,124px);align-items:center;width:100%}
 .hero__copy{max-width:none;color:#fff}
 .hero__copy .eyebrow{color:var(--gold-lt)}
@@ -345,22 +345,25 @@ p:last-child{margin-bottom:0}
 .heroform .btn{width:100%;margin-top:6px;border-radius:8px}
 .heroform__fine{font-size:12.5px;line-height:1.65;color:var(--ink-mute);text-align:center;margin:16px 0 0}
 
-.hero__list{
-  list-style:none;margin:0 0 32px;padding:0;max-width:460px;
-  display:grid;grid-template-columns:1fr;grid-auto-rows:1fr;gap:10px
+.hero__proof{
+  position:relative;z-index:2;list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(10px,1.2vw,18px)
 }
-.hero__list li{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 18px 10px 14px;
-  background:rgba(255,255,255,.12);
+.hero__proof li{
+  display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;
+  padding:26px 20px;
+  background:rgba(255,255,255,.1);
   border:1px solid rgba(220,162,119,.5);
-  border-radius:40px;
-  -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
-  color:#fff;font-size:14.5px;font-weight:500;line-height:1.3;
-  transition:background var(--slow),border-color var(--slow)
+  border-radius:14px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  color:#fff;font-size:15px;font-weight:500;line-height:1.45;
+  transition:background var(--slow),border-color var(--slow),transform var(--slow)
 }
-.hero__list li:hover{background:rgba(220,162,119,.24);border-color:var(--gold)}
-.hero__list svg{color:var(--gold);flex:none}
+.hero__proof li:hover{background:rgba(220,162,119,.24);border-color:var(--gold);transform:translateY(-4px)}
+.hero__proof-ic{
+  width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;
+  background:var(--gold);color:#241a12
+}
 
 /* ============================================================
    REVIEWS MARQUEE
@@ -403,7 +406,7 @@ p:last-child{margin-bottom:0}
 .rcard__who{min-width:0}
 .rcard__name{font-size:15px;font-weight:600;letter-spacing:.01em;color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rcard__when{font-size:12.5px;color:var(--ink-mute);letter-spacing:.02em}
-.rcard__body{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0;
+.rcard__body{font-size:18px;line-height:1.65;color:var(--ink-soft);margin:0;
   display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
 .rcard.is-open .rcard__body{-webkit-line-clamp:unset;display:block;overflow:visible}
 .rcard .stars svg{width:13px;height:13px}
@@ -453,7 +456,7 @@ p:last-child{margin-bottom:0}
 .courses{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,1.9vw,30px)}
 .course{position:relative;display:block;overflow:hidden;background:var(--mist)}
 .course figure{margin:0;overflow:hidden}
-.course img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.course img{aspect-ratio:3/4;width:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
 .course:hover img{transform:scale(1.08)}
 .course__veil{
   position:absolute;inset:0;transition:background var(--slow);
@@ -678,6 +681,7 @@ p:last-child{margin-bottom:0}
   .mobilebar{display:block}
   .courses{grid-template-columns:repeat(3,1fr)}
   .hero__grid{grid-template-columns:1fr;gap:38px}
+  .hero__proof{grid-template-columns:repeat(2,1fr)}
   .heroform{justify-self:stretch;max-width:640px;margin-inline:auto}
   .hero__media::after{background:linear-gradient(180deg,rgba(12,10,9,.45) 0%,rgba(12,10,9,.66) 55%,rgba(12,10,9,.82) 100%)}
 }
@@ -700,8 +704,9 @@ p:last-child{margin-bottom:0}
   .formrow,.heroform__row{grid-template-columns:1fr}
   .heroform__row{gap:0}
   .nform{flex-direction:column}
-  .hero__list{gap:8px;max-width:none}
-  .hero__list li{font-size:13.5px;padding:9px 14px 9px 12px}
+  .hero__proof{gap:8px}
+  .hero__proof li{padding:20px 12px;font-size:13.5px;gap:11px}
+  .hero__proof-ic{width:38px;height:38px}
   .btn{width:100%}
   .btn-row{flex-direction:column}
   .announce .shell{grid-template-columns:1fr;gap:0;padding-block:9px}
@@ -888,12 +893,6 @@ p:last-child{margin-bottom:0}
       <h1 class="h-xl">Tamarua Beauty Academy</h1>
       <hr class="rule">
       <h2>Join us and become part of a legacy of success at a premier beauty academy in Melbourne. Enroll today and take the first step toward a rewarding career in beauty!</h2>
-      <ul class="hero__list">
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>5.0 from 88 Google reviews</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>Best Beauty Academy in Australia 2025</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>On-site &amp; live online training</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><span>Lifetime alumni support</span></li>
-      </ul>
       <div class="btn-row">
         <a class="btn btn--gold" href="#courses">View Courses</a>
         <a class="btn btn--light" href="/collections/tba-beauty-products">Shop Products</a>
@@ -938,6 +937,15 @@ p:last-child{margin-bottom:0}
 
     </div>
   </div>
+
+  <div class="shell">
+    <ul class="hero__proof">
+      <li><span class="hero__proof-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></span><span>5.0 from 88 Google reviews</span></li>
+      <li><span class="hero__proof-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></span><span>Best Beauty Academy in Australia 2025</span></li>
+      <li><span class="hero__proof-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></span><span>On-site &amp; live online training</span></li>
+      <li><span class="hero__proof-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></span><span>Lifetime alumni support</span></li>
+    </ul>
+  </div>
 </section>
 
 <!-- ============================== REVIEWS MARQUEE ============================== -->
@@ -958,6 +966,65 @@ p:last-child{margin-bottom:0}
   </div>
   <div class="marquee" id="marquee">
     <div class="marquee__track" id="marqueeTrack"></div>
+  </div>
+</section>
+
+<!-- ============================== COURSES ============================== -->
+<section class="section" id="courses" aria-labelledby="courses-title">
+  <div class="shell">
+    <div class="center" style="margin-bottom:clamp(34px,4vw,56px)">
+      <p class="eyebrow">Choose your path</p>
+      <h2 class="h-lg" id="courses-title">Tamarua Beauty Academy Courses</h2>
+      <hr class="rule rule--center">
+    </div>
+
+    <div class="courses">
+      <a class="course" href="/collections/makeup-courses">
+        <figure><img src="MakeupCourses.webp" alt="Make Up Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Make Up Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/barbering">
+        <figure><img src="BarberingCourse.webp" alt="Barbering Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Barbering Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/spray-tanning">
+        <figure><img src="SprayTanningCourse.webp" alt="Spray Tanning Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Spray Tanning Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/facials">
+        <figure><img src="FacialCourse.webp" alt="Facial Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Facial Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/eyelash-extensions">
+        <figure><img src="EyelashExtensionCourses.webp" alt="Eyelash Extension Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Eyelash Extension Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/nails">
+        <figure><img src="NailCourses.webp" alt="Nail Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Nail Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/hair-styling">
+        <figure><img src="HairstylingCourses.webp" alt="Hairstyling Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Hairstyling Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">
+        <figure><img src="WaxingCourse.webp" alt="Waxing Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Waxing Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+    </div>
+
+    <div class="center btn-row" style="margin-top:clamp(34px,4vw,52px)">
+      <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+      <a class="btn btn--ghost" href="/collections/tba-beauty-products">Shop Products</a>
+    </div>
   </div>
 </section>
 
@@ -1034,65 +1101,6 @@ p:last-child{margin-bottom:0}
     </div>
     <div class="center btn-row" style="margin-top:34px">
       <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== COURSES ============================== -->
-<section class="section" id="courses" aria-labelledby="courses-title">
-  <div class="shell">
-    <div class="center" style="margin-bottom:clamp(34px,4vw,56px)">
-      <p class="eyebrow">Choose your path</p>
-      <h2 class="h-lg" id="courses-title">Tamarua Beauty Academy Courses</h2>
-      <hr class="rule rule--center">
-    </div>
-
-    <div class="courses">
-      <a class="course" href="/collections/makeup-courses">
-        <figure><img src="MakeupCourses.webp" alt="Make Up Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Make Up Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/barbering">
-        <figure><img src="BarberingCourse.webp" alt="Barbering Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Barbering Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/spray-tanning">
-        <figure><img src="SprayTanningCourse.webp" alt="Spray Tanning Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Spray Tanning Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/facials">
-        <figure><img src="FacialCourse.webp" alt="Facial Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Facial Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/eyelash-extensions">
-        <figure><img src="EyelashExtensionCourses.webp" alt="Eyelash Extension Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Eyelash Extension Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/nails">
-        <figure><img src="NailCourses.webp" alt="Nail Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Nail Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/hair-styling">
-        <figure><img src="HairstylingCourses.webp" alt="Hairstyling Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Hairstyling Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="course" href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">
-        <figure><img src="WaxingCourse.webp" alt="Waxing Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
-        <span class="course__veil"></span>
-        <div class="course__cap"><h3>Waxing Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
-      </a>
-    </div>
-
-    <div class="center btn-row" style="margin-top:clamp(34px,4vw,52px)">
-      <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
-      <a class="btn btn--ghost" href="/collections/tba-beauty-products">Shop Products</a>
     </div>
   </div>
 </section>
