@@ -43,45 +43,192 @@ theme-liquid-snippet.liquid   reference for the theme.liquid edits (not copied)
 
 ---
 
-## Install
+## Install — step by step
 
-Work on a **duplicate** of the live theme, not the published one.
+Two routes. **Route A (Shopify admin)** needs no tools, just a browser — allow
+about 45 minutes, most of it uploading images. **Route B (Shopify CLI)** does
+the same thing in two commands if you have the CLI installed.
 
-**1. Copy the files in.**
+Whichever you use, **work on a duplicate theme, never the published one.**
 
-From the theme editor: *Online Store → Themes → ⋯ → Edit code*, then add each
-file under the matching folder (`assets`, `sections`, `snippets`, `templates`).
-Or, with the Shopify CLI:
+### Step 0 — get the files
 
-```bash
-shopify theme pull --theme "Copy of Turbo"           # get the current theme
-cp -r shopify/assets/*   <theme>/assets/
-cp -r shopify/sections/* <theme>/sections/
-cp -r shopify/snippets/* <theme>/snippets/
-cp shopify/templates/index.json <theme>/templates/index.json   # see step 2
-shopify theme push --theme "Copy of Turbo"
+Download this repo's branch as a ZIP from GitHub (**Code → Download ZIP**) and
+unzip it. Everything you need is in the `shopify/` folder.
+
+### Step 1 — duplicate the theme
+
+*Shopify admin → Online Store → Themes*. On the live Turbo theme click the
+**⋯** button → **Duplicate**. You'll get "Copy of Turbo". Do all the work on
+the copy; the live site is untouched until you publish.
+
+---
+
+### Route A — Shopify admin
+
+#### Step 2 — upload the assets (26 files)
+
+On the duplicate theme: **⋯ → Edit code**. In the left sidebar find **Assets**
+→ **Add a new asset** → **Upload file**. You can multi-select, so drag all 26
+files from `shopify/assets/` in at once:
+
+- `tba-redesign.css` and `tba-redesign.js`
+- `tba-logo.svg`
+- the 23 `.webp` / `.jpg` photos
+
+Uploading them again later overwrites in place, so it's safe to repeat.
+
+#### Step 3 — create the 13 sections
+
+Still in **Edit code**, under **Sections** → **Add a new section**. Name it
+exactly as below — **without** the `.liquid` (Shopify adds it) — choose
+**Liquid** (not JSON) if it asks, then **select all the boilerplate Shopify
+pre-fills and delete it** before pasting the file's contents.
+
+| Name it | Paste from |
+|---|---|
+| `tba-announcement` | `shopify/sections/tba-announcement.liquid` |
+| `tba-header` | `shopify/sections/tba-header.liquid` |
+| `tba-hero` | `shopify/sections/tba-hero.liquid` |
+| `tba-reviews` | `shopify/sections/tba-reviews.liquid` |
+| `tba-courses` | `shopify/sections/tba-courses.liquid` |
+| `tba-award` | `shopify/sections/tba-award.liquid` |
+| `tba-intro` | `shopify/sections/tba-intro.liquid` |
+| `tba-success-story` | `shopify/sections/tba-success-story.liquid` |
+| `tba-founder` | `shopify/sections/tba-founder.liquid` |
+| `tba-student-stories` | `shopify/sections/tba-student-stories.liquid` |
+| `tba-newsletter` | `shopify/sections/tba-newsletter.liquid` |
+| `tba-contact` | `shopify/sections/tba-contact.liquid` |
+| `tba-footer` | `shopify/sections/tba-footer.liquid` |
+
+Save each one. If a save fails, the error names the line — it's almost always
+a partial paste, so re-copy the whole file.
+
+#### Step 4 — create the 2 snippets
+
+**Snippets** → **Add a new snippet**, same routine:
+
+| Name it | Paste from |
+|---|---|
+| `tba-image` | `shopify/snippets/tba-image.liquid` |
+| `tba-logo` | `shopify/snippets/tba-logo.liquid` |
+
+These are shared helpers — the sections won't render without them.
+
+#### Step 5 — wire up the homepage
+
+Under **Templates**, open the existing **`index.json`**.
+
+**Copy its current contents into a text file first** — that's your undo if you
+want the old homepage back.
+
+Then select everything in the editor, delete it, and paste the contents of
+`shopify/templates/index.json`. Save.
+
+That single file lays out all ten body sections in order, with every heading,
+paragraph, image, review and course card already filled in.
+
+> Want to keep the old homepage live while you preview? Instead of overwriting
+> `index.json`, use **Add a new template → home → JSON**, name it `tba`, paste
+> the file there, and set the homepage to that template in the theme editor.
+
+#### Step 6 — edit `layout/theme.liquid`
+
+Four changes. Open **Layout → theme.liquid**.
+
+**6a. In `<head>`**, after the theme's own stylesheet `<link>` tags, add:
+
+```liquid
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+{{ 'tba-redesign.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'tba-redesign.js' | asset_url }}" defer></script>
 ```
 
-**2. Decide what to do with `templates/index.json`.**
+**6b. Add `tba-theme` to the `<body>` class list** — keep every class that's
+already there:
 
-- Replacing the homepage outright → copy it over the theme's existing
-  `templates/index.json` (**keep a copy of the old one first**).
-- Keeping the current homepage as a fallback → save it as
-  `templates/index.tba.json` instead, then in the theme editor switch the
-  homepage template to "tba". Either way the sections arrive with all their
-  content already filled in.
+```liquid
+<body class="tba-theme template-{{ request.page_type }} ...">
+```
 
-**3. Edit `layout/theme.liquid`** — four small changes, spelled out in
-`theme-liquid-snippet.liquid`:
+**6c. Swap the header.** Find the announcement bar and header sections — in
+Turbo they look like `{% section 'announcement-bar' %}` and
+`{% section 'header' %}`, near the top of `<body>`. Replace those two lines
+with:
 
-- add the Google Fonts links and the CSS/JS tags in `<head>`
-- add `tba-theme` to the `<body>` class list
-- swap the theme's announcement bar and header for
-  `{% section 'tba-announcement' %}` and `{% section 'tba-header' %}`
-- swap the theme's footer for `{% section 'tba-footer' %}`
+```liquid
+{% section 'tba-announcement' %}
+{% section 'tba-header' %}
+```
 
-**4. Preview, then publish.** Check the homepage, an interior page (the header
-and footer are site-wide), and the mobile drawer.
+**6d. Swap the footer.** Find `{% section 'footer' %}` near the bottom and
+replace it with:
+
+```liquid
+{% section 'tba-footer' %}
+```
+
+Comment out the old lines rather than deleting them (`{% comment %}` …
+`{% endcomment %}`) if you'd rather keep them handy.
+
+Save.
+
+---
+
+### Route B — Shopify CLI
+
+```bash
+shopify theme pull --theme "Copy of Turbo" --path ./turbo-copy
+
+cp shopify/assets/*   turbo-copy/assets/
+cp shopify/sections/* turbo-copy/sections/
+cp shopify/snippets/* turbo-copy/snippets/
+
+cp turbo-copy/templates/index.json turbo-copy/templates/index.backup.json   # keep the old one
+cp shopify/templates/index.json turbo-copy/templates/index.json
+
+# make the four theme.liquid edits from Step 6 by hand, then:
+shopify theme push --theme "Copy of Turbo" --path ./turbo-copy
+```
+
+---
+
+### Step 7 — check it
+
+Back on **Themes**, click **Customize** on the duplicate (or **Preview**).
+Walk through:
+
+- **Homepage** — every section in order, images loading, nothing overlapping.
+- **An interior page** (a collection or product) — the header and footer are
+  site-wide now, so confirm they look right there too.
+- **Mobile** — use the phone icon in the theme editor's preview bar, or open
+  the preview link on your phone. Check the hamburger drawer opens, the
+  course accordions expand, and the footer columns collapse.
+- **Mega menus** — hover Courses / Online Courses / On-Site Courses on desktop.
+
+### Step 8 — set the logo and the forms
+
+In **Customize**:
+
+- **TBA header** → **Logo** — pick your logo file. (Do the same on **TBA
+  footer**.) Until you do, the design falls back to the theme logo, then to a
+  bundled wordmark, so nothing looks broken either way.
+- **TBA hero** and **TBA contact** → **Form provider**. Leave it on *Shopify
+  contact form* and enquiries arrive at the email under *Settings →
+  Notifications → Contact customer*. To keep your existing **Hulk Form
+  Builder** forms, switch it to *Custom embed code* and paste the app's embed
+  into *Custom form embed*.
+- Check the phone number, address and opening hours on **TBA contact** and
+  **TBA announcement bar**.
+
+### Step 9 — publish
+
+Happy with the preview? **Themes → ⋯ → Publish** on the duplicate.
+
+If anything goes wrong afterwards, the old theme is still sitting in your theme
+list — publish it again and you're back where you started in seconds.
 
 ---
 
