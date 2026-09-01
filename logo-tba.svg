@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 150" width="460" height="150" role="img" aria-label="Tamarua Beauty Academy">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 116" width="400" height="116" role="img" aria-label="Tamarua Beauty Academy">
   <title>Tamarua Beauty Academy</title>
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -7,17 +7,11 @@
       <stop offset="100%" stop-color="#b87f52"/>
     </linearGradient>
   </defs>
-  <g fill="none" stroke="url(#g)" stroke-width="1.2">
-    <path d="M230 14 l13 13 -13 13 -13 -13 z"/>
-  </g>
-  <text x="230" y="86" text-anchor="middle"
-        font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif"
-        font-size="56" font-weight="400" letter-spacing="7" fill="url(#g)">TAMARUA</text>
-  <g stroke="url(#g)" stroke-width="1">
-    <line x1="86" y1="106" x2="196" y2="106"/>
-    <line x1="264" y1="106" x2="374" y2="106"/>
-  </g>
-  <text x="230" y="111" text-anchor="middle"
-        font-family="Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif"
-        font-size="13" font-weight="400" letter-spacing="6.5" fill="#b87f52">BEAUTY ACADEMY</text>
+  <text x="0" y="58" text-anchor="start"
+        font-family="Playfair Display, Georgia, 'Times New Roman', serif"
+        font-size="54" font-weight="500" letter-spacing="6" fill="url(#g)">TAMARUA</text>
+  <line x1="2" y1="82" x2="330" y2="82" stroke="url(#g)" stroke-width="1"/>
+  <text x="2" y="104" text-anchor="start"
+        font-family="Manrope, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="13" font-weight="600" letter-spacing="7.5" fill="#b87f52">BEAUTY ACADEMY</text>
 </svg>
