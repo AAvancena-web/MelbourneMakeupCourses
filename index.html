@@ -238,6 +238,10 @@ p:last-child{margin-bottom:0}
 }
 .nav__item:hover .mega{opacity:1;visibility:visible;transform:none}
 .mega__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.mega__cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));gap:30px 26px}
+.mega__list h4 a{color:inherit;transition:color .3s}
+.mega__list h4 a:hover{color:var(--gold-dp)}
+.mega__cols .mega__list ul a{font-size:12.5px;line-height:1.5;letter-spacing:.02em}
 .mega__card figure{margin:0 0 16px;overflow:hidden;background:var(--mist)}
 .mega__card img{aspect-ratio:1;object-fit:cover;transition:transform 1s var(--ease)}
 .mega__card:hover img{transform:scale(1.07)}
@@ -287,8 +291,9 @@ p:last-child{margin-bottom:0}
   font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--black)
 }
 .drawer__sub{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
-.drawer__sub.is-open{max-height:560px}
+.drawer__sub.is-open{max-height:2400px}
 .drawer__sub a{display:block;padding:13px 0 13px 18px;font-size:15px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)}
+.drawer__sub--child{padding-left:36px !important;font-size:12.5px !important;color:var(--ink-mute) !important}
 .drawer__foot{margin-top:auto;padding:26px;background:var(--black)}
 .drawer__foot .btn{width:100%}
 .drawer__foot .socials{margin-top:20px;justify-content:center}
@@ -822,8 +827,106 @@ p:last-child{margin-bottom:0}
             </div>
           </div>
         </div>
-        <div class="nav__item"><a class="nav__link" href="/collections/online-beauty-courses-melbourne">Online Courses</a></div>
-        <div class="nav__item"><a class="nav__link" href="/collections/beauty-courses-melbourne">On-Site Courses</a></div>
+        <div class="nav__item">
+          <a class="nav__link" href="/collections/online-beauty-courses-melbourne">Online Courses
+            <svg class="chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__cols">
+              <div class="mega__list">
+                <h4><a href="/collections/makeup-courses">Makeup Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+                  <li><a href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections/hair-styling">Hairstyling Courses</a></h4>
+                <ul>
+                  <li><a href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections/nails">Nail Courses</a></h4>
+                <ul>
+                  <li><a href="/products/nails-on-site-nail-technology-fundamentals-pro-includes-drill-techniques">ON-SITE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+                  <li><a href="/products/nails-live-online-nail-technology-fundamentals-pro-includes-drill-techniques">ONLINE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></h4>
+                <ul>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections">Other Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/barbering">Barbering Course</a></li>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav__item">
+          <a class="nav__link" href="/collections/beauty-courses-melbourne">On-Site Courses
+            <svg class="chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__cols">
+              <div class="mega__list">
+                <h4><a href="/collections/makeup-courses">Makeup Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+                  <li><a href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections/hair-styling">Hairstyling Courses</a></h4>
+                <ul>
+                  <li><a href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></h4>
+                <ul>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+                </ul>
+              </div>
+              <div class="mega__list">
+                <h4><a href="/collections">Other Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/barbering">Barbering Course</a></li>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+                  <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="nav__item"><a class="nav__link" href="/collections/tba-beauty-products">Shop</a></div>
       </nav>
 
@@ -904,8 +1007,60 @@ p:last-child{margin-bottom:0}
       <li><a href="/collections/master-classes">Master Classes</a></li>
       <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
     </ul>
-    <a class="drawer__link" href="/collections/online-beauty-courses-melbourne">Online Courses</a>
-    <a class="drawer__link" href="/collections/beauty-courses-melbourne">On-Site Courses</a>
+    <button class="drawer__link" data-acc aria-expanded="false">Online Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="drawer__sub">
+      <li><a href="/collections/makeup-courses">Makeup Courses</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+      <li><a href="/collections/nails">Nail Courses</a></li>
+      <li><a class="drawer__sub--child" href="/products/nails-on-site-nail-technology-fundamentals-pro-includes-drill-techniques">ON-SITE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+      <li><a class="drawer__sub--child" href="/products/nails-live-online-nail-technology-fundamentals-pro-includes-drill-techniques">ONLINE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+      <li><a class="drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+      <li><a class="drawer__sub--child" href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+      <li><a class="drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+    </ul>
+    <button class="drawer__link" data-acc aria-expanded="false">On-Site Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="drawer__sub">
+      <li><a href="/collections/makeup-courses">Makeup Courses</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+      <li><a class="drawer__sub--child" href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+      <li><a class="drawer__sub--child" href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+      <li><a class="drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+      <li><a class="drawer__sub--child" href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+      <li><a class="drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+      <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+    </ul>
     <a class="drawer__link" href="/pages/contact-us">Contact Us</a>
     <a class="drawer__link" href="/collections/tba-beauty-products">Shop</a>
     <a class="drawer__link" href="tel:0421864557">0421 864 557</a>
