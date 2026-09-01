@@ -126,6 +126,8 @@ p:last-child{margin-bottom:0}
             --btn-bg-h:var(--black);--btn-fg-h:#fff;--btn-bd-h:var(--black)}
 .btn--light{--btn-bg:transparent;--btn-fg:#fff;--btn-bd:rgba(255,255,255,.5);
             --btn-bg-h:#fff;--btn-fg-h:var(--black);--btn-bd-h:#fff}
+.btn--bronze{--btn-bg:linear-gradient(100deg,#b87f52 0%,#9c6234 100%);--btn-bd:#9c6234;--btn-fg:#fff;
+              --btn-bg-h:var(--black);--btn-fg-h:var(--gold);--btn-bd-h:var(--black)}
 .btn--sm{min-height:46px;padding:0 24px;font-size:10px;letter-spacing:.22em}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px}
 .center .btn-row{justify-content:center}
@@ -288,15 +290,46 @@ p:last-child{margin-bottom:0}
   content:"";position:absolute;inset:0;
   background:linear-gradient(100deg,rgba(12,10,9,.88) 0%,rgba(12,10,9,.74) 34%,rgba(12,10,9,.5) 62%,rgba(12,10,9,.34) 100%)
 }
-.hero__inner{position:relative;z-index:2;min-height:clamp(540px,78vh,800px);display:flex;align-items:center;padding-block:clamp(68px,9vw,116px)}
-.hero__copy{max-width:min(760px,62%);color:#fff}
+.hero__inner{position:relative;z-index:2;min-height:clamp(540px,78vh,800px);display:flex;align-items:center;padding-block:clamp(52px,6vw,88px)}
+.hero__grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,4vw,68px);align-items:center;width:100%}
+.hero__copy{max-width:none;color:#fff}
 .hero__copy .eyebrow{color:var(--gold-lt)}
 .hero h1{color:#fff;margin-bottom:14px}
 .hero .rule{margin:0 0 26px}
-.hero h2{
+.hero__copy h2{
   font-family:var(--sans);font-size:clamp(15px,1.15vw,17.5px);font-weight:300;line-height:1.85;
   color:rgba(255,255,255,.85);max-width:52ch;margin-bottom:38px
 }
+
+/* ---------- hero consultation form ---------- */
+.heroform{
+  background:var(--blush);border:1px solid rgba(220,162,119,.55);border-radius:16px;padding:9px;
+  box-shadow:0 30px 70px rgba(12,10,9,.32);width:100%;justify-self:end;max-width:620px
+}
+.heroform__inner{border:1px solid rgba(220,162,119,.3);border-radius:9px;padding:clamp(22px,2.3vw,34px)}
+.heroform__title{font-family:var(--serif);font-size:clamp(26px,2.3vw,34px);font-weight:400;text-align:center;color:var(--black)}
+.heroform__sub{font-size:14px;color:var(--ink-soft);text-align:center;margin:8px 0 0}
+.heroform__promo{
+  margin:20px 0 24px;padding:13px 16px;text-align:center;
+  background:#fbeee2;border:1px dashed rgba(220,162,119,.75);border-radius:8px;
+  font-size:14px;color:#8a5a34;line-height:1.5
+}
+.heroform__promo b{font-weight:600;color:#8a4f22}
+.heroform__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hfield{display:block;margin-bottom:16px}
+.hfield span{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.hfield input,.hfield select,.hfield textarea{
+  width:100%;min-height:50px;padding:13px 15px;font:inherit;font-size:15px;color:var(--ink);
+  background:#fff;border:1px solid #e4ddd6;border-radius:8px;transition:border-color .3s,box-shadow .3s
+}
+.hfield textarea{min-height:104px;resize:vertical;line-height:1.6}
+.hfield input::placeholder,.hfield textarea::placeholder{color:#a6a09a}
+.hfield input:focus,.hfield select:focus,.hfield textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(220,162,119,.16)
+}
+.heroform .btn{width:100%;margin-top:6px;border-radius:8px}
+.heroform__fine{font-size:11.5px;line-height:1.6;color:var(--ink-mute);text-align:center;margin:16px 0 0}
+
 .hero__badges{
   position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.15);
   display:flex;flex-wrap:wrap;gap:clamp(16px,4vw,56px);padding-block:22px;color:rgba(255,255,255,.8);
@@ -472,7 +505,7 @@ p:last-child{margin-bottom:0}
 /* ============================================================
    FOUNDER
    ============================================================ */
-.founder{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,88px);align-items:center}
+.founder{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,5vw,88px);align-items:center}
 .founder__media{
   margin:0;position:relative;background:#fff;padding:10px;
   box-shadow:0 28px 66px rgba(17,17,17,.12)
@@ -604,12 +637,14 @@ p:last-child{margin-bottom:0}
   .navbar,.utility{display:none}
   .mobilebar{display:block}
   .courses{grid-template-columns:repeat(3,1fr)}
-  .hero__copy{max-width:none}
+  .hero__grid{grid-template-columns:1fr;gap:38px}
+  .heroform{justify-self:stretch;max-width:640px;margin-inline:auto}
   .hero__media::after{background:linear-gradient(180deg,rgba(12,10,9,.45) 0%,rgba(12,10,9,.66) 55%,rgba(12,10,9,.82) 100%)}
 }
 @media (max-width:860px){
   .split,.contact__grid,.stories,.founder,.ss__grid{grid-template-columns:1fr}
   .split--reverse .split__media{order:0}
+  .founder__media{order:-1}
   .founder__media,.ss__portrait{max-width:520px;margin-inline:auto}
   .ss__body,.founder__body{max-width:none}
   .split__media--frame::before{display:none}
@@ -623,7 +658,8 @@ p:last-child{margin-bottom:0}
     padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.11);margin-bottom:18px}
 }
 @media (max-width:640px){
-  .formrow{grid-template-columns:1fr}
+  .formrow,.heroform__row{grid-template-columns:1fr}
+  .heroform__row{gap:0}
   .nform{flex-direction:column}
   .hero__badges{gap:12px 22px;font-size:9.5px;letter-spacing:.22em}
   .btn{width:100%}
@@ -812,6 +848,7 @@ p:last-child{margin-bottom:0}
     <img src="Banner1.webp" alt="Tamarua Beauty Academy Melbourne — professional makeup and hair artistry" fetchpriority="high" width="2000" height="763">
   </div>
   <div class="shell hero__inner">
+    <div class="hero__grid">
     <div class="hero__copy">
       <p class="eyebrow">Melbourne &middot; Est. 2010</p>
       <h1 class="h-xl">Tamarua Beauty Academy</h1>
@@ -819,9 +856,45 @@ p:last-child{margin-bottom:0}
       <h2>Join us and become part of a legacy of success at a premier beauty academy in Melbourne. Enroll today and take the first step toward a rewarding career in beauty!</h2>
       <div class="btn-row">
         <a class="btn btn--gold" href="#courses">View Courses</a>
-        <a class="btn btn--light" href="#contact">Book A Free Consultation</a>
         <a class="btn btn--light" href="/collections/tba-beauty-products">Shop Products</a>
       </div>
+    </div>
+
+    <form class="heroform" action="#" method="post" novalidate aria-labelledby="heroform-title">
+      <div class="heroform__inner">
+        <h2 class="heroform__title" id="heroform-title">Book a Free Consultation</h2>
+        <p class="heroform__sub">A no-obligation chat about the right course for you</p>
+
+        <p class="heroform__promo">&#10022; Limited time &mdash; <b>$500 OFF</b> your course this month &#10022;</p>
+
+        <div class="heroform__row">
+          <label class="hfield"><span>Full Name</span><input type="text" name="name" placeholder="Your name" autocomplete="name" required></label>
+          <label class="hfield"><span>Email Address</span><input type="email" name="email" placeholder="you@email.com" autocomplete="email" required></label>
+        </div>
+        <div class="heroform__row">
+          <label class="hfield"><span>Mobile Number</span><input type="tel" name="phone" placeholder="04XX XXX XXX" autocomplete="tel" required></label>
+          <label class="hfield"><span>Course of Interest</span>
+            <select name="course">
+              <option value="">Select a course&hellip;</option>
+              <option>Make Up Courses</option>
+              <option>Hairstyling Courses</option>
+              <option>Nail Courses</option>
+              <option>Eyelash Extension Courses</option>
+              <option>Barbering Course</option>
+              <option>Facial Course</option>
+              <option>Spray Tanning Course</option>
+              <option>Waxing Course</option>
+              <option>Master Classes</option>
+            </select>
+          </label>
+        </div>
+        <label class="hfield"><span>Message</span><textarea name="message" placeholder="Tell us a little about what you&#39;re looking for (optional)"></textarea></label>
+
+        <button class="btn btn--bronze" type="submit">Book A Free Consultation</button>
+        <p class="heroform__fine">By submitting you agree to be contacted by Tamarua Beauty Academy about your enquiry.<br>We never share your details.</p>
+      </div>
+    </form>
+
     </div>
   </div>
   <div class="shell">
@@ -1062,7 +1135,7 @@ p:last-child{margin-bottom:0}
             <figure><img src="SuccessStory05.webp" alt="Wedding Industry Awards 2024 &mdash; #2 Highly Commended, Greater Melbourne" loading="lazy" width="1179" height="1178"></figure>
           </div>
 
-          <a class="btn btn--gold" href="#contact">Claim My $500 Discount</a>
+          <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
         </div>
 
       </div>
@@ -1074,10 +1147,6 @@ p:last-child{margin-bottom:0}
 <section class="section section--blush" aria-labelledby="maggie-title">
   <div class="shell">
     <div class="founder">
-
-      <figure class="founder__media">
-        <img src="Maggie.webp" alt="Maggie Tamarua, founder and master educator at Tamarua Beauty Academy" loading="lazy" width="599" height="763">
-      </figure>
 
       <div class="founder__body">
         <p class="eyebrow eyebrow--rule">Meet Your Lead Trainer</p>
@@ -1092,8 +1161,12 @@ p:last-child{margin-bottom:0}
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>Founder of a <b>Top 4-ranked academy</b> in Australia, running for over a decade</span></li>
         </ul>
 
-        <a class="btn btn--gold" href="#contact">Claim My $500 Discount</a>
+        <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
       </div>
+
+      <figure class="founder__media">
+        <img src="Maggie.webp" alt="Maggie Tamarua, founder and master educator at Tamarua Beauty Academy" loading="lazy" width="599" height="763">
+      </figure>
 
     </div>
   </div>
