@@ -42,7 +42,7 @@
         </div>
       </div>
     {%- else -%}
-      {%- form 'contact', class: 'tba-heroform', novalidate: 'novalidate' -%}
+      {%- form 'contact', id: 'tba-hero-form', class: 'tba-heroform', novalidate: 'novalidate' -%}
       <div class="tba-heroform__inner">
         <h2 class="tba-heroform__title">{{ s.form_title }}</h2>
         <p class="tba-heroform__sub">{{ s.form_sub }}</p>

@@ -69,6 +69,11 @@ body:where(.tba-theme){
 :where(.tba-scope) ::selection{background:var(--tba-gold);color:#fff}
 :where(.tba-scope) :focus-visible{outline:1px solid var(--tba-gold-dp);outline-offset:3px}
 
+/* The theme wraps {{ content_for_layout }} in .section-wrapper. Where that
+   wrapper carries a max-width or padding it would box in these full-bleed
+   bands, so neutralise it — but only on pages actually built from this pack. */
+body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin:0;padding:0}
+
 /* ---------- shell / sections ---------- */
 .tba-shell{width:100%;max-width:var(--tba-shell);margin-inline:auto;padding-inline:var(--tba-gutter)}
 .tba-shell--narrow{max-width:min(var(--tba-shell),1080px)}

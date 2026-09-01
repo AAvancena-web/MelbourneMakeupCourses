@@ -134,46 +134,95 @@ paragraph, image, review and course card already filled in.
 
 #### Step 6 — edit `layout/theme.liquid`
 
-Four changes. Open **Layout → theme.liquid**.
+Five find-and-replaces. The anchors below are from **Turbo 8.0.1**, which is
+what this store runs; if a snippet doesn't match yours exactly, search for the
+distinctive part of it.
 
-**6a. In `<head>`**, after the theme's own stylesheet `<link>` tags, add:
-
-```liquid
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-{{ 'tba-redesign.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'tba-redesign.js' | asset_url }}" defer></script>
-```
-
-**6b. Add `tba-theme` to the `<body>` class list** — keep every class that's
-already there:
+**6a. Load the fonts, CSS and JS.** Find:
 
 ```liquid
-<body class="tba-theme template-{{ request.page_type }} ...">
+    <!-- Stylesheets for Turbo -->
+    {{ 'styles.css' | asset_url | stylesheet_tag }}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
 ```
 
-**6c. Swap the header.** Find the announcement bar and header sections — in
-Turbo they look like `{% section 'announcement-bar' %}` and
-`{% section 'header' %}`, near the top of `<body>`. Replace those two lines
-with:
+and add underneath it:
 
 ```liquid
-{% section 'tba-announcement' %}
-{% section 'tba-header' %}
+    <!-- Tamarua Beauty Academy redesign -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    {{ 'tba-redesign.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'tba-redesign.js' | asset_url }}" defer></script>
 ```
 
-**6d. Swap the footer.** Find `{% section 'footer' %}` near the bottom and
-replace it with:
+It has to come *after* `custom.css` so the redesign's rules win any tie with
+the theme's.
+
+**6b. Add the `tba-theme` body class.** Find:
 
 ```liquid
-{% section 'tba-footer' %}
+  <body class="{% if template == '404' %}error-404{% else %}{{ template | replace: '.', '-' | handle }}{% endif %}"
 ```
 
-Comment out the old lines rather than deleting them (`{% comment %}` …
-`{% endcomment %}`) if you'd rather keep them handy.
+and change the opening of the class attribute to:
+
+```liquid
+  <body class="tba-theme {% if template == '404' %}error-404{% else %}{{ template | replace: '.', '-' | handle }}{% endif %}"
+```
+
+Leave the `data-money-format` and other attributes below it alone.
+
+**6c. Swap the header.** Find:
+
+```liquid
+    {% section 'header' %}
+```
+
+and replace it with:
+
+```liquid
+    {% section 'tba-announcement' %}
+    {% section 'tba-header' %}
+```
+
+Turbo keeps its announcement bar *inside* the header section, which is why one
+line becomes two.
+
+**6d. Retire Turbo's mega menus.** Directly below the header sits a
+`mega-menu-container` block that renders `mega-menu-1` … `mega-menu-5`. Those
+panels are opened by the old header's navigation, which is gone, so they'd sit
+in the page doing nothing. Wrap the whole block in a comment:
+
+```liquid
+    {% comment %}
+    <div class="mega-menu-container nav-desktop__tier-1">
+      ... leave the contents exactly as they are ...
+    </div>
+    {% endcomment %}
+```
+
+The redesign's mega menus live in `sections/tba-header.liquid`.
+
+**6e. Swap the footer.** Find:
+
+```liquid
+    {% section 'footer' %}
+```
+
+and replace it with:
+
+```liquid
+    {% section 'tba-footer' %}
+```
 
 Save.
+
+> **If your `theme.liquid` is wrapped in `{% capture content %}` … `{% endcapture %}`**
+> (a whitespace-minifier some apps add), make all five edits *inside* the
+> capture, exactly where the originals sit. The minifier collapses whitespace
+> between tags and leaves this pack's markup intact.
 
 ---
 
@@ -189,7 +238,7 @@ cp shopify/snippets/* turbo-copy/snippets/
 cp turbo-copy/templates/index.json turbo-copy/templates/index.backup.json   # keep the old one
 cp shopify/templates/index.json turbo-copy/templates/index.json
 
-# make the four theme.liquid edits from Step 6 by hand, then:
+# make the five theme.liquid edits from Step 6 by hand, then:
 shopify theme push --theme "Copy of Turbo" --path ./turbo-copy
 ```
 
@@ -284,6 +333,17 @@ To keep the existing **Hulk Form Builder** forms instead, set *Form provider* to
 **Custom embed code** on the section and paste the app's embed into
 *Custom form embed*. The heading, subtitle and promo line above the form stay
 as they are.
+
+Each form carries its own id — `tba-hero-form`, `tba-contact-form`,
+`tba-newsletter-form` — rather than the `contact_form` Shopify would otherwise
+give both `{% form 'contact' %}` tags. Two of those on one page would be a
+duplicate id, and any theme script bound to `#contact_form` would silently
+capture whichever came first. If you want a script or a conversion tag on these
+forms, target the ids above.
+
+A successful post reloads the page with `?contact_posted=true`, which is what
+drives the success message. That flag isn't per-form, so both consultation
+forms show their success line after either is submitted.
 
 ---
 

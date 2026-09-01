@@ -63,7 +63,7 @@
           {{ s.form_embed }}
         </div>
       {%- else -%}
-        {%- form 'contact', class: 'tba-cform', novalidate: 'novalidate' -%}
+        {%- form 'contact', id: 'tba-contact-form', class: 'tba-cform', novalidate: 'novalidate' -%}
           <h3 class="tba-h-md">{{ s.form_title }}</h3>
           <p>{{ s.form_sub }}</p>
 

@@ -6,12 +6,27 @@
 (function () {
   "use strict";
 
-  var DONE = "tbaBound"; // dataset flag: never bind the same node twice
+  var DONE = "tbaBound";   // dataset flag: never bind the same node twice
+  var docBound = false;    // document-level listeners are registered once
+  var icBound = false;     // ditto the InstantClick hook
+  var stickyHandler = null;
 
   function bound(el) {
     if (!el || el.dataset[DONE]) return true;
     el.dataset[DONE] = "1";
     return false;
+  }
+
+  function setDrawer(open) {
+    var panel  = document.querySelector(".tba-drawer"),
+        scrim  = document.querySelector(".tba-scrim"),
+        burger = document.querySelector(".tba-burger");
+    if (!panel || !scrim || !burger) return;
+    panel.classList.toggle("tba-is-open", open);
+    scrim.classList.toggle("tba-is-open", open);
+    burger.classList.toggle("tba-is-open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
   }
 
   /* ---------- year ---------- */
@@ -36,15 +51,21 @@
     });
   }
 
-  /* ---------- sticky header shadow ---------- */
+  /* ---------- sticky header shadow ----------
+     Re-pointed rather than re-added, so an InstantClick page swap doesn't
+     leave a listener holding the previous page's detached header. */
   function sticky() {
+    if (stickyHandler) {
+      window.removeEventListener("scroll", stickyHandler);
+      stickyHandler = null;
+    }
     var header = document.querySelector(".tba-header");
-    if (!header || bound(header)) return;
-    var onScroll = function () {
+    if (!header) return;
+    stickyHandler = function () {
       header.classList.toggle("tba-is-stuck", window.scrollY > 12);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    window.addEventListener("scroll", stickyHandler, { passive: true });
+    stickyHandler();
   }
 
   /* ---------- mobile drawer ---------- */
@@ -55,22 +76,11 @@
         close  = document.querySelector("[data-tba-drawer-close]");
     if (!burger || !panel || !scrim || bound(panel)) return;
 
-    function setDrawer(open) {
-      panel.classList.toggle("tba-is-open", open);
-      scrim.classList.toggle("tba-is-open", open);
-      burger.classList.toggle("tba-is-open", open);
-      burger.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
-    }
-
     burger.addEventListener("click", function () {
       setDrawer(!panel.classList.contains("tba-is-open"));
     });
     scrim.addEventListener("click", function () { setDrawer(false); });
     if (close) close.addEventListener("click", function () { setDrawer(false); });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") setDrawer(false);
-    });
     panel.querySelectorAll('a[href*="#"]').forEach(function (a) {
       a.addEventListener("click", function () { setDrawer(false); });
     });
@@ -167,7 +177,30 @@
     });
   }
 
+  /* ---------- one-time document listeners ---------- */
+  function documentListeners() {
+    if (docBound) return;
+    docBound = true;
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setDrawer(false);
+    });
+  }
+
+  /* ---------- Turbo's InstantClick ----------
+     InstantClick swaps the <body> without a page load and exposes no
+     `page:load` DOM event, so hook its own API. Registering is safe before
+     InstantClick.init() runs. */
+  function bindInstantClick() {
+    if (icBound) return;
+    var IC = window.InstantClick;
+    if (!IC || typeof IC.on !== "function") return;
+    icBound = true;
+    IC.on("change", init);
+  }
+
   function init() {
+    documentListeners();
+    bindInstantClick();
     year();
     logos();
     sticky();
@@ -183,7 +216,10 @@
     init();
   }
 
-  // Turbo (Out of the Sandbox) fires these on InstantClick navigation.
+  // InstantClick loads deferred too — catch it if it wasn't there at init.
+  window.addEventListener("load", bindInstantClick);
+
+  // Themes that do dispatch a page:load event, and the theme editor.
   document.addEventListener("page:load", init);
   document.addEventListener("shopify:section:load", init);
   document.addEventListener("shopify:section:unload", function (e) {

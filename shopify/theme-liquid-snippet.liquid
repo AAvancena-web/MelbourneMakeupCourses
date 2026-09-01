@@ -1,21 +1,25 @@
 {%- comment -%}
   Reference only — this file is NOT copied into the theme.
-  It shows the four edits layout/theme.liquid needs. See README.md step 3.
+  It shows the five edits layout/theme.liquid needs, with the anchors as they
+  appear in Turbo 8.0.1. Full explanation in README.md, Step 6.
 {%- endcomment -%}
 
-{% comment %} 1. In <head>, after the theme's own stylesheet links: {% endcomment %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-  {{ 'tba-redesign.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'tba-redesign.js' | asset_url }}" defer></script>
+{% comment %} 6a. In <head>, immediately after custom.css: {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    {{ 'tba-redesign.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'tba-redesign.js' | asset_url }}" defer></script>
 
-{% comment %} 2. Add the tba-theme class to <body>: {% endcomment %}
-  <body class="tba-theme ...keep whatever classes the theme already puts here...">
+{% comment %} 6b. Add tba-theme to the <body> class list: {% endcomment %}
+    <body class="tba-theme {% if template == '404' %}error-404{% else %}{{ template | replace: '.', '-' | handle }}{% endif %}"
 
-{% comment %} 3. Replace the theme's announcement bar + header sections with: {% endcomment %}
-  {% section 'tba-announcement' %}
-  {% section 'tba-header' %}
+{% comment %} 6c. Replace {% section 'header' %} with: {% endcomment %}
+    {% section 'tba-announcement' %}
+    {% section 'tba-header' %}
 
-{% comment %} 4. Replace the theme's footer section with: {% endcomment %}
-  {% section 'tba-footer' %}
+{% comment %} 6d. Comment out the whole <div class="mega-menu-container ..."> block
+              that follows the header — the old nav no longer opens those panels. {% endcomment %}
+
+{% comment %} 6e. Replace {% section 'footer' %} with: {% endcomment %}
+    {% section 'tba-footer' %}

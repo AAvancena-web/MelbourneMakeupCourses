@@ -17,7 +17,7 @@
     <h2 class="tba-h-lg" id="tba-news-title">{{ s.heading }}</h2>
     <hr class="tba-rule tba-rule--center">
     <p>{{ s.body }}</p>
-    {%- form 'customer', class: 'tba-nform', novalidate: 'novalidate' -%}
+    {%- form 'customer', id: 'tba-newsletter-form', class: 'tba-nform', novalidate: 'novalidate' -%}
       <input type="hidden" name="contact[tags]" value="newsletter">
       <label for="tba-news-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
       <input id="tba-news-email" type="email" name="contact[email]" placeholder="{{ s.placeholder }}" autocomplete="email" required>
