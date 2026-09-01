@@ -450,19 +450,23 @@ p:last-child{margin-bottom:0}
   content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--gold);z-index:-1
 }
 .split__body{max-width:none}
+.press{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.press a{
+  display:grid;place-items:center;padding:14px 16px;background:#fff;
+  border:1px solid rgba(220,162,119,.45);border-radius:8px;
+  transition:border-color var(--slow),transform var(--slow),box-shadow var(--slow)
+}
+.press a:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,17,17,.1)}
+.press img{width:100%}
 
 /* featured in */
 
 
 /* read more */
 .readmore{position:relative}
-.readmore__body{max-height:340px;overflow:hidden;transition:max-height .7s var(--ease)}
-.readmore__body::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:170px;
-  background:linear-gradient(rgba(255,255,255,0),#fff);pointer-events:none;transition:opacity .5s
-}
+.readmore__body{max-height:0;overflow:hidden;transition:max-height .7s var(--ease)}
 .readmore.is-open .readmore__body{max-height:6000px}
-.readmore.is-open .readmore__body::after{opacity:0}
+.readmore__body>h3:first-child{margin-top:34px}
 .readmore h3{font-family:var(--serif);font-size:clamp(22px,2.1vw,30px);font-weight:400;margin:38px 0 14px}
 .readmore h3:first-child{margin-top:0}
 .readmore__toggle{margin-top:26px}
@@ -748,6 +752,8 @@ p:last-child{margin-bottom:0}
   .announce__social,.announce__links{display:none}
   .announce__text{font-size:13px;letter-spacing:.04em}
   .course__cap{padding:20px 18px}
+  .press{gap:9px}
+  .press a{padding:10px 10px}
 }
 
 </style>
@@ -1071,6 +1077,18 @@ p:last-child{margin-bottom:0}
         <hr class="rule">
         <p class="lede">We're proud to announce that Tamarua Beauty Academy has been recognized as the Best Beauty Academy in Australia for 2025 by Best of Best Review.</p>
         <p class="lede">This award reflects our commitment to providing top-tier beauty education and empowering future professionals in the industry. Thank you for being part of our journey!</p>
+
+        <div class="press">
+          <a href="https://bizweekly.com/from-humble-beginnings-to-industry-leadership-the-inspirational-journey-behind-tamarua-beauty-academy/" target="_blank" rel="noopener">
+            <img src="as-seen-on-1.webp" alt="Tamarua Beauty Academy featured in Biz Weekly" loading="lazy" width="1920" height="453">
+          </a>
+          <a href="https://womensinsider.com/tamarua-beauty-academy-empowering-future-beauty-professionals-through-innovation-and-excellence/" target="_blank" rel="noopener">
+            <img src="as-seen-on-2.webp" alt="Tamarua Beauty Academy featured in Women's Insider" loading="lazy" width="1920" height="449">
+          </a>
+          <a href="https://leadrmagazine.com/how-tamarua-beauty-academy-is-turning-beauty-passion-into-real-careers-across-australia/" target="_blank" rel="noopener">
+            <img src="as-seen-on-3.webp" alt="Tamarua Beauty Academy featured in Leadr Magazine" loading="lazy" width="1920" height="434">
+          </a>
+        </div>
         <div class="btn-row" style="margin-top:30px">
           <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
           <a class="btn btn--ghost" href="#courses">View Courses</a>
@@ -1092,12 +1110,15 @@ p:last-child{margin-bottom:0}
         <p class="lede">Established in 2010, the Tamarua Beauty Academy is an industry based beauty training academy in Melbourne that specialises in delivering short on-site and live-online courses relating to the beauty industry. Location: Building 8/36 Aylesbury Dr, Altona VIC 3018</p>
 
         <div class="readmore" id="readmore">
-          <div class="readmore__body">
+          <div class="readmore__intro">
       <h3>Elevate Your Career with Australia's Leading Beauty Academy</h3>
       <p>For over 10 years, Tamarua beauty academy has proudly offered industry-leading courses that have transformed the careers of countless graduates. Our comprehensive programs go beyond just a few hours of instruction; they provide in-depth, practical training designed to equip you with the skills you need to thrive in the beauty industry.</p>
       <p>Learn from the best in the field—our experienced beauty training academy instructors are industry leaders who bring real-world expertise and insights directly to you. With a strong focus on relevant, hands-on learning, our courses are tailored to meet the demands of today's dynamic beauty landscape.</p>
       <p>Join us and become part of a legacy of success. Enroll today and take the first step toward a rewarding career in beauty!</p>
 
+          </div>
+
+          <div class="readmore__body">
       <h3>Welcome to Your Future in Beauty</h3>
       <p>Tired of the 9-5 Grind?</p>
 
