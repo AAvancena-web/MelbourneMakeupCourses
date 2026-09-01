@@ -267,6 +267,13 @@ so the sections look right the moment they're added and any photo can be swapped
 without touching code. Block images also have a **Bundled image** field — the
 filename in `assets/` used when nothing is picked.
 
+`snippets/tba-image.liquid` always emits `width` and `height` on the `<img>`,
+so the browser reserves the right box before the file arrives and Theme Check's
+`ImgWidthAndHeight` rule passes. A picked image supplies its own dimensions;
+the bundled fallbacks have theirs passed at each call site. If you add a press
+logo block, fill in its **Bundled image width / height** with the file's real
+pixel size.
+
 ### Forms
 
 The hero and contact forms post through Shopify's own contact form, so
