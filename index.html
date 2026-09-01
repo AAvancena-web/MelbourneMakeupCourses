@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beauty Academy Melbourne | Tamara Beauty Academy</title>
+<meta name="description" content="Tamara Beauty Academy - Premier beauty academy in Melbourne. On-site and online (live) courses in makeup, hair styling, eyelash extensions, nail technology and nail art, barbering, lash lift &amp; tint, and spray tanning. We're also the premier beauty training academy for master classes, one-on-one training and workshops.">
+<meta name="author" content="Tamarua Beauty Academy">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://melbournemakeup-courses.com.au/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tamarua Beauty Academy">
+<meta property="og:title" content="Beauty Academy Melbourne | Tamara Beauty Academy">
+<meta property="og:description" content="Tamara Beauty Academy - Premier beauty academy in Melbourne. On-site and online (live) courses in makeup, hair styling, eyelash extensions, nail technology and nail art, barbering, lash lift &amp; tint, and spray tanning.">
+<meta property="og:url" content="https://melbournemakeup-courses.com.au/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --gold:#dca277;
+  --gold-dk:#c98a5c;
+  --gold-lt:#f0d9c7;
+  --ink:#333333;
+  --ink-soft:#5c5c5c;
+  --ink-mute:#8a8a8a;
+  --white:#ffffff;
+  --cream:#faf6f3;
+  --sand:#f4ece5;
+  --line:rgba(51,51,51,.14);
+  --line-soft:rgba(51,51,51,.08);
+
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --shell:1440px;          /* desktop / laptop */
+  --gutter:clamp(20px,4vw,56px);
+  --header-h:104px;
+  --radius:2px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+@media (min-width:1700px){ :root{ --shell:1880px; } }
+
+*,*::before,*::after{box-sizing:border-box}
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink);
+  background:var(--white);
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4,h5{margin:0;font-weight:400;line-height:1.15;letter-spacing:.01em}
+p{margin:0 0 1.05em}
+p:last-child{margin-bottom:0}
+::selection{background:var(--gold);color:#fff}
+
+/* ---------- layout shell ---------- */
+.shell{width:100%;max-width:var(--shell);margin-inline:auto;padding-inline:var(--gutter)}
+.shell--narrow{max-width:min(var(--shell),1120px)}
+.section{padding-block:clamp(56px,7vw,104px)}
+.section--tight{padding-block:clamp(40px,5vw,68px)}
+.section--cream{background:var(--cream)}
+.section--sand{background:var(--sand)}
+
+/* ---------- type ---------- */
+.display{font-family:var(--serif);font-weight:300;letter-spacing:.005em}
+.eyebrow{
+  font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  font-weight:500;color:var(--gold-dk);margin:0 0 18px
+}
+.h-xl{font-family:var(--serif);font-size:clamp(40px,6.2vw,78px);font-weight:300;line-height:1.03}
+.h-lg{font-family:var(--serif);font-size:clamp(30px,3.6vw,52px);font-weight:300;line-height:1.1}
+.h-md{font-family:var(--serif);font-size:clamp(24px,2.4vw,36px);font-weight:400;line-height:1.2}
+.h-sm{font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.lede{font-size:clamp(16px,1.15vw,18px);color:var(--ink-soft);line-height:1.8}
+.center{text-align:center}
+.rule{width:56px;height:1px;background:var(--gold);border:0;margin:22px 0}
+.center .rule,.rule--center{margin-inline:auto}
+
+/* ---------- buttons ---------- */
+.btn{
+  --btn-bg:var(--ink); --btn-fg:#fff; --btn-bd:var(--ink);
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 26px;
+  background:var(--btn-bg);color:var(--btn-fg);border:1px solid var(--btn-bd);
+  font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  border-radius:var(--radius);transition:.35s var(--ease);white-space:nowrap;text-align:center
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(51,51,51,.16)}
+.btn--gold{--btn-bg:var(--gold);--btn-bd:var(--gold);--btn-fg:#2e2115}
+.btn--gold:hover{--btn-bg:var(--gold-dk);--btn-bd:var(--gold-dk)}
+.btn--ghost{--btn-bg:transparent;--btn-fg:var(--ink);--btn-bd:var(--ink)}
+.btn--ghost:hover{--btn-bg:var(--ink);--btn-fg:#fff}
+.btn--light{--btn-bg:transparent;--btn-fg:#fff;--btn-bd:rgba(255,255,255,.75)}
+.btn--light:hover{--btn-bg:#fff;--btn-fg:var(--ink);--btn-bd:#fff}
+.btn--sm{min-height:44px;padding:0 22px;font-size:11px}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px}
+.center .btn-row{justify-content:center}
+
+.link-arrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--gold);
+  transition:.3s var(--ease)
+}
+.link-arrow svg{transition:transform .3s var(--ease)}
+.link-arrow:hover{color:var(--gold-dk)}
+.link-arrow:hover svg{transform:translateX(5px)}
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announce{
+  background:var(--ink);color:#fff;position:relative;z-index:60;
+  font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:400
+}
+.announce .shell{display:flex;align-items:center;justify-content:center;gap:18px;min-height:40px;text-align:center}
+.announce p{margin:0;padding:9px 30px 9px 0}
+.announce strong{font-weight:500;color:var(--gold-lt)}
+.announce__close{
+  position:absolute;right:calc(var(--gutter) - 6px);top:50%;transform:translateY(-50%);
+  width:28px;height:28px;display:grid;place-items:center;opacity:.6;transition:.25s
+}
+.announce__close:hover{opacity:1}
+.announce.is-hidden{display:none}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line-soft);transition:box-shadow .3s}
+.header.is-stuck{box-shadow:0 6px 26px rgba(51,51,51,.09)}
+
+/* utility strip (desktop) */
+.utility{border-bottom:1px solid var(--line-soft);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.utility .shell{display:flex;align-items:center;justify-content:space-between;min-height:38px;gap:20px}
+.utility__group{display:flex;align-items:center;gap:22px}
+.utility a{color:var(--ink-soft);transition:color .25s}
+.utility a:hover{color:var(--gold-dk)}
+.socials{display:flex;align-items:center;gap:14px}
+.socials a{display:grid;place-items:center;width:26px;height:26px;color:var(--ink-soft)}
+.socials a:hover{color:var(--gold-dk)}
+
+/* main nav row */
+.navbar .shell{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;min-height:var(--header-h)}
+.brand{justify-self:center;display:block;text-align:center}
+.brand img{width:clamp(150px,13vw,196px);margin-inline:auto}
+.brand__fallback{display:none;font-family:var(--serif);line-height:1}
+.brand__fallback b{display:block;font-size:30px;font-weight:400;letter-spacing:.12em;color:var(--gold-dk)}
+.brand__fallback span{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.42em;color:var(--ink-soft);margin-top:6px}
+.brand.is-fallback img{display:none}
+.brand.is-fallback .brand__fallback{display:block}
+
+.nav{display:flex;align-items:center;gap:clamp(16px,2vw,34px)}
+.nav--right{justify-self:end}
+.nav__link{
+  position:relative;display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:400;
+  padding:10px 0;color:var(--ink);white-space:nowrap
+}
+.nav__link::after{
+  content:"";position:absolute;left:0;right:100%;bottom:4px;height:1px;background:var(--gold);
+  transition:right .35s var(--ease)
+}
+.nav__link:hover::after,.nav__item:hover>.nav__link::after{right:0}
+.nav__item{position:static}
+.nav__item .chev{transition:transform .3s var(--ease)}
+.nav__item:hover .chev{transform:rotate(180deg)}
+
+.tools{display:flex;align-items:center;gap:6px}
+.icon-btn{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:50%;
+  color:var(--ink);transition:.28s var(--ease);position:relative
+}
+.icon-btn:hover{background:var(--sand);color:var(--gold-dk)}
+.cart-count{
+  position:absolute;top:4px;right:2px;min-width:17px;height:17px;padding:0 4px;
+  background:var(--gold);color:#fff;border-radius:20px;
+  font-size:10px;font-weight:500;line-height:17px;text-align:center
+}
+
+/* mega menu */
+.mega{
+  position:absolute;top:100%;left:0;right:0;transform:translateY(14px);
+  background:#fff;border:1px solid var(--line-soft);
+  box-shadow:0 26px 60px rgba(51,51,51,.14);
+  padding:38px 40px;opacity:0;visibility:hidden;transition:.3s var(--ease);z-index:40
+}
+.nav__item:hover .mega{opacity:1;visibility:visible;transform:none}
+.mega__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px}
+.mega__card figure{margin:0 0 14px;overflow:hidden;background:var(--sand)}
+.mega__card img{aspect-ratio:1;object-fit:cover;transition:transform .6s var(--ease)}
+.mega__card:hover img{transform:scale(1.06)}
+.mega__card h4{font-family:var(--sans);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+.mega__card:hover h4{color:var(--gold-dk)}
+.mega__list h4{
+  font-family:var(--sans);font-size:12px;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:14px
+}
+.mega__list ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.mega__list a{font-size:14px;color:var(--ink-soft);transition:.25s}
+.mega__list a:hover{color:var(--gold-dk);padding-left:5px}
+
+/* ---------- mobile bar ---------- */
+.mobilebar{display:none}
+.mobilebar .shell{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;min-height:74px}
+.mobilebar__left,.mobilebar__right{display:flex;align-items:center;gap:8px}
+/* phone icon: circular border, dark background — left of the hamburger */
+.call-pill{
+  width:42px;height:42px;flex:0 0 42px;border-radius:50%;
+  background:var(--ink);border:1px solid var(--ink);color:#fff;
+  display:grid;place-items:center;transition:.3s var(--ease)
+}
+.call-pill:hover,.call-pill:focus-visible{background:var(--gold);border-color:var(--gold);color:#2e2115}
+.burger{width:42px;height:42px;display:grid;place-items:center;gap:0}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:.3s var(--ease)}
+.burger span+span{margin-top:5px}
+.burger.is-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(30,25,20,.5);opacity:0;visibility:hidden;transition:.35s;z-index:70}
+.scrim.is-open{opacity:1;visibility:visible}
+.drawer{
+  position:fixed;top:0;left:0;bottom:0;width:min(400px,88vw);background:#fff;z-index:80;
+  transform:translateX(-100%);transition:transform .4s var(--ease);
+  display:flex;flex-direction:column;overflow-y:auto
+}
+.drawer.is-open{transform:none}
+.drawer__head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--line-soft)}
+.drawer__head .brand img{width:132px}
+.drawer nav{padding:12px 24px 24px}
+.drawer__link{
+  display:flex;align-items:center;justify-content:space-between;width:100%;
+  padding:16px 0;border-bottom:1px solid var(--line-soft);
+  font-size:13px;letter-spacing:.16em;text-transform:uppercase
+}
+.drawer__sub{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.drawer__sub.is-open{max-height:520px}
+.drawer__sub a{display:block;padding:12px 0 12px 16px;font-size:14px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)}
+.drawer__foot{margin-top:auto;padding:24px;background:var(--cream)}
+.drawer__foot .btn{width:100%}
+.drawer__foot .socials{margin-top:18px;justify-content:center}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;background:#dcd8d5;overflow:hidden}
+.hero__media{position:absolute;inset:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:72% 40%}
+.hero__media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(38,32,28,.72) 0%,rgba(38,32,28,.5) 34%,rgba(38,32,28,.08) 62%,rgba(38,32,28,0) 100%)
+}
+.hero__inner{position:relative;z-index:2;min-height:clamp(520px,74vh,760px);display:flex;align-items:center;padding-block:clamp(64px,9vw,110px)}
+.hero__copy{max-width:min(760px,62%);color:#fff}
+.hero__copy .eyebrow{color:var(--gold-lt)}
+.hero h1{color:#fff;margin-bottom:20px}
+.hero h2{
+  font-family:var(--sans);font-size:clamp(15px,1.2vw,18px);font-weight:300;line-height:1.75;
+  color:rgba(255,255,255,.9);max-width:52ch;margin-bottom:34px
+}
+.hero .btn-row{gap:14px}
+.hero__badges{
+  position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,54px);padding-block:20px;color:rgba(255,255,255,.86);
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase
+}
+.hero__badges span{display:inline-flex;align-items:center;gap:10px}
+.hero__badges svg{color:var(--gold)}
+
+/* ============================================================
+   REVIEWS MARQUEE
+   ============================================================ */
+.reviews{background:var(--cream);padding-block:clamp(46px,5.4vw,74px);overflow:hidden}
+.reviews__head{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 26px;text-align:center;margin-bottom:34px}
+.reviews__score{display:flex;align-items:center;gap:12px}
+.reviews__score b{font-family:var(--serif);font-size:34px;font-weight:400;line-height:1}
+.stars{display:inline-flex;gap:3px;color:var(--gold)}
+.stars svg{width:17px;height:17px}
+.reviews__meta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+.reviews__meta b{font-weight:500;color:var(--ink)}
+.reviews__divider{width:1px;height:34px;background:var(--line)}
+.reviews__google{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+.marquee{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee__track{display:flex;gap:22px;width:max-content;animation:slide 150s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+@keyframes slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){.marquee__track{animation:none}.marquee{overflow-x:auto}}
+
+.rcard{
+  flex:0 0 clamp(290px,26vw,368px);background:#fff;border:1px solid var(--line-soft);
+  padding:26px 26px 24px;border-radius:var(--radius);display:flex;flex-direction:column;gap:12px
+}
+.rcard__top{display:flex;align-items:center;gap:12px}
+.rcard__avatar{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--gold);
+  color:#fff;display:grid;place-items:center;font-size:15px;font-weight:500;font-family:var(--serif)
+}
+.rcard__who{min-width:0}
+.rcard__name{font-size:14px;font-weight:500;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rcard__when{font-size:11.5px;color:var(--ink-mute);letter-spacing:.04em}
+.rcard__body{font-size:14px;line-height:1.72;color:var(--ink-soft);margin:0;
+  display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.rcard .stars svg{width:14px;height:14px}
+
+/* ============================================================
+   SPLIT / FEATURE BLOCKS
+   ============================================================ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,76px);align-items:center}
+.split--reverse .split__media{order:2}
+.split__media{position:relative}
+.split__media img{width:100%;object-fit:cover}
+.split__media--frame::before{
+  content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);z-index:-1
+}
+.split__body{max-width:56ch}
+
+/* featured in */
+.featured__logos{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,46px);align-items:center;margin-top:34px
+}
+.featured__logos a{
+  display:block;padding:22px clamp(12px,2vw,30px);background:#fff;border:1px solid var(--line-soft);
+  transition:.35s var(--ease)
+}
+.featured__logos a:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 32px rgba(51,51,51,.08)}
+.featured__logos img{width:100%;filter:grayscale(1);opacity:.72;transition:.35s var(--ease)}
+.featured__logos a:hover img{filter:none;opacity:1}
+
+/* read more */
+.readmore{position:relative}
+.readmore__body{max-height:340px;overflow:hidden;transition:max-height .6s var(--ease)}
+.readmore__body::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:150px;
+  background:linear-gradient(rgba(255,255,255,0),var(--cream));pointer-events:none;transition:opacity .4s
+}
+.readmore.is-open .readmore__body{max-height:6000px}
+.readmore.is-open .readmore__body::after{opacity:0}
+.readmore h3{font-family:var(--serif);font-size:clamp(21px,2vw,28px);font-weight:400;margin:34px 0 12px}
+.readmore h3:first-child{margin-top:0}
+.readmore__toggle{margin-top:26px}
+
+.video-wrap{max-width:520px;margin:44px auto 0;background:#000;border:1px solid var(--line-soft)}
+.video-wrap video{width:100%;display:block}
+
+/* ============================================================
+   COURSE GRID
+   ============================================================ */
+.courses{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,1.8vw,28px)}
+.course{position:relative;display:block;overflow:hidden;background:var(--sand)}
+.course figure{margin:0;overflow:hidden}
+.course img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.course:hover img{transform:scale(1.07)}
+.course__veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(30,24,20,.82) 0%,rgba(30,24,20,.28) 42%,rgba(30,24,20,0) 72%)
+}
+.course__cap{position:absolute;left:0;right:0;bottom:0;padding:24px 22px;color:#fff}
+.course__cap h3{font-family:var(--serif);font-size:clamp(19px,1.55vw,24px);font-weight:400}
+.course__cap span{
+  display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lt);
+  opacity:0;transform:translateY(8px);transition:.4s var(--ease)
+}
+.course:hover .course__cap span{opacity:1;transform:none}
+
+/* ============================================================
+   SUCCESS STORY BAND + GALLERY
+   ============================================================ */
+.band{background:var(--gold);color:#3a2b1e}
+.band .h-lg,.band .eyebrow{color:#3a2b1e}
+.band .eyebrow{color:rgba(58,43,30,.72)}
+.band .rule{background:rgba(58,43,30,.4)}
+.band p{color:rgba(58,43,30,.9)}
+.band__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);align-items:start}
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(8px,1vw,14px);margin-top:clamp(32px,4vw,52px)}
+.gallery figure{margin:0;overflow:hidden;position:relative}
+.gallery img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.gallery figure:hover img{transform:scale(1.06)}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px)}
+.tcard{background:#fff;border:1px solid var(--line-soft);padding:clamp(26px,2.6vw,40px);position:relative}
+.tcard__mark{font-family:var(--serif);font-size:70px;line-height:.6;color:var(--gold);opacity:.5}
+.tcard p{font-family:var(--serif);font-size:clamp(16px,1.25vw,19px);line-height:1.65;color:var(--ink-soft);margin:18px 0 22px}
+.tcard cite{font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+
+/* ============================================================
+   STUDENT STORIES
+   ============================================================ */
+.stories{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,2.8vw,42px)}
+.story figure{margin:0 0 22px;overflow:hidden;background:var(--sand)}
+.story img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.story:hover img{transform:scale(1.05)}
+.story h3{font-family:var(--sans);font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:12px}
+.story p{font-size:15px;color:var(--ink-soft);margin-bottom:20px}
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.newsletter{background:var(--ink);color:#fff;text-align:center}
+.newsletter .h-lg{color:#fff}
+.newsletter p{color:rgba(255,255,255,.7);max-width:56ch;margin-inline:auto}
+.nform{display:flex;gap:12px;max-width:540px;margin:30px auto 0}
+.nform input{
+  flex:1;min-height:52px;padding:0 18px;background:transparent;color:#fff;
+  border:1px solid rgba(255,255,255,.3);border-radius:var(--radius);font:inherit;font-size:14px
+}
+.nform input::placeholder{color:rgba(255,255,255,.5)}
+.nform input:focus{outline:none;border-color:var(--gold)}
+
+/* ============================================================
+   CONTACT / MAP / FORM
+   ============================================================ */
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3.6vw,60px);align-items:start}
+.info-list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:22px}
+.info-list li{display:flex;gap:16px;align-items:flex-start}
+.info-list .ic{
+  width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:var(--ink);color:#fff;
+  display:grid;place-items:center
+}
+.info-list h4{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--ink-mute);margin-bottom:4px}
+.info-list a,.info-list p{font-size:16px;color:var(--ink);margin:0}
+.info-list a:hover{color:var(--gold-dk)}
+.map{margin-top:32px;border:1px solid var(--line-soft);background:var(--sand)}
+.map iframe{display:block;width:100%;height:clamp(260px,30vw,340px);border:0;filter:grayscale(.25)}
+
+.cform{background:#fff;border:1px solid var(--line-soft);padding:clamp(26px,3vw,44px)}
+.cform .h-md{margin-bottom:8px}
+.field{display:block;margin-top:20px}
+.field span{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.field input,.field select,.field textarea{
+  width:100%;min-height:50px;padding:13px 15px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--radius);transition:.25s
+}
+.field textarea{min-height:132px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:#fff}
+.cform .btn{width:100%;margin-top:26px}
+.cform__note{font-size:12.5px;color:var(--ink-mute);margin-top:16px;text-align:center}
+.formrow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--ink);color:rgba(255,255,255,.68);padding-block:clamp(48px,5.5vw,78px) 0;font-size:14.5px}
+.footer__grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr .9fr;gap:clamp(24px,3vw,48px)}
+.footer h4{
+  font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:500;color:#fff;margin-bottom:20px
+}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.footer a:hover{color:var(--gold)}
+.footer__brand{text-align:left}
+.footer__brand img{width:190px;margin:0 0 20px;filter:brightness(1.06)}
+.footer__brand .brand__fallback{text-align:left;margin-bottom:18px}
+.footer__brand .brand__fallback b{color:var(--gold)}
+.footer__brand .brand__fallback span{color:rgba(255,255,255,.55)}
+.footer .socials{display:flex;gap:14px}
+.footer .socials a{color:rgba(255,255,255,.7)}
+.footer .socials a:hover{color:var(--gold)}
+.footer__pay{margin-top:22px;max-width:150px;opacity:.85}
+.footer__bottom{
+  margin-top:clamp(38px,4vw,60px);border-top:1px solid rgba(255,255,255,.12);
+  padding-block:22px;display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;justify-content:space-between;
+  font-size:12.5px;letter-spacing:.05em
+}
+.footer__acc{display:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1200px){
+  .mega__grid{grid-template-columns:repeat(3,1fr)}
+  .footer__grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:1024px){
+  .navbar,.utility{display:none}
+  .mobilebar{display:block}
+  .courses{grid-template-columns:repeat(3,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .hero__copy{max-width:none}
+  .hero__media::after{background:linear-gradient(180deg,rgba(38,32,28,.42) 0%,rgba(38,32,28,.62) 55%,rgba(38,32,28,.78) 100%)}
+}
+@media (max-width:860px){
+  .split,.band__grid,.contact__grid,.tgrid,.stories{grid-template-columns:1fr}
+  .split--reverse .split__media{order:0}
+  .split__media--frame::before{display:none}
+  .courses{grid-template-columns:repeat(2,1fr)}
+  .featured__logos{grid-template-columns:1fr;gap:14px}
+  .footer__grid{grid-template-columns:1fr}
+  .footer__acc{display:block}
+  .footer .footer__menu{display:none}
+  .footer .footer__menu.is-open{display:grid;padding-bottom:10px}
+  .footer h4[data-facc]{display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+    padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:16px}
+  .footer__col--brand h4{display:none}
+}
+@media (max-width:640px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .formrow{grid-template-columns:1fr}
+  .nform{flex-direction:column}
+  .hero__badges{gap:12px 22px;font-size:10px}
+  .btn{width:100%}
+  .btn-row{flex-direction:column}
+  .reviews__divider{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== ANNOUNCEMENT ============================== -->
+<div class="announce" id="announce">
+  <div class="shell">
+    <p><strong>Awarded Top 4 Education Facility in Australia by the MAGAP (Asia Pacific)</strong></p>
+    <button class="announce__close" id="announceClose" aria-label="Close announcement">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l10 10M11 1L1 11"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================== HEADER ============================== -->
+<header class="header" id="header">
+
+  <!-- utility strip -->
+  <div class="utility">
+    <div class="shell">
+      <ul class="socials" style="list-style:none;margin:0;padding:0">
+        <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Tamarua Beauty Academy on Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Tamarua Beauty Academy on Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+      </ul>
+      <div class="utility__group">
+        <a href="tel:0421864557">0421 864 557</a>
+        <a href="mailto:info@tamaruabeautyacademy.com.au">info@tamaruabeautyacademy.com.au</a>
+        <a href="#contact">Building 8/36 Aylesbury Dr, Altona VIC 3018</a>
+        <a href="/account/login">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- desktop nav -->
+  <div class="navbar">
+    <div class="shell">
+      <nav class="nav" aria-label="Primary">
+        <div class="nav__item">
+          <a class="nav__link" href="/collections">Courses
+            <svg class="chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__grid">
+              <a class="mega__card" href="/collections/makeup-courses">
+                <figure><img src="MakeupCourses.webp" alt="Make Up Courses" loading="lazy"></figure>
+                <h4>Make Up Courses</h4>
+              </a>
+              <a class="mega__card" href="/collections/hair-styling">
+                <figure><img src="HairstylingCourses.webp" alt="Hair Styling Courses" loading="lazy"></figure>
+                <h4>Hair Styling Courses</h4>
+              </a>
+              <a class="mega__card" href="/collections/nails">
+                <figure><img src="NailCourses.webp" alt="Nails Courses" loading="lazy"></figure>
+                <h4>Nails Courses</h4>
+              </a>
+              <a class="mega__card" href="/collections/barbering">
+                <figure><img src="BarberingCourse.webp" alt="Barbering Course" loading="lazy"></figure>
+                <h4>Barbering Course</h4>
+              </a>
+              <div class="mega__list">
+                <h4>Other Beauty Courses</h4>
+                <ul>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/eyelash-extensions">Eyelash Extensions Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/master-classes">Master Classes</a></li>
+                  <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav__item"><a class="nav__link" href="/collections/online-beauty-courses-melbourne">Online Courses</a></div>
+        <div class="nav__item"><a class="nav__link" href="/collections/beauty-courses-melbourne">On-Site Courses</a></div>
+        <div class="nav__item"><a class="nav__link" href="/collections/tba-beauty-products">Shop</a></div>
+      </nav>
+
+      <a class="brand" href="/" aria-label="Tamarua Beauty Academy — home">
+        <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" alt="Tamarua Beauty Academy" width="410" height="154" data-logo>
+        <span class="brand__fallback"><b>Tamarua</b><span>Beauty Academy</span></span>
+      </a>
+
+      <div class="nav nav--right">
+        <div class="nav__item"><a class="nav__link" href="/pages/contact-us">Contact Us</a></div>
+        <a class="btn btn--gold btn--sm" href="#contact">Book A Free Consultation</a>
+        <div class="tools">
+          <button class="icon-btn" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+          </button>
+          <a class="icon-btn" href="/cart" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mobile bar -->
+  <div class="mobilebar">
+    <div class="shell">
+      <div class="mobilebar__left">
+        <!-- phone icon: circular border + dark background, LEFT of hamburger -->
+        <a class="call-pill" href="tel:0421864557" aria-label="Call Tamarua Beauty Academy on 0421 864 557">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.55 1 1 0 01-.24 1.05z"/></svg>
+        </a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <a class="brand" href="/" aria-label="Tamarua Beauty Academy — home">
+        <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" alt="Tamarua Beauty Academy" width="410" height="154" data-logo style="width:140px">
+        <span class="brand__fallback"><b style="font-size:24px">Tamarua</b><span>Beauty Academy</span></span>
+      </a>
+      <div class="mobilebar__right">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+        </button>
+        <a class="icon-btn" href="/cart" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Mobile menu">
+  <div class="drawer__head">
+    <a class="brand" href="/">
+      <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" alt="Tamarua Beauty Academy" data-logo>
+      <span class="brand__fallback"><b style="font-size:22px">Tamarua</b><span>Beauty Academy</span></span>
+    </a>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l10 10M11 1L1 11"/></svg>
+    </button>
+  </div>
+  <nav>
+    <button class="drawer__link" data-acc aria-expanded="false">Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="drawer__sub">
+      <li><a href="/collections/makeup-courses">Make Up Courses</a></li>
+      <li><a href="/collections/hair-styling">Hair Styling Courses</a></li>
+      <li><a href="/collections/nails">Nails Courses</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extensions Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/master-classes">Master Classes</a></li>
+      <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
+    </ul>
+    <a class="drawer__link" href="/collections/online-beauty-courses-melbourne">Online Courses</a>
+    <a class="drawer__link" href="/collections/beauty-courses-melbourne">On-Site Courses</a>
+    <a class="drawer__link" href="/pages/contact-us">Contact Us</a>
+    <a class="drawer__link" href="/collections/tba-beauty-products">Shop</a>
+    <a class="drawer__link" href="tel:0421864557">0421 864 557</a>
+    <a class="drawer__link" href="/account/login">Login</a>
+  </nav>
+  <div class="drawer__foot">
+    <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+    <ul class="socials" style="list-style:none;margin:18px 0 0;padding:0">
+      <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+      <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+    </ul>
+  </div>
+</aside>
+
+<main>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero__media">
+    <img src="Banner.webp" alt="Professional makeup artistry at Tamarua Beauty Academy Melbourne" fetchpriority="high" width="1000" height="500">
+  </div>
+  <div class="shell hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Melbourne &middot; Est. 2010</p>
+      <h1 class="h-xl">Tamarua Beauty Academy</h1>
+      <h2>Join us and become part of a legacy of success at a premier beauty academy in Melbourne. Enroll today and take the first step toward a rewarding career in beauty!</h2>
+      <div class="btn-row">
+        <a class="btn btn--gold" href="#courses">View Courses</a>
+        <a class="btn btn--light" href="#contact">Book A Free Consultation</a>
+        <a class="btn btn--light" href="/collections/tba-beauty-products">Shop Products</a>
+      </div>
+    </div>
+  </div>
+  <div class="shell">
+    <div class="hero__badges">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> 4.9 from 88 Google reviews</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 22l5-2.5L17 22l-1.5-8.5"/></svg> Best Beauty Academy in Australia 2025</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg> On-site &amp; live online training</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 6L9 17l-5-5"/></svg> Lifetime alumni support</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== REVIEWS MARQUEE ============================== -->
+<section class="reviews" aria-labelledby="reviews-title">
+  <div class="shell">
+    <div class="reviews__head">
+      <div class="reviews__score">
+        <b>4.9</b>
+        <div>
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>
+          </div>
+          <p class="reviews__meta" style="margin:2px 0 0">Based on <b>88 reviews</b></p>
+        </div>
+      </div>
+      <span class="reviews__divider" aria-hidden="true"></span>
+      <h2 class="reviews__google" id="reviews-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 01-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.6-2-6.5-4.8H1.6v3C3.5 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.5 14.6a7.2 7.2 0 010-4.6v-3H1.6a12 12 0 000 10.6l3.9-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.5 2.6 1.6 6.4l3.9 3C6.4 6.7 9 4.8 12 4.8z"/></svg>
+        What our students say on Google
+      </h2>
+    </div>
+  </div>
+  <div class="marquee" id="marquee">
+    <div class="marquee__track" id="marqueeTrack"></div>
+  </div>
+</section>
+
+<!-- ============================== AWARD ============================== -->
+<section class="section" aria-labelledby="award-title">
+  <div class="shell">
+    <div class="split split--reverse">
+      <div class="split__media split__media--frame">
+        <img src="Award-1.webp" alt="Best of Best Review 2025 award trophies — Best Beauty Academy in Australia" loading="lazy" width="800" height="800">
+      </div>
+      <div class="split__body">
+        <p class="eyebrow">Award Winning</p>
+        <h2 class="h-lg" id="award-title">2025 Best Beauty Academy in Australia</h2>
+        <hr class="rule">
+        <p class="lede">We're proud to announce that Tamarua Beauty Academy has been recognized as the Best Beauty Academy in Australia for 2025 by Best of Best Review.</p>
+        <p class="lede">This award reflects our commitment to providing top-tier beauty education and empowering future professionals in the industry. Thank you for being part of our journey!</p>
+        <div class="btn-row" style="margin-top:30px">
+          <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+          <a class="btn btn--ghost" href="#courses">View Courses</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FEATURED IN ============================== -->
+<section class="section section--cream section--tight" aria-labelledby="featured-title">
+  <div class="shell center">
+    <p class="eyebrow">In the press</p>
+    <h2 class="h-lg" id="featured-title">See Us Featured In</h2>
+    <hr class="rule rule--center">
+    <div class="featured__logos">
+      <a href="https://bizweekly.com/from-humble-beginnings-to-industry-leadership-the-inspirational-journey-behind-tamarua-beauty-academy/" target="_blank" rel="noopener">
+        <img src="as-seen-on-1.webp" alt="Tamarua Beauty Academy featured in Biz Weekly" loading="lazy" width="1920" height="453">
+      </a>
+      <a href="https://womensinsider.com/tamarua-beauty-academy-empowering-future-beauty-professionals-through-innovation-and-excellence/" target="_blank" rel="noopener">
+        <img src="as-seen-on-2.webp" alt="Tamarua Beauty Academy featured in Women's Insider" loading="lazy" width="1920" height="449">
+      </a>
+      <a href="https://leadrmagazine.com/how-tamarua-beauty-academy-is-turning-beauty-passion-into-real-careers-across-australia/" target="_blank" rel="noopener">
+        <img src="as-seen-on-3.webp" alt="Tamarua Beauty Academy featured in Leadr Magazine" loading="lazy" width="1920" height="434">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SEO INTRO / READ MORE ============================== -->
+<section class="section section--cream" style="padding-top:0" aria-labelledby="intro-title">
+  <div class="shell shell--narrow center">
+    <p class="eyebrow">Melbourne &amp; Australia</p>
+    <h2 class="h-lg" id="intro-title">We Are the Premier Industry Based Training Beauty Academy in Melbourne and Australia</h2>
+    <hr class="rule rule--center">
+    <p class="lede">Established in 2010, the Tamarua Beauty Academy is an industry based beauty training academy in Melbourne that specialises in delivering short on-site and live-online courses relating to the beauty industry. Location: Building 8/36 Aylesbury Dr, Altona VIC 3018</p>
+  </div>
+
+  <div class="shell shell--narrow readmore" id="readmore" style="margin-top:34px">
+    <div class="readmore__body" style="text-align:left">
+      <h3>Elevate Your Career with Australia's Leading Beauty Academy</h3>
+      <p>For over 10 years, Tamarua beauty academy has proudly offered industry-leading courses that have transformed the careers of countless graduates. Our comprehensive programs go beyond just a few hours of instruction; they provide in-depth, practical training designed to equip you with the skills you need to thrive in the beauty industry.</p>
+      <p>Learn from the best in the field—our experienced beauty training academy instructors are industry leaders who bring real-world expertise and insights directly to you. With a strong focus on relevant, hands-on learning, our courses are tailored to meet the demands of today's dynamic beauty landscape.</p>
+      <p>Join us and become part of a legacy of success. Enroll today and take the first step toward a rewarding career in beauty!</p>
+
+      <h3>Welcome to Your Future in Beauty</h3>
+      <p>Tired of the 9-5 Grind?</p>
+
+      <h3>Why Choose Us?</h3>
+      <p>- Expert Guidance: Learn from industry leaders who have successfully navigated the beauty world.</p>
+      <p>- Hands-On Experience: Gain practical skills and insights that will set you apart in the industry.</p>
+      <p>- Flexible Learning: Tailored programs that fit your busy lifestyle, allowing you to learn onsite or LIVE online.</p>
+
+      <h3>Success Stories</h3>
+      <p>Join countless others like Ashleigh, who turned their passion for beauty into a thriving business with our support. Discover how you can transform your dreams into reality.</p>
+      <p>Break free from the ordinary and step into a world of beauty and creativity. Here at Tamarua Beauty Academy, we empower you to build your own beauty empire on your terms.</p>
+
+      <h3>Join Our Supportive Alumni Community</h3>
+      <p>We believe that your journey doesn't end with graduation. All students are welcomed into our exclusive alumni community, where we continue to support your success every step of the way.</p>
+      <p>As a member of our alumni network, you'll have access to exclusive job opportunities and industry insights, ensuring that you remain connected and informed as you advance in your career.</p>
+      <p>We take pride in the achievements of our graduates, who have recently worked with prestigious events such as the Australian Open, Indian Fashion week, major bridal expos, and various media outlets. Our students have had the opportunity to assist with front cover shoots for leading magazines, gaining invaluable experience and exposure in the beauty industry.</p>
+      <p>Join us and be part of a vibrant community that is dedicated to your success. Together, we'll open doors to extraordinary opportunities and help you thrive in your career!</p>
+    </div>
+    <div class="center readmore__toggle">
+      <button class="link-arrow" id="readmoreBtn" aria-expanded="false" aria-controls="readmore">
+        <span>Read More</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="shell">
+    <div class="video-wrap">
+      <video controls preload="metadata" playsinline
+        src="https://cdn.shopify.com/videos/c/o/v/43db20c4751d4203b0af43770cda280e.mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="center btn-row" style="margin-top:34px">
+      <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== COURSES ============================== -->
+<section class="section" id="courses" aria-labelledby="courses-title">
+  <div class="shell">
+    <div class="center" style="margin-bottom:clamp(34px,4vw,56px)">
+      <p class="eyebrow">Choose your path</p>
+      <h2 class="h-lg" id="courses-title">Tamarua Beauty Academy Courses</h2>
+      <hr class="rule rule--center">
+    </div>
+
+    <div class="courses">
+      <a class="course" href="/collections/makeup-courses">
+        <figure><img src="MakeupCourses.webp" alt="Make Up Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Make Up Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/barbering">
+        <figure><img src="BarberingCourse.webp" alt="Barbering Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Barbering Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/spray-tanning">
+        <figure><img src="SprayTanningCourse.webp" alt="Spray Tanning Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Spray Tanning Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/facials">
+        <figure><img src="FacialCourse.webp" alt="Facial Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Facial Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/eyelash-extensions">
+        <figure><img src="EyelashExtensionCourses.webp" alt="Eyelash Extension Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Eyelash Extension Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/nails">
+        <figure><img src="NailCourses.webp" alt="Nail Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Nail Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/hair-styling">
+        <figure><img src="HairstylingCourses.webp" alt="Hairstyling Courses at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Hairstyling Courses</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+      <a class="course" href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">
+        <figure><img src="WaxingCourse.webp" alt="Waxing Course at Tamarua Beauty Academy" loading="lazy" width="400" height="400"></figure>
+        <span class="course__veil"></span>
+        <div class="course__cap"><h3>Waxing Course</h3><span>Explore <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></span></div>
+      </a>
+    </div>
+
+    <div class="center btn-row" style="margin-top:clamp(34px,4vw,52px)">
+      <a class="btn btn--gold" href="#contact">Book A Free Consultation</a>
+      <a class="btn btn--ghost" href="/collections/tba-beauty-products">Shop Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SUCCESS STORY BAND ============================== -->
+<section class="band section" aria-labelledby="story-title">
+  <div class="shell">
+    <div class="band__grid">
+      <div>
+        <p class="eyebrow">Graduate spotlight</p>
+        <h2 class="h-lg" id="story-title">Success Story</h2>
+        <hr class="rule">
+        <p>We are thrilled to spotlight one of our incredible graduates, Ashleigh, who has truly made her mark in the beauty industry!</p>
+        <p>Ashleigh completed her hair apprenticeship with one of our esteemed former hairstyling trainers Elesha at @hairbyelesharae and both the beginners and advanced makeup courses at TBA. She also gained hands-on experience by participating in wedding expos with Maggie.</p>
+        <p>Ashleigh is the proud owner of @loveisinthehairbyashleigh where she works as a hairdresser in Hoppers Crossing part-time. She is also a full-time mobile hair stylist for weddings and events, and she operates a home studio, showcasing her versatility and dedication to her craft.</p>
+      </div>
+      <div>
+        <p>Currently, Ashleigh is busy freelancing for weddings and events, traveling all over Victoria to provide her amazing services.</p>
+        <p>Ashleigh's talent hasn't gone unnoticed! She recently secured 2nd place in the ABIA Bridal Hairstylist Award for Victoria 2024 and also achieved 2nd place in the WIA Award for Greater Melbourne 2024.</p>
+        <p>We couldn't be prouder of Ashleigh and all that she has accomplished since graduating from TBA. Her journey is a testament to the hard work and passion that drives our students to success!</p>
+        <p>Keep shining, Ashleigh! We can't wait to see what you achieve next! &#10024;</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell">
+      <div class="gallery">
+        <figure><img src="SuccessStory01.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1080" height="1080"></figure>
+        <figure><img src="SuccessStory02.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1179"></figure>
+        <figure><img src="SuccessStory03.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1179"></figure>
+        <figure><img src="SuccessStory04.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1179"></figure>
+        <figure><img src="SuccessStory05.webp" alt="Tamarua Beauty Academy graduate work" loading="lazy" width="1179" height="1178"></figure>
+      </div>
+  </div>
+
+  <div class="shell center btn-row" style="justify-content:center;margin-top:clamp(34px,4vw,50px)">
+    <a class="btn btn--ghost" href="#contact" style="--btn-fg:#3a2b1e;--btn-bd:#3a2b1e">Book A Free Consultation</a>
+  </div>
+</section>
+
+<!-- ============================== MAGGIE ============================== -->
+<section class="section" aria-labelledby="maggie-title">
+  <div class="shell">
+    <div class="split">
+      <div class="split__media split__media--frame">
+        <img src="Maggie.webp" alt="Maggie Tamarua, founder of Tamarua Beauty Academy" loading="lazy" width="599" height="763">
+      </div>
+      <div class="split__body">
+        <p class="eyebrow">Founder &amp; Head Trainer</p>
+        <h2 class="h-lg" id="maggie-title">Maggie Tamarua</h2>
+        <hr class="rule">
+        <p class="lede">Maggie is a renowned makeup artist and premier trainer with years of experience and a stellar industry reputation. She completed formal training with Napoleon in 2004 and has since excelled in the field. With a background in working for Napoleon and freelancing as a wedding makeup artist, Maggie has showcased her talent by creating stunning fashion looks for numerous red-carpet events.</p>
+        <p class="lede">Her work has been featured in prestigious publications like Vogue, Girlfriend Magazine, and Melbourne Bridal and Fashion World. Maggie's exceptional skills and dedication earned her the Makeup Artist of the Year ABIA Awards in both 2013 and 2014. As the founder of Tamarua Beauty Academy, which has been operating successfully for over 10 years, Maggie has led the school to a top 4 ranking in Australia.</p>
+        <p class="lede">Maggie's expertise, creativity, and industry recognition make her a standout figure in the world of makeup artistry and beauty.</p>
+        <div style="margin-top:30px">
+          <a class="link-arrow" href="/pages/our-teachers">Read More
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section class="section section--cream" aria-labelledby="testi-title">
+  <div class="shell">
+    <div class="center" style="margin-bottom:clamp(30px,3.5vw,48px)">
+      <p class="eyebrow">In their words</p>
+      <h2 class="h-lg" id="testi-title">Customer Testimonials</h2>
+      <hr class="rule rule--center">
+    </div>
+    <div class="tgrid">
+      <figure class="tcard" style="margin:0">
+        <div class="tcard__mark">&ldquo;</div>
+        <blockquote style="margin:0"><p>I have just completed the Pro Nail course and I loved every second of it!! Pamela, our teacher was so informative, patient and helpful throughout the whole course especially when we transitioned from in-class to online! The online sections were just like being in the classroom, with Pamela answering our questions during the live demos and providing us with helpful tips and tricks of the trade.</p></blockquote>
+        <figcaption><cite>Vivien Karmi</cite></figcaption>
+      </figure>
+      <figure class="tcard" style="margin:0">
+        <div class="tcard__mark">&ldquo;</div>
+        <blockquote style="margin:0"><p>Tamarua Beauty Academy is by far the best Academy. All the trainers are down to earth, friendly and approachable and they are all working in the field they teach. The content they teach is current, up to date and relevant to industry standards and professional expectations. The support the TBA provides during and post your course is invaluable. Second to none.</p></blockquote>
+        <figcaption><cite>Abc's Cruz</cite></figcaption>
+      </figure>
+      <figure class="tcard" style="margin:0">
+        <div class="tcard__mark">&ldquo;</div>
+        <blockquote style="margin:0"><p>I love this academy and I'm obsessed with them. The feedback you get after every class and the support you get is next level. You always get encouraged to keep going and make it far in the beauty industry. All the trainers are extremely talented at what they do and they teach you high standards so when you go into the industry alone you stand out from everyone.</p></blockquote>
+        <figcaption><cite>Katerina Mitrevska</cite></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STUDENT SUCCESS STORIES ============================== -->
+<section class="section" aria-labelledby="stories-title">
+  <div class="shell">
+    <div class="center" style="margin-bottom:clamp(32px,3.8vw,52px)">
+      <p class="eyebrow">Where our graduates are now</p>
+      <h2 class="h-lg" id="stories-title">Student Success Stories</h2>
+      <hr class="rule rule--center">
+    </div>
+    <div class="stories">
+      <article class="story">
+        <figure><img src="MARIA NASRALLAH.webp" alt="Maria Nasrallah — Tamarua Beauty Academy student success story" loading="lazy" width="400" height="400"></figure>
+        <h3>Maria Nasrallah</h3>
+        <p>Maria says that the education that she received at the Tamarua Beauty Academy was amazing, and certainly helped her succeed in many forms. One of them being having her work published in three overseas publications using the skills that she learnt at the academy as well as opportunities to do more editorial work.</p>
+        <a class="link-arrow" href="/pages/maria-nasrallah-student-success-story">Read More
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+      </article>
+      <article class="story">
+        <figure><img src="JOLIE NGUYEN.jpg" alt="Jolie Nguyen — Tamarua Beauty Academy student success story" loading="lazy"></figure>
+        <h3>Jolie Nguyen</h3>
+        <p>Jolie is a professional Hair &amp; Makeup Artist based in the West side of Melbourne. After 5 years free-lancing, she has gained valuable experience and confidence to run her own business as "Jolie Artistry". Her business is all about providing Hair styling and Makeup Service for all clients for different special occasions from weddings to private celebrations.</p>
+        <a class="link-arrow" href="/pages/copy-of-student-success-story-maria">Read More
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+      </article>
+      <article class="story">
+        <figure><img src="SARAH MEILAK.webp" alt="Sarah Meilak — Tamarua Beauty Academy student success story" loading="lazy" width="400" height="400"></figure>
+        <h3>Sarah Meilak</h3>
+        <p>Sarah is the owner of "Beauty By Sarah Meilak" from the western suburbs. She has a great range of different beauty services including eyelash extensions, facials, hair and makeup. She says she decided to learn through the Tamarua Beauty Academy because of their amazing reputation, the small class sizes, the hands-on-learning and the education that is provided.</p>
+        <a class="link-arrow" href="/pages/copy-of-student-success-story-jolie">Read More
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== NEWSLETTER ============================== -->
+<section class="section newsletter" aria-labelledby="news-title">
+  <div class="shell">
+    <p class="eyebrow" style="color:var(--gold)">Stay in the loop</p>
+    <h2 class="h-lg" id="news-title">Sign up today!</h2>
+    <hr class="rule rule--center">
+    <p>Subscribe to our newsletter for exclusive deals and early access.</p>
+    <form class="nform" action="#" method="post" novalidate>
+      <label for="news-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+      <input id="news-email" type="email" name="email" placeholder="Enter your email address..." required>
+      <button class="btn btn--gold" type="submit">Sign Up</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============================== CONTACT + MAP + FORM ============================== -->
+<section class="section section--cream" id="contact" aria-labelledby="contact-title">
+  <div class="shell">
+    <div class="contact__grid">
+
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 class="h-lg" id="contact-title">Visit the Academy</h2>
+        <hr class="rule">
+        <p class="lede">Have a question about a course, payment plans or start dates? Talk to our team &mdash; we're happy to help you find the right path into the beauty industry.</p>
+
+        <ul class="info-list">
+          <li>
+            <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.55 1 1 0 01-.24 1.05z"/></svg></span>
+            <div><h4>Phone</h4><a href="tel:0421864557">0421 864 557</a></div>
+          </li>
+          <li>
+            <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <div><h4>Email</h4><a href="mailto:info@tamaruabeautyacademy.com.au">info@tamaruabeautyacademy.com.au</a></div>
+          </li>
+          <li>
+            <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <div><h4>Studio</h4><a href="https://maps.google.com/?q=Building+8/36+Aylesbury+Dr,+Altona+VIC+3018" target="_blank" rel="noopener">Building 8/36 Aylesbury Dr,<br>Altona VIC 3018, Australia</a></div>
+          </li>
+          <li>
+            <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <div><h4>Opening Hours</h4><p>Monday &ndash; Saturday, by appointment<br>Course times vary by program</p></div>
+          </li>
+        </ul>
+
+        <div class="map">
+          <iframe
+            title="Map to Tamarua Beauty Academy, Building 8/36 Aylesbury Dr, Altona VIC 3018"
+            src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Building+8/36+Aylesbury+Dr,+Altona+VIC+3018&amp;z=14&amp;output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <form class="cform" action="#" method="post" novalidate>
+        <h3 class="h-md">Book A Free Consultation</h3>
+        <p style="color:var(--ink-soft);font-size:15px">Tell us a little about your goals and we'll be in touch.</p>
+
+        <div class="formrow">
+          <label class="field"><span>Full Name *</span><input type="text" name="name" required autocomplete="name"></label>
+          <label class="field"><span>Phone Number *</span><input type="tel" name="phone" required autocomplete="tel"></label>
+        </div>
+        <label class="field"><span>Email *</span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="field"><span>Course of Interest</span>
+          <select name="course">
+            <option value="">Please select&hellip;</option>
+            <option>Make Up Courses</option>
+            <option>Hairstyling Courses</option>
+            <option>Nail Courses</option>
+            <option>Eyelash Extension Courses</option>
+            <option>Barbering Course</option>
+            <option>Facial Course</option>
+            <option>Spray Tanning Course</option>
+            <option>Waxing Course</option>
+            <option>Master Classes</option>
+          </select>
+        </label>
+        <label class="field"><span>Message *</span><textarea name="message" required></textarea></label>
+
+        <button class="btn btn--gold" type="submit">Book A Free Consultation</button>
+        <p class="cform__note">We'll never share your details. By submitting you agree to our privacy policy.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+
+      <div class="footer__col footer__col--brand">
+        <h4>Tamarua Beauty Academy</h4>
+        <a class="brand footer__brand" href="/" style="text-align:left">
+          <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" alt="Tamarua Beauty Academy" data-logo>
+          <span class="brand__fallback"><b>Tamarua</b><span>Beauty Academy</span></span>
+        </a>
+        <p style="font-size:14px;line-height:1.8">Industry based beauty training in Melbourne since 2010. On-site and live-online short courses in makeup, hair, nails, lashes, barbering, facials, waxing and spray tanning.</p>
+        <ul class="socials" style="list-style:none;margin:20px 0 0;padding:0">
+          <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-facc>TBA Courses <span class="footer__acc"><svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg></span></h4>
+        <ul class="footer__menu">
+          <li><a href="/collections/makeup-courses">Make Up Courses</a></li>
+          <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+          <li><a href="/collections/nails">Nail Courses</a></li>
+          <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+          <li><a href="/products/barbering-on-site">Barbering Course</a></li>
+          <li><a href="/products/facial-course-on-site-facials">Facial Course</a></li>
+          <li><a href="/products/spray-tanning-on-site-1-day-course">Spray Tanning Course</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-facc>Why TBA <span class="footer__acc"><svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg></span></h4>
+        <ul class="footer__menu">
+          <li><a href="/pages/about-us">About TBA</a></li>
+          <li><a href="/pages/our-teachers">Our Teachers</a></li>
+          <li><a href="/pages/student-success-stories">Student Success Stories</a></li>
+          <li><a href="/pages/faqs">FAQ</a></li>
+          <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-facc>Customer Information <span class="footer__acc"><svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg></span></h4>
+        <ul class="footer__menu">
+          <li><a href="/pages/faqs">FAQ's</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/refund-policy">Refund Policy (Products Only)</a></li>
+          <li><a href="/policies/terms-of-service">Website Terms of Use</a></li>
+          <li><a href="/pages/contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0421864557">0421 864 557</a></li>
+          <li><a href="mailto:info@tamaruabeautyacademy.com.au">info@tamaruabeautyacademy.com.au</a></li>
+          <li>Building 8/36 Aylesbury Dr,<br>Altona VIC 3018</li>
+        </ul>
+        <img class="footer__pay" src="afterpay.webp" alt="Afterpay available" loading="lazy" width="937" height="327">
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p style="margin:0">&copy; <span id="year">2026</span> Tamarua Beauty Academy. All rights reserved.</p>
+      <p style="margin:0">Awarded Top 4 Education Facility in Australia &mdash; MAGAP (Asia Pacific)</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- logo fallback (if the CDN logo can't load, show the wordmark) ---------- */
+  document.querySelectorAll('[data-logo]').forEach(function(img){
+    img.addEventListener('error', function(){ img.closest('.brand').classList.add('is-fallback'); });
+    if (img.complete && img.naturalWidth === 0) img.closest('.brand').classList.add('is-fallback');
+  });
+
+  /* ---------- announcement close ---------- */
+  var ann = document.getElementById('announce');
+  document.getElementById('announceClose').addEventListener('click', function(){ ann.classList.add('is-hidden'); });
+
+  /* ---------- sticky header shadow ---------- */
+  var header = document.getElementById('header');
+  var onScroll = function(){ header.classList.toggle('is-stuck', window.scrollY > 12); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ---------- mobile drawer ---------- */
+  var burger = document.getElementById('burger'),
+      drawer = document.getElementById('drawer'),
+      scrim  = document.getElementById('scrim');
+
+  function setDrawer(open){
+    drawer.classList.toggle('is-open', open);
+    scrim.classList.toggle('is-open', open);
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){ setDrawer(!drawer.classList.contains('is-open')); });
+  scrim.addEventListener('click', function(){ setDrawer(false); });
+  document.getElementById('drawerClose').addEventListener('click', function(){ setDrawer(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setDrawer(false); });
+  drawer.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(){ setDrawer(false); }); });
+
+  /* ---------- drawer accordion ---------- */
+  drawer.querySelectorAll('[data-acc]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var sub = btn.nextElementSibling, open = sub.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.querySelector('svg').style.transform = open ? 'rotate(180deg)' : '';
+    });
+  });
+
+  /* ---------- footer accordions (mobile) ---------- */
+  document.querySelectorAll('[data-facc]').forEach(function(h){
+    h.addEventListener('click', function(){
+      if (window.matchMedia('(min-width:861px)').matches) return;
+      var list = h.nextElementSibling, open = list.classList.toggle('is-open');
+      h.querySelector('svg').style.transform = open ? 'rotate(180deg)' : '';
+    });
+  });
+
+  /* ---------- read more ---------- */
+  var rm = document.getElementById('readmore'), rmBtn = document.getElementById('readmoreBtn');
+  rmBtn.addEventListener('click', function(){
+    var open = rm.classList.toggle('is-open');
+    rmBtn.setAttribute('aria-expanded', String(open));
+    rmBtn.querySelector('span').textContent = open ? 'Read Less' : 'Read More';
+    rmBtn.querySelector('svg').innerHTML = open ? '<path d="M1 6h10"/>' : '<path d="M6 1v10M1 6h10"/>';
+    if (!open) rm.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  /* ---------- Google reviews marquee (right → left) ---------- */
+  var REVIEWS = [
+    {n:"Qurat ul ain siddiqui", t:"2 months ago", b:"I had a wonderful experience at this makeup institute. Maggie was an amazing trainer — very talented, supportive, patient, and passionate about teaching. Her way of explaining makeup techniques was professional, creative, and easy to understand, which made learning enjoyable and inspiring. The classes were hands-on, well organised, and helped me improve my confidence and skills in both makeup and hairstyling. Maggie always encouraged students to do their best and created a welcoming learning environment. I would highly recommend this institute to anyone wanting to build a career in makeup, beauty, or hairstyling. It's a great place to learn, grow, and express creativity."},
+    {n:"Anuradha Dharmadasa", t:"4 months ago", b:"I recently completed both the Nail and Makeup courses at Tamarua Beauty Academy, and I honestly couldn't be happier with my experience. Both courses were absolutely amazing and exceeded my expectations. The Nail course, taught by Thea, was so well structured. She is patient, supportive, and incredibly talented. I learned so much and felt confident every step of the way. The Makeup course with Maggie was just as incredible. She is knowledgeable, passionate, and made every lesson enjoyable and easy to follow. I've gained so many new skills that I can now confidently use. Thanks to this amazing training, I now run my own nail studio and hope to start makeup services as well very soon. A huge thank you to Thea and Maggie for their guidance, encouragement, and dedication. You both made this journey so special for me. I highly recommend Tamarua Beauty Academy to anyone who wants to start or grow in the beauty industry. Truly a wonderful learning experience!"},
+    {n:"Apoorva Bhardwaj", t:"5 months ago", b:"I'm so grateful for my experience with Maggie at Tamarua Beauty School 💖 From the moment I started, Maggie was incredibly kind, supportive, and genuinely passionate about teaching. She creates such a welcoming environment that makes learning feel easy and enjoyable. This has honestly been the best beauty school I've attended. Maggie's knowledge is amazing — she explains everything so clearly and shares real, practical insights from the industry. I also loved that we worked with current, market-relevant products, which made the training feel very up-to-date and valuable. I had the best time learning makeup here, and I'm so glad I chose Tamarua Beauty School. I would highly recommend it to anyone looking to start or grow their journey in the beauty industry ✨"},
+    {n:"Ashleigh Conibeer", t:"4 months ago", b:"Maggie was incredible and an exceptional teacher! I learn best through observation, and this course was ideal for me. Since completing it, I've had numerous work experience opportunities. I now run my own successful business and have received several awards in the industry. I've also connected with many wonderful students through TBA, and we collaborate now! I highly recommend this course."},
+    {n:"kamal preet", t:"10 months ago", b:"I recently completed the makeup and hairstyling course at Tamarua Beauty Academy, and I must say, it was an incredible experience! I drove almost two hours each way from Rye for nearly three months, and it was absolutely worth it. Despite having closer academies, I knew this was the right place for me. A huge thank you to Maggie for her patience and exceptional skill level. The way she runs the business is truly impressive – she's a boss in every sense of the word! Additionally, my trainers, Maggie and Cassie, were both amazing and incredibly supportive throughout the course. For anyone considering a career in beauty, I highly recommend this school. I loved every moment of my time here! I also appreciated the flexibility they offered, especially when there were times I couldn't make it. They were more than accommodating, providing live streams and allowing me to come back to finish off classes. Thank you, thank you, thank you to everyone at Tamarua Beauty Academy!"},
+    {n:"Jacqueline Mercieca", t:"a year ago", b:"Just attended Tamarua beauty academy with my daughter for a mum /tween make up class. We had such a fun and interactive experience. Maggie is so talented and educated in all things beauty! This is definitely a MUST do with your daughters, my daughter was totally in her element there today. Highly recommend giving Maggie a visit!"},
+    {n:"Jordon Beckwith", t:"3 months ago", b:"My daughter did the tweens holiday course and had a great time, and learnt a lot from Maggie. She wants to do more courses and continue to learn from Maggie at Tamarua Beauty Academy"},
+    {n:"Sedra", t:"9 months ago", b:"I honestly can't say enough good things about Tamaru Beauty Academy and my amazing trainer, Maggie! From the moment I walked in, I felt welcomed, supported, and truly cared for. Maggie isn't just a trainer — she's a mentor, a cheerleader, and a true inspiration. She teaches with so much passion and patience, and she makes sure every single student understands and feels confident before moving on. Her positive energy and kindness made every class something to look forward to. She always took the time to guide me, encourage me, and push me to believe in myself. Because of her, I've grown so much — not just in my skills, but in my confidence too. Tamaru Beauty Academy has such a warm, friendly atmosphere, and Maggie makes it feel like a family. I'm so grateful for everything I've learned and for the love and support I've received. Thank you, Maggie, for being such a beautiful soul and an incredible trainer. You've truly changed my journey for the better! 💕✨"},
+    {n:"Candice", t:"9 months ago", b:"At Tamara Academy, you truly get a one-stop experience for all your beauty courses. From the very first phone call with Maggie, her warm and welcoming voice reassured me that I had found the right place. When I arrived at her studio, the beauty and calming atmosphere instantly took my breath away. Maggie is incredibly kind, easy to talk to, and patiently listens to and answers every question. Because of her in professionalism and genuine care, I decided to complete four courses with her: Lash Extensions, Facials, Makeup, and Nail Technology. Her teachers are also wonderful—supportive, knowledgeable, and friendly. Thank you, Maggie 💖 I am truly grateful for the amazing experience."},
+    {n:"Jess Carolina", t:"9 months ago", b:"Thank you Maggie for such an amazing experience during the makeup course! Over the past few weeks, I've learned so much from Maggie. She is honestly the sweetest, kindest, and most supportive, always taking the time to answer all of my questions and share her insights. I've grown so much in confidence and skill thanks to Maggie. I couldn't recommend Maggie enough to anyone wanting to start their makeup journey!"},
+    {n:"essra hammoud", t:"10 months ago", b:"I had the best experience at Tamaru Beauty Academy! The makeup course was so detailed and hands-on — I learned everything from basic techniques to advanced glam looks. The trainers were patient, professional, and truly passionate about what they do. The atmosphere was friendly and motivating, and I left feeling confident in my skills. Highly recommend it to anyone who wants to start a career in makeup or just improve their artistry!"},
+    {n:"Gabby Lizzy", t:"a year ago", b:"I have been wanting to attend this school for a very long time, and I'm thrilled they recently added day makeup courses! I recently completed the Express Day Makeup Course, which runs two days a week over four weeks, and it has been an amazing experience. Maggie, our instructor, is one of the best in the industry. Her knowledge and expertise have taught me so much, and her passion for makeup truly shines through in her teaching. I feel incredibly inspired and excited to open my own business in the future. I can't wait to return to take the Hair Course soon! Thank you for such a fantastic learning opportunity!"},
+    {n:"Marisa Torrealba", t:"a year ago", b:"I absolutely love Tamarua Beauty Academy! I began my journey here in 2017 with the makeup course and recently returned to complete facials and waxing to enhance my business. My kids have also taken several courses, and my husband just finished the barbering course. The trainers are exceptional, and the atmosphere is fantastic. Maggie and the team have always been incredibly accommodating and supportive. I highly recommend this school for anyone looking to grow their skills!"},
+    {n:"Antoinette Azzopardi", t:"a year ago", b:"I have been a model at Tamarua Beauty Academy several times, and my daughter has taken a few courses as well. The atmosphere is always friendly, the team are amazing and incredibly knowledgeable. Maggie, the owner, has gone above and beyond …"},
+    {n:"Briana MacDonald", t:"a year ago", b:"Just wrapped up the 12 week Pro Nails Course at the TBA and it was such a great experience! The in-person learning was super practical and really engaging, and our teacher Lily was super warm - so encouraging, patient, and knowledgeable. Big shout out to Maggie, the founder, for creating such a supportive and empowering space. I left feeling confident, inspired, and ready to start my nail journey. Highly recommend to anyone keen to level up their skills in a fun, supportive environment!"},
+    {n:"Alessia Ferrante", t:"9 months ago", b:"I've learnt so much from Maggie at Tamarua Beauty Academy, and I honestly couldn't recommend her enough! She's such a sweet, professional, and passionate teacher who truly loves what she does. You can tell right away how knowledgeable she is — from explaining looks to products and more! What I loved most is how supportive she is — she's your ultimate hype woman! She makes you feel confident in your work, even when you're still learning, and creates such a positive, encouraging environment in class. Every lesson was fun, hands-on, and filled with useful tips and tricks that I'll carry with me forever. If you're thinking about studying makeup, this is the place to do it. I walked away not just with new skills, but with real confidence and excitement to start my journey in the beauty world!"},
+    {n:"Brianna Brooksby", t:"8 months ago", b:"Maggie & Lily are genuinely the most loveliest people I've ever met, they are so encouraging with everything. I couldn't recommend going here enough !! I just finished my 12 week nail course & they were able to accommodate to me & my plans when I was going away. Thank you Maggie & lily I hope to see you again next year🥹💞💞"},
+    {n:"Gonz Torrealba", t:"a year ago", b:"I did my barbering course at Tamarua beauty academy. The course was fantastic and the team looked after us and provided all their knowledge. Maggie is the best, very welcoming and always with a smile on her face, she is always willing to help. All my family has now done courses at Tamarua and will not hesitate in recommending Tamarua to anyone who is willing to get an exceptional experience."},
+    {n:"Louise Chapman", t:"a year ago", b:"I cannot recommend Tamarua Beauty Academy enough! I trained with Maggie in make up all the way back in 2018 and hair 2020/2021. I have a successful freelance business with returning clients. Still until this year (2025) do I get support from my trainers and encouragement! For me this is a vital role in my success (as I can often feel that I am not good enough) Their support gives me the will to continue in the field and so I continue to improve by practise. This has a business owner that cares, and this shows in everything, from the detailing in the course, the building which feels warm and is beautifully styled, to the great communication and not to mention the way i was taught! I often found myself smiling because Maggie is so funny which also keeps the anxiety levels down if you are a perfectionist like me!. Thank you for all you do!"},
+    {n:"Devorah Grinblat", t:"a year ago", b:"I have been a two time student at Tamarua Beauty Academy because I absolutely loved the first course so much! I have done facials, and am currently completing the nail course and am thoroughly enjoying it. The teachers are lovely, skilled and caring and will answer any questions I have. The learning environment is super positive and enjoyable. I found that Tamarua go above and beyond other training institutions as they offer in person training, which is rare to find in this new age online environment. Being able to do in person classes means I can be more hands on and learn with teachers there in person for guidance and to see my work and skill development. I highly recommend this beauty academy to anyone looking to upskill!"},
+    {n:"Mary Monaco", t:"a year ago", b:"I can't say enough amazing things about Tamarua Beauty Academy! From the moment I walked through the doors, I felt welcomed, empowered, and inspired. The educators are not only incredibly knowledgeable and experienced, but they genuinely care about each student's growth and success. The curriculum is top-tier—modern, hands-on, and aligned with current industry trends. Whether you're pursuing a career in hair, makeup, spray tanning, barbering, nails, this academy gives you everything you need to thrive in the beauty industry. The facilities are state-of-the-art, and the real-world training opportunities gave me the confidence to start working with clients even before graduation. What truly sets this academy apart is the supportive, positive environment. It's more than a school—it's a community. I left with lifelong skills, a strong portfolio, and connections that continue to help me in my career. If you're serious about turning your passion into a profession, Tamarua Beauty Academy is the place to be. It changed my life, and I know it can do the same for you!"},
+    {n:"Lili O", t:"2 years ago", b:"I recently completed the professional makeup course, and it exceeded all my expectations! The curriculum was well-structured, covering everything from foundational techniques to advanced artistry. My instructor Maggie who is also the academy founder was not only knowledgeable but also incredibly supportive, offering personalized feedback and sharing industry secrets that you can't find in textbooks. The hands-on practice sessions were invaluable, allowing me to refine my skills with real-time guidance. I particularly appreciated the focus on both creativity and precision, which has given me the confidence to pursue my passion for makeup professionally. The course also provided great insights into the business side of the industry, which was a fantastic bonus. I now feel well-equipped to build a successful career in makeup artistry. I highly recommend this course to anyone serious about taking their makeup skills to the next level!"},
+    {n:"Manjeet Vishal", t:"a year ago", b:"I have been attending Tamarua Beauty Academy for the past three months, and I couldn't be happier with my experience! I've already booked several additional courses and plan to continue my education here for the next year. The teachers are incredibly friendly and approachable, making it easy to learn and grow. I've gained so much knowledge during my time here, and I'm excited to further my education and eventually open my own business. One of the things I love most about the academy is the TBA Alumni page. It's a fantastic resource where I can ask as many questions as I want, and I also receive valuable business advice to help set me up for the future. Overall, I feel supported and empowered on my journey, and I can't wait to see where this education takes me!"},
+    {n:"Kaylan Oz", t:"2 years ago", b:"I honestly couldn't recommend The Tamarua Beauty Academy enough! I recently completed the Beginners Makeup Course and the Advanced/Pro Makeup course and genuinely gained so much confidence and technique all thanks to Maggie and the amazing teachers at TBA. The Owner Maggie goes above and beyond for her students, ensuring that they are well prepared for once they finish the course and continues to assist them long after the course is finished. I'm so so grateful that I Found TBA and would definitely recommend it to anyone looking to get into the industry."},
+    {n:"Talwinder Sambi", t:"2 years ago", b:"TBA is honestly the place to be n learn all the beauty skills. I did the make up n lash extensions course n I had the best time, Maggie was really good n helpful n taught me heaps of skills. I did the make up course couple years ago n I still remember the things Maggie taught me n those skill has come really handy. I just finished my lash course n it was really good, enjoyed it a lot n it was very hands on. Maggie's just the best n would highly recommend doing your course at TBA."},
+    {n:"inder gill", t:"a year ago", b:"I did nail tech course at TBA. I loved the course and Really happy with all the guides through the course, learnt so many things that I didn't know and looking forward to starting my own business soon . Thank you very much."},
+    {n:"Tina Stent", t:"a year ago", b:"I have had the pleasure of dealing with Maggie from a professional and personal perspective for over 10 years. She is not only a talented and renowned make-up artist but also an amazing teacher. Her courses are perfect for those looking to enter the industry as their own business or as someone who wants to have the knowledge and skills to be able to self apply make-up professionally...either way engaging Maggie will be a rewarding and positive experience."},
+    {n:"Saima Tariq", t:"2 years ago", b:"I have successfully earned both beginner and advanced certificates in all three courses offered at Tamara Beauty Academy: makeup, facials, and hairstyling. My journey at this academy has spanned nearly seven enriching months, during which I've had the pleasure of forming meaningful connections with not only my director, Maggie, but also with the entire faculty, Jodie and Casey. I consider enrolling here one of the best decisions I've ever made, given the exceptional learning experience it has provided me. Throughout these courses, I have acquired a wealth of knowledge encompassing both fundamental principles and cutting-edge techniques that align perfectly with today's beauty trends and consumer preferences. For anyone harbouring an interest in the world of beauty, I encourage them to consider pursuing their certification through Tamarua Beauty Academy. In my opinion, there exists no better academy that offers such a diverse range of courses while fostering a supportive community of passionate individuals. Tamara Beauty Academy has truly provided me with the best hands-on experience, and I am immensely grateful for the opportunity to learn and grow here."}
+  ];
+
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg>';
+
+  function card(r){
+    var el = document.createElement('article');
+    el.className = 'rcard';
+    var initial = (r.n.trim()[0] || 'T').toUpperCase();
+    el.innerHTML =
+      '<div class="rcard__top">' +
+        '<span class="rcard__avatar" aria-hidden="true">' + initial + '</span>' +
+        '<div class="rcard__who">' +
+          '<div class="rcard__name"></div>' +
+          '<div class="rcard__when"></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="stars" role="img" aria-label="Rated 5 out of 5 stars">' + STAR.repeat(5) + '</div>' +
+      '<p class="rcard__body"></p>';
+    el.querySelector('.rcard__name').textContent = r.n;
+    el.querySelector('.rcard__when').textContent = r.t;
+    el.querySelector('.rcard__body').textContent = r.b;
+    return el;
+  }
+
+  var track = document.getElementById('marqueeTrack');
+  // Two identical passes so the -50% keyframe loops seamlessly.
+  for (var pass = 0; pass < 2; pass++){
+    REVIEWS.forEach(function(r){
+      var node = card(r);
+      if (pass === 1) node.setAttribute('aria-hidden','true');
+      track.appendChild(node);
+    });
+  }
+  // Pace the scroll by content width so speed stays constant regardless of card count.
+  requestAnimationFrame(function(){
+    var w = track.scrollWidth / 2;
+    track.style.animationDuration = Math.round(w / 55) + 's'; // ~55px per second
+  });
+
+})();
+</script>
+</body>
+</html>
