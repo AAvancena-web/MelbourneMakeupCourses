@@ -367,6 +367,41 @@ which are all `--tba-` prefixed.
 
 ---
 
+## Theme Check
+
+`layout/theme.liquid` in this folder is clean under Theme Check. Two findings
+that fire on the stock Turbo layout are dealt with here, and it is worth
+knowing why each was handled the way it was.
+
+**`LiquidHTMLSyntaxError` — "Attempting to end parsing before HtmlRawNode
+'script' was closed".** Shopify's LiquidHTML parser ends a `<script>` raw node
+at any `<` followed by a letter or slash, and Turbo's inlined lazysizes has
+eight comparisons that look like tag openings (`i<H.minSize`, `n<s`, `e<t`).
+Browsers are unaffected — script raw text ends only at `</script` — but the
+parse failure stops every other check from running on the file. Fixed by
+spacing the comparison operators (`i< H.minSize`) and, where the `<` sits
+inside a string, escaping it as `\x3C` so the string's value is unchanged.
+
+**`ParserBlockingScript`** fired on three `<script src>` tags, none of them the
+redesign's. Adding `defer` is not uniformly safe, so they are split:
+
+| Tag | Handling |
+|---|---|
+| Shopify's `/services/javascripts/currencies.js` | Rule disabled around it. Turbo loads it synchronously so the `Currency` global exists for `js-variables` and `app.js`. |
+| Afterpay's `shopify-afterpay-javascript.js` | Rule disabled around it. It is the payment vendor's own snippet, shipped without `defer`. |
+| jQuery 3.6.0 from `code.jquery.com` | **Removed.** It was a second copy of jQuery on top of the theme's own, replacing the global `$` after Turbo had set it up. The one snippet that used it now runs on `DOMContentLoaded`, by which point the theme's deferred jQuery has executed. |
+
+The rule is silenced with `{% # theme-check-disable ParserBlockingScript %}` /
+`{% # theme-check-enable ParserBlockingScript %}` around those two vendor tags
+rather than globally, so a genuinely blocking script added later still gets
+flagged.
+
+**`HardcodedRoutes`** warnings remain in `tba-header.liquid` — the mega menu
+links to specific collections and products that the `routes` object cannot
+express. Intentional.
+
+---
+
 ## Notes
 
 - `tba-redesign.js` is idempotent and re-runs on `page:load` (Turbo's
