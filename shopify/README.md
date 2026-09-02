@@ -468,6 +468,9 @@ background band and anchor (`#book` and `#booking`).
 
 ### Publishing them
 
+[INSTALL-PAGES.md](INSTALL-PAGES.md) is the full checklist — which files to
+upload where, in order, and what to test afterwards. The short version:
+
 1. **Online Store → Pages → Add page.** Title it *Bridal Enquiry*, leave the
    body empty, and under **Theme template** choose `tba-bridal`. Save.
 2. Repeat for *Spray Tanning* with the `tba-spray-tan` template, and for
