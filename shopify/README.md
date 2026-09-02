@@ -393,9 +393,10 @@ forms show their success line after either is submitted.
 with the form section switched between its two layouts. All the copy is in the
 templates, so both pages are fully editable from the theme editor.
 
-**Bridal Enquiry** runs seven sections: image hero → Meet Maggie → The Bridal
-Experience (four steps) → Packages & Booking → Recent Work gallery → FAQ →
-the bridal form. **Makeup and Tan Services** runs three: page intro → service
+**Bridal Enquiry** runs seven sections: image hero → The Bridal Experience
+(four steps) → Packages & Booking → Recent Work gallery → FAQ → Meet Maggie →
+the bridal form. Backgrounds alternate so no two neighbouring sections share
+one. **Makeup and Tan Services** runs three: page intro → service
 cards and policy panels → the standard form.
 
 > **Draft copy to approve.** The steps, the "What's Included" list and the six
@@ -404,9 +405,12 @@ cards and policy panels → the standard form.
 > cancellation terms all come from the brief and are accurate. Read the drafts
 > before publishing.
 
-> **Portfolio images are placeholders.** The Recent Work grid uses existing
-> photos from the site's own library. Swap them for Maggie's bridal portfolio
-> — each one is an image block in the theme editor.
+> **Portfolio images are placeholders.** The Recent Work grid uses the most
+> bridal-looking photos already in the site's library — a soft-glam updo, a
+> luminous nude-lip look, a natural smoky eye and a classic red lip. They are
+> stand-ins for Maggie's bridal portfolio; each is an image block in the theme
+> editor, so swapping them is four clicks. The graduate award photos were
+> deliberately left out: they show another artist's work.
 
 ### Publishing them
 

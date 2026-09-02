@@ -155,28 +155,28 @@
         "image-1": {
           "type": "image",
           "settings": {
-            "fallback": "tba-makeupcourses.webp",
+            "fallback": "tba-hairstylingcourses.webp",
             "width": "400",
             "height": "400",
-            "alt": "Soft glam bridal makeup with a luminous skin finish"
+            "alt": "Bridal updo with soft glam makeup and a defined eye"
           }
         },
         "image-2": {
           "type": "image",
           "settings": {
-            "fallback": "tba-hairstylingcourses.webp",
+            "fallback": "tba-eyelashextensioncourses.webp",
             "width": "400",
             "height": "400",
-            "alt": "Bridal updo with a smoky eye and defined brow"
+            "alt": "Soft bridal makeup with a luminous skin finish and nude lip"
           }
         },
         "image-3": {
           "type": "image",
           "settings": {
-            "fallback": "tba-eyelashextensioncourses.webp",
+            "fallback": "tba-makeupcourses.webp",
             "width": "400",
             "height": "400",
-            "alt": "Close detail of lash work and a nude lip"
+            "alt": "Natural bridal makeup with a warm smoky eye"
           }
         },
         "image-4": {
@@ -185,7 +185,7 @@
             "fallback": "tba-banner.webp",
             "width": "1000",
             "height": "500",
-            "alt": "Bridal party hair and makeup in the studio"
+            "alt": "Evening bridal look with a classic red lip"
           }
         }
       },
@@ -265,7 +265,7 @@
         "heading": "Bridal Enquiry",
         "subheading": "Please provide the below information to receive Maggie's bridal offerings and book a consultation.",
         "anchor": "enquire",
-        "background": "tba-section--blush",
+        "background": "tba-section--cream",
         "button": "Send Bridal Enquiry",
         "note": "We'll only use your details to reply to your enquiry. Bridal bookings can be cancelled up to 7 days before the appointment for a 12-month credit.",
         "success": "Thank you — your enquiry is on its way. Maggie will be in touch shortly with her bridal offerings.",
@@ -278,11 +278,11 @@
   },
   "order": [
     "hero",
-    "maggie",
     "steps",
     "packages",
     "gallery",
     "faq",
+    "maggie",
     "form"
   ]
 }
