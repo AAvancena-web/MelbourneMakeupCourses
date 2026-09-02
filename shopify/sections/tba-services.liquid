@@ -21,7 +21,7 @@
 
     {%- assign services = section.blocks | where: "type", "service" -%}
     {%- if services.size > 0 -%}
-      <div class="tba-svc">
+      <div class="tba-svc{% if s.columns == '3' %} tba-svc--3{% endif %}">
         {%- for block in services -%}
           {%- assign b = block.settings -%}
           <article class="tba-svc__card" {{ block.shopify_attributes }}>
@@ -85,7 +85,7 @@
 {% schema %}
 {
   "name": "TBA services",
-  "max_blocks": 8,
+  "max_blocks": 14,
   "settings": [
     {
       "type": "text",
@@ -107,6 +107,22 @@
       "id": "anchor",
       "label": "Anchor id",
       "info": "Lets a button link to this section, e.g. book."
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Cards per row",
+      "options": [
+        {
+          "value": "2",
+          "label": "Two"
+        },
+        {
+          "value": "3",
+          "label": "Three"
+        }
+      ],
+      "default": "2"
     },
     {
       "type": "select",

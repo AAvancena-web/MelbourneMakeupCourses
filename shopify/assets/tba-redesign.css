@@ -660,6 +660,23 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   text-transform:uppercase;margin-bottom:14px}
 .tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
 
+/* ---------- testimonial quotes ---------- */
+.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:clamp(20px,2.4vw,34px)}
+.tba-quote{
+  display:flex;flex-direction:column;position:relative;
+  padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
+.tba-quote::before{
+  content:"\201C";position:absolute;top:14px;right:24px;
+  font-family:var(--tba-serif);font-size:86px;line-height:1;color:rgba(220,162,119,.26)}
+.tba-quote .tba-stars{margin-bottom:20px}
+.tba-quote blockquote{margin:0 0 26px;font-size:16.5px;line-height:1.9;color:var(--tba-ink-soft);flex:1}
+.tba-quote figcaption{border-top:1px solid var(--tba-line);padding-top:20px}
+.tba-quote cite{
+  display:block;font-style:normal;font-family:var(--tba-sans);font-size:13px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--tba-black)}
+.tba-quote span{display:block;margin-top:7px;font-size:14px;color:var(--tba-ink-mute)}
+@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}}
+
 /* ---------- image gallery ---------- */
 .tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
 .tba-gallery figure{margin:0;overflow:hidden;background:var(--tba-mist);position:relative}
@@ -784,6 +801,8 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 /* ---------- service cards ---------- */
 .tba-svc{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:clamp(20px,2.4vw,34px)}
+.tba-svc--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1024px){.tba-svc--3{grid-template-columns:repeat(2,1fr)}}
 .tba-svc__card{
   display:flex;flex-direction:column;padding:clamp(30px,3vw,46px);
   background:#fff;border:1px solid var(--tba-line);position:relative

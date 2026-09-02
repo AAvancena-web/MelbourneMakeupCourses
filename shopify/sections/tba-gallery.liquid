@@ -48,9 +48,16 @@
     </div>
   {%- endif -%}
 
-  {%- if s.note != blank -%}
+  {%- if s.note != blank or s.cta_label != blank -%}
     <div class="tba-shell">
-      <p class="tba-lede tba-center" style="margin-top:26px;font-size:14.5px">{{ s.note }}</p>
+      <div class="tba-center" style="margin-top:clamp(28px,3.2vw,46px)">
+        {%- if s.cta_label != blank -%}
+          <a class="tba-btn tba-btn--gold" href="{{ s.cta_url | default: '#enquire' }}">{{ s.cta_label }}</a>
+        {%- endif -%}
+        {%- if s.note != blank -%}
+          <p class="tba-lede" style="margin-top:18px;font-size:14.5px">{{ s.note }}</p>
+        {%- endif -%}
+      </div>
     </div>
   {%- endif -%}
 </section>
@@ -75,6 +82,21 @@
       "type": "textarea",
       "id": "lede",
       "label": "Intro line"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "Button link",
+      "default": "#enquire"
     },
     {
       "type": "text",

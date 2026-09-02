@@ -40,6 +40,7 @@ sections/
   tba-steps.liquid          numbered process steps (CSS counters)
   tba-gallery.liquid        image grid, 2/3/4 columns
   tba-faq.liquid            accordion built on <details> — no JavaScript
+  tba-testimonials.liquid   three quote cards with stars
 snippets/
   tba-image.liquid      image with theme-editor picker + bundled fallback
   tba-logo.liquid       shared brand lockup
@@ -394,8 +395,9 @@ with the form section switched between its two layouts. All the copy is in the
 templates, so both pages are fully editable from the theme editor.
 
 **Bridal Enquiry** runs seven sections: image hero → Recent Work (a sliding
-ribbon) → Packages & Booking → The Bridal Experience (four steps) → Meet
-Maggie → FAQ → the bridal form. Backgrounds alternate so no two neighbouring
+ribbon, with an Enquire button under it) → Packages & Booking → What Brides
+Say → Meet Maggie → FAQ → the bridal form. `tba-steps` is still in the pack
+and available as a preset, it is just not on this page any more. Backgrounds alternate so no two neighbouring
 sections share one.
 
 `tba-gallery` has two layouts. **Grid** is the default. **Sliding row** turns
@@ -413,11 +415,19 @@ on; the other backgrounds stay flat. The **Ornament line** setting puts a small
 gold rule and symbol above the heading. **Makeup and Tan Services** runs three: page intro → service
 cards and policy panels → the standard form.
 
-> **Draft copy to approve.** The steps, the "What's Included" list and the six
-> FAQ answers on the bridal page are drafts written around the brief, not
-> supplied text. The award credits, the $1200 starting price and the 7-day
-> cancellation terms all come from the brief and are accurate. Read the drafts
-> before publishing.
+> **Draft copy to approve.** Packages & Booking now carries three package
+> cards and six detail panels — trial, travel, on-the-day, deposits,
+> cancellations — and the six FAQ answers sit below. Only the award credits,
+> the $1200 starting price and the 7-day cancellation terms come from the
+> brief; everything else is draft written around it, including package names,
+> what each tier covers, the trial timing and the travel policy. It is
+> structure for a real person to fill, not fact.
+
+> **The three testimonials say PLACEHOLDER on purpose.** They are layout
+> filler, not reviews. Publishing invented testimonials is a straightforward
+> breach of Australian Consumer Law, so the placeholder text is written to be
+> impossible to miss. Replace all three with real quotes, or delete the
+> section, before this page goes live.
 
 > **The bridal photos are samples, and cannot go live as they are.** The hero
 > and the 20-image Recent Work grid use reference photos supplied for layout,

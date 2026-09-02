@@ -59,85 +59,106 @@
         "credential-4"
       ]
     },
-    "steps": {
-      "type": "tba-steps",
-      "settings": {
-        "eyebrow": "How it works",
-        "heading": "The Bridal Experience",
-        "lede": "From first enquiry to the last photograph, every step is planned so your morning stays calm.",
-        "background": "tba-section--cream",
-        "anchor": "experience"
-      },
-      "blocks": {
-        "step-1": {
-          "type": "step",
-          "settings": {
-            "title": "Enquire",
-            "text": "Send through your date, venue and the size of your bridal party. You'll receive Maggie's full bridal offerings and availability by return."
-          }
-        },
-        "step-2": {
-          "type": "step",
-          "settings": {
-            "title": "Consultation",
-            "text": "We talk through your dress, flowers, hair and the mood you're after, so the look belongs to the whole day and not just the face."
-          }
-        },
-        "step-3": {
-          "type": "step",
-          "settings": {
-            "title": "Trial",
-            "text": "A relaxed sitting to test and refine the look, photograph it in daylight, and agree the finish you'll wear down the aisle."
-          }
-        },
-        "step-4": {
-          "type": "step",
-          "settings": {
-            "title": "Wedding Morning",
-            "text": "Maggie arrives on schedule with a timeline built around your photographer and ceremony, and keeps the room calm from first face to last."
-          }
-        }
-      },
-      "block_order": [
-        "step-1",
-        "step-2",
-        "step-3",
-        "step-4"
-      ]
-    },
     "packages": {
       "type": "tba-services",
       "settings": {
         "eyebrow": "Investment",
         "heading": "Packages & Booking",
-        "lede": "Packages start from $1200. Enquire to receive Maggie's full bridal offerings and book a consultation.",
+        "lede": "Packages start from $1200. Enquire to receive Maggie's full bridal offerings, current availability and a quote built around your day.",
         "background": "",
         "anchor": "packages",
         "cta_label": "Enquire Now",
         "cta_url": "#enquire",
-        "cta_note": ""
+        "cta_note": "Every quote is tailored — party size, location and timings all shape the final price.",
+        "columns": "3"
       },
       "blocks": {
+        "service-1": {
+          "type": "service",
+          "settings": {
+            "title": "The Bride",
+            "price": "From $1200",
+            "duration": "Bride only",
+            "description": "Consultation, trial and wedding-morning makeup for the bride. Skin prep, long-wear products, false lashes and a finish built for a full day of photography."
+          }
+        },
+        "service-2": {
+          "type": "service",
+          "settings": {
+            "title": "Bride & Party",
+            "price": "On enquiry",
+            "duration": "Bride + attendants",
+            "description": "Everything in The Bride, plus makeup for bridesmaids, mothers and anyone else getting ready with you, on a timeline agreed ahead of the morning."
+          }
+        },
+        "service-3": {
+          "type": "service",
+          "settings": {
+            "title": "Trial",
+            "price": "Included",
+            "duration": "Allow 90 minutes",
+            "description": "A relaxed sitting to test and refine the look, photograph it in daylight and agree the finish you'll wear down the aisle."
+          }
+        },
         "panel-1": {
           "type": "panel",
           "settings": {
             "heading": "What's Included",
             "style": "solid",
-            "items": "- A personal consultation to plan your look around your dress, hair and the day's schedule.\n- Skin prep and long-wear products chosen for a full day of photography.\n- False lashes and a finish built to last from getting ready to the last dance.\n- A running order agreed with you and your photographer ahead of the morning."
+            "items": "- Personal consultation to plan the look around your dress, hair and schedule.\n- Skin prep with long-wear products chosen for a full day of photography.\n- False lashes, individual or strip, to suit your eye shape.\n- A running order agreed with you and your photographer before the morning.\n- Touch-up guidance so you can keep the look fresh through the day."
           }
         },
         "panel-2": {
           "type": "panel",
           "settings": {
-            "heading": "Deposits & Cancellations",
+            "heading": "The Trial",
             "style": "solid",
-            "items": "- A deposit secures your date; the balance is payable ahead of the day.\n- Cancel at least 7 days before the appointment and your deposit becomes a credit, valid for 12 months.\n- Cancellations within 7 days forfeit the deposit.\n- Exceptions for documented emergencies can be considered at our discretion."
+            "items": "- Held at the studio, usually 6 to 8 weeks before the wedding.\n- Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.\n- Photographed in daylight so you can see the finish the way a camera will.\n- Notes and product list kept on file for the morning."
+          }
+        },
+        "panel-3": {
+          "type": "panel",
+          "settings": {
+            "heading": "Travel & Locations",
+            "style": "solid",
+            "items": "- Maggie comes to your getting-ready address.\n- Melbourne metro included; regional and interstate quoted on enquiry.\n- Early starts accommodated where the timeline needs one.\n- Tell us the address in your enquiry and it will be confirmed with your quote."
+          }
+        },
+        "panel-4": {
+          "type": "panel",
+          "settings": {
+            "heading": "On the Day",
+            "style": "solid",
+            "items": "- A timeline built backwards from your ceremony and photographer's arrival.\n- Bride finished last so the makeup is at its freshest for photographs.\n- A calm, unhurried room from first face to last.\n- Kit on hand for any final touch-ups before you leave."
+          }
+        },
+        "panel-5": {
+          "type": "panel",
+          "settings": {
+            "heading": "Deposits & Payments",
+            "style": "solid",
+            "items": "- A deposit secures your date; the balance is payable ahead of the day.\n- Dates are held only once the deposit is received.\n- Bookings open up to 4 months in advance for studio services; bridal dates are taken further out."
+          }
+        },
+        "panel-6": {
+          "type": "panel",
+          "settings": {
+            "heading": "Cancellations & Credits",
+            "style": "solid",
+            "items": "- Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.\n- Cancellations within 7 days forfeit the deposit.\n- Exceptions for documented emergencies can be considered at our discretion."
           }
         }
       },
       "block_order": [
+        "service-1",
+        "service-2",
+        "service-3",
         "panel-1",
-        "panel-2"
+        "panel-2",
+        "panel-3",
+        "panel-4",
+        "panel-5",
+        "panel-6"
       ]
     },
     "gallery": {
@@ -145,13 +166,15 @@
       "settings": {
         "eyebrow": "Portfolio",
         "heading": "Recent Work",
-        "lede": "A sample of bridal makeup and hair, from the getting-ready morning through to the last photograph.",
+        "lede": "A sample of recent bridal work — luminous skin, a softly defined eye, and hair that holds from the first look to the last dance. No two brides are alike, so every look is built around your dress, your flowers and the way you want to feel walking down the aisle. Scroll through, save what you love, and bring it to your consultation.",
         "columns": "4",
         "background": "tba-section--sand",
         "anchor": "portfolio",
         "note": "",
         "layout": "slide",
-        "speed": 45
+        "speed": 45,
+        "cta_label": "Enquire Now",
+        "cta_url": "#enquire"
       },
       "blocks": {
         "image-01": {
@@ -437,13 +460,59 @@
         "form_provider": "shopify",
         "ornament": "✦"
       }
+    },
+    "reviews": {
+      "type": "tba-testimonials",
+      "settings": {
+        "eyebrow": "Kind words",
+        "heading": "What Brides Say",
+        "lede": "",
+        "anchor": "reviews",
+        "background": "tba-section--cream",
+        "cta_label": "",
+        "cta_url": "#enquire"
+      },
+      "blocks": {
+        "quote-1": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "quote": "PLACEHOLDER — replace with a real review. Maggie was calm from the first email to the last touch-up. The trial meant there were no surprises on the day, and my makeup still looked fresh in the photos at midnight.",
+            "name": "Bride name",
+            "detail": "Venue, month year"
+          }
+        },
+        "quote-2": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "quote": "PLACEHOLDER — replace with a real review. She listened to what I actually wanted rather than putting a trend on me, and every one of my bridesmaids looked like themselves.",
+            "name": "Bride name",
+            "detail": "Venue, month year"
+          }
+        },
+        "quote-3": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "quote": "PLACEHOLDER — replace with a real review. The morning ran exactly to the timeline she set with our photographer. Having one less thing to worry about was worth it on its own.",
+            "name": "Bride name",
+            "detail": "Venue, month year"
+          }
+        }
+      },
+      "block_order": [
+        "quote-1",
+        "quote-2",
+        "quote-3"
+      ]
     }
   },
   "order": [
     "hero",
     "gallery",
     "packages",
-    "steps",
+    "reviews",
     "maggie",
     "faq",
     "form"

@@ -681,6 +681,23 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   text-transform:uppercase;margin-bottom:14px}
 .tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
 
+/* ---------- testimonial quotes ---------- */
+.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:clamp(20px,2.4vw,34px)}
+.tba-quote{
+  display:flex;flex-direction:column;position:relative;
+  padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
+.tba-quote::before{
+  content:"\201C";position:absolute;top:14px;right:24px;
+  font-family:var(--tba-serif);font-size:86px;line-height:1;color:rgba(220,162,119,.26)}
+.tba-quote .tba-stars{margin-bottom:20px}
+.tba-quote blockquote{margin:0 0 26px;font-size:16.5px;line-height:1.9;color:var(--tba-ink-soft);flex:1}
+.tba-quote figcaption{border-top:1px solid var(--tba-line);padding-top:20px}
+.tba-quote cite{
+  display:block;font-style:normal;font-family:var(--tba-sans);font-size:13px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--tba-black)}
+.tba-quote span{display:block;margin-top:7px;font-size:14px;color:var(--tba-ink-mute)}
+@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}}
+
 /* ---------- image gallery ---------- */
 .tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
 .tba-gallery figure{margin:0;overflow:hidden;background:var(--tba-mist);position:relative}
@@ -805,6 +822,8 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 /* ---------- service cards ---------- */
 .tba-svc{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:clamp(20px,2.4vw,34px)}
+.tba-svc--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1024px){.tba-svc--3{grid-template-columns:repeat(2,1fr)}}
 .tba-svc__card{
   display:flex;flex-direction:column;padding:clamp(30px,3vw,46px);
   background:#fff;border:1px solid var(--tba-line);position:relative
@@ -1375,7 +1394,7 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 <div class="tba-scope">
 <section class="tba-section tba-section--sand" id="portfolio"><div class="tba-shell">
-      <div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)"><p class="tba-eyebrow">Portfolio</p><h2 class="tba-h-lg">Recent Work</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">A sample of bridal makeup and hair, from the getting-ready morning through to the last photograph.</p></div>
+      <div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)"><p class="tba-eyebrow">Portfolio</p><h2 class="tba-h-lg">Recent Work</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">A sample of recent bridal work — luminous skin, a softly defined eye, and hair that holds from the first look to the last dance. No two brides are alike, so every look is built around your dress, your flowers and the way you want to feel walking down the aisle. Scroll through, save what you love, and bring it to your consultation.</p></div>
     </div><div class="tba-marquee">
       <div class="tba-marquee__track tba-gallery tba-gallery--slide" data-tba-speed="45">
         <figure >
@@ -1440,36 +1459,46 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
       </figure>
       </div>
+    </div><div class="tba-shell">
+      <div class="tba-center" style="margin-top:clamp(28px,3.2vw,46px)"><a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div>
     </div></section>
 </div>
 
 
 <div class="tba-scope">
 <section class="tba-section " id="packages">
-  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings and book a consultation.</p></div><div class="tba-panels"><div class="tba-panel" ><h3>What's Included</h3><ul><li>A personal consultation to plan your look around your dress, hair and the day's schedule.</li><li>Skin prep and long-wear products chosen for a full day of photography.</li><li>False lashes and a finish built to last from getting ready to the last dance.</li><li>A running order agreed with you and your photographer ahead of the morning.</li></ul></div><div class="tba-panel" ><h3>Deposits & Cancellations</h3><ul><li>A deposit secures your date; the balance is payable ahead of the day.</li><li>Cancel at least 7 days before the appointment and your deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 7 days forfeit the deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
-        <a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div></div>
+  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings, current availability and a quote built around your day.</p></div><div class="tba-svc tba-svc--3"><article class="tba-svc__card" >
+            <h3>The Bride</h3>
+            <p>Consultation, trial and wedding-morning makeup for the bride. Skin prep, long-wear products, false lashes and a finish built for a full day of photography.</p>
+            <div class="tba-svc__meta"><span class="tba-svc__price">From $1200</span><span class="tba-svc__dur">Bride only</span></div>
+          </article><article class="tba-svc__card" >
+            <h3>Bride & Party</h3>
+            <p>Everything in The Bride, plus makeup for bridesmaids, mothers and anyone else getting ready with you, on a timeline agreed ahead of the morning.</p>
+            <div class="tba-svc__meta"><span class="tba-svc__price">On enquiry</span><span class="tba-svc__dur">Bride + attendants</span></div>
+          </article><article class="tba-svc__card" >
+            <h3>Trial</h3>
+            <p>A relaxed sitting to test and refine the look, photograph it in daylight and agree the finish you'll wear down the aisle.</p>
+            <div class="tba-svc__meta"><span class="tba-svc__price">Included</span><span class="tba-svc__dur">Allow 90 minutes</span></div>
+          </article></div><div class="tba-panels"><div class="tba-panel" ><h3>What's Included</h3><ul><li>Personal consultation to plan the look around your dress, hair and schedule.</li><li>Skin prep with long-wear products chosen for a full day of photography.</li><li>False lashes, individual or strip, to suit your eye shape.</li><li>A running order agreed with you and your photographer before the morning.</li><li>Touch-up guidance so you can keep the look fresh through the day.</li></ul></div><div class="tba-panel" ><h3>The Trial</h3><ul><li>Held at the studio, usually 6 to 8 weeks before the wedding.</li><li>Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.</li><li>Photographed in daylight so you can see the finish the way a camera will.</li><li>Notes and product list kept on file for the morning.</li></ul></div><div class="tba-panel" ><h3>Travel & Locations</h3><ul><li>Maggie comes to your getting-ready address.</li><li>Melbourne metro included; regional and interstate quoted on enquiry.</li><li>Early starts accommodated where the timeline needs one.</li><li>Tell us the address in your enquiry and it will be confirmed with your quote.</li></ul></div><div class="tba-panel" ><h3>On the Day</h3><ul><li>A timeline built backwards from your ceremony and photographer's arrival.</li><li>Bride finished last so the makeup is at its freshest for photographs.</li><li>A calm, unhurried room from first face to last.</li><li>Kit on hand for any final touch-ups before you leave.</li></ul></div><div class="tba-panel" ><h3>Deposits & Payments</h3><ul><li>A deposit secures your date; the balance is payable ahead of the day.</li><li>Dates are held only once the deposit is received.</li><li>Bookings open up to 4 months in advance for studio services; bridal dates are taken further out.</li></ul></div><div class="tba-panel" ><h3>Cancellations & Credits</h3><ul><li>Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 7 days forfeit the deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
+        <a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a><p class="tba-lede" style="margin-top:18px;font-size:14.5px">Every quote is tailored — party size, location and timings all shape the final price.</p></div></div>
 </section>
 </div>
 
 
 <div class="tba-scope">
-<section class="tba-section tba-section--cream" id="experience">
+<section class="tba-section tba-section--cream" id="reviews">
   <div class="tba-shell">
-    <div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">How it works</p><h2 class="tba-h-lg">The Bridal Experience</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">From first enquiry to the last photograph, every step is planned so your morning stays calm.</p></div>
-    <div class="tba-steps"><article class="tba-step" >
-          <h3>Enquire</h3>
-          <p>Send through your date, venue and the size of your bridal party. You'll receive Maggie's full bridal offerings and availability by return.</p>
-        </article><article class="tba-step" >
-          <h3>Consultation</h3>
-          <p>We talk through your dress, flowers, hair and the mood you're after, so the look belongs to the whole day and not just the face.</p>
-        </article><article class="tba-step" >
-          <h3>Trial</h3>
-          <p>A relaxed sitting to test and refine the look, photograph it in daylight, and agree the finish you'll wear down the aisle.</p>
-        </article><article class="tba-step" >
-          <h3>Wedding Morning</h3>
-          <p>Maggie arrives on schedule with a timeline built around your photographer and ceremony, and keeps the room calm from first face to last.</p>
-        </article></div>
-  </div>
+    <div class="tba-center" style="margin-bottom:clamp(32px,3.6vw,52px)"><p class="tba-eyebrow">Kind words</p><h2 class="tba-h-lg">What Brides Say</h2><hr class="tba-rule tba-rule--center"></div>
+    <div class="tba-quotes"><figure class="tba-quote" ><div class="tba-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></div><blockquote>PLACEHOLDER — replace with a real review. Maggie was calm from the first email to the last touch-up. The trial meant there were no surprises on the day, and my makeup still looked fresh in the photos at midnight.</blockquote>
+          <figcaption>
+            <cite>Bride name</cite><span>Venue, month year</span></figcaption>
+        </figure><figure class="tba-quote" ><div class="tba-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></div><blockquote>PLACEHOLDER — replace with a real review. She listened to what I actually wanted rather than putting a trend on me, and every one of my bridesmaids looked like themselves.</blockquote>
+          <figcaption>
+            <cite>Bride name</cite><span>Venue, month year</span></figcaption>
+        </figure><figure class="tba-quote" ><div class="tba-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></div><blockquote>PLACEHOLDER — replace with a real review. The morning ran exactly to the timeline she set with our photographer. Having one less thing to worry about was worth it on its own.</blockquote>
+          <figcaption>
+            <cite>Bride name</cite><span>Venue, month year</span></figcaption>
+        </figure></div></div>
 </section>
 </div>
 
