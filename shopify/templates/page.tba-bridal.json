@@ -13,7 +13,8 @@
         "cta2_label": "Meet Maggie",
         "cta2_url": "#maggie",
         "width": "1400",
-        "height": "934"
+        "height": "934",
+        "shift": 18
       }
     },
     "maggie": {

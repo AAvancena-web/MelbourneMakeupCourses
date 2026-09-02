@@ -4,7 +4,15 @@
 {%- assign s = section.settings -%}
 <div class="tba-scope">
 <section class="tba-phero">
-  <div class="tba-phero__media">
+  {%- comment -%}
+    A positive shift slides the photo right; the zoom that keeps the frame
+    covered is twice the shift, so no bare edge is exposed on the other side.
+  {%- endcomment -%}
+  {%- assign shift = s.shift | default: 0 -%}
+  {%- assign span = shift -%}
+  {%- if span < 0 -%}{%- assign span = 0 | minus: shift -%}{%- endif -%}
+  {%- assign zoom = span | times: 2 | plus: 100 | divided_by: 100.0 -%}
+  <div class="tba-phero__media" style="--tba-phero-shift:{{ shift }}%;--tba-phero-zoom:{{ zoom }}{% if s.focus != blank %};--tba-phero-focus:{{ s.focus }}{% endif %}">
     {% render 'tba-image', image: s.image, fallback: s.fallback, alt: s.image_alt,
        width: s.width, height: s.height, url_width: 2000, fetchpriority: 'high' %}
   </div>
@@ -61,6 +69,23 @@
       "type": "text",
       "id": "image_alt",
       "label": "Image alt text"
+    },
+    {
+      "type": "range",
+      "id": "shift",
+      "label": "Move image sideways",
+      "min": -30,
+      "max": 30,
+      "step": 1,
+      "unit": "%",
+      "default": 0,
+      "info": "Positive moves the photo (and whoever is in it) to the right."
+    },
+    {
+      "type": "text",
+      "id": "focus",
+      "label": "Image focus",
+      "info": "CSS object-position, e.g. \"center 30%\" or \"30% center\". Lower the first value to move the subject right."
     },
     {
       "type": "text",

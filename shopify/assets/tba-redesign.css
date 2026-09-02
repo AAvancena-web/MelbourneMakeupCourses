@@ -636,7 +636,15 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-phero{position:relative;isolation:isolate;background:var(--tba-black);overflow:hidden;
   min-height:clamp(380px,46vw,620px);display:flex;align-items:center;text-align:center}
 .tba-phero__media{position:absolute;inset:0;z-index:-2}
-.tba-phero__media img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+/* object-position only bites on the cropped axis; on a wide banner the image
+   already fills the width, so a horizontal nudge needs a scale + translate pair
+   (the section works the zoom out from the shift so no edge is ever exposed). */
+.tba-phero__media img{width:100%;height:100%;object-fit:cover;
+  object-position:var(--tba-phero-focus,center 30%);
+  transform:translateX(var(--tba-phero-shift,0)) scale(var(--tba-phero-zoom,1))}
+/* a phone crops the photo to a narrow window already — nudging it there only
+   costs resolution, so the shift is a desktop framing tool. */
+@media (max-width:767px){.tba-phero__media img{transform:none}}
 .tba-phero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(rgba(12,10,9,.62),rgba(12,10,9,.74))}
 .tba-phero .tba-shell{padding-block:clamp(64px,7vw,110px)}
@@ -663,12 +671,12 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 /* ---------- testimonial quotes ----------
    Equal-height cards with the content centred, so the slack from uneven review
    lengths splits above and below instead of pooling into one hole above the
-   caption. Blush ground, gold hairline, and a gold quote badge on the top edge. */
+   caption. Blush ground, gold hairline, no badge. */
 .tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;
   gap:clamp(14px,1.5vw,24px);padding-top:26px}
 .tba-quote{
   display:flex;flex-direction:column;justify-content:center;position:relative;
-  padding:clamp(38px,3.2vw,52px) clamp(26px,2.4vw,38px) clamp(30px,2.6vw,42px);
+  padding:clamp(32px,2.8vw,44px) clamp(26px,2.4vw,38px);
   border-radius:16px;
   background:linear-gradient(168deg,#fffaf6 0%,#fdf1e6 100%);
   border:1px solid rgba(220,162,119,.45);
@@ -676,13 +684,6 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   transition:transform .45s var(--tba-ease),box-shadow .45s var(--tba-ease),border-color .45s}
 .tba-quote:hover{
   transform:translateY(-5px);box-shadow:0 22px 50px rgba(17,17,17,.12);border-color:var(--tba-gold)}
-/* gold badge straddling the top edge */
-.tba-quote::before{
-  content:"\201C";position:absolute;top:-22px;left:50%;transform:translateX(-50%);
-  width:48px;height:48px;border-radius:50%;background:var(--tba-gold-sheen);
-  display:flex;align-items:flex-start;justify-content:center;
-  font-family:var(--tba-serif);font-size:52px;line-height:.98;color:#fff;
-  box-shadow:0 8px 20px rgba(220,162,119,.45)}
 .tba-quote .tba-stars{justify-content:center;margin-bottom:18px}
 .tba-quote blockquote{
   margin:0 0 24px;font-size:clamp(16.5px,1.25vw,18.5px);line-height:1.85;
@@ -894,15 +895,17 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   letter-spacing:.05em;text-transform:uppercase;text-align:center;
   text-shadow:0 1px 0 rgba(255,255,255,.25)}
 .tba-panel--card ul{
-  margin:0;padding:clamp(24px,2.4vw,34px);gap:0;flex:1;align-content:start}
+  margin:0;padding:clamp(24px,2.4vw,32px);gap:13px;align-content:start}
 .tba-panel--card li{
-  padding:15px 0;padding-left:0;text-align:center;font-size:15.5px;line-height:1.75}
+  padding:0 0 0 26px;text-align:left;font-size:15.5px;line-height:1.75}
+/* a small gold diamond in place of the dash — left marker, hung off the text */
 .tba-panel--card li::before{
-  left:50%;top:0;transform:translateX(-50%);width:34px;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(220,162,119,.6),transparent)}
-.tba-panel--card li:first-child{padding-top:0}
-.tba-panel--card li:first-child::before{display:none}
-.tba-panel--card p{text-align:center;padding:clamp(24px,2.4vw,34px);margin:0}
+  left:1px;top:.66em;width:7px;height:7px;border-radius:1px;transform:rotate(45deg);
+  background:var(--tba-gold-sheen);box-shadow:0 1px 3px rgba(220,162,119,.45)}
+.tba-panel--card p{text-align:left;padding:clamp(24px,2.4vw,32px);margin:0}
+/* cards sit on their own content height, so a short list leaves no white gap
+   below it; only the header band still lines up across the row. */
+.tba-panels:has(.tba-panel--card){grid-auto-rows:auto;align-items:start}
 
 .tba-panel--note{background:transparent;border-style:dashed;grid-column:1/-1}
 
