@@ -22,6 +22,7 @@
   <div class="tba-shell">
 
     {%- if s.form_provider == 'custom' -%}
+      <div class="tba-eform-wrap{% if s.width == 'wide' %} tba-eform-wrap--wide{% endif %}">
       <div class="tba-eform">
         <div class="tba-eform__head">
           {%- if s.ornament != blank -%}<p class="tba-eform__ornament">{{ s.ornament }}</p>{%- endif -%}
@@ -30,7 +31,9 @@
         </div>
         {{ s.form_embed }}
       </div>
+      </div>
     {%- else -%}
+      <div class="tba-eform-wrap{% if s.width == 'wide' %} tba-eform-wrap--wide{% endif %}">
       {%- form 'contact', id: form_id, class: 'tba-eform', novalidate: 'novalidate' -%}
         <div class="tba-eform__head">
           {%- if s.ornament != blank -%}<p class="tba-eform__ornament">{{ s.ornament }}</p>{%- endif -%}
@@ -44,74 +47,58 @@
           <p class="tba-eform__msg" role="alert">{{ form.errors | default_errors }}</p>
         {%- endif -%}
 
-        <div class="tba-eform__row">
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>First Name</span><span class="tba-efield__req">Required</span></span>
-            <input type="text" name="contact[first_name]" placeholder="First name" autocomplete="given-name" required>
-          </label>
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>Last Name</span><span class="tba-efield__req">Required</span></span>
-            <input type="text" name="contact[last_name]" placeholder="Last name" autocomplete="family-name" required>
-          </label>
-        </div>
+        <div class="tba-eform__grid">
 
-        <div class="tba-eform__row">
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>Email Address</span><span class="tba-efield__req">Required</span></span>
-            <input type="email" name="contact[email]" placeholder="your@email.com" autocomplete="email" required>
-          </label>
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>Phone Number</span><span class="tba-efield__req">Required</span></span>
-            <input type="tel" name="contact[phone]" placeholder="Phone number" autocomplete="tel" required>
-          </label>
-        </div>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>First Name</span><span class="tba-efield__req">Required</span></span>
+          <input type="text" name="contact[first_name]" placeholder="First name" autocomplete="given-name" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Last Name</span><span class="tba-efield__req">Required</span></span>
+          <input type="text" name="contact[last_name]" placeholder="Last name" autocomplete="family-name" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Email Address</span><span class="tba-efield__req">Required</span></span>
+          <input type="email" name="contact[email]" placeholder="your@email.com" autocomplete="email" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Phone Number</span><span class="tba-efield__req">Required</span></span>
+          <input type="tel" name="contact[phone]" placeholder="Phone number" autocomplete="tel" required>
+        </label>
 
         {%- if s.layout == 'bridal' -%}
 
-          <div class="tba-eform__row">
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Wedding Date</span><span class="tba-efield__req">Required</span></span>
-              <input type="date" name="contact[Wedding date]" required>
-            </label>
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Time of Ceremony</span><span class="tba-efield__req">Required</span></span>
-              <input type="time" name="contact[Time of ceremony]" required>
-            </label>
-          </div>
-
           <label class="tba-efield">
-            <span class="tba-efield__label"><span>Getting Ready Address</span><span class="tba-efield__req">Required</span></span>
-            <input type="text" name="contact[Getting ready address]" required>
+            <span class="tba-efield__label"><span>Wedding Date</span><span class="tba-efield__req">Required</span></span>
+            <input type="date" name="contact[Wedding date]" required>
           </label>
-
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Time of Ceremony</span><span class="tba-efield__req">Required</span></span>
+            <input type="time" name="contact[Time of ceremony]" required>
+          </label>
           <label class="tba-efield">
             <span class="tba-efield__label"><span>Photographer Arrival Time?</span></span>
             <input type="time" name="contact[Photographer arrival time]">
           </label>
-
           <label class="tba-efield">
-            <span class="tba-efield__label"><span>Ceremony Location</span><span class="tba-efield__req">Required</span></span>
-            <textarea name="contact[Ceremony location]" class="tba-efield--tall" required></textarea>
+            <span class="tba-efield__label"><span>Getting Ready Address</span><span class="tba-efield__req">Required</span></span>
+            <input type="text" name="contact[Getting ready address]" required>
           </label>
-
-          <div class="tba-eform__row">
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Who Requires Makeup?</span><span class="tba-efield__req">Required</span></span>
-              <input type="text" name="contact[Who requires makeup]" required>
-            </label>
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Wedding Venue</span><span class="tba-efield__req">Required</span></span>
-              <input type="text" name="contact[Wedding venue]" required>
-            </label>
-          </div>
-
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Wedding Venue</span><span class="tba-efield__req">Required</span></span>
+            <input type="text" name="contact[Wedding venue]" required>
+          </label>
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Who Requires Makeup?</span><span class="tba-efield__req">Required</span></span>
+            <input type="text" name="contact[Who requires makeup]" required>
+          </label>
           <label class="tba-efield">
             <span class="tba-efield__label"><span>Who Is Your Hair Stylist?</span><span class="tba-efield__req">Required</span></span>
             <input type="text" name="contact[Hair stylist]" required>
           </label>
 
           {%- if s.inspiration == 'upload' -%}
-            <div class="tba-efield">
+            <div class="tba-efield tba-efield--wide">
               <span class="tba-efield__label"><span>Inspiration Images</span></span>
               <label class="tba-edrop" data-tba-drop>
                 <input type="file" name="contact[Inspiration images]" accept="image/png,image/jpeg,image/webp" multiple>
@@ -129,16 +116,20 @@
             </label>
           {%- endif -%}
 
-          <label class="tba-efield">
+          <label class="tba-efield tba-efield--wide">
+            <span class="tba-efield__label"><span>Ceremony Location</span><span class="tba-efield__req">Required</span></span>
+            <textarea name="contact[Ceremony location]" required></textarea>
+          </label>
+          <label class="tba-efield tba-efield--wide">
             <span class="tba-efield__label"><span>Anything Else You Would Like To Share?</span></span>
             <textarea name="contact[body]"></textarea>
           </label>
 
           {%- assign sources = s.sources | newline_to_br | split: '<br />' -%}
           {%- if sources.size > 0 -%}
-            <div class="tba-efield">
+            <div class="tba-efield tba-efield--full">
               <span class="tba-efield__label"><span>Where Did You Hear About Me?</span><span class="tba-efield__req">Required</span></span>
-              <div class="tba-eradios">
+              <div class="tba-eradios tba-eradios--row">
                 {%- for source in sources -%}
                   {%- assign src = source | strip -%}
                   {%- if src != blank -%}
@@ -155,33 +146,33 @@
         {%- else -%}
 
           {%- assign services = s.services | newline_to_br | split: '<br />' -%}
-          <div class="tba-eform__row">
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Service of Interest</span><span class="tba-efield__req">Required</span></span>
-              <select name="contact[Service of interest]" required>
-                <option value="">Please select&hellip;</option>
-                {%- for service in services -%}
-                  {%- assign sv = service | strip -%}
-                  {%- if sv != blank -%}<option>{{ sv }}</option>{%- endif -%}
-                {%- endfor -%}
-              </select>
-            </label>
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Preferred Date</span></span>
-              <input type="date" name="contact[Preferred date]">
-            </label>
-          </div>
-
           <label class="tba-efield">
+            <span class="tba-efield__label"><span>Service of Interest</span><span class="tba-efield__req">Required</span></span>
+            <select name="contact[Service of interest]" required>
+              <option value="">Please select&hellip;</option>
+              {%- for service in services -%}
+                {%- assign sv = service | strip -%}
+                {%- if sv != blank -%}<option>{{ sv }}</option>{%- endif -%}
+              {%- endfor -%}
+            </select>
+          </label>
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Preferred Date</span></span>
+            <input type="date" name="contact[Preferred date]">
+          </label>
+          <label class="tba-efield tba-efield--full">
             <span class="tba-efield__label"><span>Message</span><span class="tba-efield__req">Required</span></span>
             <textarea name="contact[body]" required></textarea>
           </label>
 
         {%- endif -%}
 
+        </div>
+
         <button class="tba-btn tba-btn--gold" type="submit">{{ s.button }}</button>
         {%- if s.note != blank -%}<p class="tba-eform__note">{{ s.note }}</p>{%- endif -%}
       {%- endform -%}
+      </div>
     {%- endif -%}
 
   </div>
@@ -230,6 +221,23 @@
       "id": "anchor",
       "label": "Anchor id",
       "default": "enquire"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Form width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow — one column"
+        },
+        {
+          "value": "wide",
+          "label": "Wide — fields across the page"
+        }
+      ],
+      "default": "narrow",
+      "info": "Wide lays a long form across the page instead of down it."
     },
     {
       "type": "select",

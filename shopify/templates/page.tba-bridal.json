@@ -69,42 +69,16 @@
         "anchor": "packages",
         "cta_label": "Enquire Now",
         "cta_url": "#enquire",
-        "cta_note": "Every quote is tailored — party size, location and timings all shape the final price.",
-        "columns": "3"
+        "cta_note": "",
+        "columns": "3",
+        "panel_columns": "3"
       },
       "blocks": {
-        "service-1": {
-          "type": "service",
-          "settings": {
-            "title": "The Bride",
-            "price": "From $1200",
-            "duration": "Bride only",
-            "description": "Consultation, trial and wedding-morning makeup for the bride. Skin prep, long-wear products, false lashes and a finish built for a full day of photography."
-          }
-        },
-        "service-2": {
-          "type": "service",
-          "settings": {
-            "title": "Bride & Party",
-            "price": "On enquiry",
-            "duration": "Bride + attendants",
-            "description": "Everything in The Bride, plus makeup for bridesmaids, mothers and anyone else getting ready with you, on a timeline agreed ahead of the morning."
-          }
-        },
-        "service-3": {
-          "type": "service",
-          "settings": {
-            "title": "Trial",
-            "price": "Included",
-            "duration": "Allow 90 minutes",
-            "description": "A relaxed sitting to test and refine the look, photograph it in daylight and agree the finish you'll wear down the aisle."
-          }
-        },
         "panel-1": {
           "type": "panel",
           "settings": {
             "heading": "What's Included",
-            "style": "solid",
+            "style": "card",
             "items": "- Personal consultation to plan the look around your dress, hair and schedule.\n- Skin prep with long-wear products chosen for a full day of photography.\n- False lashes, individual or strip, to suit your eye shape.\n- A running order agreed with you and your photographer before the morning.\n- Touch-up guidance so you can keep the look fresh through the day."
           }
         },
@@ -112,7 +86,7 @@
           "type": "panel",
           "settings": {
             "heading": "The Trial",
-            "style": "solid",
+            "style": "card",
             "items": "- Held at the studio, usually 6 to 8 weeks before the wedding.\n- Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.\n- Photographed in daylight so you can see the finish the way a camera will.\n- Notes and product list kept on file for the morning."
           }
         },
@@ -120,7 +94,7 @@
           "type": "panel",
           "settings": {
             "heading": "Travel & Locations",
-            "style": "solid",
+            "style": "card",
             "items": "- Maggie comes to your getting-ready address.\n- Melbourne metro included; regional and interstate quoted on enquiry.\n- Early starts accommodated where the timeline needs one.\n- Tell us the address in your enquiry and it will be confirmed with your quote."
           }
         },
@@ -128,7 +102,7 @@
           "type": "panel",
           "settings": {
             "heading": "On the Day",
-            "style": "solid",
+            "style": "card",
             "items": "- A timeline built backwards from your ceremony and photographer's arrival.\n- Bride finished last so the makeup is at its freshest for photographs.\n- A calm, unhurried room from first face to last.\n- Kit on hand for any final touch-ups before you leave."
           }
         },
@@ -136,7 +110,7 @@
           "type": "panel",
           "settings": {
             "heading": "Deposits & Payments",
-            "style": "solid",
+            "style": "card",
             "items": "- A deposit secures your date; the balance is payable ahead of the day.\n- Dates are held only once the deposit is received.\n- Bookings open up to 4 months in advance for studio services; bridal dates are taken further out."
           }
         },
@@ -144,15 +118,12 @@
           "type": "panel",
           "settings": {
             "heading": "Cancellations & Credits",
-            "style": "solid",
+            "style": "card",
             "items": "- Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.\n- Cancellations within 7 days forfeit the deposit.\n- Exceptions for documented emergencies can be considered at our discretion."
           }
         }
       },
       "block_order": [
-        "service-1",
-        "service-2",
-        "service-3",
         "panel-1",
         "panel-2",
         "panel-3",
@@ -458,7 +429,8 @@
         "inspiration_placeholder": "Link to a Pinterest board, Instagram saves or shared album",
         "sources": "Website\nInstagram\nFacebook\nReferral",
         "form_provider": "shopify",
-        "ornament": "✦"
+        "ornament": "✦",
+        "width": "wide"
       }
     },
     "reviews": {

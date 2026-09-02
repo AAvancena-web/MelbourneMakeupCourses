@@ -682,21 +682,22 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
 
 /* ---------- testimonial quotes ---------- */
-.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:clamp(20px,2.4vw,34px)}
+.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:clamp(12px,1.3vw,20px)}
 .tba-quote{
   display:flex;flex-direction:column;position:relative;
+  min-height:clamp(430px,34vw,580px);
   padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
 .tba-quote::before{
   content:"\201C";position:absolute;top:14px;right:24px;
   font-family:var(--tba-serif);font-size:86px;line-height:1;color:rgba(220,162,119,.26)}
 .tba-quote .tba-stars{margin-bottom:20px}
-.tba-quote blockquote{margin:0 0 26px;font-size:16.5px;line-height:1.9;color:var(--tba-ink-soft);flex:1}
+.tba-quote blockquote{margin:0 0 26px;font-size:clamp(17px,1.35vw,20px);line-height:1.85;color:var(--tba-ink-soft);flex:1}
 .tba-quote figcaption{border-top:1px solid var(--tba-line);padding-top:20px}
 .tba-quote cite{
   display:block;font-style:normal;font-family:var(--tba-sans);font-size:13px;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;color:var(--tba-black)}
 .tba-quote span{display:block;margin-top:7px;font-size:14px;color:var(--tba-ink-mute)}
-@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}}
+@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}.tba-quote{min-height:0}}
 
 /* ---------- image gallery ---------- */
 .tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
@@ -845,11 +846,25 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 /* ---------- policy panels ---------- */
 .tba-panels{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.4vw,34px);margin-top:clamp(24px,3vw,44px)}
+.tba-panels--3{grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr}
+@media (max-width:1024px){.tba-panels--3{grid-template-columns:repeat(2,1fr)}}
 .tba-panel{padding:clamp(26px,2.6vw,38px);background:var(--tba-paper);border:1px solid var(--tba-line)}
 .tba-panel h3{
   font-family:var(--tba-sans);font-size:13px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--tba-gold-dp);margin-bottom:18px
 }
+
+/* card style — the same treatment as a service card, for panels that carry
+   detail rather than a price: white ground, gold sheen edge, serif title. */
+.tba-panel--card{
+  display:flex;flex-direction:column;position:relative;
+  padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
+.tba-panel--card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tba-gold-sheen)}
+.tba-panel--card h3{
+  font-family:var(--tba-serif);font-size:clamp(20px,1.7vw,26px);font-weight:400;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--tba-black);margin-bottom:22px}
+.tba-panel--card ul{flex:1;align-content:start}
 .tba-panel ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .tba-panel li{position:relative;padding-left:22px;font-size:15.5px;color:var(--tba-ink-soft);line-height:1.8}
 .tba-panel li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--tba-gold)}
@@ -859,6 +874,24 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 /* ---------- enquiry form ---------- */
 .tba-eform{max-width:820px;margin-inline:auto;background:#fff;border:1px solid var(--tba-line);
   padding:clamp(28px,3.4vw,56px)}
+/* wide variant — a long form laid across the page instead of down it, so a
+   15-field brief doesn't turn into a scroll. Six tracks so a field can take a
+   third (span 2) or a half (span 3) of a row. */
+.tba-eform-wrap--wide .tba-eform{max-width:min(var(--tba-shell),1180px)}
+.tba-eform__grid{display:grid;grid-template-columns:1fr;gap:0 22px}
+@media (min-width:700px){
+  .tba-eform__grid{grid-template-columns:repeat(6,1fr)}
+  .tba-eform__grid>.tba-efield{grid-column:span 3}
+  .tba-eform__grid>.tba-efield--full{grid-column:1/-1}
+}
+@media (min-width:1040px){
+  .tba-eform-wrap--wide .tba-eform__grid>.tba-efield{grid-column:span 2}
+  .tba-eform-wrap--wide .tba-eform__grid>.tba-efield--wide{grid-column:span 3}
+  .tba-eform-wrap--wide .tba-eform__grid>.tba-efield--full{grid-column:1/-1}
+}
+/* the tall Ceremony Location box only needs to be tall in the narrow layout */
+.tba-eform-wrap--wide .tba-efield textarea.tba-efield--tall{min-height:132px}
+.tba-eform-wrap--wide .tba-efield textarea{min-height:132px}
 .tba-eform__head{text-align:center;margin-bottom:clamp(26px,3vw,40px)}
 .tba-eform__head p{font-size:16px;color:var(--tba-ink-soft);margin:14px 0 0}
 .tba-eform__row{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
@@ -879,6 +912,8 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 /* radios */
 .tba-eradios{display:grid;gap:12px;margin-top:4px}
+/* inline variant, declared after the base so it wins on equal specificity */
+.tba-eradios--row{display:flex;flex-wrap:wrap;gap:14px 32px}
 .tba-eradio{display:flex;align-items:center;gap:12px;font-size:16px;color:var(--tba-ink-soft);cursor:pointer}
 .tba-eradio input{appearance:none;-webkit-appearance:none;width:20px;height:20px;min-height:0;padding:0;flex:none;
   border:1px solid #ddd3ca;border-radius:50%;background:#fff;transition:border-color .25s,box-shadow .25s}
@@ -1467,20 +1502,8 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 <div class="tba-scope">
 <section class="tba-section " id="packages">
-  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings, current availability and a quote built around your day.</p></div><div class="tba-svc tba-svc--3"><article class="tba-svc__card" >
-            <h3>The Bride</h3>
-            <p>Consultation, trial and wedding-morning makeup for the bride. Skin prep, long-wear products, false lashes and a finish built for a full day of photography.</p>
-            <div class="tba-svc__meta"><span class="tba-svc__price">From $1200</span><span class="tba-svc__dur">Bride only</span></div>
-          </article><article class="tba-svc__card" >
-            <h3>Bride & Party</h3>
-            <p>Everything in The Bride, plus makeup for bridesmaids, mothers and anyone else getting ready with you, on a timeline agreed ahead of the morning.</p>
-            <div class="tba-svc__meta"><span class="tba-svc__price">On enquiry</span><span class="tba-svc__dur">Bride + attendants</span></div>
-          </article><article class="tba-svc__card" >
-            <h3>Trial</h3>
-            <p>A relaxed sitting to test and refine the look, photograph it in daylight and agree the finish you'll wear down the aisle.</p>
-            <div class="tba-svc__meta"><span class="tba-svc__price">Included</span><span class="tba-svc__dur">Allow 90 minutes</span></div>
-          </article></div><div class="tba-panels"><div class="tba-panel" ><h3>What's Included</h3><ul><li>Personal consultation to plan the look around your dress, hair and schedule.</li><li>Skin prep with long-wear products chosen for a full day of photography.</li><li>False lashes, individual or strip, to suit your eye shape.</li><li>A running order agreed with you and your photographer before the morning.</li><li>Touch-up guidance so you can keep the look fresh through the day.</li></ul></div><div class="tba-panel" ><h3>The Trial</h3><ul><li>Held at the studio, usually 6 to 8 weeks before the wedding.</li><li>Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.</li><li>Photographed in daylight so you can see the finish the way a camera will.</li><li>Notes and product list kept on file for the morning.</li></ul></div><div class="tba-panel" ><h3>Travel & Locations</h3><ul><li>Maggie comes to your getting-ready address.</li><li>Melbourne metro included; regional and interstate quoted on enquiry.</li><li>Early starts accommodated where the timeline needs one.</li><li>Tell us the address in your enquiry and it will be confirmed with your quote.</li></ul></div><div class="tba-panel" ><h3>On the Day</h3><ul><li>A timeline built backwards from your ceremony and photographer's arrival.</li><li>Bride finished last so the makeup is at its freshest for photographs.</li><li>A calm, unhurried room from first face to last.</li><li>Kit on hand for any final touch-ups before you leave.</li></ul></div><div class="tba-panel" ><h3>Deposits & Payments</h3><ul><li>A deposit secures your date; the balance is payable ahead of the day.</li><li>Dates are held only once the deposit is received.</li><li>Bookings open up to 4 months in advance for studio services; bridal dates are taken further out.</li></ul></div><div class="tba-panel" ><h3>Cancellations & Credits</h3><ul><li>Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 7 days forfeit the deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
-        <a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a><p class="tba-lede" style="margin-top:18px;font-size:14.5px">Every quote is tailored — party size, location and timings all shape the final price.</p></div></div>
+  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings, current availability and a quote built around your day.</p></div><div class="tba-panels tba-panels--3"><div class="tba-panel tba-panel--card" ><h3>What's Included</h3><ul><li>Personal consultation to plan the look around your dress, hair and schedule.</li><li>Skin prep with long-wear products chosen for a full day of photography.</li><li>False lashes, individual or strip, to suit your eye shape.</li><li>A running order agreed with you and your photographer before the morning.</li><li>Touch-up guidance so you can keep the look fresh through the day.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>The Trial</h3><ul><li>Held at the studio, usually 6 to 8 weeks before the wedding.</li><li>Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.</li><li>Photographed in daylight so you can see the finish the way a camera will.</li><li>Notes and product list kept on file for the morning.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Travel & Locations</h3><ul><li>Maggie comes to your getting-ready address.</li><li>Melbourne metro included; regional and interstate quoted on enquiry.</li><li>Early starts accommodated where the timeline needs one.</li><li>Tell us the address in your enquiry and it will be confirmed with your quote.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>On the Day</h3><ul><li>A timeline built backwards from your ceremony and photographer's arrival.</li><li>Bride finished last so the makeup is at its freshest for photographs.</li><li>A calm, unhurried room from first face to last.</li><li>Kit on hand for any final touch-ups before you leave.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Deposits & Payments</h3><ul><li>A deposit secures your date; the balance is payable ahead of the day.</li><li>Dates are held only once the deposit is received.</li><li>Bookings open up to 4 months in advance for studio services; bridal dates are taken further out.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Cancellations & Credits</h3><ul><li>Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 7 days forfeit the deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
+        <a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div></div>
 </section>
 </div>
 
@@ -1555,76 +1578,65 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 <div class="tba-scope">
 <section class="tba-section tba-section--feature" id="enquire">
-  <div class="tba-shell"><form method="post" action="#" class="tba-eform" novalidate="novalidate">
-        <div class="tba-eform__head"><p class="tba-eform__ornament">✦</p><h2 class="tba-h-lg">Bridal Enquiry</h2><p>Please provide the below information to receive Maggie's bridal offerings and book a consultation.</p></div><div class="tba-eform__row">
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>First Name</span><span class="tba-efield__req">Required</span></span>
-            <input type="text" name="contact[first_name]" placeholder="First name" autocomplete="given-name" required>
-          </label>
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>Last Name</span><span class="tba-efield__req">Required</span></span>
-            <input type="text" name="contact[last_name]" placeholder="Last name" autocomplete="family-name" required>
-          </label>
-        </div>
+  <div class="tba-shell"><div class="tba-eform-wrap tba-eform-wrap--wide">
+      <form method="post" action="#" class="tba-eform" novalidate="novalidate">
+        <div class="tba-eform__head"><p class="tba-eform__ornament">✦</p><h2 class="tba-h-lg">Bridal Enquiry</h2><p>Please provide the below information to receive Maggie's bridal offerings and book a consultation.</p></div><div class="tba-eform__grid">
 
-        <div class="tba-eform__row">
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>Email Address</span><span class="tba-efield__req">Required</span></span>
-            <input type="email" name="contact[email]" placeholder="your@email.com" autocomplete="email" required>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>First Name</span><span class="tba-efield__req">Required</span></span>
+          <input type="text" name="contact[first_name]" placeholder="First name" autocomplete="given-name" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Last Name</span><span class="tba-efield__req">Required</span></span>
+          <input type="text" name="contact[last_name]" placeholder="Last name" autocomplete="family-name" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Email Address</span><span class="tba-efield__req">Required</span></span>
+          <input type="email" name="contact[email]" placeholder="your@email.com" autocomplete="email" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Phone Number</span><span class="tba-efield__req">Required</span></span>
+          <input type="tel" name="contact[phone]" placeholder="Phone number" autocomplete="tel" required>
+        </label><label class="tba-efield">
+            <span class="tba-efield__label"><span>Wedding Date</span><span class="tba-efield__req">Required</span></span>
+            <input type="date" name="contact[Wedding date]" required>
           </label>
           <label class="tba-efield">
-            <span class="tba-efield__label"><span>Phone Number</span><span class="tba-efield__req">Required</span></span>
-            <input type="tel" name="contact[phone]" placeholder="Phone number" autocomplete="tel" required>
+            <span class="tba-efield__label"><span>Time of Ceremony</span><span class="tba-efield__req">Required</span></span>
+            <input type="time" name="contact[Time of ceremony]" required>
           </label>
-        </div><div class="tba-eform__row">
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Wedding Date</span><span class="tba-efield__req">Required</span></span>
-              <input type="date" name="contact[Wedding date]" required>
-            </label>
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Time of Ceremony</span><span class="tba-efield__req">Required</span></span>
-              <input type="time" name="contact[Time of ceremony]" required>
-            </label>
-          </div>
-
-          <label class="tba-efield">
-            <span class="tba-efield__label"><span>Getting Ready Address</span><span class="tba-efield__req">Required</span></span>
-            <input type="text" name="contact[Getting ready address]" required>
-          </label>
-
           <label class="tba-efield">
             <span class="tba-efield__label"><span>Photographer Arrival Time?</span></span>
             <input type="time" name="contact[Photographer arrival time]">
           </label>
-
           <label class="tba-efield">
-            <span class="tba-efield__label"><span>Ceremony Location</span><span class="tba-efield__req">Required</span></span>
-            <textarea name="contact[Ceremony location]" class="tba-efield--tall" required></textarea>
+            <span class="tba-efield__label"><span>Getting Ready Address</span><span class="tba-efield__req">Required</span></span>
+            <input type="text" name="contact[Getting ready address]" required>
           </label>
-
-          <div class="tba-eform__row">
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Who Requires Makeup?</span><span class="tba-efield__req">Required</span></span>
-              <input type="text" name="contact[Who requires makeup]" required>
-            </label>
-            <label class="tba-efield">
-              <span class="tba-efield__label"><span>Wedding Venue</span><span class="tba-efield__req">Required</span></span>
-              <input type="text" name="contact[Wedding venue]" required>
-            </label>
-          </div>
-
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Wedding Venue</span><span class="tba-efield__req">Required</span></span>
+            <input type="text" name="contact[Wedding venue]" required>
+          </label>
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Who Requires Makeup?</span><span class="tba-efield__req">Required</span></span>
+            <input type="text" name="contact[Who requires makeup]" required>
+          </label>
           <label class="tba-efield">
             <span class="tba-efield__label"><span>Who Is Your Hair Stylist?</span><span class="tba-efield__req">Required</span></span>
             <input type="text" name="contact[Hair stylist]" required>
           </label><label class="tba-efield">
               <span class="tba-efield__label"><span>Inspiration Images</span></span>
               <input type="url" name="contact[Inspiration images]" placeholder="Link to a Pinterest board, Instagram saves or shared album">
-            </label><label class="tba-efield">
+            </label><label class="tba-efield tba-efield--wide">
+            <span class="tba-efield__label"><span>Ceremony Location</span><span class="tba-efield__req">Required</span></span>
+            <textarea name="contact[Ceremony location]" required></textarea>
+          </label>
+          <label class="tba-efield tba-efield--wide">
             <span class="tba-efield__label"><span>Anything Else You Would Like To Share?</span></span>
             <textarea name="contact[body]"></textarea>
-          </label><div class="tba-efield">
+          </label><div class="tba-efield tba-efield--full">
               <span class="tba-efield__label"><span>Where Did You Hear About Me?</span><span class="tba-efield__req">Required</span></span>
-              <div class="tba-eradios"><label class="tba-eradio">
+              <div class="tba-eradios tba-eradios--row"><label class="tba-eradio">
                       <input type="radio" name="contact[Heard about us]" value="Website" required>
                       <span>Website</span>
                     </label><label class="tba-eradio">
@@ -1637,7 +1649,10 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
                       <input type="radio" name="contact[Heard about us]" value="Referral" required>
                       <span>Referral</span>
                     </label></div>
-            </div><button class="tba-btn tba-btn--gold" type="submit">Send Bridal Enquiry</button><p class="tba-eform__note">We'll only use your details to reply to your enquiry. Bridal bookings can be cancelled up to 7 days before the appointment for a 12-month credit.</p></form></div>
+            </div></div>
+
+        <button class="tba-btn tba-btn--gold" type="submit">Send Bridal Enquiry</button><p class="tba-eform__note">We'll only use your details to reply to your enquiry. Bridal bookings can be cancelled up to 7 days before the appointment for a 12-month credit.</p></form>
+      </div></div>
 </section>
 </div>
 

@@ -38,10 +38,10 @@
 
     {%- assign panels = section.blocks | where: "type", "panel" -%}
     {%- if panels.size > 0 -%}
-      <div class="tba-panels">
+      <div class="tba-panels{% if s.panel_columns == '3' %} tba-panels--3{% endif %}">
         {%- for block in panels -%}
           {%- assign b = block.settings -%}
-          <div class="tba-panel{% if b.style == 'note' %} tba-panel--note{% endif %}" {{ block.shopify_attributes }}>
+          <div class="tba-panel{% if b.style == 'note' %} tba-panel--note{% elsif b.style == 'card' %} tba-panel--card{% endif %}" {{ block.shopify_attributes }}>
             {%- if b.heading != blank -%}<h3>{{ b.heading }}</h3>{%- endif -%}
             {%- comment -%} Build the list without a trailing separator, so a blank
                line at the end of the setting can't produce an empty bullet. {%- endcomment -%}
@@ -112,6 +112,22 @@
       "type": "select",
       "id": "columns",
       "label": "Cards per row",
+      "options": [
+        {
+          "value": "2",
+          "label": "Two"
+        },
+        {
+          "value": "3",
+          "label": "Three"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "panel_columns",
+      "label": "Panels per row",
       "options": [
         {
           "value": "2",
@@ -219,6 +235,10 @@
             {
               "value": "solid",
               "label": "Filled"
+            },
+            {
+              "value": "card",
+              "label": "Card — white with a gold edge"
             },
             {
               "value": "note",
