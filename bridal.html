@@ -884,19 +884,21 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-svc__price{font-family:var(--tba-serif);font-size:34px;line-height:1;color:var(--tba-gold-dp)}
 .tba-svc__dur{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tba-ink-mute)}
 
-/* dark variant — declared after the light rules so it wins on equal
-   specificity. Not black: a deep roast of the brand gold, so the card reads
-   as the same family as the header bands rather than a neutral slab. */
+/* filled variant — declared after the light rules so it wins on equal
+   specificity. A warm tan wash from the brand's own range rather than a
+   neutral slab, with the ink dark enough to hold contrast on it, and the
+   content centred. */
 .tba-svc--dark .tba-svc__card{
-  background:linear-gradient(155deg,#7c5333 0%,#63401f 58%,#4f331a 100%);
-  border-color:rgba(255,255,255,.14);
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 12px 34px rgba(79,51,26,.22)}
-.tba-svc--dark .tba-svc__card h3{color:#fff}
-.tba-svc--dark .tba-svc__card p{color:rgba(255,255,255,.8)}
-.tba-svc--dark .tba-svc__meta{border-top-color:rgba(255,255,255,.18)}
-.tba-svc--dark .tba-svc__price{color:var(--tba-gold-lt)}
-.tba-svc--dark .tba-svc__dur{color:rgba(255,255,255,.66)}
+  background:linear-gradient(155deg,#f4dcc6 0%,#ecc7a6 55%,#e2b58f 100%);
+  border-color:rgba(184,127,82,.4);
+  border-radius:14px;overflow:hidden;text-align:center;
+  box-shadow:0 12px 34px rgba(120,78,44,.14)}
+.tba-svc--dark .tba-svc__card h3{color:#3a2513}
+.tba-svc--dark .tba-svc__card p{color:#5b3d24}
+.tba-svc--dark .tba-svc__meta{
+  border-top-color:rgba(120,78,44,.28);justify-content:center}
+.tba-svc--dark .tba-svc__price{color:#6b4526}
+.tba-svc--dark .tba-svc__dur{color:#7d5936}
 
 /* ---------- policy panels ---------- */
 .tba-panels{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.4vw,34px);margin-top:clamp(24px,3vw,44px)}
