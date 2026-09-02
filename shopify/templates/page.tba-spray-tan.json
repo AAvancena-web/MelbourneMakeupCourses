@@ -33,22 +33,95 @@
         "cta_url": "#enquire"
       },
       "blocks": {
-        "img-1": { "type": "image", "settings": { "fallback": "tba-spraytan-01.webp", "width": "960", "height": "1280", "alt": "Client with a warm spray tan and a bold red lip" } },
-        "img-2": { "type": "image", "settings": { "fallback": "tba-spraytan-02.webp", "width": "960", "height": "1280", "alt": "Glowing shoulders and soft waves after a studio tan" } },
-        "img-3": { "type": "image", "settings": { "fallback": "tba-spraytan-03.webp", "width": "959", "height": "1400", "alt": "Client in a feathered gown with an evening makeup look" } },
-        "img-4": { "type": "image", "settings": { "fallback": "tba-spraytan-04.webp", "width": "1007", "height": "1400", "alt": "Client in a red formal gown, tanned and ready for the night" } },
-        "img-5": { "type": "image", "settings": { "fallback": "tba-spraytan-05.webp", "width": "1116", "height": "1400", "alt": "Sun-kissed skin with a soft smoky eye" } },
-        "img-6": { "type": "image", "settings": { "fallback": "tba-spraytan-06.webp", "width": "1050", "height": "1400", "alt": "Warm bronzed finish with a neutral lip" } },
-        "img-7": { "type": "image", "settings": { "fallback": "tba-spraytan-07.webp", "width": "1050", "height": "1400", "alt": "Client with a fresh tan and a luminous base" } },
-        "img-8": { "type": "image", "settings": { "fallback": "tba-spraytan-08.webp", "width": "970", "height": "1400", "alt": "Even, natural-looking colour across the shoulders and décolletage" } }
+        "img-1": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-01.webp",
+            "width": "960",
+            "height": "1280",
+            "alt": "Client with a warm spray tan and a bold red lip"
+          }
+        },
+        "img-2": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-02.webp",
+            "width": "960",
+            "height": "1280",
+            "alt": "Glowing shoulders and soft waves after a studio tan"
+          }
+        },
+        "img-3": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-03.webp",
+            "width": "959",
+            "height": "1400",
+            "alt": "Client in a feathered gown with an evening makeup look"
+          }
+        },
+        "img-4": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-04.webp",
+            "width": "1007",
+            "height": "1400",
+            "alt": "Client in a red formal gown, tanned and ready for the night"
+          }
+        },
+        "img-5": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-05.webp",
+            "width": "1116",
+            "height": "1400",
+            "alt": "Sun-kissed skin with a soft smoky eye"
+          }
+        },
+        "img-6": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-06.webp",
+            "width": "1050",
+            "height": "1400",
+            "alt": "Warm bronzed finish with a neutral lip"
+          }
+        },
+        "img-7": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-07.webp",
+            "width": "1050",
+            "height": "1400",
+            "alt": "Client with a fresh tan and a luminous base"
+          }
+        },
+        "img-8": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-spraytan-08.webp",
+            "width": "970",
+            "height": "1400",
+            "alt": "Even, natural-looking colour across the shoulders and décolletage"
+          }
+        }
       },
-      "block_order": ["img-1", "img-2", "img-3", "img-4", "img-5", "img-6", "img-7", "img-8"]
+      "block_order": [
+        "img-1",
+        "img-2",
+        "img-3",
+        "img-4",
+        "img-5",
+        "img-6",
+        "img-7",
+        "img-8"
+      ]
     },
-    "services": {
+    "pricing": {
       "type": "tba-services",
       "settings": {
         "eyebrow": "Pricing",
-        "heading": "Services & Booking",
+        "heading": "Services & Pricing",
         "lede": "Studio appointments for spray tanning and special occasion makeup. Book and pay online to hold your time — bookings open up to 4 months in advance.",
         "background": "",
         "anchor": "book",
@@ -76,7 +149,28 @@
             "duration": "75 minutes",
             "description": "Perfect for formals, engagements, birthdays, or a night out. Receive a polished, camera-ready look tailored to your features and outfit, including skin prep and false lashes for a long-lasting finish."
           }
-        },
+        }
+      },
+      "block_order": [
+        "service-1",
+        "service-2"
+      ]
+    },
+    "booking": {
+      "type": "tba-services",
+      "settings": {
+        "eyebrow": "Booking",
+        "heading": "Your Appointment",
+        "lede": "How to prepare, what happens in the chair, how to keep the colour — and the deposit and cancellation terms that hold your time.",
+        "background": "tba-section--sand",
+        "anchor": "booking",
+        "cta_label": "",
+        "cta_url": "",
+        "cta_note": "",
+        "columns": "2",
+        "panel_columns": "3"
+      },
+      "blocks": {
         "panel-1": {
           "type": "panel",
           "settings": {
@@ -126,7 +220,14 @@
           }
         }
       },
-      "block_order": ["service-1", "service-2", "panel-1", "panel-2", "panel-3", "panel-4", "panel-5", "panel-6"]
+      "block_order": [
+        "panel-1",
+        "panel-2",
+        "panel-3",
+        "panel-4",
+        "panel-5",
+        "panel-6"
+      ]
     },
     "reviews": {
       "type": "tba-testimonials",
@@ -168,7 +269,11 @@
           }
         }
       },
-      "block_order": ["quote-1", "quote-2", "quote-3"]
+      "block_order": [
+        "quote-1",
+        "quote-2",
+        "quote-3"
+      ]
     },
     "maggie": {
       "type": "tba-founder",
@@ -183,12 +288,37 @@
         "anchor": "maggie"
       },
       "blocks": {
-        "cred-1": { "type": "credential", "settings": { "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 &amp; 2014" } },
-        "cred-2": { "type": "credential", "settings": { "text": "<b>Australian Bridal Industry Awards</b> — several consecutive years" } },
-        "cred-3": { "type": "credential", "settings": { "text": "<b>Studio appointments</b> — spray tanning and special occasion makeup" } },
-        "cred-4": { "type": "credential", "settings": { "text": "<b>Training academy</b> — Tamarua Beauty Academy, Melbourne" } }
+        "cred-1": {
+          "type": "credential",
+          "settings": {
+            "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 &amp; 2014"
+          }
+        },
+        "cred-2": {
+          "type": "credential",
+          "settings": {
+            "text": "<b>Australian Bridal Industry Awards</b> — several consecutive years"
+          }
+        },
+        "cred-3": {
+          "type": "credential",
+          "settings": {
+            "text": "<b>Studio appointments</b> — spray tanning and special occasion makeup"
+          }
+        },
+        "cred-4": {
+          "type": "credential",
+          "settings": {
+            "text": "<b>Training academy</b> — Tamarua Beauty Academy, Melbourne"
+          }
+        }
       },
-      "block_order": ["cred-1", "cred-2", "cred-3", "cred-4"]
+      "block_order": [
+        "cred-1",
+        "cred-2",
+        "cred-3",
+        "cred-4"
+      ]
     },
     "faq": {
       "type": "tba-faq",
@@ -243,7 +373,14 @@
           }
         }
       },
-      "block_order": ["qa-1", "qa-2", "qa-3", "qa-4", "qa-5", "qa-6"]
+      "block_order": [
+        "qa-1",
+        "qa-2",
+        "qa-3",
+        "qa-4",
+        "qa-5",
+        "qa-6"
+      ]
     },
     "form": {
       "type": "tba-enquiry-form",
@@ -263,5 +400,14 @@
       }
     }
   },
-  "order": ["hero", "gallery", "services", "reviews", "maggie", "faq", "form"]
+  "order": [
+    "hero",
+    "gallery",
+    "pricing",
+    "booking",
+    "reviews",
+    "maggie",
+    "faq",
+    "form"
+  ]
 }

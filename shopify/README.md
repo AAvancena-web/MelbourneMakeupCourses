@@ -422,12 +422,18 @@ on; the other backgrounds stay flat. The **Ornament line** setting puts a small
 gold rule and symbol above the heading. **Makeup and Tan Services** runs three: page intro → service
 cards and policy panels → the standard form.
 
-**Spray Tanning** runs the same seven-section shape as the bridal page, with
-the standard form in place of the bridal one: image hero → Recent Work (eight
-frames on the sliding ribbon) → Services & Booking (the two service cards plus
-six detail panels: before, during, after, timing, deposits, cancellations) →
-What Clients Say → Meet Maggie → FAQ → the enquiry form on the feature
-background, set wide so it stays two rows rather than a long column.
+**Spray Tanning** runs eight sections, the bridal page's shape with the
+standard form in place of the bridal one: image hero → Recent Work (eight
+frames on the sliding ribbon) → Services & Pricing → Your Appointment → What
+Clients Say → Meet Maggie → FAQ → the enquiry form on the feature background,
+set wide so it stays two rows rather than a long column.
+
+Pricing and booking are two `tba-services` sections rather than one: the first
+carries the two service cards and the Book & Pay button on white, the second
+the six detail panels — prep, the appointment, aftercare, timing, deposits,
+cancellations — on sand. The section renders cards and panels independently, so
+either group can be empty; splitting them gives each its own heading,
+background band and anchor (`#book` and `#booking`).
 
 > **Draft copy to approve.** Packages & Booking now carries three package
 > cards and six detail panels — trial, travel, on-the-day, deposits,
