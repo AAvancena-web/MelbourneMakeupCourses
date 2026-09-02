@@ -715,6 +715,20 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   flex:0 0 auto;height:clamp(260px,28vw,430px);margin:0;overflow:hidden;background:var(--tba-mist)}
 .tba-gallery--slide img{aspect-ratio:auto;height:100%;width:auto;max-width:none;object-fit:cover}
 
+/* On phones the ribbon becomes a plain grid showing every frame at once —
+   a sideways scroller is awkward on touch, and the whole set fits down the
+   page. tba-redesign.js marks its duplicate frames aria-hidden, so hiding
+   those leaves exactly one of each with no JavaScript change. */
+@media (max-width:767px){
+  .tba-marquee:has(.tba-gallery--slide){-webkit-mask-image:none;mask-image:none;overflow:visible}
+  .tba-gallery--slide{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+    width:auto;animation:none;padding-inline:var(--tba-gutter)}
+  .tba-gallery--slide>[aria-hidden="true"]{display:none}
+  .tba-gallery--slide figure{height:auto}
+  .tba-gallery--slide img{aspect-ratio:4/5;width:100%;height:auto}
+}
+
 /* ---------- FAQ ---------- */
 .tba-faq{max-width:900px;margin-inline:auto;border-top:1px solid var(--tba-line)}
 .tba-faq details{border-bottom:1px solid var(--tba-line)}
@@ -1433,64 +1447,40 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
     </div><div class="tba-marquee">
       <div class="tba-marquee__track tba-gallery tba-gallery--slide" data-tba-speed="45">
         <figure >
-        <img src="shopify/assets/tba-bridal-01.webp" alt="Bridal makeup with a soft smoky eye and glossy nude lip" width="1134" height="1400" data-tba-fallback="shopify/assets/tba-bridal-01.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-01.webp" alt="Bride holding her bouquet on the path to the ceremony" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-01.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-02.webp" alt="Close-up bridal makeup with luminous skin and a defined brow" width="1092" height="1365" data-tba-fallback="shopify/assets/tba-bridal-02.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-02.webp" alt="Bride with her bouquet at the barn doors" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-02.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-03.webp" alt="Bride with a classic red lip and sculpted eye" width="1400" height="1400" data-tba-fallback="shopify/assets/tba-bridal-03.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-03.webp" alt="Bride in an open field, veil catching the light" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-03.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-04.webp" alt="Natural bridal makeup photographed in daylight" width="1400" height="1400" data-tba-fallback="shopify/assets/tba-bridal-04.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-04.webp" alt="Bride in the paddock under a soft grey sky" width="1400" height="934" data-tba-fallback="shopify/assets/tba-bridal-04.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-05.webp" alt="Candle-lit bridal portrait with a warm bronzed eye" width="1120" height="1400" data-tba-fallback="shopify/assets/tba-bridal-05.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-05.webp" alt="Back detail of the gown, hair dressed low" width="1120" height="1400" data-tba-fallback="shopify/assets/tba-bridal-05.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-06.webp" alt="Outdoor bridal portrait with soft glam makeup and an updo" width="1210" height="1192" data-tba-fallback="shopify/assets/tba-bridal-06.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-06.webp" alt="Bride by the stone wall, open-back gown" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-06.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-07.webp" alt="Bride in a veil with fresh, dewy bridal makeup" width="1120" height="1400" data-tba-fallback="shopify/assets/tba-bridal-07.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-07.webp" alt="Bride turning in the long grass, skirt in motion" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-07.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-08.webp" alt="Bridal makeup with a tiara and cathedral veil" width="810" height="1013" data-tba-fallback="shopify/assets/tba-bridal-08.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-08.webp" alt="Full-length veil trailing across the field" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-08.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-09.webp" alt="Bride holding her bouquet, soft matte bridal finish" width="960" height="1201" data-tba-fallback="shopify/assets/tba-bridal-09.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-09.webp" alt="Bride under the timber pergola with her bouquet" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-09.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-10.webp" alt="Seated bridal portrait with a romantic bouquet" width="912" height="1290" data-tba-fallback="shopify/assets/tba-bridal-10.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-10.webp" alt="Bride indoors before the ceremony" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-10.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-11.webp" alt="Final touches during the getting-ready morning" width="1400" height="1400" data-tba-fallback="shopify/assets/tba-bridal-11.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-11.webp" alt="Bride in the field with her bouquet at golden hour" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-11.webp" loading="lazy">
 
       </figure><figure >
-        <img src="shopify/assets/tba-bridal-12.webp" alt="Strapless gown with a soft neutral bridal eye" width="1400" height="1400" data-tba-fallback="shopify/assets/tba-bridal-12.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-13.webp" alt="Garden bridal portrait with a long veil and bouquet" width="960" height="1201" data-tba-fallback="shopify/assets/tba-bridal-13.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-14.webp" alt="Bride and bridesmaid laughing after makeup" width="1080" height="1350" data-tba-fallback="shopify/assets/tba-bridal-14.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-15.webp" alt="Full-length bridal portrait at golden hour" width="933" height="1400" data-tba-fallback="shopify/assets/tba-bridal-15.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-16.webp" alt="Bride and groom on the beach after the ceremony" width="1400" height="1400" data-tba-fallback="shopify/assets/tba-bridal-16.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-17.webp" alt="Sunset portrait of the couple on the wedding day" width="1120" height="1400" data-tba-fallback="shopify/assets/tba-bridal-17.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-18.webp" alt="Groom kissing the bride&#x27;s forehead" width="1400" height="1400" data-tba-fallback="shopify/assets/tba-bridal-18.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-19.webp" alt="Close portrait of the couple after the ceremony" width="1119" height="1400" data-tba-fallback="shopify/assets/tba-bridal-19.webp" loading="lazy">
-
-      </figure><figure >
-        <img src="shopify/assets/tba-bridal-20.webp" alt="Bridal party portrait with the whole group ready" width="1120" height="1400" data-tba-fallback="shopify/assets/tba-bridal-20.webp" loading="lazy">
+        <img src="shopify/assets/tba-bridal-12.webp" alt="Skirt spread across the paddock grass" width="934" height="1400" data-tba-fallback="shopify/assets/tba-bridal-12.webp" loading="lazy">
 
       </figure>
       </div>

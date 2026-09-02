@@ -152,27 +152,27 @@
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-01.webp",
-            "width": "1134",
+            "width": "934",
             "height": "1400",
-            "alt": "Bridal makeup with a soft smoky eye and glossy nude lip"
+            "alt": "Bride holding her bouquet on the path to the ceremony"
           }
         },
         "image-02": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-02.webp",
-            "width": "1092",
-            "height": "1365",
-            "alt": "Close-up bridal makeup with luminous skin and a defined brow"
+            "width": "934",
+            "height": "1400",
+            "alt": "Bride with her bouquet at the barn doors"
           }
         },
         "image-03": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-03.webp",
-            "width": "1400",
+            "width": "934",
             "height": "1400",
-            "alt": "Bride with a classic red lip and sculpted eye"
+            "alt": "Bride in an open field, veil catching the light"
           }
         },
         "image-04": {
@@ -180,8 +180,8 @@
           "settings": {
             "fallback": "tba-bridal-04.webp",
             "width": "1400",
-            "height": "1400",
-            "alt": "Natural bridal makeup photographed in daylight"
+            "height": "934",
+            "alt": "Bride in the paddock under a soft grey sky"
           }
         },
         "image-05": {
@@ -190,142 +190,70 @@
             "fallback": "tba-bridal-05.webp",
             "width": "1120",
             "height": "1400",
-            "alt": "Candle-lit bridal portrait with a warm bronzed eye"
+            "alt": "Back detail of the gown, hair dressed low"
           }
         },
         "image-06": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-06.webp",
-            "width": "1210",
-            "height": "1192",
-            "alt": "Outdoor bridal portrait with soft glam makeup and an updo"
+            "width": "934",
+            "height": "1400",
+            "alt": "Bride by the stone wall, open-back gown"
           }
         },
         "image-07": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-07.webp",
-            "width": "1120",
+            "width": "934",
             "height": "1400",
-            "alt": "Bride in a veil with fresh, dewy bridal makeup"
+            "alt": "Bride turning in the long grass, skirt in motion"
           }
         },
         "image-08": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-08.webp",
-            "width": "810",
-            "height": "1013",
-            "alt": "Bridal makeup with a tiara and cathedral veil"
+            "width": "934",
+            "height": "1400",
+            "alt": "Full-length veil trailing across the field"
           }
         },
         "image-09": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-09.webp",
-            "width": "960",
-            "height": "1201",
-            "alt": "Bride holding her bouquet, soft matte bridal finish"
+            "width": "934",
+            "height": "1400",
+            "alt": "Bride under the timber pergola with her bouquet"
           }
         },
         "image-10": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-10.webp",
-            "width": "912",
-            "height": "1290",
-            "alt": "Seated bridal portrait with a romantic bouquet"
+            "width": "934",
+            "height": "1400",
+            "alt": "Bride indoors before the ceremony"
           }
         },
         "image-11": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-11.webp",
-            "width": "1400",
+            "width": "934",
             "height": "1400",
-            "alt": "Final touches during the getting-ready morning"
+            "alt": "Bride in the field with her bouquet at golden hour"
           }
         },
         "image-12": {
           "type": "image",
           "settings": {
             "fallback": "tba-bridal-12.webp",
-            "width": "1400",
+            "width": "934",
             "height": "1400",
-            "alt": "Strapless gown with a soft neutral bridal eye"
-          }
-        },
-        "image-13": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-13.webp",
-            "width": "960",
-            "height": "1201",
-            "alt": "Garden bridal portrait with a long veil and bouquet"
-          }
-        },
-        "image-14": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-14.webp",
-            "width": "1080",
-            "height": "1350",
-            "alt": "Bride and bridesmaid laughing after makeup"
-          }
-        },
-        "image-15": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-15.webp",
-            "width": "933",
-            "height": "1400",
-            "alt": "Full-length bridal portrait at golden hour"
-          }
-        },
-        "image-16": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-16.webp",
-            "width": "1400",
-            "height": "1400",
-            "alt": "Bride and groom on the beach after the ceremony"
-          }
-        },
-        "image-17": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-17.webp",
-            "width": "1120",
-            "height": "1400",
-            "alt": "Sunset portrait of the couple on the wedding day"
-          }
-        },
-        "image-18": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-18.webp",
-            "width": "1400",
-            "height": "1400",
-            "alt": "Groom kissing the bride's forehead"
-          }
-        },
-        "image-19": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-19.webp",
-            "width": "1119",
-            "height": "1400",
-            "alt": "Close portrait of the couple after the ceremony"
-          }
-        },
-        "image-20": {
-          "type": "image",
-          "settings": {
-            "fallback": "tba-bridal-20.webp",
-            "width": "1120",
-            "height": "1400",
-            "alt": "Bridal party portrait with the whole group ready"
+            "alt": "Skirt spread across the paddock grass"
           }
         }
       },
@@ -341,15 +269,7 @@
         "image-09",
         "image-10",
         "image-11",
-        "image-12",
-        "image-13",
-        "image-14",
-        "image-15",
-        "image-16",
-        "image-17",
-        "image-18",
-        "image-19",
-        "image-20"
+        "image-12"
       ]
     },
     "faq": {

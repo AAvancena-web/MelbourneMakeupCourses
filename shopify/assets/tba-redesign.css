@@ -694,6 +694,20 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   flex:0 0 auto;height:clamp(260px,28vw,430px);margin:0;overflow:hidden;background:var(--tba-mist)}
 .tba-gallery--slide img{aspect-ratio:auto;height:100%;width:auto;max-width:none;object-fit:cover}
 
+/* On phones the ribbon becomes a plain grid showing every frame at once —
+   a sideways scroller is awkward on touch, and the whole set fits down the
+   page. tba-redesign.js marks its duplicate frames aria-hidden, so hiding
+   those leaves exactly one of each with no JavaScript change. */
+@media (max-width:767px){
+  .tba-marquee:has(.tba-gallery--slide){-webkit-mask-image:none;mask-image:none;overflow:visible}
+  .tba-gallery--slide{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+    width:auto;animation:none;padding-inline:var(--tba-gutter)}
+  .tba-gallery--slide>[aria-hidden="true"]{display:none}
+  .tba-gallery--slide figure{height:auto}
+  .tba-gallery--slide img{aspect-ratio:4/5;width:100%;height:auto}
+}
+
 /* ---------- FAQ ---------- */
 .tba-faq{max-width:900px;margin-inline:auto;border-top:1px solid var(--tba-line)}
 .tba-faq details{border-bottom:1px solid var(--tba-line)}

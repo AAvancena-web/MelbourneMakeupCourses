@@ -408,6 +408,11 @@ image count. It pauses on hover, and under `prefers-reduced-motion` the
 animation stops and the row becomes an ordinary scroller. **Slide speed** is a
 setting, in pixels per second.
 
+Below 768px the sliding row becomes a two-column grid showing every frame at
+once — a sideways scroller is awkward on touch. The script marks its duplicate
+frames `aria-hidden`, so the grid hides those and shows exactly one of each,
+with no JavaScript branch.
+
 `tba-enquiry-form` has a **Feature** background — a dark ground with two gold
 glows, a slow twinkle, and an ivory card with a gold sheen edge and a shimmer
 on the submit button. It is for the page you actually want people to convert
@@ -429,15 +434,11 @@ cards and policy panels → the standard form.
 > impossible to miss. Replace all three with real quotes, or delete the
 > section, before this page goes live.
 
-> **The bridal photos are samples, and cannot go live as they are.** The hero
-> and the 20-image Recent Work grid use reference photos supplied for layout,
-> sourced from a "best bridal makeup artists" roundup. They are other artists'
-> work and other photographers' images — publishing them on a page selling
-> Maggie's services would be both a copyright problem and a misrepresentation.
-> They are renamed `tba-bridal-01…20.webp` so no one else's name ends up in the
-> page source, but that makes them tidier, not publishable. Replace them with
-> Maggie's own portfolio before this page goes live: each is an image block in
-> the theme editor, and the hero image is one setting.
+> **Check the photo rights before publishing.** Recent Work carries twelve
+> images from a Leonards Hill Estate shoot, supplied for the page and renamed
+> `tba-bridal-01…12.webp`. They carry a visible photographer's watermark, so
+> confirm the studio is licensed to publish them — and if so, ask for
+> unwatermarked files. The hero image is a separate setting.
 
 ### Publishing them
 
