@@ -139,7 +139,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
 
     {% if settings.show_multiple_currencies or settings.show_shipping_calculator %}
+      {% # theme-check-disable ParserBlockingScript %}
+      {% comment %} Turbo loads this synchronously on purpose: it defines the Currency
+         global that js-variables and app.js read. Deferring it risks currency display. {% endcomment %}
       <script type="text/javascript" src="/services/javascripts/currencies.js" data-no-instant></script>
+      {% # theme-check-enable ParserBlockingScript %}
     {% endif %}
 
     {% if settings.show_multiple_currencies or shop.enabled_currencies.size > 1 %}
@@ -440,7 +444,11 @@ var afterpay_current_variant = {{ product.selected_or_first_available_variant | 
 var afterpay_cart_total_price = {{ cart.total_price | json }};
 var afterpay_js_snippet_version = '1.1.6';
 </script>
+{% # theme-check-disable ParserBlockingScript %}
+{% comment %} Afterpay's official snippet (v1.1.6) ships without defer. Left as the
+   vendor supplies it rather than second-guessing their loader. {% endcomment %}
 <script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
+{% # theme-check-enable ParserBlockingScript %}
 {% else %}
 <!-- Afterpay disabled: {{ cart.currency.iso_code }} != {{ shop.currency }} -->
 {% endif %}
@@ -473,9 +481,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
   </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% comment %} The CDN jQuery that used to sit here was a second copy of jQuery on top of
+   the theme's own (assets/jquery.min.js, loaded deferred in the head), and it replaced the
+   global $ after Turbo had already set it up. Removed; the snippet below now waits for
+   DOMContentLoaded, by which point the theme's deferred jQuery has run. {% endcomment %}
   <script>
-  jQuery(document).ready(function () {
+  document.addEventListener('DOMContentLoaded', function () {
     var videoHTML = `
       \x3Cdiv style="text-align:center;">\x3Cvideo width="360" height="360" controls style="margin-bottom: 20px;">
         \x3Csource src="https://cdn.shopify.com/videos/c/o/v/43db20c4751d4203b0af43770cda280e.mp4" type="video/mp4">
