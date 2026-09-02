@@ -60,7 +60,7 @@
             {%- assign kept = kept | split: '||' -%}
             {%- if kept.size > 1 -%}
               <ul>
-                {%- for t in kept -%}<li><span>{{ t }}</span></li>{%- endfor -%}
+                {%- for t in kept -%}<li>{{ t }}</li>{%- endfor -%}
               </ul>
             {%- elsif kept.size == 1 -%}
               <p>{{ kept[0] }}</p>

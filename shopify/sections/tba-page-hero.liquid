@@ -6,7 +6,7 @@
 <section class="tba-phero">
   <div class="tba-phero__media">
     {% render 'tba-image', image: s.image, fallback: s.fallback, alt: s.image_alt,
-       width: 2000, height: 763, url_width: 2000, fetchpriority: 'high' %}
+       width: s.width, height: s.height, url_width: 2000, fetchpriority: 'high' %}
   </div>
   <div class="tba-shell">
     <div class="tba-phero__inner">
@@ -44,6 +44,18 @@
       "label": "Bundled image",
       "default": "tba-banner1.webp",
       "info": "Filename in Content > Files (or the theme's assets/) used when no image is chosen."
+    },
+    {
+      "type": "text",
+      "id": "width",
+      "label": "Bundled image width",
+      "default": "2000"
+    },
+    {
+      "type": "text",
+      "id": "height",
+      "label": "Bundled image height",
+      "default": "763"
     },
     {
       "type": "text",

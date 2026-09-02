@@ -660,22 +660,40 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   text-transform:uppercase;margin-bottom:14px}
 .tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
 
-/* ---------- testimonial quotes ---------- */
-.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);align-items:start;gap:clamp(12px,1.3vw,20px)}
+/* ---------- testimonial quotes ----------
+   Equal-height cards with the content centred, so the slack from uneven review
+   lengths splits above and below instead of pooling into one hole above the
+   caption. Blush ground, gold hairline, and a gold quote badge on the top edge. */
+.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;
+  gap:clamp(14px,1.5vw,24px);padding-top:26px}
 .tba-quote{
-  display:flex;flex-direction:column;position:relative;
-  padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
+  display:flex;flex-direction:column;justify-content:center;position:relative;
+  padding:clamp(38px,3.2vw,52px) clamp(26px,2.4vw,38px) clamp(30px,2.6vw,42px);
+  border-radius:16px;
+  background:linear-gradient(168deg,#fffaf6 0%,#fdf1e6 100%);
+  border:1px solid rgba(220,162,119,.45);
+  box-shadow:0 10px 30px rgba(17,17,17,.05);
+  transition:transform .45s var(--tba-ease),box-shadow .45s var(--tba-ease),border-color .45s}
+.tba-quote:hover{
+  transform:translateY(-5px);box-shadow:0 22px 50px rgba(17,17,17,.12);border-color:var(--tba-gold)}
+/* gold badge straddling the top edge */
 .tba-quote::before{
-  content:"\201C";position:absolute;top:14px;right:24px;
-  font-family:var(--tba-serif);font-size:86px;line-height:1;color:rgba(220,162,119,.26)}
-.tba-quote .tba-stars{margin-bottom:20px}
-.tba-quote blockquote{margin:0 0 26px;font-size:clamp(17px,1.35vw,20px);line-height:1.85;color:var(--tba-ink-soft)}
-.tba-quote figcaption{border-top:1px solid var(--tba-line);padding-top:20px}
+  content:"\201C";position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+  width:48px;height:48px;border-radius:50%;background:var(--tba-gold-sheen);
+  display:flex;align-items:flex-start;justify-content:center;
+  font-family:var(--tba-serif);font-size:52px;line-height:.98;color:#fff;
+  box-shadow:0 8px 20px rgba(220,162,119,.45)}
+.tba-quote .tba-stars{justify-content:center;margin-bottom:18px}
+.tba-quote blockquote{
+  margin:0 0 24px;font-size:clamp(16.5px,1.25vw,18.5px);line-height:1.85;
+  color:var(--tba-ink-soft);text-align:center}
+.tba-quote figcaption{
+  border-top:1px solid rgba(220,162,119,.4);padding-top:20px;text-align:center}
 .tba-quote cite{
-  display:block;font-style:normal;font-family:var(--tba-sans);font-size:13px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--tba-black)}
-.tba-quote span{display:block;margin-top:7px;font-size:14px;color:var(--tba-ink-mute)}
-@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr}}
+  display:block;font-style:normal;font-family:var(--tba-sans);font-size:12.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--tba-gold-dp)}
+.tba-quote span{display:block;margin-top:7px;font-size:13.5px;color:var(--tba-ink-mute)}
+@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}}
 
 /* ---------- image gallery ---------- */
 .tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
@@ -728,35 +746,36 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
    ground, two soft gold glows, a slow twinkle, and an ivory card with a gold
    sheen edge. Everything is decorative and sits behind the form, so the
    fields keep the same contrast they have on a plain background. */
-.tba-section--feature{position:relative;isolation:isolate;overflow:hidden;background:var(--tba-black)}
+.tba-section--feature{position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(158deg,#fdf3ea 0%,#f4dcc6 38%,#eccdad 62%,#faf0e6 100%)}
 .tba-section--feature::before{
   content:"";position:absolute;inset:-25% -12%;z-index:-2;
   background:
-    radial-gradient(40% 44% at 16% 20%,rgba(220,162,119,.30),transparent 70%),
-    radial-gradient(36% 42% at 86% 80%,rgba(220,162,119,.22),transparent 70%),
-    radial-gradient(50% 55% at 50% 50%,rgba(184,127,82,.14),transparent 72%)
+    radial-gradient(42% 46% at 14% 18%,rgba(255,255,255,.75),transparent 70%),
+    radial-gradient(38% 44% at 88% 82%,rgba(220,162,119,.42),transparent 70%),
+    radial-gradient(52% 58% at 52% 48%,rgba(255,246,238,.55),transparent 72%)
 }
 .tba-section--feature::after{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background-image:
-    radial-gradient(2.4px 2.4px at 12% 16%,rgba(255,241,227,.95),transparent 60%),
-    radial-gradient(2px 2px at 27% 68%,rgba(255,241,227,.75),transparent 60%),
-    radial-gradient(2.6px 2.6px at 41% 24%,rgba(255,241,227,.85),transparent 60%),
-    radial-gradient(1.9px 1.9px at 58% 82%,rgba(255,241,227,.7),transparent 60%),
-    radial-gradient(2.5px 2.5px at 72% 34%,rgba(255,241,227,.9),transparent 60%),
-    radial-gradient(2.1px 2.1px at 88% 62%,rgba(255,241,227,.8),transparent 60%),
-    radial-gradient(2.2px 2.2px at 6% 78%,rgba(255,241,227,.7),transparent 60%),
-    radial-gradient(2.3px 2.3px at 94% 12%,rgba(255,241,227,.85),transparent 60%),
-    radial-gradient(2px 2px at 34% 92%,rgba(255,241,227,.65),transparent 60%),
-    radial-gradient(2.4px 2.4px at 66% 8%,rgba(255,241,227,.8),transparent 60%);
+    radial-gradient(2.4px 2.4px at 12% 16%,rgba(176,116,68,.95),transparent 60%),
+    radial-gradient(2px 2px at 27% 68%,rgba(176,116,68,.75),transparent 60%),
+    radial-gradient(2.6px 2.6px at 41% 24%,rgba(176,116,68,.85),transparent 60%),
+    radial-gradient(1.9px 1.9px at 58% 82%,rgba(176,116,68,.7),transparent 60%),
+    radial-gradient(2.5px 2.5px at 72% 34%,rgba(176,116,68,.9),transparent 60%),
+    radial-gradient(2.1px 2.1px at 88% 62%,rgba(176,116,68,.8),transparent 60%),
+    radial-gradient(2.2px 2.2px at 6% 78%,rgba(176,116,68,.7),transparent 60%),
+    radial-gradient(2.3px 2.3px at 94% 12%,rgba(176,116,68,.85),transparent 60%),
+    radial-gradient(2px 2px at 34% 92%,rgba(176,116,68,.65),transparent 60%),
+    radial-gradient(2.4px 2.4px at 66% 8%,rgba(176,116,68,.8),transparent 60%);
   animation:tbaTwinkle 6s ease-in-out infinite alternate
 }
-@keyframes tbaTwinkle{from{opacity:.45}to{opacity:.95}}
+@keyframes tbaTwinkle{from{opacity:.28}to{opacity:.62}}
 
 .tba-section--feature .tba-eform{
-  background:linear-gradient(180deg,#fffbf7 0%,#fdf5ed 100%);
+  background:#fff;
   border:1px solid rgba(220,162,119,.5);
-  box-shadow:0 34px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.05);
+  box-shadow:0 26px 60px rgba(120,78,44,.16),0 2px 6px rgba(120,78,44,.06);
   position:relative;overflow:hidden
 }
 .tba-section--feature .tba-eform::before{
@@ -858,28 +877,33 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-panel li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--tba-gold)}
 .tba-panel p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.8}
 
-/* card overrides — after the base panel rules so they win on equal specificity */
-.tba-panel--card{text-align:center}
+/* card overrides — after the base panel rules so they win on equal specificity.
+   A gold header band over an ivory body: the brand colour does the separating,
+   so the list underneath needs no per-item rule at all. */
+.tba-panel--card{
+  padding:0;overflow:hidden;border-radius:14px;background:#fff;
+  border:1px solid rgba(220,162,119,.45);
+  box-shadow:0 8px 26px rgba(17,17,17,.05);
+  transition:transform .45s var(--tba-ease),box-shadow .45s var(--tba-ease),border-color .45s}
+.tba-panel--card:hover{
+  transform:translateY(-5px);box-shadow:0 20px 46px rgba(17,17,17,.11);border-color:var(--tba-gold)}
+.tba-panel--card::before{display:none}
 .tba-panel--card h3{
-  font-family:var(--tba-serif);font-size:clamp(20px,1.7vw,26px);font-weight:400;
-  letter-spacing:.02em;text-transform:uppercase;color:var(--tba-black);margin-bottom:10px}
-.tba-panel--card ul{flex:1;align-content:start;gap:0}
-.tba-panel--card li{padding:17px 0 0;text-align:center;padding-left:0}
-/* the dash becomes a short centred hairline sitting between items, so a centred
-   list reads as a menu rather than a bulleted one hanging off the left edge */
+  margin:0;padding:20px 22px;background:var(--tba-gold-sheen);color:#2c1d11;
+  font-family:var(--tba-serif);font-size:clamp(18px,1.5vw,23px);font-weight:500;
+  letter-spacing:.05em;text-transform:uppercase;text-align:center;
+  text-shadow:0 1px 0 rgba(255,255,255,.25)}
+.tba-panel--card ul{
+  margin:0;padding:clamp(24px,2.4vw,34px);gap:0;flex:1;align-content:start}
+.tba-panel--card li{
+  padding:15px 0;padding-left:0;text-align:center;font-size:15.5px;line-height:1.75}
 .tba-panel--card li::before{
-  left:50%;top:0;transform:translateX(-50%);width:46px;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(220,162,119,.8),transparent)}
-/* a small gold lozenge centred on the hairline — the line alone reads as
-   nothing at this weight, the diamond makes it a deliberate separator */
-.tba-panel--card li::after{
-  content:"";position:absolute;top:-2px;left:50%;width:5px;height:5px;
-  transform:translateX(-50%) rotate(45deg);background:var(--tba-gold)}
-.tba-panel--card li:first-child{padding-top:6px}
-.tba-panel--card li:first-child::before,
-.tba-panel--card li:first-child::after{display:none}
-.tba-panel--card li>span{display:block;margin-top:17px}
-.tba-panel--card p{text-align:center}
+  left:50%;top:0;transform:translateX(-50%);width:34px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(220,162,119,.6),transparent)}
+.tba-panel--card li:first-child{padding-top:0}
+.tba-panel--card li:first-child::before{display:none}
+.tba-panel--card p{text-align:center;padding:clamp(24px,2.4vw,34px);margin:0}
+
 .tba-panel--note{background:transparent;border-style:dashed;grid-column:1/-1}
 
 /* ---------- enquiry form ---------- */

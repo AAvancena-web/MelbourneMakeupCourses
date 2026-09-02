@@ -413,9 +413,9 @@ once — a sideways scroller is awkward on touch. The script marks its duplicate
 frames `aria-hidden`, so the grid hides those and shows exactly one of each,
 with no JavaScript branch.
 
-`tba-enquiry-form` has a **Feature** background — a dark ground with two gold
-glows, a slow twinkle, and an ivory card with a gold sheen edge and a shimmer
-on the submit button. It is for the page you actually want people to convert
+`tba-enquiry-form` has a **Feature** background — a champagne gradient in the
+brand's warm range with soft glows, a slow gold twinkle, and a white card with
+a gold sheen edge and a shimmer on the submit button. It is for the page you actually want people to convert
 on; the other backgrounds stay flat. The **Ornament line** setting puts a small
 gold rule and symbol above the heading. **Makeup and Tan Services** runs three: page intro → service
 cards and policy panels → the standard form.

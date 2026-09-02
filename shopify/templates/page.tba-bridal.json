@@ -3,15 +3,17 @@
     "hero": {
       "type": "tba-page-hero",
       "settings": {
-        "fallback": "tba-bridal-banner.webp",
-        "image_alt": "Bride having her makeup finished on the wedding morning",
+        "fallback": "tba-bridal-04.webp",
+        "image_alt": "Bride in an open field on her wedding day",
         "eyebrow": "Weddings",
         "heading": "Bridal Makeup",
         "body": "Congratulations on your engagement — I'd be honoured to be part of your wedding day.",
         "cta1_label": "Enquire Now",
         "cta1_url": "#enquire",
         "cta2_label": "Meet Maggie",
-        "cta2_url": "#maggie"
+        "cta2_url": "#maggie",
+        "width": "1400",
+        "height": "934"
       }
     },
     "maggie": {
