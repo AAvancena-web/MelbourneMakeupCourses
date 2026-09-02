@@ -149,7 +149,9 @@
         "columns": "4",
         "background": "tba-section--sand",
         "anchor": "portfolio",
-        "note": ""
+        "note": "",
+        "layout": "slide",
+        "speed": 45
       },
       "blocks": {
         "image-01": {
@@ -425,24 +427,25 @@
         "heading": "Bridal Enquiry",
         "subheading": "Please provide the below information to receive Maggie's bridal offerings and book a consultation.",
         "anchor": "enquire",
-        "background": "tba-section--cream",
+        "background": "tba-section--feature",
         "button": "Send Bridal Enquiry",
         "note": "We'll only use your details to reply to your enquiry. Bridal bookings can be cancelled up to 7 days before the appointment for a 12-month credit.",
         "success": "Thank you — your enquiry is on its way. Maggie will be in touch shortly with her bridal offerings.",
         "inspiration": "link",
         "inspiration_placeholder": "Link to a Pinterest board, Instagram saves or shared album",
         "sources": "Website\nInstagram\nFacebook\nReferral",
-        "form_provider": "shopify"
+        "form_provider": "shopify",
+        "ornament": "✦"
       }
     }
   },
   "order": [
     "hero",
-    "steps",
-    "packages",
     "gallery",
-    "faq",
+    "packages",
+    "steps",
     "maggie",
+    "faq",
     "form"
   ]
 }

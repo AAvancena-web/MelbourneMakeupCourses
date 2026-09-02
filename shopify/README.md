@@ -393,10 +393,24 @@ forms show their success line after either is submitted.
 with the form section switched between its two layouts. All the copy is in the
 templates, so both pages are fully editable from the theme editor.
 
-**Bridal Enquiry** runs seven sections: image hero → The Bridal Experience
-(four steps) → Packages & Booking → Recent Work gallery → FAQ → Meet Maggie →
-the bridal form. Backgrounds alternate so no two neighbouring sections share
-one. **Makeup and Tan Services** runs three: page intro → service
+**Bridal Enquiry** runs seven sections: image hero → Recent Work (a sliding
+ribbon) → Packages & Booking → The Bridal Experience (four steps) → Meet
+Maggie → FAQ → the bridal form. Backgrounds alternate so no two neighbouring
+sections share one.
+
+`tba-gallery` has two layouts. **Grid** is the default. **Sliding row** turns
+it into a full-bleed ribbon travelling right to left on the same marquee
+mechanics as the homepage reviews: the script clones the row once so the loop
+is seamless and paces it by content width, so the speed holds whatever the
+image count. It pauses on hover, and under `prefers-reduced-motion` the
+animation stops and the row becomes an ordinary scroller. **Slide speed** is a
+setting, in pixels per second.
+
+`tba-enquiry-form` has a **Feature** background — a dark ground with two gold
+glows, a slow twinkle, and an ivory card with a gold sheen edge and a shimmer
+on the submit button. It is for the page you actually want people to convert
+on; the other backgrounds stay flat. The **Ornament line** setting puts a small
+gold rule and symbol above the heading. **Makeup and Tan Services** runs three: page intro → service
 cards and policy panels → the standard form.
 
 > **Draft copy to approve.** The steps, the "What's Included" list and the six

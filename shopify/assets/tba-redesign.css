@@ -420,7 +420,9 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-reviews__count{font-size:13.5px;color:var(--tba-ink-soft);white-space:nowrap}
 .tba-reviews__count b{font-weight:700;color:var(--tba-black)}
 
-.tba-marquee{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+/* overflow:hidden here rather than on an ancestor, so a marquee can sit in any
+   section without the track escaping and widening the page. */
+.tba-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .tba-marquee__track{display:flex;gap:24px;width:max-content;animation:slide 150s linear infinite}
 .tba-marquee:hover .tba-marquee__track{animation-play-state:paused}
 @keyframes slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
@@ -666,6 +668,14 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-gallery--3{grid-template-columns:repeat(3,1fr)}
 .tba-gallery--2{grid-template-columns:repeat(2,1fr)}
 
+/* sliding variant — a full-bleed ribbon on the shared .tba-marquee mechanics.
+   Fixed height with auto width lets the mixed 1:1 and 4:5 frames keep their
+   own proportions instead of being cropped to a single ratio. */
+.tba-gallery--slide{display:flex;gap:0}
+.tba-gallery--slide figure{
+  flex:0 0 auto;height:clamp(260px,28vw,430px);margin:0;overflow:hidden;background:var(--tba-mist)}
+.tba-gallery--slide img{aspect-ratio:auto;height:100%;width:auto;max-width:none;object-fit:cover}
+
 /* ---------- FAQ ---------- */
 .tba-faq{max-width:900px;margin-inline:auto;border-top:1px solid var(--tba-line)}
 .tba-faq details{border-bottom:1px solid var(--tba-line)}
@@ -681,6 +691,74 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
 .tba-faq details[open] summary{color:var(--tba-gold-dp)}
 .tba-faq__a{padding:0 0 26px;font-size:16px;color:var(--tba-ink-soft);line-height:1.9;max-width:760px}
+
+/* ---------- feature form band ----------
+   An opt-in treatment for the page a visitor is meant to convert on: dark
+   ground, two soft gold glows, a slow twinkle, and an ivory card with a gold
+   sheen edge. Everything is decorative and sits behind the form, so the
+   fields keep the same contrast they have on a plain background. */
+.tba-section--feature{position:relative;isolation:isolate;overflow:hidden;background:var(--tba-black)}
+.tba-section--feature::before{
+  content:"";position:absolute;inset:-25% -12%;z-index:-2;
+  background:
+    radial-gradient(40% 44% at 16% 20%,rgba(220,162,119,.30),transparent 70%),
+    radial-gradient(36% 42% at 86% 80%,rgba(220,162,119,.22),transparent 70%),
+    radial-gradient(50% 55% at 50% 50%,rgba(184,127,82,.14),transparent 72%)
+}
+.tba-section--feature::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    radial-gradient(2.4px 2.4px at 12% 16%,rgba(255,241,227,.95),transparent 60%),
+    radial-gradient(2px 2px at 27% 68%,rgba(255,241,227,.75),transparent 60%),
+    radial-gradient(2.6px 2.6px at 41% 24%,rgba(255,241,227,.85),transparent 60%),
+    radial-gradient(1.9px 1.9px at 58% 82%,rgba(255,241,227,.7),transparent 60%),
+    radial-gradient(2.5px 2.5px at 72% 34%,rgba(255,241,227,.9),transparent 60%),
+    radial-gradient(2.1px 2.1px at 88% 62%,rgba(255,241,227,.8),transparent 60%),
+    radial-gradient(2.2px 2.2px at 6% 78%,rgba(255,241,227,.7),transparent 60%),
+    radial-gradient(2.3px 2.3px at 94% 12%,rgba(255,241,227,.85),transparent 60%),
+    radial-gradient(2px 2px at 34% 92%,rgba(255,241,227,.65),transparent 60%),
+    radial-gradient(2.4px 2.4px at 66% 8%,rgba(255,241,227,.8),transparent 60%);
+  animation:tbaTwinkle 6s ease-in-out infinite alternate
+}
+@keyframes tbaTwinkle{from{opacity:.45}to{opacity:.95}}
+
+.tba-section--feature .tba-eform{
+  background:linear-gradient(180deg,#fffbf7 0%,#fdf5ed 100%);
+  border:1px solid rgba(220,162,119,.5);
+  box-shadow:0 34px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.05);
+  position:relative;overflow:hidden
+}
+.tba-section--feature .tba-eform::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tba-gold-sheen)
+}
+/* a slow shimmer on the submit button — it pulls the eye to the action without
+   washing across the fields people are trying to read */
+.tba-section--feature .tba-eform .tba-btn{position:relative;overflow:hidden}
+.tba-section--feature .tba-eform .tba-btn::after{
+  content:"";position:absolute;top:0;bottom:0;left:0;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:translateX(-180%) skewX(-18deg);
+  animation:tbaBtnSheen 5.5s ease-in-out infinite
+}
+@keyframes tbaBtnSheen{0%,62%{transform:translateX(-180%) skewX(-18deg)}100%{transform:translateX(360%) skewX(-18deg)}}
+
+.tba-section--feature .tba-eform__head{position:relative;z-index:1}
+.tba-section--feature .tba-eform__ornament{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  color:var(--tba-gold-dp);font-size:13px;letter-spacing:.3em;margin:0 0 18px}
+.tba-section--feature .tba-eform__ornament::before,
+.tba-section--feature .tba-eform__ornament::after{
+  content:"";height:1px;width:clamp(34px,7vw,86px);
+  background:linear-gradient(90deg,transparent,rgba(220,162,119,.85))}
+.tba-section--feature .tba-eform__ornament::after{transform:scaleX(-1)}
+.tba-section--feature .tba-eform>*{position:relative;z-index:1}
+.tba-section--feature .tba-eform .tba-btn{
+  box-shadow:0 12px 30px rgba(220,162,119,.42)}
+
+@media (prefers-reduced-motion:reduce){
+  .tba-section--feature::after{animation:none;opacity:.7}
+  .tba-section--feature .tba-eform .tba-btn::after{animation:none;opacity:0}
+}
 
 @media (max-width:1024px){
   .tba-steps{grid-template-columns:repeat(2,1fr)}

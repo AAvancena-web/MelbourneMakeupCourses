@@ -1,31 +1,58 @@
 {%- comment -%}
-  Image grid. Each image is a block, so the count and order are editable.
+  Image grid, or a full-bleed ribbon sliding right to left. Each image is a
+  block, so the count and order are editable.
+
+  The sliding layout reuses the same .tba-marquee mechanics as the reviews
+  row: tba-redesign.js clones the track once so the -50% keyframe loops
+  seamlessly, and paces it by content width so the speed holds however many
+  images there are. It pauses on hover and stops entirely under
+  prefers-reduced-motion, where the row becomes a normal scroller.
 {%- endcomment -%}
 {%- assign s = section.settings -%}
+{%- assign sliding = false -%}
+{%- if s.layout == 'slide' -%}{%- assign sliding = true -%}{%- endif -%}
 <div class="tba-scope">
 <section class="tba-section {{ s.background }}" {% if s.anchor != blank %}id="{{ s.anchor }}"{% endif %}>
-  <div class="tba-shell">
-    {%- if s.heading != blank or s.eyebrow != blank -%}
+  {%- if s.heading != blank or s.eyebrow != blank -%}
+    <div class="tba-shell">
       <div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)">
         {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
         {%- if s.heading != blank -%}<h2 class="tba-h-lg">{{ s.heading }}</h2>{%- endif -%}
         <hr class="tba-rule tba-rule--center">
         {%- if s.lede != blank -%}<p class="tba-lede">{{ s.lede }}</p>{%- endif -%}
       </div>
-    {%- endif -%}
-    <div class="tba-gallery{% if s.columns != '4' %} tba-gallery--{{ s.columns }}{% endif %}">
-      {%- for block in section.blocks -%}
-        <figure {{ block.shopify_attributes }}>
-          {% render 'tba-image', image: block.settings.image, fallback: block.settings.fallback,
-             alt: block.settings.alt, width: block.settings.width, height: block.settings.height,
-             url_width: 800, loading: 'lazy' %}
-        </figure>
-      {%- endfor -%}
     </div>
-    {%- if s.note != blank -%}
+  {%- endif -%}
+
+  {%- capture frames -%}
+    {%- for block in section.blocks -%}
+      <figure {{ block.shopify_attributes }}>
+        {% render 'tba-image', image: block.settings.image, fallback: block.settings.fallback,
+           alt: block.settings.alt, width: block.settings.width, height: block.settings.height,
+           url_width: 800, loading: 'lazy' %}
+      </figure>
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if sliding -%}
+    <div class="tba-marquee">
+      <div class="tba-marquee__track tba-gallery tba-gallery--slide" data-tba-speed="{{ s.speed }}">
+        {{ frames }}
+      </div>
+    </div>
+  {%- else -%}
+    <div class="tba-shell">
+      <div class="tba-gallery{% if s.columns != '4' %} tba-gallery--{{ s.columns }}{% endif %}">
+        {{ frames }}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if s.note != blank -%}
+    <div class="tba-shell">
       <p class="tba-lede tba-center" style="margin-top:26px;font-size:14.5px">{{ s.note }}</p>
-    {%- endif -%}
-  </div>
+    </div>
+  {%- endif -%}
 </section>
 </div>
 
@@ -52,7 +79,7 @@
     {
       "type": "text",
       "id": "note",
-      "label": "Note under the grid"
+      "label": "Note under the images"
     },
     {
       "type": "text",
@@ -61,8 +88,25 @@
     },
     {
       "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "slide",
+          "label": "Sliding row (right to left)"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "select",
       "id": "columns",
       "label": "Columns",
+      "info": "Grid layout only.",
       "options": [
         {
           "value": "2",
@@ -78,6 +122,17 @@
         }
       ],
       "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Slide speed",
+      "info": "Pixels per second. Sliding layout only.",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 45
     },
     {
       "type": "select",

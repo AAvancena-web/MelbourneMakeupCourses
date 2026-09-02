@@ -24,6 +24,7 @@
     {%- if s.form_provider == 'custom' -%}
       <div class="tba-eform">
         <div class="tba-eform__head">
+          {%- if s.ornament != blank -%}<p class="tba-eform__ornament">{{ s.ornament }}</p>{%- endif -%}
           <h2 class="tba-h-lg">{{ s.heading }}</h2>
           {%- if s.subheading != blank -%}<p>{{ s.subheading }}</p>{%- endif -%}
         </div>
@@ -32,6 +33,7 @@
     {%- else -%}
       {%- form 'contact', id: form_id, class: 'tba-eform', novalidate: 'novalidate' -%}
         <div class="tba-eform__head">
+          {%- if s.ornament != blank -%}<p class="tba-eform__ornament">{{ s.ornament }}</p>{%- endif -%}
           <h2 class="tba-h-lg">{{ s.heading }}</h2>
           {%- if s.subheading != blank -%}<p>{{ s.subheading }}</p>{%- endif -%}
         </div>
@@ -219,6 +221,12 @@
     },
     {
       "type": "text",
+      "id": "ornament",
+      "label": "Ornament line",
+      "info": "Small gold line above the heading, e.g. a symbol or short phrase."
+    },
+    {
+      "type": "text",
       "id": "anchor",
       "label": "Anchor id",
       "default": "enquire"
@@ -243,9 +251,14 @@
         {
           "value": "tba-section--sand",
           "label": "Sand"
+        },
+        {
+          "value": "tba-section--feature",
+          "label": "Feature — dark with gold glow"
         }
       ],
-      "default": "tba-section--sand"
+      "default": "tba-section--sand",
+      "info": "\"Feature\" gives the section a dark ground, gold glow and an ivory card. Use it on the page you want people to convert on."
     },
     {
       "type": "text",

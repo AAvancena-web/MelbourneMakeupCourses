@@ -158,11 +158,17 @@
      (so the -50% keyframe loops seamlessly), add "Read more" to the cards
      whose text is actually clipped, and pace the scroll by content width. */
   function marquee() {
-    var track = document.querySelector(".tba-marquee__track");
-    if (!track || bound(track)) return;
+    document.querySelectorAll(".tba-marquee__track").forEach(initTrack);
+  }
+
+  function initTrack(track) {
+    if (bound(track)) return;
 
     var originals = Array.prototype.slice.call(track.children);
     if (!originals.length) return;
+
+    // px per second — the gallery ribbon reads better a little slower than the cards
+    var speed = parseFloat(track.getAttribute("data-tba-speed")) || 55;
 
     originals.forEach(function (node) {
       var clone = node.cloneNode(true);
@@ -193,9 +199,21 @@
         cardEl.appendChild(btn);
       });
 
-      // Pace by content width so speed stays constant regardless of card count.
-      var w = track.scrollWidth / 2;
-      track.style.animationDuration = Math.round(w / 55) + "s"; // ~55px per second
+      // Pace by content width so speed stays constant regardless of item count.
+      // Images may still be loading, so measure again once they have.
+      function pace() {
+        var w = track.scrollWidth / 2;
+        if (w > 0) track.style.animationDuration = Math.round(w / speed) + "s";
+      }
+      pace();
+      var imgs = track.querySelectorAll("img");
+      var pending = 0;
+      imgs.forEach(function (img) {
+        if (img.complete) return;
+        pending++;
+        img.addEventListener("load", function () { if (--pending === 0) pace(); });
+        img.addEventListener("error", function () { if (--pending === 0) pace(); });
+      });
     });
   }
 
