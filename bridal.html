@@ -32,6 +32,7 @@
   --tba-gold-dp:#b87f52;
   --tba-gold-lt:#ecccb1;
   --tba-gold-sheen:linear-gradient(105deg,#e8bd9a 0%,#dca277 42%,#b87f52 100%);
+  --tba-gold-sheen-lt:linear-gradient(105deg,#f7e2d1 0%,#f0d0b6 45%,#e4b795 100%);
 
   --tba-black:#111111;
   --tba-ink:#333333;
@@ -911,22 +912,23 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   transform:translateY(-5px);box-shadow:0 20px 46px rgba(17,17,17,.11);border-color:var(--tba-gold)}
 .tba-panel--card::before{display:none}
 .tba-panel--card h3{
-  margin:0;padding:20px 22px;background:var(--tba-gold-sheen);color:#2c1d11;
+  margin:0;padding:20px 22px;background:var(--tba-gold-sheen-lt);color:#3a2513;
   font-family:var(--tba-serif);font-size:clamp(18px,1.5vw,23px);font-weight:500;
   letter-spacing:.05em;text-transform:uppercase;text-align:center;
-  text-shadow:0 1px 0 rgba(255,255,255,.25)}
+  border-bottom:1px solid rgba(220,162,119,.35)}
 .tba-panel--card ul{
-  margin:0;padding:clamp(24px,2.4vw,32px);gap:13px;align-content:start}
+  margin:0;padding:clamp(24px,2.4vw,32px);gap:13px;flex:1;align-content:center}
 .tba-panel--card li{
   padding:0 0 0 26px;text-align:left;font-size:15.5px;line-height:1.75}
 /* a small gold diamond in place of the dash — left marker, hung off the text */
 .tba-panel--card li::before{
   left:1px;top:.66em;width:7px;height:7px;border-radius:1px;transform:rotate(45deg);
   background:var(--tba-gold-sheen);box-shadow:0 1px 3px rgba(220,162,119,.45)}
-.tba-panel--card p{text-align:left;padding:clamp(24px,2.4vw,32px);margin:0}
-/* cards sit on their own content height, so a short list leaves no white gap
-   below it; only the header band still lines up across the row. */
-.tba-panels:has(.tba-panel--card){grid-auto-rows:auto;align-items:start}
+/* cards match heights across the row; the body is centred in the space it is
+   given, so a short one leaves even margins rather than a hole underneath. */
+.tba-panel--card p{
+  text-align:left;padding:clamp(24px,2.4vw,32px);margin:0;
+  display:flex;align-items:center;flex:1}
 
 .tba-panel--note{background:transparent;border-style:dashed;grid-column:1/-1}
 
