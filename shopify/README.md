@@ -48,6 +48,7 @@ templates/
   index.json            ready-made homepage wiring for all ten body sections
   page.tba-bridal.json    Bridal Enquiry page
   page.tba-services.json  Makeup and Tan Services page
+  page.tba-spray-tan.json Spray Tanning page
 theme-liquid-snippet.liquid   reference for the theme.liquid edits (not copied)
 ```
 
@@ -387,12 +388,13 @@ forms show their success line after either is submitted.
 
 ---
 
-## The two service pages
+## The service pages
 
-`templates/page.tba-bridal.json` and `templates/page.tba-services.json` build
-**Bridal Enquiry** and **Makeup and Tan Services** from the same three sections,
-with the form section switched between its two layouts. All the copy is in the
-templates, so both pages are fully editable from the theme editor.
+`templates/page.tba-bridal.json`, `templates/page.tba-spray-tan.json` and
+`templates/page.tba-services.json` build **Bridal Enquiry**, **Spray Tanning**
+and **Makeup and Tan Services** from the same set of sections, with the form
+section switched between its two layouts. All the copy is in the templates, so
+every page is fully editable from the theme editor.
 
 **Bridal Enquiry** runs seven sections: image hero → Recent Work (a sliding
 ribbon, with an Enquire button under it) → Packages & Booking → What Brides
@@ -420,6 +422,13 @@ on; the other backgrounds stay flat. The **Ornament line** setting puts a small
 gold rule and symbol above the heading. **Makeup and Tan Services** runs three: page intro → service
 cards and policy panels → the standard form.
 
+**Spray Tanning** runs the same seven-section shape as the bridal page, with
+the standard form in place of the bridal one: image hero → Recent Work (eight
+frames on the sliding ribbon) → Services & Booking (the two service cards plus
+six detail panels: before, during, after, timing, deposits, cancellations) →
+What Clients Say → Meet Maggie → FAQ → the enquiry form on the feature
+background, set wide so it stays two rows rather than a long column.
+
 > **Draft copy to approve.** Packages & Booking now carries three package
 > cards and six detail panels — trial, travel, on-the-day, deposits,
 > cancellations — and the six FAQ answers sit below. Only the award credits,
@@ -440,15 +449,27 @@ cards and policy panels → the standard form.
 > confirm the studio is licensed to publish them — and if so, ask for
 > unwatermarked files. The hero image is a separate setting.
 
+> **The same two caveats apply to Spray Tanning.** Its three testimonials are
+> PLACEHOLDER text for the same legal reason, and its prep, aftercare, timing
+> and FAQ copy is draft: only the $50 and $200 prices, the $100 makeup deposit,
+> the 72-hour cancellation window and the four-month booking window come from
+> the brief. Development time before rinsing is deliberately written as "the
+> time agreed at your appointment" rather than a number, because that depends
+> on the solution used — put the real figure in once you have it. Its nine
+> images (`tba-spraytan-01…08.webp` and `tba-spraytan-banner.webp`) were
+> supplied for the page; the first two were cropped from landscape to portrait
+> so the ribbon reads evenly.
+
 ### Publishing them
 
 1. **Online Store → Pages → Add page.** Title it *Bridal Enquiry*, leave the
    body empty, and under **Theme template** choose `tba-bridal`. Save.
-2. Repeat for *Makeup and Tan Services* with the `tba-services` template.
-3. Add both to a navigation menu under **Online Store → Navigation**.
+2. Repeat for *Spray Tanning* with the `tba-spray-tan` template, and for
+   *Makeup and Tan Services* with `tba-services`.
+3. Add them to a navigation menu under **Online Store → Navigation**.
 
-The templates appear in that dropdown once `page.tba-bridal.json` and
-`page.tba-services.json` are in the theme's `templates/` folder.
+The templates appear in that dropdown once the `page.tba-*.json` files are in
+the theme's `templates/` folder.
 
 ### The bridal form's inspiration images
 

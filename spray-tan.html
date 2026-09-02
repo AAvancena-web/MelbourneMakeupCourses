@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spray Tanning Melbourne | Tamarua Beauty Academy</title>
+<meta name="description" content="Custom, streak-free spray tanning in Melbourne with Maggie Tamarua. Spray tans from $50, special occasion makeup from $200 — book online.">
+<meta name="author" content="Tamarua Beauty Academy">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://melbournemakeup-courses.com.au/pages/spray-tanning">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tamarua Beauty Academy">
+<meta property="og:title" content="Spray Tanning Melbourne | Tamarua Beauty Academy">
+<meta property="og:description" content="Custom, streak-free spray tanning in Melbourne. Spray tans from $50 — book online.">
+<meta property="og:url" content="https://melbournemakeup-courses.com.au/pages/spray-tanning">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Tamarua Beauty Academy — homepage redesign
+   All selectors are namespaced with `tba-` so nothing collides
+   with the Turbo theme's own CSS. Do not rename the prefix.
+   ============================================================ */
+/* ============================================================
+   TOKENS — white-dominant canvas, black for gravity, gold for jewellery
+   ============================================================ */
+:root{
+  --tba-gold:#dca277;
+  --tba-gold-dp:#b87f52;
+  --tba-gold-lt:#ecccb1;
+  --tba-gold-sheen:linear-gradient(105deg,#e8bd9a 0%,#dca277 42%,#b87f52 100%);
+  --tba-gold-sheen-lt:linear-gradient(105deg,#f7e2d1 0%,#f0d0b6 45%,#e4b795 100%);
+
+  --tba-black:#111111;
+  --tba-ink:#333333;
+  --tba-ink-soft:#4f4f4f;
+  --tba-ink-mute:#6f6f6f;
+
+  --tba-white:#ffffff;
+  --tba-paper:#faf7f4;          /* warm off-white  */
+  --tba-mist:#f3efeb;           /* deeper neutral  */
+  --tba-blush:#fdf8f3;          /* warm panel tint */
+  --tba-blush-dp:#f8efe6;
+  --tba-line:rgba(17,17,17,.11);
+  --tba-line-soft:rgba(17,17,17,.07);
+  --tba-line-gold:rgba(220,162,119,.42);
+
+  --tba-serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --tba-sans:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --tba-shell:1440px;
+  --tba-gutter:clamp(20px,4vw,60px);
+  --tba-radius:0;               /* squared corners read more couture */
+  --tba-ease:cubic-bezier(.22,.61,.36,1);
+  --tba-slow:.55s var(--tba-ease);
+}
+@media (min-width:1700px){ :root{ --tba-shell:1880px; } }
+
+/* ---------- scoped reset ----------
+   `.tba-scope` wraps every section this pack renders, so none of these base
+   rules leak into the rest of the theme. They are written with :where() so
+   they keep the *same specificity* a bare element selector would have —
+   otherwise `.tba-scope p` (0,1,1) would outrank component rules like
+   `.tba-eyebrow` (0,1,0) and quietly change the design.
+   `body.tba-theme` is added to <body> in layout/theme.liquid — see
+   shopify/README.md.                                                       */
+:where(.tba-scope) *,:where(.tba-scope) *::before,:where(.tba-scope) *::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body:where(.tba-theme){
+  margin:0;
+  font-family:var(--tba-sans);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.8;
+  color:var(--tba-ink-soft);
+  background:var(--tba-white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+:where(.tba-scope) img{max-width:100%;display:block;height:auto}
+:where(.tba-scope) a{color:inherit;text-decoration:none}
+:where(.tba-scope) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:where(.tba-scope) h1,:where(.tba-scope) h2,:where(.tba-scope) h3,
+:where(.tba-scope) h4,:where(.tba-scope) h5{
+  margin:0;font-weight:400;line-height:1.12;color:var(--tba-black)}
+:where(.tba-scope) p{margin:0 0 1.1em}
+:where(.tba-scope) p:last-child{margin-bottom:0}
+:where(.tba-scope) ::selection{background:var(--tba-gold);color:#fff}
+:where(.tba-scope) :focus-visible{outline:1px solid var(--tba-gold-dp);outline-offset:3px}
+
+/* The theme wraps {{ content_for_layout }} in .section-wrapper. Where that
+   wrapper carries a max-width or padding it would box in these full-bleed
+   bands, so neutralise it — but only on pages actually built from this pack. */
+body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin:0;padding:0}
+
+/* ---------- shell / sections ---------- */
+.tba-shell{width:100%;max-width:var(--tba-shell);margin-inline:auto;padding-inline:var(--tba-gutter)}
+.tba-shell--narrow{max-width:min(var(--tba-shell),1080px)}
+.tba-section{padding-block:clamp(64px,8vw,124px)}
+.tba-section--tight{padding-block:clamp(44px,5.5vw,78px)}
+.tba-section--cream{background:var(--tba-paper)}
+.tba-section--sand{background:var(--tba-mist)}
+.tba-section--blush{background:var(--tba-blush-dp)}
+
+/* ---------- type ---------- */
+.tba-eyebrow{
+  font-size:12px;letter-spacing:.26em;text-transform:uppercase;
+  font-weight:600;color:var(--tba-gold-dp);margin:0 0 20px
+}
+.tba-h-xl{font-family:var(--tba-serif);font-size:clamp(38px,5.2vw,70px);font-weight:400;line-height:1.06;letter-spacing:.012em;text-transform:uppercase}
+.tba-h-lg{font-family:var(--tba-serif);font-size:clamp(27px,3vw,44px);font-weight:400;line-height:1.18;letter-spacing:.015em;text-transform:uppercase}
+.tba-h-md{font-family:var(--tba-serif);font-size:clamp(22px,2vw,31px);font-weight:500;line-height:1.24;letter-spacing:.02em;text-transform:uppercase}
+.tba-lede{font-size:clamp(15.5px,1.1vw,17.5px);color:var(--tba-ink-soft);line-height:1.9}
+.tba-center{text-align:center}
+
+/* hairline divider with a gold lozenge */
+.tba-rule{
+  position:relative;width:78px;height:1px;border:0;overflow:visible;margin:26px 0;
+  background:linear-gradient(90deg,transparent,var(--tba-gold),transparent)
+}
+.tba-rule::after{
+  content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;
+  transform:translate(-50%,-50%) rotate(45deg);background:var(--tba-gold)
+}
+.tba-center .tba-rule,.tba-rule--center{margin-inline:auto}
+
+/* ---------- buttons ---------- */
+.tba-btn{
+  --tba-btn-bg:var(--tba-black); --tba-btn-fg:#fff; --tba-btn-bd:var(--tba-black);
+  --tba-btn-bg-h:var(--tba-gold); --tba-btn-fg-h:#241a12; --tba-btn-bd-h:var(--tba-gold);
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:66px;padding:0 46px;
+  background:var(--tba-btn-bg);color:var(--tba-btn-fg);border:1px solid var(--tba-btn-bd);
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  border-radius:var(--tba-radius);white-space:nowrap;text-align:center;
+  box-shadow:0 6px 20px rgba(17,17,17,.1);
+  transition:background var(--tba-slow),color var(--tba-slow),border-color var(--tba-slow),
+             transform var(--tba-slow),box-shadow var(--tba-slow)
+}
+.tba-btn>*{position:relative;z-index:1}
+.tba-btn:hover{
+  background:var(--tba-btn-bg-h);color:var(--tba-btn-fg-h);border-color:var(--tba-btn-bd-h);
+  transform:translateY(-3px);box-shadow:0 16px 36px rgba(17,17,17,.22)
+}
+.tba-btn--gold{--tba-btn-bg:var(--tba-gold);--tba-btn-bd:var(--tba-gold);--tba-btn-fg:#241a12;
+           --tba-btn-bg-h:var(--tba-black);--tba-btn-fg-h:var(--tba-gold);--tba-btn-bd-h:var(--tba-black);
+           box-shadow:0 8px 24px rgba(220,162,119,.38)}
+.tba-btn--gold:hover{box-shadow:0 18px 40px rgba(220,162,119,.5)}
+.tba-btn--ghost{--tba-btn-bg:transparent;--tba-btn-fg:var(--tba-black);--tba-btn-bd:rgba(17,17,17,.28);
+            --tba-btn-bg-h:var(--tba-black);--tba-btn-fg-h:#fff;--tba-btn-bd-h:var(--tba-black)}
+.tba-btn--light{box-shadow:none;--tba-btn-bg:transparent;--tba-btn-fg:#fff;--tba-btn-bd:rgba(255,255,255,.5);
+            --tba-btn-bg-h:#fff;--tba-btn-fg-h:var(--tba-black);--tba-btn-bd-h:#fff}
+.tba-btn--bronze{box-shadow:0 8px 24px rgba(156,98,52,.34);--tba-btn-bg:linear-gradient(100deg,#b87f52 0%,#9c6234 100%);--tba-btn-bd:#9c6234;--tba-btn-fg:#fff;
+              --tba-btn-bg-h:var(--tba-black);--tba-btn-fg-h:var(--tba-gold);--tba-btn-bd-h:var(--tba-black)}
+.tba-btn--sm{min-height:50px;padding:0 26px;font-size:12.5px;font-weight:600;letter-spacing:.07em;
+         --tba-btn-bg-h:#fff;--tba-btn-fg-h:var(--tba-black);--tba-btn-bd-h:#fff}
+.tba-btn-row{display:flex;flex-wrap:wrap;gap:14px}
+.tba-center .tba-btn-row{justify-content:center}
+
+.tba-link-arrow{
+  display:inline-flex;align-items:center;gap:11px;
+  font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--tba-black);padding-bottom:8px;
+  background:linear-gradient(var(--tba-gold),var(--tba-gold)) left bottom/100% 1px no-repeat;
+  transition:color var(--tba-slow),background-size var(--tba-slow)
+}
+.tba-link-arrow svg{transition:transform var(--tba-slow)}
+.tba-link-arrow:hover{color:var(--tba-gold-dp)}
+.tba-link-arrow:hover svg{transform:translateX(6px)}
+
+/* ============================================================
+   ANNOUNCEMENT
+   ============================================================ */
+.tba-announce{
+  background:var(--tba-gold);color:#241a12;position:relative;z-index:60;
+  border-bottom:1px solid rgba(36,26,18,.16)
+}
+.tba-announce .tba-shell{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+  gap:clamp(14px,3vw,34px);min-height:50px
+}
+.tba-announce__text{
+  margin:0;text-align:center;
+  font-size:15px;font-weight:700;letter-spacing:.045em;text-transform:uppercase;line-height:1.45
+}
+.tba-announce__text strong{font-weight:500;color:#241a12}
+.tba-announce__social{justify-self:start}
+.tba-announce .tba-socials{gap:10px}
+.tba-announce .tba-socials a{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--tba-black);color:var(--tba-gold-lt);
+  transition:background .3s var(--tba-ease),color .3s var(--tba-ease),transform .3s var(--tba-ease)
+}
+.tba-announce .tba-socials a:hover{background:#fff;color:var(--tba-black);transform:translateY(-2px)}
+.tba-announce__links{
+  justify-self:end;display:flex;align-items:center;gap:clamp(14px,1.6vw,24px);
+  font-size:13.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap
+}
+.tba-announce__links a{
+  display:inline-flex;align-items:center;gap:8px;color:#241a12;
+  text-underline-offset:5px;transition:color .3s
+}
+.tba-announce__links a:hover{color:#000;text-decoration:underline}
+.tba-announce__links svg{color:#241a12;flex:none;transition:color .3s}
+.tba-announce__links a:hover svg{color:#000}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.tba-header{position:sticky;top:0;z-index:50;background:var(--tba-black);border-bottom:1px solid rgba(220,162,119,.26);transition:box-shadow .35s}
+.tba-header.tba-is-stuck{box-shadow:0 6px 34px rgba(12,10,9,.34)}
+
+.tba-socials{display:flex;align-items:center;gap:15px;list-style:none;margin:0;padding:0}
+.tba-socials a{display:grid;place-items:center;width:26px;height:26px;color:var(--tba-ink-mute);transition:color .3s}
+.tba-socials a:hover{color:var(--tba-gold-dp)}
+
+.tba-navbar .tba-shell{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:26px;min-height:112px}
+.tba-brand{justify-self:center;display:block;text-align:center;padding-inline:14px}
+.tba-brand img{width:clamp(160px,14vw,206px);margin-inline:auto}
+.tba-brand__fallback{display:none;font-family:var(--tba-serif);line-height:1}
+.tba-brand__fallback b{display:block;font-size:30px;font-weight:400;letter-spacing:.16em;color:var(--tba-gold-dp)}
+.tba-brand__fallback span{display:block;font-family:var(--tba-sans);font-size:10.5px;font-weight:600;letter-spacing:.28em;color:var(--tba-ink-mute);margin-top:7px}
+.tba-brand.tba-is-fallback img{display:none}
+.tba-brand.tba-is-fallback .tba-brand__fallback{display:block}
+.tba-header .tba-brand__fallback span{color:rgba(255,255,255,.6)}
+
+.tba-nav{display:flex;align-items:center;align-self:stretch;gap:clamp(16px,2.1vw,36px)}
+.tba-nav--right{justify-self:end}
+.tba-nav__link{
+  position:relative;display:inline-flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  padding:12px 0;color:#fff;white-space:nowrap;transition:color var(--tba-slow)
+}
+.tba-nav__link::after{
+  content:"";position:absolute;left:0;right:100%;bottom:6px;height:1px;background:var(--tba-gold);
+  transition:right var(--tba-slow)
+}
+.tba-nav__link:hover{color:var(--tba-gold)}
+.tba-nav__link:hover::after,.tba-nav__item:hover>.tba-nav__link::after{right:0}
+.tba-nav__item{position:static;display:flex;align-items:center;align-self:stretch}
+.tba-nav__item .tba-chev{transition:transform var(--tba-slow)}
+.tba-nav__item:hover .tba-chev{transform:rotate(180deg)}
+
+.tba-tools{display:flex;align-items:center;gap:4px}
+.tba-icon-btn{
+  width:44px;height:44px;display:grid;place-items:center;border-radius:50%;
+  color:#fff;transition:.3s var(--tba-ease);position:relative
+}
+.tba-icon-btn:hover{background:rgba(255,255,255,.1);color:var(--tba-gold)}
+.tba-cart-count{
+  position:absolute;top:3px;right:1px;min-width:19px;height:19px;padding:0 5px;
+  background:var(--tba-gold);color:#241a12;border-radius:20px;
+  font-size:11px;font-weight:700;line-height:19px;text-align:center;letter-spacing:0
+}
+
+/* mega menu */
+.tba-mega{
+  position:absolute;top:100%;left:0;right:0;transform:translateY(6px);
+  background:#fff;border:1px solid var(--tba-line-soft);border-top:1px solid var(--tba-line-gold);
+  box-shadow:0 30px 70px rgba(17,17,17,.11);
+  padding:44px 46px;opacity:0;visibility:hidden;transition:.35s var(--tba-ease);z-index:40
+}
+.tba-nav__item:hover .tba-mega{opacity:1;visibility:visible;transform:none}
+.tba-mega__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.tba-mega__cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));gap:30px 26px}
+.tba-mega__list h4 a{color:inherit;transition:color .3s}
+.tba-mega__list h4 a:hover{color:var(--tba-gold-dp)}
+.tba-mega__cols .tba-mega__list ul a{font-size:12.5px;line-height:1.5;letter-spacing:.02em}
+.tba-mega__card figure{margin:0 0 16px;overflow:hidden;background:var(--tba-mist)}
+.tba-mega__card img{aspect-ratio:1;object-fit:cover;transition:transform 1s var(--tba-ease)}
+.tba-mega__card:hover img{transform:scale(1.07)}
+.tba-mega__card h4{font-family:var(--tba-sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:color .3s}
+.tba-mega__card:hover h4{color:var(--tba-gold-dp)}
+.tba-mega__list h4{
+  font-family:var(--tba-sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding-bottom:14px;border-bottom:1px solid var(--tba-line-gold);margin-bottom:16px
+}
+.tba-mega__list ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tba-mega__list a{font-size:15px;color:var(--tba-ink-soft);transition:.3s var(--tba-ease)}
+.tba-mega__list a:hover{color:var(--tba-gold-dp);padding-left:6px}
+
+/* ---------- mobile bar ---------- */
+.tba-mobilebar{display:none}
+.tba-mobilebar .tba-shell{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;min-height:76px}
+.tba-mobilebar .tba-brand{justify-self:start;text-align:left;padding-inline:0}
+.tba-mobilebar .tba-brand img{margin-inline:0}
+.tba-mobilebar .tba-brand__fallback{text-align:left}
+.tba-mobilebar__right{display:flex;align-items:center;gap:14px}
+.tba-call-pill{
+  width:42px;height:42px;flex:0 0 42px;border-radius:50%;
+  background:var(--tba-gold);border:1px solid var(--tba-gold);color:#241a12;
+  display:grid;place-items:center;transition:.35s var(--tba-ease)
+}
+.tba-call-pill:hover,.tba-call-pill:focus-visible{background:#fff;border-color:#fff;color:var(--tba-black)}
+.tba-burger{
+  width:42px;height:42px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px
+}
+.tba-burger span{display:block;width:25px;height:2px;border-radius:2px;background:#fff;transition:.35s var(--tba-ease)}
+.tba-burger.tba-is-open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.tba-burger.tba-is-open span:nth-child(2){opacity:0}
+.tba-burger.tba-is-open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ---------- drawer ---------- */
+.tba-scrim{position:fixed;inset:0;background:rgba(17,14,12,.55);opacity:0;visibility:hidden;transition:.4s;z-index:70}
+.tba-scrim.tba-is-open{opacity:1;visibility:visible}
+.tba-drawer{
+  position:fixed;top:0;left:0;bottom:0;width:min(400px,88vw);background:#fff;z-index:80;
+  transform:translateX(-100%);transition:transform .45s var(--tba-ease);
+  display:flex;flex-direction:column;overflow-y:auto
+}
+.tba-drawer.tba-is-open{transform:none}
+.tba-drawer__head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--tba-line-soft)}
+.tba-drawer__head .tba-brand{padding:0}
+.tba-drawer__head .tba-brand img{width:150px}
+.tba-drawer nav{padding:12px 24px 24px}
+.tba-drawer__link{
+  display:flex;align-items:center;justify-content:space-between;width:100%;
+  padding:17px 0;border-bottom:1px solid var(--tba-line-soft);
+  font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tba-black)
+}
+.tba-drawer__sub{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;transition:max-height .45s var(--tba-ease)}
+.tba-drawer__sub.tba-is-open{max-height:2400px}
+.tba-drawer__sub a{display:block;padding:13px 0 13px 18px;font-size:15px;color:var(--tba-ink-soft);border-bottom:1px solid var(--tba-line-soft)}
+.tba-drawer__sub--child{padding-left:36px !important;font-size:12.5px !important;color:var(--tba-ink-mute) !important}
+.tba-drawer__foot{margin-top:auto;padding:26px;background:var(--tba-black)}
+.tba-drawer__foot .tba-btn{width:100%}
+.tba-drawer__foot .tba-socials{margin-top:20px;justify-content:center}
+.tba-drawer__foot .tba-socials a{color:rgba(255,255,255,.65)}
+.tba-drawer__foot .tba-socials a:hover{color:var(--tba-gold)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.tba-hero{position:relative;background:#d8d4d1;overflow:hidden;padding-bottom:clamp(34px,4.5vw,64px)}
+.tba-hero__media{position:absolute;inset:0}
+.tba-hero__media img{width:100%;height:100%;object-fit:cover;object-position:62% 30%}
+.tba-hero__media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(12,10,9,.88) 0%,rgba(12,10,9,.74) 34%,rgba(12,10,9,.5) 62%,rgba(12,10,9,.34) 100%)
+}
+.tba-hero__inner{position:relative;z-index:2;min-height:clamp(520px,72vh,760px);display:flex;align-items:center;padding-block:clamp(52px,6vw,88px) clamp(28px,3.2vw,44px)}
+.tba-hero__grid{display:grid;grid-template-columns:1fr minmax(0,600px);gap:clamp(38px,7vw,124px);align-items:center;width:100%}
+.tba-hero__copy{max-width:none;color:#fff}
+.tba-hero__copy .tba-eyebrow{color:var(--tba-gold-lt)}
+.tba-hero h1{color:#fff;margin-bottom:14px}
+.tba-hero .tba-rule{margin:0 0 26px}
+.tba-hero__copy h2{
+  font-family:var(--tba-sans);font-size:clamp(16px,1.15vw,18px);font-weight:400;line-height:1.75;
+  color:rgba(255,255,255,.85);margin-bottom:30px
+}
+
+/* ---------- hero consultation form ---------- */
+.tba-heroform{
+  background:var(--tba-blush);border:1px solid rgba(220,162,119,.55);border-radius:16px;padding:9px;
+  box-shadow:0 30px 70px rgba(12,10,9,.32);width:100%;justify-self:end;max-width:620px
+}
+.tba-heroform__inner{border:1px solid rgba(220,162,119,.3);border-radius:9px;padding:clamp(22px,2.3vw,34px)}
+.tba-heroform__title{font-family:var(--tba-serif);font-size:clamp(23px,2vw,31px);font-weight:500;letter-spacing:.02em;text-transform:uppercase;text-align:center;color:var(--tba-black)}
+.tba-heroform__sub{font-size:15px;color:var(--tba-ink-soft);text-align:center;margin:9px 0 0}
+.tba-heroform__promo{
+  margin:20px 0 24px;padding:13px 16px;text-align:center;
+  background:#fbeee2;border:1px dashed rgba(220,162,119,.75);border-radius:8px;
+  font-size:15px;color:#8a5a34;line-height:1.5
+}
+.tba-heroform__promo b{font-weight:600;color:#8a4f22}
+.tba-heroform__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tba-hfield{display:block;margin-bottom:16px}
+.tba-hfield span{display:block;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tba-ink-soft);margin-bottom:8px}
+.tba-hfield input,.tba-hfield select,.tba-hfield textarea{
+  width:100%;min-height:52px;padding:14px 15px;font:inherit;font-size:16px;color:var(--tba-ink);
+  background:#fff;border:1px solid #e4ddd6;border-radius:8px;transition:border-color .3s,box-shadow .3s
+}
+.tba-hfield textarea{min-height:104px;resize:vertical;line-height:1.6}
+.tba-hfield input::placeholder,.tba-hfield textarea::placeholder{color:#a6a09a}
+.tba-hfield input:focus,.tba-hfield select:focus,.tba-hfield textarea:focus{
+  outline:none;border-color:var(--tba-gold);box-shadow:0 0 0 3px rgba(220,162,119,.16)
+}
+.tba-heroform .tba-btn{width:100%;margin-top:6px;border-radius:8px}
+.tba-heroform__fine{font-size:12.5px;line-height:1.65;color:var(--tba-ink-mute);text-align:center;margin:16px 0 0}
+
+.tba-hero__proof{
+  position:relative;z-index:2;list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(10px,1.2vw,18px)
+}
+.tba-hero__proof li{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  min-height:112px;padding:26px 22px;
+  background:linear-gradient(160deg,rgba(255,255,255,.17),rgba(255,255,255,.06));
+  border:1px solid rgba(220,162,119,.55);border-radius:14px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 0 22px rgba(220,162,119,.16),0 12px 34px rgba(12,10,9,.34),
+             inset 0 1px 0 rgba(255,255,255,.16);
+  color:#fff;font-size:20px;font-weight:600;line-height:1.35;
+  text-shadow:0 1px 14px rgba(12,10,9,.55);
+  transition:background var(--tba-slow),border-color var(--tba-slow),box-shadow var(--tba-slow),transform var(--tba-slow)
+}
+.tba-hero__proof li:hover{
+  background:linear-gradient(160deg,rgba(220,162,119,.36),rgba(220,162,119,.16));
+  border-color:var(--tba-gold);
+  box-shadow:0 0 34px rgba(220,162,119,.45),0 18px 44px rgba(12,10,9,.44),
+             inset 0 1px 0 rgba(255,255,255,.24);
+  transform:translateY(-4px)
+}
+/* slow light sweep, staggered so the four catch the light in sequence */
+.tba-hero__proof li::after{
+  content:"";position:absolute;top:0;bottom:0;left:0;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.26),transparent);
+  transform:translateX(-260%) skewX(-18deg);
+  animation:proofSheen 7s ease-in-out infinite
+}
+.tba-hero__proof li:nth-child(2)::after{animation-delay:.45s}
+.tba-hero__proof li:nth-child(3)::after{animation-delay:.9s}
+.tba-hero__proof li:nth-child(4)::after{animation-delay:1.35s}
+@keyframes proofSheen{
+  0%,62%{transform:translateX(-260%) skewX(-18deg)}
+  100%{transform:translateX(330%) skewX(-18deg)}
+}
+@media (prefers-reduced-motion:reduce){.tba-hero__proof li::after{animation:none;opacity:0}}
+
+/* ============================================================
+   REVIEWS MARQUEE
+   ============================================================ */
+.tba-reviews{background:var(--tba-paper);padding-block:clamp(52px,6vw,86px);overflow:hidden;border-block:1px solid var(--tba-line-soft)}
+.tba-reviews__head{text-align:center;max-width:820px;margin:0 auto clamp(38px,4.5vw,60px)}
+.tba-reviews__rating{
+  display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:8px 16px;
+  margin-top:28px;padding:14px 28px;
+  background:#fff;border:1px solid var(--tba-line-gold);border-radius:60px;
+  box-shadow:0 10px 30px rgba(17,17,17,.05)
+}
+.tba-reviews__rating svg{flex:none}
+.tba-reviews__score{font-family:var(--tba-serif);font-size:32px;font-weight:600;line-height:1;color:var(--tba-black)}
+.tba-stars{display:inline-flex;gap:3px;color:var(--tba-gold)}
+.tba-stars svg{width:16px;height:16px}
+.tba-stars--lg svg{width:24px;height:24px}
+.tba-reviews__count{font-size:13.5px;color:var(--tba-ink-soft);white-space:nowrap}
+.tba-reviews__count b{font-weight:700;color:var(--tba-black)}
+
+/* overflow:hidden here rather than on an ancestor, so a marquee can sit in any
+   section without the track escaping and widening the page. */
+.tba-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tba-marquee__track{display:flex;gap:24px;width:max-content;animation:slide 150s linear infinite}
+.tba-marquee:hover .tba-marquee__track{animation-play-state:paused}
+@keyframes slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){.tba-marquee__track{animation:none}.tba-marquee{overflow-x:auto}}
+
+.tba-rcard{
+  flex:0 0 clamp(292px,26vw,372px);background:#fff;border:1px solid var(--tba-line-soft);
+  padding:30px 30px 28px;display:flex;flex-direction:column;gap:14px;
+  transition:border-color var(--tba-slow),box-shadow var(--tba-slow)
+}
+.tba-rcard:hover{border-color:var(--tba-line-gold);box-shadow:0 18px 44px rgba(17,17,17,.06)}
+.tba-rcard__top{display:flex;align-items:center;gap:13px}
+.tba-rcard__avatar{
+  width:42px;height:42px;flex:0 0 42px;border-radius:50%;
+  background:var(--tba-g-color,var(--tba-black));color:#fff;
+  display:grid;place-items:center;font-size:16px;font-weight:500;line-height:1
+}
+.tba-rcard__g{margin-left:auto;flex:none;align-self:flex-start}
+.tba-rcard__who{min-width:0}
+.tba-rcard__name{font-size:15px;font-weight:600;letter-spacing:.01em;color:var(--tba-black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tba-rcard__when{font-size:12.5px;color:var(--tba-ink-mute);letter-spacing:.02em}
+.tba-rcard__body{font-size:18px;line-height:1.65;color:var(--tba-ink-soft);margin:0;
+  display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.tba-rcard.tba-is-open .tba-rcard__body{-webkit-line-clamp:unset;display:block;overflow:visible}
+.tba-rcard .tba-stars svg{width:13px;height:13px}
+.tba-rcard__more{
+  align-self:flex-start;margin-top:2px;padding:0;
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tba-gold-dp);border-bottom:1px solid transparent;transition:.3s var(--tba-ease)
+}
+.tba-rcard__more:hover{color:var(--tba-black);border-bottom-color:var(--tba-gold)}
+/* only the expanded card grows; its neighbours keep their height */
+.tba-marquee__track{align-items:flex-start}
+
+/* ============================================================
+   SPLIT BLOCKS
+   ============================================================ */
+.tba-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,84px);align-items:center}
+.tba-split--reverse .tba-split__media{order:2}
+.tba-split__media{position:relative}
+.tba-split__media img{width:100%;object-fit:cover}
+.tba-split__media--frame::before{
+  content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--tba-gold);z-index:-1
+}
+.tba-split__body{max-width:none}
+.tba-press{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.tba-press a{
+  display:grid;place-items:center;padding:14px 16px;background:#fff;
+  border:1px solid rgba(220,162,119,.45);border-radius:8px;
+  transition:border-color var(--tba-slow),transform var(--tba-slow),box-shadow var(--tba-slow)
+}
+.tba-press a:hover{border-color:var(--tba-gold);transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,17,17,.1)}
+.tba-press img{width:100%}
+
+/* featured in */
+
+
+/* read more */
+.tba-readmore{position:relative}
+.tba-readmore__body{max-height:0;overflow:hidden;transition:max-height .7s var(--tba-ease)}
+.tba-readmore.tba-is-open .tba-readmore__body{max-height:6000px}
+.tba-readmore__body>h3:first-child{margin-top:34px}
+.tba-readmore h3{font-family:var(--tba-serif);font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:.02em;text-transform:uppercase;line-height:1.28;margin:38px 0 14px}
+.tba-readmore h3:first-child{margin-top:0}
+.tba-readmore__toggle{margin-top:26px}
+
+.tba-intro{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,5vw,80px);align-items:start}
+.tba-intro__body{max-width:none}
+.tba-intro__media{position:relative}
+.tba-video-wrap{width:100%;margin:0;background:#000;border:1px solid var(--tba-line-gold);padding:8px}
+.tba-video-wrap video{width:100%;display:block;aspect-ratio:1;object-fit:cover;background:#000}
+
+/* ============================================================
+   COURSE GRID
+   ============================================================ */
+.tba-courses{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,1.9vw,30px)}
+.tba-course{
+  position:relative;display:block;overflow:hidden;background:var(--tba-mist);
+  border:1px solid rgba(220,162,119,.85);border-radius:12px;
+  box-shadow:0 0 0 3px rgba(220,162,119,.1),0 12px 30px rgba(17,17,17,.1);
+  transition:border-color var(--tba-slow),box-shadow var(--tba-slow),transform var(--tba-slow)
+}
+.tba-course:hover{
+  border-color:var(--tba-gold);
+  box-shadow:0 0 0 4px rgba(220,162,119,.22),0 24px 52px rgba(17,17,17,.2);
+  transform:translateY(-5px)
+}
+.tba-course figure{margin:0;overflow:hidden}
+.tba-course img{aspect-ratio:3/4;width:100%;object-fit:cover;transition:transform 1.1s var(--tba-ease)}
+.tba-course:hover img{transform:scale(1.08)}
+.tba-course__veil{
+  position:absolute;inset:0;transition:background var(--tba-slow);
+  background:linear-gradient(to top,rgba(12,10,9,.92) 0%,rgba(12,10,9,.55) 34%,rgba(12,10,9,.12) 64%,rgba(12,10,9,0) 82%)
+}
+/* gold hairline that draws itself inside the card on hover */
+.tba-course::after{
+  content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.55);border-radius:6px;
+  opacity:0;transform:scale(1.03);transition:.55s var(--tba-ease);pointer-events:none
+}
+.tba-course:hover::after{opacity:.85;transform:none}
+.tba-course__cap{position:absolute;left:0;right:0;bottom:0;padding:30px 26px;color:#fff;z-index:2}
+.tba-course__cap h3{
+  font-family:var(--tba-serif);font-size:clamp(23px,2vw,32px);font-weight:500;line-height:1.18;
+  overflow-wrap:break-word;color:#fff;text-shadow:0 2px 16px rgba(12,10,9,.6)
+}
+.tba-course__cap span{
+  display:inline-flex;align-items:center;gap:9px;margin-top:10px;
+  font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tba-gold-lt);
+  opacity:0;transform:translateY(9px);transition:.5s var(--tba-ease)
+}
+.tba-course:hover .tba-course__cap span{opacity:1;transform:none}
+
+/* ============================================================
+   SUCCESS STORY — cream panel, portrait, awards, thumbnails
+   ============================================================ */
+.tba-ss{
+  background:var(--tba-blush);border:1px solid rgba(220,162,119,.28);border-radius:22px;
+  padding:clamp(30px,4.4vw,72px)
+}
+.tba-ss__head{text-align:center;margin:0 0 clamp(34px,4vw,58px)}
+.tba-ornament{
+  display:inline-flex;align-items:center;gap:18px;
+  font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--tba-gold-dp);margin:0 0 20px
+}
+.tba-ornament::before,.tba-ornament::after{content:"";width:clamp(28px,4.5vw,64px);height:1px;background:var(--tba-gold)}
+.tba-ss__head h2 em{font-style:italic;color:var(--tba-gold-dp)}
+.tba-swash{display:block;margin:20px auto 0;color:var(--tba-gold)}
+
+.tba-ss__grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(28px,4vw,64px);align-items:start}
+
+.tba-ss__portrait{
+  margin:0;position:relative;border-radius:14px;overflow:hidden;
+  box-shadow:0 26px 62px rgba(17,17,17,.14)
+}
+.tba-ss__portrait img{width:100%;aspect-ratio:3/4.05;object-fit:cover;object-position:center 20%}
+.tba-ss__portrait::after{
+  content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5);
+  border-radius:7px;pointer-events:none
+}
+
+.tba-ss__body{max-width:none}
+.tba-ss__name{font-family:var(--tba-serif);font-size:clamp(21px,1.9vw,28px);font-weight:500;letter-spacing:.02em;text-transform:uppercase;margin-bottom:18px}
+.tba-ss__body p{font-size:15.5px;line-height:1.8;margin-bottom:1.05em}
+.tba-ss__body b{font-weight:500;color:var(--tba-black)}
+.tba-ss-link{
+  color:var(--tba-gold-dp);
+  background:linear-gradient(currentColor,currentColor) left bottom/100% 1px no-repeat;
+  transition:color .3s
+}
+.tba-ss-link:hover{color:var(--tba-black)}
+
+.tba-ss__awards{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:24px 0;padding:0}
+.tba-ss__awards li{
+  display:inline-flex;align-items:center;gap:9px;padding:10px 17px;
+  background:#fff;border:1px solid rgba(220,162,119,.4);border-radius:40px;
+  font-size:13px;font-weight:500;letter-spacing:.01em;color:var(--tba-black);line-height:1.4
+}
+.tba-ss__awards svg{color:var(--tba-gold);flex:none}
+
+.tba-ss__ig{
+  display:inline-flex;align-items:center;gap:10px;margin-top:4px;
+  font-size:15px;font-weight:500;color:var(--tba-gold-dp);transition:color .3s
+}
+.tba-ss__ig:hover{color:var(--tba-black)}
+
+.tba-ss__thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 32px}
+.tba-ss__thumbs figure{margin:0;overflow:hidden;border-radius:10px;background:var(--tba-mist)}
+.tba-ss__thumbs img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform 1s var(--tba-ease)}
+.tba-ss__thumbs figure:hover img{transform:scale(1.07)}
+
+/* ============================================================
+   FOUNDER
+   ============================================================ */
+.tba-founder{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,5vw,88px);align-items:center}
+.tba-founder__media{
+  margin:0;position:relative;background:#fff;padding:10px;
+  box-shadow:0 28px 66px rgba(17,17,17,.12)
+}
+.tba-founder__media img{
+  width:100%;aspect-ratio:3/3.9;object-fit:cover;object-position:center 15%;
+  filter:grayscale(1) contrast(1.03)
+}
+.tba-founder__media::after{
+  content:"";position:absolute;inset:22px;border:1px solid rgba(255,255,255,.5);pointer-events:none
+}
+.tba-founder__body{max-width:none}
+.tba-eyebrow--rule{display:inline-flex;align-items:center;gap:16px}
+.tba-eyebrow--rule::before{content:"";width:clamp(26px,3vw,46px);height:1px;background:var(--tba-gold)}
+.tba-founder__role{
+  font-family:var(--tba-serif);font-style:italic;font-weight:400;
+  font-size:clamp(20px,1.75vw,27px);color:var(--tba-gold-dp);margin:12px 0 22px
+}
+.tba-founder__list{list-style:none;margin:28px 0 34px;padding:0;display:grid;gap:17px}
+.tba-founder__list li{display:flex;gap:14px;align-items:flex-start;font-size:16px;color:var(--tba-ink-soft);line-height:1.7}
+.tba-founder__list svg{color:var(--tba-gold);flex:none;margin-top:4px}
+.tba-founder__list b{font-weight:500;color:var(--tba-black)}
+
+/* ============================================================
+   STUDENT STORIES
+   ============================================================ */
+.tba-stories{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,46px)}
+.tba-story figure{margin:0 0 24px;overflow:hidden;background:var(--tba-mist)}
+.tba-story img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform 1s var(--tba-ease)}
+.tba-story:hover img{transform:scale(1.06)}
+.tba-story h3{font-family:var(--tba-sans);font-size:17px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.tba-story p{font-size:16px;color:var(--tba-ink-soft);margin-bottom:22px}
+
+/* ============================================================
+   PAGE HERO / STEPS / GALLERY / FAQ
+   ============================================================ */
+.tba-phero{position:relative;isolation:isolate;background:var(--tba-black);overflow:hidden;
+  min-height:clamp(380px,46vw,620px);display:flex;align-items:center;text-align:center}
+.tba-phero__media{position:absolute;inset:0;z-index:-2}
+/* object-position only bites on the cropped axis; on a wide banner the image
+   already fills the width, so a horizontal nudge needs a scale + translate pair
+   (the section works the zoom out from the shift so no edge is ever exposed). */
+.tba-phero__media img{width:100%;height:100%;object-fit:cover;
+  object-position:var(--tba-phero-focus,center 30%);
+  transform:translateX(var(--tba-phero-shift,0)) scale(var(--tba-phero-zoom,1))}
+/* a phone crops the photo to a narrow window already — nudging it there only
+   costs resolution, so the shift is a desktop framing tool. */
+@media (max-width:767px){.tba-phero__media img{transform:none}}
+.tba-phero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(rgba(12,10,9,.62),rgba(12,10,9,.74))}
+.tba-phero .tba-shell{padding-block:clamp(64px,7vw,110px)}
+.tba-phero__inner{max-width:840px;margin-inline:auto}
+.tba-phero .tba-eyebrow{color:var(--tba-gold-lt)}
+.tba-phero .tba-h-xl{color:#fff}
+.tba-phero .tba-rule{margin-inline:auto}
+.tba-phero p{color:rgba(255,255,255,.9);font-size:clamp(16px,1.2vw,19px);line-height:1.85;
+  margin:26px auto 0;max-width:660px}
+.tba-phero .tba-btn-row{justify-content:center;margin-top:34px}
+
+/* ---------- numbered steps ---------- */
+.tba-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,34px);
+  grid-auto-rows:1fr;counter-reset:tbastep}
+.tba-step{position:relative;padding:clamp(28px,2.8vw,40px);background:#fff;border:1px solid var(--tba-line)}
+.tba-step::before{
+  counter-increment:tbastep;content:counter(tbastep,decimal-leading-zero);
+  display:block;font-family:var(--tba-serif);font-size:30px;line-height:1;
+  color:var(--tba-gold);margin-bottom:18px}
+.tba-step h3{font-family:var(--tba-sans);font-size:14px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:14px}
+.tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
+
+/* ---------- testimonial quotes ----------
+   Equal-height cards with the content centred, so the slack from uneven review
+   lengths splits above and below instead of pooling into one hole above the
+   caption. Blush ground, gold hairline, no badge. */
+/* A tight, even gutter between the cards. It is set here rather than left to
+   the <figure> margin (zeroed below), which a host theme's reset would
+   otherwise change out from under the layout. */
+.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;
+  gap:clamp(16px,1.8vw,28px);padding-top:26px}
+.tba-quote{
+  /* a <figure> carries a 40px UA side margin; zeroing it keeps the gutters
+     identical whether or not the host theme resets figure margins. */
+  margin:0;
+  display:flex;flex-direction:column;justify-content:center;position:relative;
+  padding:clamp(32px,2.8vw,44px) clamp(26px,2.6vw,42px);
+  border-radius:16px;
+  background:linear-gradient(168deg,#fffaf6 0%,#fdf1e6 100%);
+  border:1px solid rgba(220,162,119,.45);
+  box-shadow:0 10px 30px rgba(17,17,17,.05);
+  transition:transform .45s var(--tba-ease),box-shadow .45s var(--tba-ease),border-color .45s}
+.tba-quote:hover{
+  transform:translateY(-5px);box-shadow:0 22px 50px rgba(17,17,17,.12);border-color:var(--tba-gold)}
+.tba-quote .tba-stars{justify-content:center;margin-bottom:18px}
+.tba-quote blockquote{
+  margin:0 0 24px;font-size:clamp(16.5px,1.25vw,18.5px);line-height:1.85;
+  color:var(--tba-ink-soft);text-align:center}
+.tba-quote figcaption{
+  border-top:1px solid rgba(220,162,119,.4);padding-top:20px;text-align:center}
+.tba-quote cite{
+  display:block;font-style:normal;font-family:var(--tba-sans);font-size:12.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--tba-gold-dp)}
+.tba-quote span{display:block;margin-top:7px;font-size:13.5px;color:var(--tba-ink-mute)}
+@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}}
+
+/* ---------- image gallery ---------- */
+.tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
+.tba-gallery figure{margin:0;overflow:hidden;background:var(--tba-mist);position:relative}
+.tba-gallery img{aspect-ratio:4/5;width:100%;object-fit:cover;transition:transform 1s var(--tba-ease)}
+.tba-gallery figure:hover img{transform:scale(1.06)}
+.tba-gallery--3{grid-template-columns:repeat(3,1fr)}
+.tba-gallery--2{grid-template-columns:repeat(2,1fr)}
+
+/* sliding variant — a full-bleed ribbon on the shared .tba-marquee mechanics.
+   Fixed height with auto width lets the mixed 1:1 and 4:5 frames keep their
+   own proportions instead of being cropped to a single ratio. */
+.tba-gallery--slide{display:flex;gap:0}
+.tba-gallery--slide figure{
+  flex:0 0 auto;height:clamp(260px,28vw,430px);margin:0;overflow:hidden;background:var(--tba-mist)}
+.tba-gallery--slide img{aspect-ratio:auto;height:100%;width:auto;max-width:none;object-fit:cover}
+
+/* On phones the ribbon becomes a plain grid showing every frame at once —
+   a sideways scroller is awkward on touch, and the whole set fits down the
+   page. tba-redesign.js marks its duplicate frames aria-hidden, so hiding
+   those leaves exactly one of each with no JavaScript change. */
+@media (max-width:767px){
+  .tba-marquee:has(.tba-gallery--slide){-webkit-mask-image:none;mask-image:none;overflow:visible}
+  .tba-gallery--slide{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+    width:auto;animation:none;padding-inline:var(--tba-gutter)}
+  .tba-gallery--slide>[aria-hidden="true"]{display:none}
+  .tba-gallery--slide figure{height:auto}
+  .tba-gallery--slide img{aspect-ratio:4/5;width:100%;height:auto}
+}
+
+/* ---------- FAQ ---------- */
+.tba-faq{max-width:900px;margin-inline:auto;border-top:1px solid var(--tba-line)}
+.tba-faq details{border-bottom:1px solid var(--tba-line)}
+.tba-faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;
+  list-style:none;padding:24px 0;font-family:var(--tba-sans);font-size:16.5px;font-weight:600;
+  letter-spacing:.01em;color:var(--tba-black);transition:color .3s}
+.tba-faq summary::-webkit-details-marker{display:none}
+.tba-faq summary:hover{color:var(--tba-gold-dp)}
+.tba-faq summary::after{
+  content:"";flex:none;width:11px;height:11px;border-right:1px solid currentColor;
+  border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .35s var(--tba-ease)}
+.tba-faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.tba-faq details[open] summary{color:var(--tba-gold-dp)}
+.tba-faq__a{padding:0 0 26px;font-size:16px;color:var(--tba-ink-soft);line-height:1.9;max-width:760px}
+
+/* ---------- feature form band ----------
+   An opt-in treatment for the page a visitor is meant to convert on: dark
+   ground, two soft gold glows, a slow twinkle, and an ivory card with a gold
+   sheen edge. Everything is decorative and sits behind the form, so the
+   fields keep the same contrast they have on a plain background. */
+.tba-section--feature{position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(158deg,#fdf3ea 0%,#f4dcc6 38%,#eccdad 62%,#faf0e6 100%)}
+.tba-section--feature::before{
+  content:"";position:absolute;inset:-25% -12%;z-index:-2;
+  background:
+    radial-gradient(42% 46% at 14% 18%,rgba(255,255,255,.75),transparent 70%),
+    radial-gradient(38% 44% at 88% 82%,rgba(220,162,119,.42),transparent 70%),
+    radial-gradient(52% 58% at 52% 48%,rgba(255,246,238,.55),transparent 72%)
+}
+.tba-section--feature::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    radial-gradient(2.4px 2.4px at 12% 16%,rgba(176,116,68,.95),transparent 60%),
+    radial-gradient(2px 2px at 27% 68%,rgba(176,116,68,.75),transparent 60%),
+    radial-gradient(2.6px 2.6px at 41% 24%,rgba(176,116,68,.85),transparent 60%),
+    radial-gradient(1.9px 1.9px at 58% 82%,rgba(176,116,68,.7),transparent 60%),
+    radial-gradient(2.5px 2.5px at 72% 34%,rgba(176,116,68,.9),transparent 60%),
+    radial-gradient(2.1px 2.1px at 88% 62%,rgba(176,116,68,.8),transparent 60%),
+    radial-gradient(2.2px 2.2px at 6% 78%,rgba(176,116,68,.7),transparent 60%),
+    radial-gradient(2.3px 2.3px at 94% 12%,rgba(176,116,68,.85),transparent 60%),
+    radial-gradient(2px 2px at 34% 92%,rgba(176,116,68,.65),transparent 60%),
+    radial-gradient(2.4px 2.4px at 66% 8%,rgba(176,116,68,.8),transparent 60%);
+  animation:tbaTwinkle 6s ease-in-out infinite alternate
+}
+@keyframes tbaTwinkle{from{opacity:.28}to{opacity:.62}}
+
+.tba-section--feature .tba-eform{
+  background:#fff;
+  border:1px solid rgba(220,162,119,.5);
+  box-shadow:0 26px 60px rgba(120,78,44,.16),0 2px 6px rgba(120,78,44,.06);
+  position:relative;overflow:hidden
+}
+.tba-section--feature .tba-eform::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tba-gold-sheen)
+}
+/* a slow shimmer on the submit button — it pulls the eye to the action without
+   washing across the fields people are trying to read */
+.tba-section--feature .tba-eform .tba-btn{position:relative;overflow:hidden}
+.tba-section--feature .tba-eform .tba-btn::after{
+  content:"";position:absolute;top:0;bottom:0;left:0;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:translateX(-180%) skewX(-18deg);
+  animation:tbaBtnSheen 5.5s ease-in-out infinite
+}
+@keyframes tbaBtnSheen{0%,62%{transform:translateX(-180%) skewX(-18deg)}100%{transform:translateX(360%) skewX(-18deg)}}
+
+.tba-section--feature .tba-eform__head{position:relative;z-index:1}
+.tba-section--feature .tba-eform__ornament{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  color:var(--tba-gold-dp);font-size:13px;letter-spacing:.3em;margin:0 0 18px}
+.tba-section--feature .tba-eform__ornament::before,
+.tba-section--feature .tba-eform__ornament::after{
+  content:"";height:1px;width:clamp(34px,7vw,86px);
+  background:linear-gradient(90deg,transparent,rgba(220,162,119,.85))}
+.tba-section--feature .tba-eform__ornament::after{transform:scaleX(-1)}
+.tba-section--feature .tba-eform>*{position:relative;z-index:1}
+.tba-section--feature .tba-eform .tba-btn{
+  box-shadow:0 12px 30px rgba(220,162,119,.42)}
+
+@media (prefers-reduced-motion:reduce){
+  .tba-section--feature::after{animation:none;opacity:.7}
+  .tba-section--feature .tba-eform .tba-btn::after{animation:none;opacity:0}
+}
+
+@media (max-width:1024px){
+  .tba-steps{grid-template-columns:repeat(2,1fr)}
+  .tba-gallery{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .tba-steps{grid-template-columns:1fr;grid-auto-rows:auto}
+  .tba-phero{min-height:0}
+}
+
+/* ============================================================
+   SERVICE / ENQUIRY PAGES
+   Used by tba-page-intro, tba-services and tba-enquiry-form.
+   ============================================================ */
+.tba-pageintro{text-align:center;max-width:900px;margin-inline:auto}
+.tba-pageintro .tba-lede{margin-top:24px}
+.tba-pageintro .tba-lede+.tba-lede{margin-top:18px}
+.tba-pageintro__price{
+  display:inline-block;margin-top:30px;padding:14px 30px;
+  font-size:15px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--tba-gold-dp);background:var(--tba-blush);border:1px solid rgba(220,162,119,.5)
+}
+
+/* ---------- service cards ---------- */
+.tba-svc{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:clamp(20px,2.4vw,34px)}
+.tba-svc--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1024px){.tba-svc--3{grid-template-columns:repeat(2,1fr)}}
+.tba-svc__card{
+  display:flex;flex-direction:column;padding:clamp(30px,3vw,46px);
+  background:#fff;border:1px solid var(--tba-line);position:relative
+}
+.tba-svc__card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tba-gold-sheen)
+}
+.tba-svc__card h3{
+  font-family:var(--tba-serif);font-size:clamp(22px,2vw,30px);font-weight:400;
+  letter-spacing:.02em;text-transform:uppercase;margin-bottom:18px
+}
+.tba-svc__card p{font-size:16px;color:var(--tba-ink-soft);line-height:1.85;flex:1}
+.tba-svc__meta{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;
+  margin-top:26px;padding-top:22px;border-top:1px solid var(--tba-line)
+}
+.tba-svc__price{font-family:var(--tba-serif);font-size:34px;line-height:1;color:var(--tba-gold-dp)}
+.tba-svc__dur{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tba-ink-mute)}
+
+/* ---------- policy panels ---------- */
+.tba-panels{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.4vw,34px);margin-top:clamp(24px,3vw,44px)}
+.tba-panels--3{grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr}
+@media (max-width:1024px){.tba-panels--3{grid-template-columns:repeat(2,1fr)}}
+.tba-panel{padding:clamp(26px,2.6vw,38px);background:var(--tba-paper);border:1px solid var(--tba-line)}
+.tba-panel h3{
+  font-family:var(--tba-sans);font-size:13px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tba-gold-dp);margin-bottom:18px
+}
+
+/* card style — the same treatment as a service card, for panels that carry
+   detail rather than a price: white ground, gold sheen edge, serif title. */
+.tba-panel--card{
+  display:flex;flex-direction:column;position:relative;
+  padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
+.tba-panel--card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tba-gold-sheen)}
+.tba-panel ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.tba-panel li{position:relative;padding-left:22px;font-size:15.5px;color:var(--tba-ink-soft);line-height:1.8}
+.tba-panel li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--tba-gold)}
+.tba-panel p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.8}
+
+/* card overrides — after the base panel rules so they win on equal specificity.
+   A gold header band over an ivory body: the brand colour does the separating,
+   so the list underneath needs no per-item rule at all. */
+.tba-panel--card{
+  padding:0;overflow:hidden;border-radius:14px;background:#fff;
+  border:1px solid rgba(220,162,119,.45);
+  box-shadow:0 8px 26px rgba(17,17,17,.05);
+  transition:transform .45s var(--tba-ease),box-shadow .45s var(--tba-ease),border-color .45s}
+.tba-panel--card:hover{
+  transform:translateY(-5px);box-shadow:0 20px 46px rgba(17,17,17,.11);border-color:var(--tba-gold)}
+.tba-panel--card::before{display:none}
+.tba-panel--card h3{
+  margin:0;padding:20px 22px;background:var(--tba-gold-sheen-lt);color:#3a2513;
+  font-family:var(--tba-serif);font-size:clamp(18px,1.5vw,23px);font-weight:500;
+  letter-spacing:.05em;text-transform:uppercase;text-align:center;
+  border-bottom:1px solid rgba(220,162,119,.35)}
+.tba-panel--card ul{
+  margin:0;padding:clamp(24px,2.4vw,32px);gap:13px;flex:1;align-content:center}
+.tba-panel--card li{
+  padding:0 0 0 26px;text-align:left;font-size:15.5px;line-height:1.75}
+/* a small gold diamond in place of the dash — left marker, hung off the text */
+.tba-panel--card li::before{
+  left:1px;top:.66em;width:7px;height:7px;border-radius:1px;transform:rotate(45deg);
+  background:var(--tba-gold-sheen);box-shadow:0 1px 3px rgba(220,162,119,.45)}
+/* cards match heights across the row; the body is centred in the space it is
+   given, so a short one leaves even margins rather than a hole underneath. */
+.tba-panel--card p{
+  text-align:left;padding:clamp(24px,2.4vw,32px);margin:0;
+  display:flex;align-items:center;flex:1}
+
+.tba-panel--note{background:transparent;border-style:dashed;grid-column:1/-1}
+
+/* ---------- enquiry form ---------- */
+.tba-eform{max-width:820px;margin-inline:auto;background:#fff;border:1px solid var(--tba-line);
+  padding:clamp(28px,3.4vw,56px)}
+/* wide variant — a long form laid across the page instead of down it, so a
+   15-field brief doesn't turn into a scroll. Six tracks so a field can take a
+   third (span 2) or a half (span 3) of a row. */
+.tba-eform-wrap--wide .tba-eform{max-width:min(var(--tba-shell),1180px)}
+.tba-eform__grid{display:grid;grid-template-columns:1fr;gap:0 22px}
+@media (min-width:700px){
+  .tba-eform__grid{grid-template-columns:repeat(6,1fr)}
+  .tba-eform__grid>.tba-efield{grid-column:span 3}
+  .tba-eform__grid>.tba-efield--full{grid-column:1/-1}
+}
+@media (min-width:1040px){
+  .tba-eform-wrap--wide .tba-eform__grid>.tba-efield{grid-column:span 2}
+  .tba-eform-wrap--wide .tba-eform__grid>.tba-efield--wide{grid-column:span 3}
+  .tba-eform-wrap--wide .tba-eform__grid>.tba-efield--full{grid-column:1/-1}
+}
+/* the tall Ceremony Location box only needs to be tall in the narrow layout */
+.tba-eform-wrap--wide .tba-efield textarea.tba-efield--tall{min-height:132px}
+.tba-eform-wrap--wide .tba-efield textarea{min-height:132px}
+.tba-eform__head{text-align:center;margin-bottom:clamp(26px,3vw,40px)}
+.tba-eform__head p{font-size:16px;color:var(--tba-ink-soft);margin:14px 0 0}
+.tba-eform__row{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.tba-efield{display:block;margin-bottom:22px}
+.tba-efield__label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}
+.tba-efield__label>span:first-child{
+  font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tba-ink)}
+.tba-efield__req{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tba-gold-dp);flex:none}
+.tba-efield input,.tba-efield select,.tba-efield textarea{
+  width:100%;min-height:54px;padding:15px 16px;font:inherit;font-size:16px;color:var(--tba-ink);
+  background:#fff;border:1px solid #e4ddd6;transition:border-color .3s,box-shadow .3s
+}
+.tba-efield textarea{min-height:130px;resize:vertical;line-height:1.7}
+.tba-efield textarea.tba-efield--tall{min-height:190px}
+.tba-efield input::placeholder,.tba-efield textarea::placeholder{color:#a6a09a}
+.tba-efield input:focus,.tba-efield select:focus,.tba-efield textarea:focus{
+  outline:none;border-color:var(--tba-gold);box-shadow:0 0 0 3px rgba(220,162,119,.16)}
+
+/* radios */
+.tba-eradios{display:grid;gap:12px;margin-top:4px}
+/* inline variant, declared after the base so it wins on equal specificity */
+.tba-eradios--row{display:flex;flex-wrap:wrap;gap:14px 32px}
+.tba-eradio{display:flex;align-items:center;gap:12px;font-size:16px;color:var(--tba-ink-soft);cursor:pointer}
+.tba-eradio input{appearance:none;-webkit-appearance:none;width:20px;height:20px;min-height:0;padding:0;flex:none;
+  border:1px solid #ddd3ca;border-radius:50%;background:#fff;transition:border-color .25s,box-shadow .25s}
+.tba-eradio input:checked{border-color:var(--tba-gold);box-shadow:inset 0 0 0 5px var(--tba-gold)}
+.tba-eradio input:focus-visible{outline:1px solid var(--tba-gold-dp);outline-offset:3px}
+
+/* upload dropzone */
+.tba-edrop{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  padding:38px 24px;text-align:center;border:1px dashed #d8cec4;background:var(--tba-paper);
+  cursor:pointer;transition:border-color .3s,background .3s}
+.tba-edrop:hover,.tba-edrop.tba-is-open{border-color:var(--tba-gold);background:var(--tba-blush)}
+.tba-edrop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.tba-edrop svg{color:var(--tba-gold-dp)}
+.tba-edrop b{font-size:16px;font-weight:600;color:var(--tba-ink)}
+.tba-edrop span{font-size:13.5px;color:var(--tba-ink-mute)}
+.tba-edrop em{font-style:normal;font-size:13.5px;color:var(--tba-gold-dp)}
+.tba-efiles{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.tba-efiles li{font-size:13.5px;color:var(--tba-ink-soft)}
+.tba-eform .tba-btn{width:100%;margin-top:10px}
+.tba-eform__note{font-size:13px;line-height:1.7;color:var(--tba-ink-mute);text-align:center;margin:18px 0 0}
+.tba-eform__msg{
+  margin:0 0 22px;padding:14px 18px;font-size:15px;border:1px solid rgba(220,162,119,.5);
+  background:var(--tba-blush);color:var(--tba-gold-dp)}
+
+@media (max-width:860px){
+  /* auto rows once stacked, so a shorter card doesn't inherit the taller one's height */
+  .tba-svc,.tba-panels{grid-template-columns:1fr;grid-auto-rows:auto}
+}
+@media (max-width:640px){
+  .tba-eform__row{grid-template-columns:1fr;gap:0}
+}
+
+/* ============================================================
+   NEWSLETTER — full-bleed image, dark veil, gold frame
+   ============================================================ */
+.tba-newsletter{position:relative;text-align:center;background:var(--tba-black);isolation:isolate;overflow:hidden}
+.tba-newsletter::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background-color:#111;
+  background-image:var(--tba-news-bg,none);
+  background-position:center;background-size:cover;background-repeat:no-repeat
+}
+.tba-newsletter::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(rgba(12,10,9,.84),rgba(12,10,9,.9))
+}
+.tba-newsletter .tba-h-lg{color:#fff}
+.tba-newsletter .tba-eyebrow{color:var(--tba-gold)}
+.tba-newsletter p{color:rgba(255,255,255,.72);max-width:56ch;margin-inline:auto}
+.tba-nform{display:flex;gap:12px;max-width:560px;margin:34px auto 0}
+.tba-nform input{
+  flex:1;min-height:56px;padding:0 20px;background:rgba(255,255,255,.05);color:#fff;
+  border:1px solid rgba(255,255,255,.24);border-radius:var(--tba-radius);font:inherit;font-size:16px;
+  transition:border-color .3s,background .3s
+}
+.tba-nform input::placeholder{color:rgba(255,255,255,.45)}
+.tba-nform input:focus{outline:none;border-color:var(--tba-gold);background:rgba(255,255,255,.08)}
+
+/* ============================================================
+   CONTACT — light column, black form panel
+   ============================================================ */
+.tba-contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,68px);align-items:start}
+.tba-info-list{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:24px}
+.tba-info-list li{display:flex;gap:18px;align-items:flex-start}
+.tba-info-list .tba-ic{
+  width:44px;height:44px;flex:0 0 44px;border-radius:50%;
+  background:transparent;border:1px solid var(--tba-line-gold);color:var(--tba-gold-dp);
+  display:grid;place-items:center;transition:.4s var(--tba-ease)
+}
+.tba-info-list li:hover .tba-ic{background:var(--tba-black);border-color:var(--tba-black);color:var(--tba-gold)}
+.tba-info-list h4{font-family:var(--tba-sans);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tba-ink-mute);margin-bottom:6px}
+.tba-info-list a,.tba-info-list p{font-size:16px;color:var(--tba-ink);margin:0;line-height:1.7}
+.tba-info-list a:hover{color:var(--tba-gold-dp)}
+.tba-map{margin-top:36px;border:1px solid var(--tba-line-soft);background:var(--tba-mist)}
+.tba-map iframe{display:block;width:100%;height:clamp(270px,30vw,350px);border:0}
+
+.tba-cform{background:var(--tba-black);color:#fff;padding:clamp(30px,3.2vw,50px);border:1px solid var(--tba-black)}
+.tba-cform .tba-h-md{color:#fff;margin-bottom:10px;text-align:center}
+.tba-cform>p{color:#fff;font-size:15.5px;text-align:center}
+.tba-cform__promo{
+  margin:22px 0 4px;padding:13px 16px;text-align:center;
+  background:rgba(220,162,119,.14);border:1px dashed rgba(220,162,119,.6);border-radius:8px;
+  font-size:15px;color:var(--tba-gold-lt);line-height:1.5
+}
+.tba-cform__promo b{font-weight:700;color:var(--tba-gold)}
+.tba-field{display:block;margin-top:22px}
+.tba-field span{display:block;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tba-gold);margin-bottom:10px}
+.tba-field input,.tba-field select,.tba-field textarea{
+  width:100%;min-height:52px;padding:14px 16px;font:inherit;font-size:16px;color:#fff;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.18);border-radius:var(--tba-radius);
+  transition:border-color .3s,background .3s
+}
+.tba-field select{color:#fff}
+.tba-field select option{color:var(--tba-black);background:#fff}
+.tba-field textarea{min-height:136px;resize:vertical}
+.tba-field input:focus,.tba-field select:focus,.tba-field textarea:focus{outline:none;border-color:var(--tba-gold);background:rgba(255,255,255,.09)}
+.tba-cform .tba-btn{width:100%;margin-top:30px;--tba-btn-bg:var(--tba-gold);--tba-btn-bd:var(--tba-gold);--tba-btn-fg:#241a12;
+            --tba-btn-bg-h:#fff;--tba-btn-fg-h:var(--tba-black);--tba-btn-bd-h:#fff}
+.tba-cform__note{font-size:13px;color:rgba(255,255,255,.55);margin-top:18px;text-align:center;letter-spacing:.03em}
+.tba-formrow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.tba-footer{background:var(--tba-black);color:rgba(255,255,255,.7);padding-block:clamp(56px,6vw,90px) 0;font-size:15.5px;border-top:1px solid rgba(220,162,119,.3)}
+.tba-footer__grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr .9fr;gap:clamp(26px,3vw,50px)}
+.tba-footer h4{
+  font-family:var(--tba-sans);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tba-gold);margin-bottom:24px
+}
+.tba-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tba-footer a{transition:color .3s}
+.tba-footer a:hover{color:var(--tba-gold)}
+.tba-footer__brand{justify-self:start;text-align:left;padding:0;width:100%}
+.tba-footer__brand img{width:200px;margin:0 0 22px;margin-inline:0}
+.tba-footer__brand .tba-brand__fallback{text-align:left;margin-bottom:20px}
+.tba-footer .tba-socials{display:flex;gap:15px}
+.tba-footer .tba-socials a{color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.16);border-radius:50%;width:36px;height:36px}
+.tba-footer .tba-socials a:hover{color:var(--tba-gold);border-color:var(--tba-line-gold)}
+.tba-footer__pay{margin-top:24px;max-width:150px;opacity:.85}
+.tba-footer__bottom{
+  margin-top:clamp(42px,4.5vw,66px);border-top:1px solid rgba(255,255,255,.11);
+  padding-block:26px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;
+  font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)
+}
+.tba-footer__acc{display:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1340px){
+  /* desktop nav is still on between 1024px and 1440px — tighten so the
+     larger menu type and CTA keep fitting either side of the logo */
+  .tba-nav{gap:17px}
+  .tba-nav__link{font-size:12.5px;letter-spacing:.07em}
+  .tba-btn--sm{padding:0 16px;font-size:11.5px;letter-spacing:.07em}
+  .tba-brand{padding-inline:8px}
+  .tba-brand img{width:clamp(132px,11vw,160px)}
+  .tba-icon-btn{width:38px;height:38px}
+}
+@media (max-width:1200px){
+  .tba-mega__grid{grid-template-columns:repeat(3,1fr)}
+  .tba-footer__grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:1024px){
+  .tba-navbar{display:none}
+  .tba-mobilebar{display:block}
+  .tba-courses{grid-template-columns:repeat(3,1fr)}
+  .tba-hero__grid{grid-template-columns:1fr;gap:38px}
+  .tba-hero__proof{grid-template-columns:repeat(2,1fr)}
+  .tba-heroform{justify-self:stretch;max-width:640px;margin-inline:auto}
+  .tba-hero__media::after{background:linear-gradient(180deg,rgba(12,10,9,.45) 0%,rgba(12,10,9,.66) 55%,rgba(12,10,9,.82) 100%)}
+}
+@media (max-width:860px){
+  .tba-split,.tba-contact__grid,.tba-stories,.tba-founder,.tba-ss__grid,.tba-intro{grid-template-columns:1fr}
+  .tba-split--reverse .tba-split__media{order:0}
+  .tba-founder__media{order:-1}
+  .tba-founder__media,.tba-ss__portrait{max-width:520px;margin-inline:auto}
+  .tba-ss__body,.tba-founder__body{max-width:none}
+  .tba-split__media--frame::before{display:none}
+  .tba-courses{grid-template-columns:repeat(2,1fr)}
+  .tba-footer__grid{grid-template-columns:1fr}
+  .tba-footer__acc{display:block}
+  .tba-footer .tba-footer__menu{display:none}
+  .tba-footer .tba-footer__menu.tba-is-open{display:grid;padding-bottom:10px}
+  .tba-footer h4[data-facc]{display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+    padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.11);margin-bottom:18px}
+}
+@media (max-width:640px){
+  .tba-formrow,.tba-heroform__row{grid-template-columns:1fr}
+  .tba-heroform__row{gap:0}
+  .tba-nform{flex-direction:column}
+  .tba-hero__proof{gap:8px}
+  .tba-hero__proof li{min-height:92px;padding:18px 12px;font-size:16px}
+  .tba-btn{width:100%;padding:0 22px;font-size:13px;min-height:60px;white-space:normal;line-height:1.35}
+  .tba-btn-row{flex-direction:column}
+  .tba-announce .tba-shell{grid-template-columns:1fr;gap:0;padding-block:9px}
+  .tba-announce__social,.tba-announce__links{display:none}
+  .tba-announce__text{font-size:13px;letter-spacing:.04em}
+  .tba-course__cap{padding:20px 16px}
+  .tba-press{gap:9px}
+  .tba-press a{padding:10px 10px}
+}
+
+</style>
+</head>
+<body class="tba-theme">
+
+<!-- ============================== ANNOUNCEMENT ============================== -->
+<div class="tba-scope">
+<div class="tba-announce">
+  <div class="tba-shell">
+    <ul class="tba-socials tba-announce__social">
+      <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Tamarua Beauty Academy on Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+      <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Tamarua Beauty Academy on Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+    </ul>
+
+    <p class="tba-announce__text"><strong>Awarded Top 4 Education Facility in Australia by the MAGAP (Asia Pacific)</strong></p>
+
+    <div class="tba-announce__links">
+      <a href="tel:0421864557">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.55 1 1 0 01-.24 1.05z"/></svg>
+        0421 864 557
+      </a>
+      <a href="/account/login">Login</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============================== HEADER ============================== -->
+<div class="tba-scope">
+<header class="tba-header">
+
+  <!-- desktop nav -->
+  <div class="tba-navbar">
+    <div class="tba-shell">
+      <nav class="tba-nav" aria-label="Primary">
+        <div class="tba-nav__item">
+          <a class="tba-nav__link" href="/collections">Courses
+            <svg class="tba-chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="tba-mega">
+            <div class="tba-mega__grid">
+              <a class="tba-mega__card" href="/collections/makeup-courses">
+                <figure><img src="MakeupCourses.webp" alt="Make Up Courses" loading="lazy"></figure>
+                <h4>Make Up Courses</h4>
+              </a>
+              <a class="tba-mega__card" href="/collections/hair-styling">
+                <figure><img src="HairstylingCourses.webp" alt="Hair Styling Courses" loading="lazy"></figure>
+                <h4>Hair Styling Courses</h4>
+              </a>
+              <a class="tba-mega__card" href="/collections/nails">
+                <figure><img src="NailCourses.webp" alt="Nails Courses" loading="lazy"></figure>
+                <h4>Nails Courses</h4>
+              </a>
+              <a class="tba-mega__card" href="/collections/barbering">
+                <figure><img src="BarberingCourse.webp" alt="Barbering Course" loading="lazy"></figure>
+                <h4>Barbering Course</h4>
+              </a>
+              <div class="tba-mega__list">
+                <h4>Other Beauty Courses</h4>
+                <ul>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/eyelash-extensions">Eyelash Extensions Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/master-classes">Master Classes</a></li>
+                  <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tba-nav__item">
+          <a class="tba-nav__link" href="/collections/online-beauty-courses-melbourne">Online Courses
+            <svg class="tba-chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="tba-mega">
+            <div class="tba-mega__cols">
+              <div class="tba-mega__list">
+                <h4><a href="/collections/makeup-courses">Makeup Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+                  <li><a href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/hair-styling">Hairstyling Courses</a></h4>
+                <ul>
+                  <li><a href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/nails">Nail Courses</a></h4>
+                <ul>
+                  <li><a href="/products/nails-on-site-nail-technology-fundamentals-pro-includes-drill-techniques">ON-SITE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+                  <li><a href="/products/nails-live-online-nail-technology-fundamentals-pro-includes-drill-techniques">ONLINE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></h4>
+                <ul>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections">Other Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/barbering">Barbering Course</a></li>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tba-nav__item">
+          <a class="tba-nav__link" href="/collections/beauty-courses-melbourne">On-Site Courses
+            <svg class="tba-chev" width="9" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="tba-mega">
+            <div class="tba-mega__cols">
+              <div class="tba-mega__list">
+                <h4><a href="/collections/makeup-courses">Makeup Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+                  <li><a href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+                  <li><a href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/hair-styling">Hairstyling Courses</a></h4>
+                <ul>
+                  <li><a href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+                  <li><a href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></h4>
+                <ul>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+                  <li><a href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+                </ul>
+              </div>
+              <div class="tba-mega__list">
+                <h4><a href="/collections">Other Courses</a></h4>
+                <ul>
+                  <li><a href="/collections/barbering">Barbering Course</a></li>
+                  <li><a href="/collections/facials">Facial Course</a></li>
+                  <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+                  <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+                  <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+                  <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tba-nav__item"><a class="tba-nav__link" href="/collections/tba-beauty-products">Shop</a></div>
+      </nav>
+
+      <a class="tba-brand" href="/" aria-label="Tamarua Beauty Academy — home">
+        <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" data-logo-fallback="logo-tba.svg" alt="Tamarua Beauty Academy" width="410" height="154" data-logo>
+        <span class="tba-brand__fallback"><b>Tamarua</b><span>Beauty Academy</span></span>
+      </a>
+
+      <div class="tba-nav tba-nav--right">
+        <div class="tba-nav__item"><a class="tba-nav__link" href="/pages/contact-us">Contact Us</a></div>
+        <a class="tba-btn tba-btn--gold tba-btn--sm" href="index.html#contact">Book A Free Consultation</a>
+        <div class="tba-tools">
+          <button class="tba-icon-btn" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+          </button>
+          <a class="tba-icon-btn" href="/cart" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+            <span class="tba-cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mobile bar -->
+  <div class="tba-mobilebar">
+    <div class="tba-shell">
+      <a class="tba-brand" href="/" aria-label="Tamarua Beauty Academy — home">
+        <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" data-logo-fallback="logo-tba.svg" alt="Tamarua Beauty Academy" width="410" height="154" data-logo style="width:140px">
+        <span class="tba-brand__fallback"><b style="font-size:24px">Tamarua</b><span>Beauty Academy</span></span>
+      </a>
+
+      <div class="tba-mobilebar__right">
+        <a class="tba-icon-btn" href="/cart" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="tba-cart-count">0</span>
+        </a>
+        <a class="tba-call-pill" href="tel:0421864557" aria-label="Call Tamarua Beauty Academy on 0421 864 557">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.55 1 1 0 01-.24 1.05z"/></svg>
+        </a>
+        <button class="tba-burger" aria-label="Open menu" aria-expanded="false" aria-controls="tba-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="tba-scrim"></div>
+<aside class="tba-drawer" id="tba-drawer" aria-label="Mobile menu">
+  <div class="tba-drawer__head">
+    <a class="tba-brand" href="/">
+      <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" data-logo-fallback="logo-tba.svg" alt="Tamarua Beauty Academy" data-logo>
+      <span class="tba-brand__fallback"><b style="font-size:22px">Tamarua</b><span>Beauty Academy</span></span>
+    </a>
+    <button class="tba-icon-btn" data-tba-drawer-close aria-label="Close menu">
+      <svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l10 10M11 1L1 11"/></svg>
+    </button>
+  </div>
+  <nav>
+    <button class="tba-drawer__link" data-acc aria-expanded="false">Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="tba-drawer__sub">
+      <li><a href="/collections/makeup-courses">Make Up Courses</a></li>
+      <li><a href="/collections/hair-styling">Hair Styling Courses</a></li>
+      <li><a href="/collections/nails">Nails Courses</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extensions Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/master-classes">Master Classes</a></li>
+      <li><a href="/collections/beauty-courses-melbourne/products/body-waxing-course-on-site-waxing">Waxing Course</a></li>
+    </ul>
+    <button class="tba-drawer__link" data-acc aria-expanded="false">Online Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="tba-drawer__sub">
+      <li><a href="/collections/makeup-courses">Makeup Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+      <li><a href="/collections/nails">Nail Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/nails-on-site-nail-technology-fundamentals-pro-includes-drill-techniques">ON-SITE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/nails-live-online-nail-technology-fundamentals-pro-includes-drill-techniques">ONLINE | NAIL TECHNOLOGY FUNDAMENTALS PRO</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+    </ul>
+    <button class="tba-drawer__link" data-acc aria-expanded="false">On-Site Courses
+      <svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <ul class="tba-drawer__sub">
+      <li><a href="/collections/makeup-courses">Makeup Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-beginners-intermediate">ON-SITE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/makeup-course-on-site-advanced-makeup-course">ON-SITE | ADVANCED</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-on-site-beginners-intermediate-advanced-pro">ON-SITE | BEGINNERS/INTERMEDIATE/ADVANCED PRO</a></li>
+      <li><a class="tba-drawer__sub--child" href="/collections/makeup-courses/products/make-up-live-online-beginners-intermediate">ONLINE | BEGINNERS/INTERMEDIATE</a></li>
+      <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-basic-editorial-hair-styling">ON-SITE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-advanced-bridal-hair-styling">ON-SITE | ADVANCED BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-on-site-editorial-bridal-hair-styling-pro">ON-SITE | EDITORIAL BRIDAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-basic-editorial-hair-styling">ONLINE | BASIC EDITORIAL</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/hair-styling-live-online-advanced-bridal-hair-styling">ONLINE | ADVANCED BRIDAL</a></li>
+      <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-eyelash-extensions">ON-SITE | CLASSIC</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-volume-hybrid-eyelash-extensions">ON-SITE | VOLUME/HYBRID</a></li>
+      <li><a class="tba-drawer__sub--child" href="/products/eyelash-extensions-on-site-classic-volume-hybrid-eyelash-extensions-pro">ON-SITE | CLASSIC/VOLUME/HYBRID</a></li>
+      <li><a href="/collections/barbering">Barbering Course</a></li>
+      <li><a href="/collections/facials">Facial Course</a></li>
+      <li><a href="/collections/lash-lift-tint">Lash Lift &amp; Tint Course</a></li>
+      <li><a href="/collections/spray-tanning">Spray Tanning Course</a></li>
+      <li><a href="/collections/body-waxing">Waxing Courses</a></li>
+      <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+    </ul>
+    <a class="tba-drawer__link" href="/pages/contact-us">Contact Us</a>
+    <a class="tba-drawer__link" href="/collections/tba-beauty-products">Shop</a>
+    <a class="tba-drawer__link" href="tel:0421864557">0421 864 557</a>
+    <a class="tba-drawer__link" href="/account/login">Login</a>
+  </nav>
+  <div class="tba-drawer__foot">
+    <a class="tba-btn tba-btn--gold" href="index.html#contact">Book A Free Consultation</a>
+    <ul class="tba-socials" style="list-style:none;margin:18px 0 0;padding:0">
+      <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+      <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+    </ul>
+  </div>
+</aside>
+</div>
+
+<main>
+
+<div class="tba-scope">
+<section class="tba-phero"><div class="tba-phero__media" style="--tba-phero-shift:0%;--tba-phero-zoom:1.0">
+    <img src="shopify/assets/tba-spraytan-banner.webp" alt="Four clients showing an even, sun-kissed spray tan" width="1400" height="533" data-tba-fallback="shopify/assets/tba-spraytan-banner.webp" fetchpriority="high">
+
+  </div>
+  <div class="tba-shell">
+    <div class="tba-phero__inner"><p class="tba-eyebrow">Studio</p><h1 class="tba-h-xl">Spray Tanning</h1>
+      <hr class="tba-rule tba-rule--center"><p>A custom, streak-free glow in about fifteen minutes — for a formal, a shoot, a holiday, or no reason at all.</p><div class="tba-btn-row"><a class="tba-btn tba-btn--gold" href="#book">Book Now</a><a class="tba-btn tba-btn--light" href="#enquire">Enquire Now</a></div></div>
+  </div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--sand" id="portfolio"><div class="tba-shell">
+      <div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)"><p class="tba-eyebrow">Portfolio</p><h2 class="tba-h-lg">Recent Work</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">A sample of recent studio work — an even, custom-mixed tan under special occasion makeup. Every solution is matched to your skin tone and to how deep you want to go, so the colour reads as your own rather than a shade borrowed from someone else. Scroll through, save what you love, and bring it with you to your appointment.</p></div>
+    </div><div class="tba-marquee">
+      <div class="tba-marquee__track tba-gallery tba-gallery--slide" data-tba-speed="45">
+        <figure >
+        <img src="shopify/assets/tba-spraytan-01.webp" alt="Client with a warm spray tan and a bold red lip" width="960" height="1280" data-tba-fallback="shopify/assets/tba-spraytan-01.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-02.webp" alt="Glowing shoulders and soft waves after a studio tan" width="960" height="1280" data-tba-fallback="shopify/assets/tba-spraytan-02.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-03.webp" alt="Client in a feathered gown with an evening makeup look" width="959" height="1400" data-tba-fallback="shopify/assets/tba-spraytan-03.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-04.webp" alt="Client in a red formal gown, tanned and ready for the night" width="1007" height="1400" data-tba-fallback="shopify/assets/tba-spraytan-04.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-05.webp" alt="Sun-kissed skin with a soft smoky eye" width="1116" height="1400" data-tba-fallback="shopify/assets/tba-spraytan-05.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-06.webp" alt="Warm bronzed finish with a neutral lip" width="1050" height="1400" data-tba-fallback="shopify/assets/tba-spraytan-06.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-07.webp" alt="Client with a fresh tan and a luminous base" width="1050" height="1400" data-tba-fallback="shopify/assets/tba-spraytan-07.webp" loading="lazy">
+
+      </figure><figure >
+        <img src="shopify/assets/tba-spraytan-08.webp" alt="Even, natural-looking colour across the shoulders and décolletage" width="970" height="1400" data-tba-fallback="shopify/assets/tba-spraytan-08.webp" loading="lazy">
+
+      </figure>
+      </div>
+    </div><div class="tba-shell">
+      <div class="tba-center" style="margin-top:clamp(28px,3.2vw,46px)"><a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div>
+    </div></section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section " id="book">
+  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Pricing</p><h2 class="tba-h-lg">Services & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Studio appointments for spray tanning and special occasion makeup. Book and pay online to hold your time — bookings open up to 4 months in advance.</p></div><div class="tba-svc"><article class="tba-svc__card" >
+            <h3>Spray Tan</h3>
+            <p>Achieve a flawless, natural-looking glow every time. Choose from subtle sun-kissed tones to a deep, bronzed radiance — custom colour selection and professional application for even, streak-free results.</p>
+            <div class="tba-svc__meta"><span class="tba-svc__price">$50</span><span class="tba-svc__dur">15 minutes</span></div>
+          </article><article class="tba-svc__card" >
+            <h3>Special Occasion Makeup</h3>
+            <p>Perfect for formals, engagements, birthdays, or a night out. Receive a polished, camera-ready look tailored to your features and outfit, including skin prep and false lashes for a long-lasting finish.</p>
+            <div class="tba-svc__meta"><span class="tba-svc__price">$200</span><span class="tba-svc__dur">75 minutes</span></div>
+          </article></div><div class="tba-panels tba-panels--3"><div class="tba-panel tba-panel--card" ><h3>Before Your Tan</h3><ul><li>Exfoliate the day before, and skip oil-based scrubs.</li><li>Shave or wax at least 24 hours ahead so pores have settled.</li><li>Arrive with clean skin: no moisturiser, deodorant, makeup or perfume.</li><li>Have nails, waxing and facials done beforehand, not after.</li><li>Bring loose, dark clothing and open shoes to change into.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>During Your Appointment</h3><ul><li>Your shade is mixed to suit your skin tone and how deep you want to go.</li><li>Applied with a professional spray system in a private room.</li><li>Disposables provided; you wear whatever you are comfortable in.</li><li>Around fifteen minutes start to finish, so it fits into a lunch break.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>After Your Tan</h3><ul><li>Leave the tan to develop for the time agreed at your appointment before you rinse.</li><li>Rinse in cool water without soap, then pat dry rather than rubbing.</li><li>Moisturise daily — hydrated skin holds colour noticeably longer.</li><li>Skip long hot showers, chlorine, saunas and heavy exercise while it settles.</li><li>Expect roughly five to seven days of colour, fading evenly.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Timing Your Tan</h3><ul><li>Book one to two days before the event so the colour has time to settle.</li><li>Tan first, makeup after — the two are never done in the same appointment.</li><li>If it is your first tan before a big day, allow a practice run.</li><li>Travelling in for the occasion? Tell us and we will plan the timing around you.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Deposits & Payments</h3><ul><li>Spray tan: full payment of $50 is required to book.</li><li>Special occasion makeup: $100 deposit at booking; the remaining $100 is payable in studio on the day.</li><li>Bookings open up to 4 months in advance.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Cancellations & Credits</h3><ul><li>Cancel at least 72 hours before the appointment and the payment or deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 72 hours forfeit the payment or deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
+        <a class="tba-btn tba-btn--gold" href="#enquire">Book & Pay</a><p class="tba-lede" style="margin-top:18px;font-size:14.5px">Opens the calendar to select a date and confirm.</p></div></div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--cream" id="reviews">
+  <div class="tba-shell">
+    <div class="tba-center" style="margin-bottom:clamp(32px,3.6vw,52px)"><p class="tba-eyebrow">Kind words</p><h2 class="tba-h-lg">What Clients Say</h2><hr class="tba-rule tba-rule--center"></div>
+    <div class="tba-quotes"><figure class="tba-quote" ><div class="tba-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></div><blockquote>PLACEHOLDER — replace with a real review. The colour was exactly what I asked for, and nothing transferred onto my dress that night.</blockquote>
+          <figcaption>
+            <cite>Client name</cite><span>Occasion, month year</span></figcaption>
+        </figure><figure class="tba-quote" ><div class="tba-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></div><blockquote>PLACEHOLDER — replace with a real review. Fifteen minutes on my lunch break and it still looked even four days later.</blockquote>
+          <figcaption>
+            <cite>Client name</cite><span>Occasion, month year</span></figcaption>
+        </figure><figure class="tba-quote" ><div class="tba-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg></div><blockquote>PLACEHOLDER — replace with a real review. I was worried about looking orange in photos, and it read as a real tan instead.</blockquote>
+          <figcaption>
+            <cite>Client name</cite><span>Occasion, month year</span></figcaption>
+        </figure></div></div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--blush" aria-labelledby="tba-founder-title" id="maggie">
+  <div class="tba-shell">
+    <div class="tba-founder">
+
+      <div class="tba-founder__body"><p class="tba-eyebrow tba-eyebrow--rule">Your Artist</p><h2 class="tba-h-lg" id="tba-founder-title">Maggie Tamarua</h2><p class="tba-founder__role">Award-Winning Makeup Artist</p><p class="tba-lede">Maggie is an award-winning makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, unhurried approach to every appointment. Spray tanning and special occasion makeup are treated with the same care as her bridal work: the shade is matched to you, the finish is checked in daylight, and you leave knowing exactly how to look after it. If you are not sure what suits your skin tone or your outfit, say so when you arrive — that is the part she enjoys most.</p>
+
+        <ul class="tba-founder__list"><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span><b>Makeup Artist of the Year</b> — ABIA Awards 2013 &amp; 2014</span></li><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span><b>Australian Bridal Industry Awards</b> — several consecutive years</span></li><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span><b>Studio appointments</b> — spray tanning and special occasion makeup</span></li><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span><b>Training academy</b> — Tamarua Beauty Academy, Melbourne</span></li></ul><a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div>
+
+      <figure class="tba-founder__media">
+        <img src="shopify/assets/tba-maggie.webp" alt="Maggie Tamarua, award-winning makeup artist" width="599" height="763" data-tba-fallback="shopify/assets/tba-maggie.webp" loading="lazy">
+
+      </figure>
+
+    </div>
+  </div>
+</section>
+</div>
+
+
+
+<div class="tba-scope">
+<section class="tba-section " id="faq">
+  <div class="tba-shell">
+    <div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)"><p class="tba-eyebrow">Good to know</p><h2 class="tba-h-lg">Frequently Asked Questions</h2><hr class="tba-rule tba-rule--center">
+    </div>
+    <div class="tba-faq"><details >
+          <summary>How long does a spray tan last?</summary>
+          <div class="tba-faq__a">Around five to seven days for most people. How you prepare and how you look after it makes more difference than anything else — exfoliating beforehand and moisturising daily afterwards is what keeps it fading evenly rather than patchily.</div>
+        </details><details >
+          <summary>Will it look orange?</summary>
+          <div class="tba-faq__a">No. The solution is mixed to your skin tone and to the depth you have asked for, rather than poured from a one-size bottle. If you are unsure, start lighter — it is easy to go deeper next time, and a first tan is a good chance to see how your skin takes the colour.</div>
+        </details><details >
+          <summary>What should I wear to the appointment?</summary>
+          <div class="tba-faq__a">Loose, dark clothing and open shoes, so nothing rubs against the tan while it develops. Avoid tight straps, denim and anything you would be upset to see a mark on. Disposables are provided for the appointment itself.</div>
+        </details><details >
+          <summary>When can I shower?</summary>
+          <div class="tba-faq__a">Wait for the development time agreed at your appointment — it depends on the depth you have chosen. Then rinse in cool water without soap and pat dry. The water will run brown; that is the cosmetic bronzer washing off, not the tan.</div>
+        </details><details >
+          <summary>How soon before my event should I book?</summary>
+          <div class="tba-faq__a">One to two days ahead is the sweet spot. Same-day tanning does not leave room for the colour to settle, and any earlier than three days means you lose some of the peak. Tell us the date of the event and we will work backwards from it.</div>
+        </details><details >
+          <summary>Can you tan a group, or come to us?</summary>
+          <div class="tba-faq__a">Send an enquiry with the date, the number of people and the location. Group bookings for a wedding party, a formal or a birthday are quoted individually so the timing works for everyone.</div>
+        </details></div>
+  </div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--feature" id="enquire">
+  <div class="tba-shell"><div class="tba-eform-wrap tba-eform-wrap--wide">
+      <form method="post" action="#" class="tba-eform" novalidate="novalidate">
+        <div class="tba-eform__head"><p class="tba-eform__ornament">✦</p><h2 class="tba-h-lg">Book Your Spray Tan</h2><p>Tell us which service you are after and your preferred date, and we will come back to you with availability.</p></div><div class="tba-eform__grid">
+
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>First Name</span><span class="tba-efield__req">Required</span></span>
+          <input type="text" name="contact[first_name]" placeholder="First name" autocomplete="given-name" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Last Name</span><span class="tba-efield__req">Required</span></span>
+          <input type="text" name="contact[last_name]" placeholder="Last name" autocomplete="family-name" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Email Address</span><span class="tba-efield__req">Required</span></span>
+          <input type="email" name="contact[email]" placeholder="your@email.com" autocomplete="email" required>
+        </label>
+        <label class="tba-efield">
+          <span class="tba-efield__label"><span>Phone Number</span><span class="tba-efield__req">Required</span></span>
+          <input type="tel" name="contact[phone]" placeholder="Phone number" autocomplete="tel" required>
+        </label><label class="tba-efield">
+            <span class="tba-efield__label"><span>Service of Interest</span><span class="tba-efield__req">Required</span></span>
+            <select name="contact[Service of interest]" required>
+              <option value="">Please select&hellip;</option><option>Spray Tan</option><option>Special Occasion Makeup</option></select>
+          </label>
+          <label class="tba-efield">
+            <span class="tba-efield__label"><span>Preferred Date</span></span>
+            <input type="date" name="contact[Preferred date]">
+          </label>
+          <label class="tba-efield tba-efield--full">
+            <span class="tba-efield__label"><span>Message</span><span class="tba-efield__req">Required</span></span>
+            <textarea name="contact[body]" required></textarea>
+          </label></div>
+
+        <button class="tba-btn tba-btn--gold" type="submit">Send Enquiry</button><p class="tba-eform__note">We'll only use your details to reply to your enquiry. Appointments can be cancelled up to 72 hours beforehand for a 12-month credit.</p></form>
+      </div></div>
+</section>
+</div>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<div class="tba-scope">
+<footer class="tba-footer">
+  <div class="tba-shell">
+    <div class="tba-footer__grid">
+
+      <div class="tba-footer__col tba-footer__col--brand">
+        <h4>Tamarua Beauty Academy</h4>
+        <a class="tba-brand tba-footer__brand" href="/" style="text-align:left">
+          <img src="https://melbournemakeup-courses.com.au/cdn/shop/files/TBA_logo_rosegoldWEB-01_e5511565-f7f9-42cb-adf0-3dac3d114db8_410x.png" data-logo-fallback="logo-tba.svg" alt="Tamarua Beauty Academy" data-logo>
+          <span class="tba-brand__fallback"><b>Tamarua</b><span>Beauty Academy</span></span>
+        </a>
+        <p style="font-size:14px;line-height:1.8">Industry based beauty training in Melbourne since 2010. On-site and live-online short courses in makeup, hair, nails, lashes, barbering, facials, waxing and spray tanning.</p>
+        <ul class="tba-socials" style="list-style:none;margin:20px 0 0;padding:0">
+          <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="tba-footer__col">
+        <h4 data-facc>TBA Courses <span class="tba-footer__acc"><svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg></span></h4>
+        <ul class="tba-footer__menu">
+          <li><a href="/collections/makeup-courses">Make Up Courses</a></li>
+          <li><a href="/collections/hair-styling">Hairstyling Courses</a></li>
+          <li><a href="/collections/nails">Nail Courses</a></li>
+          <li><a href="/collections/eyelash-extensions">Eyelash Extension Courses</a></li>
+          <li><a href="/products/barbering-on-site">Barbering Course</a></li>
+          <li><a href="/products/facial-course-on-site-facials">Facial Course</a></li>
+          <li><a href="/products/spray-tanning-on-site-1-day-course">Spray Tanning Course</a></li>
+        </ul>
+      </div>
+
+      <div class="tba-footer__col">
+        <h4 data-facc>Why TBA <span class="tba-footer__acc"><svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg></span></h4>
+        <ul class="tba-footer__menu">
+          <li><a href="/pages/about-us">About TBA</a></li>
+          <li><a href="/pages/our-teachers">Our Teachers</a></li>
+          <li><a href="/pages/student-success-stories">Student Success Stories</a></li>
+          <li><a href="/pages/faqs">FAQ</a></li>
+          <li><a href="/pages/intro-to-beauty-school-program">Intro to Beauty School Programs</a></li>
+        </ul>
+      </div>
+
+      <div class="tba-footer__col">
+        <h4 data-facc>Customer Information <span class="tba-footer__acc"><svg width="10" height="7" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l4 4 4-4"/></svg></span></h4>
+        <ul class="tba-footer__menu">
+          <li><a href="/pages/faqs">FAQ's</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/refund-policy">Refund Policy (Products Only)</a></li>
+          <li><a href="/policies/terms-of-service">Website Terms of Use</a></li>
+          <li><a href="/pages/contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="tba-footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0421864557">0421 864 557</a></li>
+          <li><a href="mailto:info@tamaruabeautyacademy.com.au">info@tamaruabeautyacademy.com.au</a></li>
+          <li>Building 8/36 Aylesbury Dr,<br>Altona VIC 3018</li>
+        </ul>
+        <img class="tba-footer__pay" src="afterpay.webp" alt="Afterpay available" loading="lazy" width="937" height="327">
+      </div>
+
+    </div>
+
+    <div class="tba-footer__bottom">
+      <p style="margin:0">&copy; <span id="tba-year">2026</span> Tamarua Beauty Academy. All rights reserved.</p>
+      <p style="margin:0">Awarded Top 4 Education Facility in Australia &mdash; MAGAP (Asia Pacific)</p>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+/* ============================================================
+   Tamarua Beauty Academy — homepage redesign behaviour
+   Every routine is null-guarded and idempotent so it survives
+   Turbo's InstantClick and the theme editor's section reloads.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var DONE = "tbaBound";   // dataset flag: never bind the same node twice
+  var docBound = false;    // document-level listeners are registered once
+  var icBound = false;     // ditto the InstantClick hook
+  var stickyHandler = null;
+
+  function bound(el) {
+    if (!el || el.dataset[DONE]) return true;
+    el.dataset[DONE] = "1";
+    return false;
+  }
+
+  function setDrawer(open) {
+    var panel  = document.querySelector(".tba-drawer"),
+        scrim  = document.querySelector(".tba-scrim"),
+        burger = document.querySelector(".tba-burger");
+    if (!panel || !scrim || !burger) return;
+    panel.classList.toggle("tba-is-open", open);
+    scrim.classList.toggle("tba-is-open", open);
+    burger.classList.toggle("tba-is-open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+
+  /* ---------- year ---------- */
+  function year() {
+    var el = document.getElementById("tba-year");
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
+  /* ---------- logo fallback ----------
+     data-logo-fallback is a space-separated chain of URLs, tried in order:
+     Content > Files, then the theme's assets/. If every one fails, the CSS
+     wordmark takes over. */
+  function logos() {
+    document.querySelectorAll("[data-logo]").forEach(function (img) {
+      if (bound(img)) return;
+      var queue = (img.getAttribute("data-logo-fallback") || "").split(/\s+/).filter(Boolean);
+      function degrade() {
+        while (queue.length) {
+          var next = queue.shift();
+          if (next !== img.src) { img.src = next; return; }
+        }
+        var brand = img.closest(".tba-brand");
+        if (brand) brand.classList.add("tba-is-fallback");
+      }
+      img.addEventListener("error", degrade);
+      if (img.complete && img.naturalWidth === 0) degrade();
+    });
+  }
+
+  /* ---------- bundled image fallback ----------
+     The sections point at Content > Files first. If an image was uploaded to
+     the theme's assets/ folder instead, swap to that URL on the 404 so the
+     pack works either way with no code edit. */
+  function imageFallbacks() {
+    document.querySelectorAll("img[data-tba-fallback]").forEach(function (img) {
+      if (bound(img)) return;
+      function swap() {
+        var alt = img.getAttribute("data-tba-fallback");
+        img.removeAttribute("data-tba-fallback");   // one retry only
+        if (alt && img.src !== alt) img.src = alt;
+      }
+      img.addEventListener("error", swap);
+      if (img.complete && img.naturalWidth === 0) swap();
+    });
+  }
+
+  /* ---------- sticky header shadow ----------
+     Re-pointed rather than re-added, so an InstantClick page swap doesn't
+     leave a listener holding the previous page's detached header. */
+  function sticky() {
+    if (stickyHandler) {
+      window.removeEventListener("scroll", stickyHandler);
+      stickyHandler = null;
+    }
+    var header = document.querySelector(".tba-header");
+    if (!header) return;
+    stickyHandler = function () {
+      header.classList.toggle("tba-is-stuck", window.scrollY > 12);
+    };
+    window.addEventListener("scroll", stickyHandler, { passive: true });
+    stickyHandler();
+  }
+
+  /* ---------- mobile drawer ---------- */
+  function drawer() {
+    var burger = document.querySelector(".tba-burger"),
+        panel  = document.querySelector(".tba-drawer"),
+        scrim  = document.querySelector(".tba-scrim"),
+        close  = document.querySelector("[data-tba-drawer-close]");
+    if (!burger || !panel || !scrim || bound(panel)) return;
+
+    burger.addEventListener("click", function () {
+      setDrawer(!panel.classList.contains("tba-is-open"));
+    });
+    scrim.addEventListener("click", function () { setDrawer(false); });
+    if (close) close.addEventListener("click", function () { setDrawer(false); });
+    panel.querySelectorAll('a[href*="#"]').forEach(function (a) {
+      a.addEventListener("click", function () { setDrawer(false); });
+    });
+
+    /* drawer accordions */
+    panel.querySelectorAll("[data-acc]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var sub = btn.nextElementSibling;
+        if (!sub) return;
+        var open = sub.classList.toggle("tba-is-open");
+        btn.setAttribute("aria-expanded", String(open));
+        var svg = btn.querySelector("svg");
+        if (svg) svg.style.transform = open ? "rotate(180deg)" : "";
+      });
+    });
+  }
+
+  /* ---------- footer accordions (mobile only) ---------- */
+  function footerAcc() {
+    document.querySelectorAll("[data-facc]").forEach(function (h) {
+      if (bound(h)) return;
+      h.addEventListener("click", function () {
+        if (window.matchMedia("(min-width:861px)").matches) return;
+        var list = h.nextElementSibling;
+        if (!list) return;
+        var open = list.classList.toggle("tba-is-open");
+        var svg = h.querySelector("svg");
+        if (svg) svg.style.transform = open ? "rotate(180deg)" : "";
+      });
+    });
+  }
+
+  /* ---------- "read more" on the SEO intro ---------- */
+  function readMore() {
+    var rm = document.querySelector(".tba-readmore");
+    if (!rm || bound(rm)) return;
+    var btn = rm.querySelector("[data-tba-readmore]");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var open = rm.classList.toggle("tba-is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      var label = btn.querySelector("span");
+      var svg = btn.querySelector("svg");
+      if (label) label.textContent = open ? "Read Less" : "Read More";
+      if (svg) svg.innerHTML = open ? '<path d="M1 6h10"/>' : '<path d="M6 1v10M1 6h10"/>';
+      if (!open) rm.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  /* ---------- Google reviews marquee (right -> left) ----------
+     The cards are rendered server-side by sections/tba-reviews.liquid so
+     they are in the HTML for crawlers. All this does is clone the row once
+     (so the -50% keyframe loops seamlessly), add "Read more" to the cards
+     whose text is actually clipped, and pace the scroll by content width. */
+  function marquee() {
+    document.querySelectorAll(".tba-marquee__track").forEach(initTrack);
+  }
+
+  function initTrack(track) {
+    if (bound(track)) return;
+
+    var originals = Array.prototype.slice.call(track.children);
+    if (!originals.length) return;
+
+    // px per second — the gallery ribbon reads better a little slower than the cards
+    var speed = parseFloat(track.getAttribute("data-tba-speed")) || 55;
+
+    originals.forEach(function (node) {
+      var clone = node.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+
+    function syncMarquee() {
+      var anyOpen = !!track.querySelector(".tba-rcard.tba-is-open");
+      track.style.animationPlayState = anyOpen ? "paused" : "";
+    }
+
+    requestAnimationFrame(function () {
+      track.querySelectorAll(".tba-rcard").forEach(function (cardEl) {
+        var bodyEl = cardEl.querySelector(".tba-rcard__body");
+        if (!bodyEl || bodyEl.scrollHeight <= bodyEl.clientHeight + 2) return;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "tba-rcard__more";
+        btn.textContent = "Read more";
+        btn.setAttribute("aria-expanded", "false");
+        btn.addEventListener("click", function () {
+          var open = cardEl.classList.toggle("tba-is-open");
+          btn.textContent = open ? "Read less" : "Read more";
+          btn.setAttribute("aria-expanded", String(open));
+          syncMarquee();
+        });
+        cardEl.appendChild(btn);
+      });
+
+      // Pace by content width so speed stays constant regardless of item count.
+      // Images may still be loading, so measure again once they have.
+      function pace() {
+        var w = track.scrollWidth / 2;
+        if (w > 0) track.style.animationDuration = Math.round(w / speed) + "s";
+      }
+      pace();
+      var imgs = track.querySelectorAll("img");
+      var pending = 0;
+      imgs.forEach(function (img) {
+        if (img.complete) return;
+        pending++;
+        img.addEventListener("load", function () { if (--pending === 0) pace(); });
+        img.addEventListener("error", function () { if (--pending === 0) pace(); });
+      });
+    });
+  }
+
+  /* ---------- upload box on the bridal form ----------
+     Cosmetic only: lists the chosen files so the box doesn't look inert.
+     Shopify's own contact form cannot carry attachments — the box is meant
+     to sit alongside an app form. */
+  function uploadBox() {
+    document.querySelectorAll("[data-tba-drop]").forEach(function (drop) {
+      if (bound(drop)) return;
+      var input = drop.querySelector('input[type="file"]');
+      var list = drop.parentNode.querySelector("[data-tba-filelist]");
+      if (!input || !list) return;
+      input.addEventListener("change", function () {
+        list.innerHTML = "";
+        Array.prototype.forEach.call(input.files, function (f) {
+          var li = document.createElement("li");
+          li.textContent = f.name + " (" + Math.round(f.size / 1024) + " KB)";
+          list.appendChild(li);
+        });
+        drop.classList.toggle("tba-is-open", input.files.length > 0);
+      });
+    });
+  }
+
+  /* ---------- one-time document listeners ---------- */
+  function documentListeners() {
+    if (docBound) return;
+    docBound = true;
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setDrawer(false);
+    });
+  }
+
+  /* ---------- Turbo's InstantClick ----------
+     InstantClick swaps the <body> without a page load and exposes no
+     `page:load` DOM event, so hook its own API. Registering is safe before
+     InstantClick.init() runs. */
+  function bindInstantClick() {
+    if (icBound) return;
+    var IC = window.InstantClick;
+    if (!IC || typeof IC.on !== "function") return;
+    icBound = true;
+    IC.on("change", init);
+  }
+
+  function init() {
+    documentListeners();
+    bindInstantClick();
+    year();
+    logos();
+    imageFallbacks();
+    sticky();
+    drawer();
+    footerAcc();
+    readMore();
+    marquee();
+    uploadBox();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  // InstantClick loads deferred too — catch it if it wasn't there at init.
+  window.addEventListener("load", bindInstantClick);
+
+  // Themes that do dispatch a page:load event, and the theme editor.
+  document.addEventListener("page:load", init);
+  document.addEventListener("shopify:section:load", init);
+  document.addEventListener("shopify:section:unload", function (e) {
+    // Let a re-added section re-bind cleanly in the theme editor.
+    e.target.querySelectorAll("[data-tba-bound]").forEach(function (el) {
+      delete el.dataset.tbaBound;
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

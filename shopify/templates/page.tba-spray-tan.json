@@ -1,0 +1,267 @@
+{
+  "sections": {
+    "hero": {
+      "type": "tba-page-hero",
+      "settings": {
+        "fallback": "tba-spraytan-banner.webp",
+        "image_alt": "Four clients showing an even, sun-kissed spray tan",
+        "eyebrow": "Studio",
+        "heading": "Spray Tanning",
+        "body": "A custom, streak-free glow in about fifteen minutes — for a formal, a shoot, a holiday, or no reason at all.",
+        "cta1_label": "Book Now",
+        "cta1_url": "#book",
+        "cta2_label": "Enquire Now",
+        "cta2_url": "#enquire",
+        "width": "1400",
+        "height": "533",
+        "shift": 0
+      }
+    },
+    "gallery": {
+      "type": "tba-gallery",
+      "settings": {
+        "eyebrow": "Portfolio",
+        "heading": "Recent Work",
+        "lede": "A sample of recent studio work — an even, custom-mixed tan under special occasion makeup. Every solution is matched to your skin tone and to how deep you want to go, so the colour reads as your own rather than a shade borrowed from someone else. Scroll through, save what you love, and bring it with you to your appointment.",
+        "columns": "4",
+        "background": "tba-section--sand",
+        "anchor": "portfolio",
+        "note": "",
+        "layout": "slide",
+        "speed": 45,
+        "cta_label": "Enquire Now",
+        "cta_url": "#enquire"
+      },
+      "blocks": {
+        "img-1": { "type": "image", "settings": { "fallback": "tba-spraytan-01.webp", "width": "960", "height": "1280", "alt": "Client with a warm spray tan and a bold red lip" } },
+        "img-2": { "type": "image", "settings": { "fallback": "tba-spraytan-02.webp", "width": "960", "height": "1280", "alt": "Glowing shoulders and soft waves after a studio tan" } },
+        "img-3": { "type": "image", "settings": { "fallback": "tba-spraytan-03.webp", "width": "959", "height": "1400", "alt": "Client in a feathered gown with an evening makeup look" } },
+        "img-4": { "type": "image", "settings": { "fallback": "tba-spraytan-04.webp", "width": "1007", "height": "1400", "alt": "Client in a red formal gown, tanned and ready for the night" } },
+        "img-5": { "type": "image", "settings": { "fallback": "tba-spraytan-05.webp", "width": "1116", "height": "1400", "alt": "Sun-kissed skin with a soft smoky eye" } },
+        "img-6": { "type": "image", "settings": { "fallback": "tba-spraytan-06.webp", "width": "1050", "height": "1400", "alt": "Warm bronzed finish with a neutral lip" } },
+        "img-7": { "type": "image", "settings": { "fallback": "tba-spraytan-07.webp", "width": "1050", "height": "1400", "alt": "Client with a fresh tan and a luminous base" } },
+        "img-8": { "type": "image", "settings": { "fallback": "tba-spraytan-08.webp", "width": "970", "height": "1400", "alt": "Even, natural-looking colour across the shoulders and décolletage" } }
+      },
+      "block_order": ["img-1", "img-2", "img-3", "img-4", "img-5", "img-6", "img-7", "img-8"]
+    },
+    "services": {
+      "type": "tba-services",
+      "settings": {
+        "eyebrow": "Pricing",
+        "heading": "Services & Booking",
+        "lede": "Studio appointments for spray tanning and special occasion makeup. Book and pay online to hold your time — bookings open up to 4 months in advance.",
+        "background": "",
+        "anchor": "book",
+        "cta_label": "Book & Pay",
+        "cta_url": "#enquire",
+        "cta_note": "Opens the calendar to select a date and confirm.",
+        "columns": "2",
+        "panel_columns": "3"
+      },
+      "blocks": {
+        "service-1": {
+          "type": "service",
+          "settings": {
+            "title": "Spray Tan",
+            "price": "$50",
+            "duration": "15 minutes",
+            "description": "Achieve a flawless, natural-looking glow every time. Choose from subtle sun-kissed tones to a deep, bronzed radiance — custom colour selection and professional application for even, streak-free results."
+          }
+        },
+        "service-2": {
+          "type": "service",
+          "settings": {
+            "title": "Special Occasion Makeup",
+            "price": "$200",
+            "duration": "75 minutes",
+            "description": "Perfect for formals, engagements, birthdays, or a night out. Receive a polished, camera-ready look tailored to your features and outfit, including skin prep and false lashes for a long-lasting finish."
+          }
+        },
+        "panel-1": {
+          "type": "panel",
+          "settings": {
+            "heading": "Before Your Tan",
+            "style": "card",
+            "items": "- Exfoliate the day before, and skip oil-based scrubs.\n- Shave or wax at least 24 hours ahead so pores have settled.\n- Arrive with clean skin: no moisturiser, deodorant, makeup or perfume.\n- Have nails, waxing and facials done beforehand, not after.\n- Bring loose, dark clothing and open shoes to change into."
+          }
+        },
+        "panel-2": {
+          "type": "panel",
+          "settings": {
+            "heading": "During Your Appointment",
+            "style": "card",
+            "items": "- Your shade is mixed to suit your skin tone and how deep you want to go.\n- Applied with a professional spray system in a private room.\n- Disposables provided; you wear whatever you are comfortable in.\n- Around fifteen minutes start to finish, so it fits into a lunch break."
+          }
+        },
+        "panel-3": {
+          "type": "panel",
+          "settings": {
+            "heading": "After Your Tan",
+            "style": "card",
+            "items": "- Leave the tan to develop for the time agreed at your appointment before you rinse.\n- Rinse in cool water without soap, then pat dry rather than rubbing.\n- Moisturise daily — hydrated skin holds colour noticeably longer.\n- Skip long hot showers, chlorine, saunas and heavy exercise while it settles.\n- Expect roughly five to seven days of colour, fading evenly."
+          }
+        },
+        "panel-4": {
+          "type": "panel",
+          "settings": {
+            "heading": "Timing Your Tan",
+            "style": "card",
+            "items": "- Book one to two days before the event so the colour has time to settle.\n- Tan first, makeup after — the two are never done in the same appointment.\n- If it is your first tan before a big day, allow a practice run.\n- Travelling in for the occasion? Tell us and we will plan the timing around you."
+          }
+        },
+        "panel-5": {
+          "type": "panel",
+          "settings": {
+            "heading": "Deposits & Payments",
+            "style": "card",
+            "items": "- Spray tan: full payment of $50 is required to book.\n- Special occasion makeup: $100 deposit at booking; the remaining $100 is payable in studio on the day.\n- Bookings open up to 4 months in advance."
+          }
+        },
+        "panel-6": {
+          "type": "panel",
+          "settings": {
+            "heading": "Cancellations & Credits",
+            "style": "card",
+            "items": "- Cancel at least 72 hours before the appointment and the payment or deposit becomes a credit, valid for 12 months.\n- Cancellations within 72 hours forfeit the payment or deposit.\n- Exceptions for documented emergencies can be considered at our discretion."
+          }
+        }
+      },
+      "block_order": ["service-1", "service-2", "panel-1", "panel-2", "panel-3", "panel-4", "panel-5", "panel-6"]
+    },
+    "reviews": {
+      "type": "tba-testimonials",
+      "settings": {
+        "eyebrow": "Kind words",
+        "heading": "What Clients Say",
+        "lede": "",
+        "anchor": "reviews",
+        "background": "tba-section--cream",
+        "cta_label": "",
+        "cta_url": "#enquire"
+      },
+      "blocks": {
+        "quote-1": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "quote": "PLACEHOLDER — replace with a real review. The colour was exactly what I asked for, and nothing transferred onto my dress that night.",
+            "name": "Client name",
+            "detail": "Occasion, month year"
+          }
+        },
+        "quote-2": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "quote": "PLACEHOLDER — replace with a real review. Fifteen minutes on my lunch break and it still looked even four days later.",
+            "name": "Client name",
+            "detail": "Occasion, month year"
+          }
+        },
+        "quote-3": {
+          "type": "quote",
+          "settings": {
+            "stars": 5,
+            "quote": "PLACEHOLDER — replace with a real review. I was worried about looking orange in photos, and it read as a real tan instead.",
+            "name": "Client name",
+            "detail": "Occasion, month year"
+          }
+        }
+      },
+      "block_order": ["quote-1", "quote-2", "quote-3"]
+    },
+    "maggie": {
+      "type": "tba-founder",
+      "settings": {
+        "eyebrow": "Your Artist",
+        "heading": "Maggie Tamarua",
+        "role": "Award-Winning Makeup Artist",
+        "lede": "Maggie is an award-winning makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, unhurried approach to every appointment. Spray tanning and special occasion makeup are treated with the same care as her bridal work: the shade is matched to you, the finish is checked in daylight, and you leave knowing exactly how to look after it. If you are not sure what suits your skin tone or your outfit, say so when you arrive — that is the part she enjoys most.",
+        "image_alt": "Maggie Tamarua, award-winning makeup artist",
+        "cta_label": "Enquire Now",
+        "cta_url": "#enquire",
+        "anchor": "maggie"
+      },
+      "blocks": {
+        "cred-1": { "type": "credential", "settings": { "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 &amp; 2014" } },
+        "cred-2": { "type": "credential", "settings": { "text": "<b>Australian Bridal Industry Awards</b> — several consecutive years" } },
+        "cred-3": { "type": "credential", "settings": { "text": "<b>Studio appointments</b> — spray tanning and special occasion makeup" } },
+        "cred-4": { "type": "credential", "settings": { "text": "<b>Training academy</b> — Tamarua Beauty Academy, Melbourne" } }
+      },
+      "block_order": ["cred-1", "cred-2", "cred-3", "cred-4"]
+    },
+    "faq": {
+      "type": "tba-faq",
+      "settings": {
+        "eyebrow": "Good to know",
+        "heading": "Frequently Asked Questions",
+        "anchor": "faq",
+        "open_first": false,
+        "background": ""
+      },
+      "blocks": {
+        "qa-1": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does a spray tan last?",
+            "answer": "Around five to seven days for most people. How you prepare and how you look after it makes more difference than anything else — exfoliating beforehand and moisturising daily afterwards is what keeps it fading evenly rather than patchily."
+          }
+        },
+        "qa-2": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it look orange?",
+            "answer": "No. The solution is mixed to your skin tone and to the depth you have asked for, rather than poured from a one-size bottle. If you are unsure, start lighter — it is easy to go deeper next time, and a first tan is a good chance to see how your skin takes the colour."
+          }
+        },
+        "qa-3": {
+          "type": "qa",
+          "settings": {
+            "question": "What should I wear to the appointment?",
+            "answer": "Loose, dark clothing and open shoes, so nothing rubs against the tan while it develops. Avoid tight straps, denim and anything you would be upset to see a mark on. Disposables are provided for the appointment itself."
+          }
+        },
+        "qa-4": {
+          "type": "qa",
+          "settings": {
+            "question": "When can I shower?",
+            "answer": "Wait for the development time agreed at your appointment — it depends on the depth you have chosen. Then rinse in cool water without soap and pat dry. The water will run brown; that is the cosmetic bronzer washing off, not the tan."
+          }
+        },
+        "qa-5": {
+          "type": "qa",
+          "settings": {
+            "question": "How soon before my event should I book?",
+            "answer": "One to two days ahead is the sweet spot. Same-day tanning does not leave room for the colour to settle, and any earlier than three days means you lose some of the peak. Tell us the date of the event and we will work backwards from it."
+          }
+        },
+        "qa-6": {
+          "type": "qa",
+          "settings": {
+            "question": "Can you tan a group, or come to us?",
+            "answer": "Send an enquiry with the date, the number of people and the location. Group bookings for a wedding party, a formal or a birthday are quoted individually so the timing works for everyone."
+          }
+        }
+      },
+      "block_order": ["qa-1", "qa-2", "qa-3", "qa-4", "qa-5", "qa-6"]
+    },
+    "form": {
+      "type": "tba-enquiry-form",
+      "settings": {
+        "layout": "standard",
+        "heading": "Book Your Spray Tan",
+        "subheading": "Tell us which service you are after and your preferred date, and we will come back to you with availability.",
+        "anchor": "enquire",
+        "background": "tba-section--feature",
+        "button": "Send Enquiry",
+        "note": "We'll only use your details to reply to your enquiry. Appointments can be cancelled up to 72 hours beforehand for a 12-month credit.",
+        "success": "Thank you — your enquiry is on its way. We'll be in touch shortly with availability.",
+        "services": "Spray Tan\nSpecial Occasion Makeup",
+        "form_provider": "shopify",
+        "ornament": "✦",
+        "width": "wide"
+      }
+    }
+  },
+  "order": ["hero", "gallery", "services", "reviews", "maggie", "faq", "form"]
+}
