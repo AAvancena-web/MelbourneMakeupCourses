@@ -87,19 +87,40 @@ homepage still looks right.
 
 ## 4. Add the page templates
 
-**Templates → Add a new template → page → JSON.** Name each template exactly as
-below, then replace everything in the file it creates with the contents of the
-matching file in `shopify/templates/`.
+**Templates → Add a new template.** The dialog has three fields, and the name
+belongs in the last one only:
 
-| Template name | Paste from |
+| Field | Value |
+|---|---|
+| Create template for | **page** — pick it from the dropdown |
+| Template type | **JSON** |
+| File name | `tba-bridal` |
+
+Then replace everything in the file it creates with the contents of the matching
+file in `shopify/templates/`:
+
+| File name | Paste from |
 |---|---|
 | `tba-bridal` | `page.tba-bridal.json` |
 | `tba-spray-tan` | `page.tba-spray-tan.json` |
 | `tba-services` | `page.tba-services.json` (optional third page) |
 
-Shopify saves them as `templates/page.tba-bridal.json` and so on. If it warns
-about an invalid JSON template, a section name in step 2 does not match — the
-`type` values in the template are the section filenames without `.liquid`.
+Shopify saves them as `templates/page.tba-bridal.json` and so on.
+
+> **"Template type 'tba-bridal' does not support JSON templates"** means the
+> name went into the *Create template for* field. That field is the Shopify
+> object the template renders — page, product, collection — not a name you
+> choose. Set it to **page** and put `tba-bridal` in **File name**.
+
+> **No JSON option at all, or no `.json` files anywhere under Templates?** The
+> theme predates Online Store 2.0 and cannot take JSON page templates. Say so
+> and the pages can be rebuilt as Liquid templates instead — the same sections,
+> with their settings baked into the section files rather than editable in the
+> theme editor.
+
+If it warns about an *invalid* JSON template, a section name in step 2 does not
+match — the `type` values in the template are the section filenames without
+`.liquid`.
 
 ---
 
