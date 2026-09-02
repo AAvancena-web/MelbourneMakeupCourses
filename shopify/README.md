@@ -33,11 +33,16 @@ sections/
   tba-newsletter.liquid     newsletter signup over the dark banner
   tba-contact.liquid        details + Google map + consultation form
   tba-footer.liquid         black footer
+  tba-page-intro.liquid     page header — eyebrow, H1, intro copy
+  tba-services.liquid       service cards with prices + policy panels + CTA
+  tba-enquiry-form.liquid   enquiry form, standard or bridal layout
 snippets/
   tba-image.liquid      image with theme-editor picker + bundled fallback
   tba-logo.liquid       shared brand lockup
 templates/
   index.json            ready-made homepage wiring for all ten body sections
+  page.tba-bridal.json    Bridal Enquiry page
+  page.tba-services.json  Makeup and Tan Services page
 theme-liquid-snippet.liquid   reference for the theme.liquid edits (not copied)
 ```
 
@@ -374,6 +379,51 @@ forms, target the ids above.
 A successful post reloads the page with `?contact_posted=true`, which is what
 drives the success message. That flag isn't per-form, so both consultation
 forms show their success line after either is submitted.
+
+---
+
+## The two service pages
+
+`templates/page.tba-bridal.json` and `templates/page.tba-services.json` build
+**Bridal Enquiry** and **Makeup and Tan Services** from the same three sections,
+with the form section switched between its two layouts. All the copy is in the
+templates, so both pages are fully editable from the theme editor.
+
+| | Bridal Enquiry | Makeup and Tan Services |
+|---|---|---|
+| Page intro | Congratulations line, Maggie's bio, "Packages start from $1200" | Title and the book-online line |
+| Services | — | Spray Tan $50 / Special Occasion Makeup $200, plus deposit, cancellation and exceptions panels, and the Book & Pay button |
+| Form | Bridal layout — 15 fields | Standard layout — 7 fields |
+
+### Publishing them
+
+1. **Online Store → Pages → Add page.** Title it *Bridal Enquiry*, leave the
+   body empty, and under **Theme template** choose `tba-bridal`. Save.
+2. Repeat for *Makeup and Tan Services* with the `tba-services` template.
+3. Add both to a navigation menu under **Online Store → Navigation**.
+
+The templates appear in that dropdown once `page.tba-bridal.json` and
+`page.tba-services.json` are in the theme's `templates/` folder.
+
+### The bridal form's inspiration images
+
+The mockup has an image upload. **Shopify's contact form cannot carry file
+attachments**, so the field ships as a **link** — for a Pinterest board,
+Instagram saves or a shared album — which works with no app.
+
+Switch **Inspiration images** to *Upload box* and the section renders the
+upload UI from the mockup, with a client-side list of the chosen files. Those
+files only reach anyone if the section's **Form provider** is set to *Custom
+embed code* with a form app's embed (Hulk Form Builder handles attachments).
+
+### The Book & Pay button
+
+The brief calls for a calendar with live availability and payment at booking.
+That needs a booking app — Shopify has no native appointment calendar. The
+button is wired to the enquiry form for now; point **Booking button → Button
+link** at the app's page once one is installed. Everything else on the page —
+prices, deposits, cancellation terms, the four-month booking window — is
+already in place.
 
 ---
 

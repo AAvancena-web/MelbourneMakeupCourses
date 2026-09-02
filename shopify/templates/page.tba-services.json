@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "intro": {
+      "type": "tba-page-intro",
+      "settings": {
+        "eyebrow": "Studio",
+        "heading": "Makeup and Tan Services",
+        "intro": "Special occasion studio makeup or spray tan.",
+        "body": "Book and pay online to secure your date.",
+        "highlight": "",
+        "background": ""
+      }
+    },
+    "services": {
+      "type": "tba-services",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "lede": "",
+        "anchor": "book",
+        "background": "tba-section--cream",
+        "cta_label": "Book & Pay",
+        "cta_url": "#enquire",
+        "cta_note": "Opens the calendar to select a date and confirm. Bookings open up to 4 months in advance."
+      },
+      "blocks": {
+        "service-1": {
+          "type": "service",
+          "settings": {
+            "title": "Spray Tan",
+            "price": "$50",
+            "duration": "15 minutes",
+            "description": "Achieve a flawless, natural-looking glow every time. Choose from subtle sun-kissed tones to a deep, bronzed radiance — custom colour selection and professional application for even, streak-free results."
+          }
+        },
+        "service-2": {
+          "type": "service",
+          "settings": {
+            "title": "Special Occasion Makeup",
+            "price": "$200",
+            "duration": "75 minutes",
+            "description": "Perfect for formals, engagements, birthdays, or a night out. Receive a polished, camera-ready look tailored to your features and outfit, including skin prep and false lashes for a long-lasting finish."
+          }
+        },
+        "panel-1": {
+          "type": "panel",
+          "settings": {
+            "heading": "Deposits & Payments",
+            "style": "solid",
+            "items": "- Spray tan: full payment of $50 is required to book.\n- Special occasion makeup: $100 deposit is required at booking; remaining balance of $100 payable in studio on the day."
+          }
+        },
+        "panel-2": {
+          "type": "panel",
+          "settings": {
+            "heading": "Cancellations & Credits",
+            "style": "solid",
+            "items": "- Standard bookings (spray tan & special occasion makeup): cancel at least 72 hours before your appointment to receive your payment/deposit as a credit toward a future booking (valid for 12 months). Cancellations within 72 hours forfeit the payment/deposit.\n- Bridal bookings: cancel at least 7 days before the appointment to receive the deposit as a credit (valid for 12 months). Cancellations within 7 days forfeit the deposit."
+          }
+        },
+        "panel-3": {
+          "type": "panel",
+          "settings": {
+            "heading": "Exceptions",
+            "style": "note",
+            "items": "Exceptions for documented emergencies can be considered at our discretion."
+          }
+        }
+      },
+      "block_order": [
+        "service-1",
+        "service-2",
+        "panel-1",
+        "panel-2",
+        "panel-3"
+      ]
+    },
+    "form": {
+      "type": "tba-enquiry-form",
+      "settings": {
+        "layout": "standard",
+        "heading": "Make an Enquiry",
+        "subheading": "Tell us which service you're after and your preferred date, and we'll come back to you.",
+        "anchor": "enquire",
+        "background": "tba-section--sand",
+        "button": "Send Enquiry",
+        "note": "We'll only use your details to reply to your enquiry.",
+        "success": "Thank you — your enquiry is on its way. We'll be in touch shortly.",
+        "services": "Spray Tan\nSpecial Occasion Makeup",
+        "form_provider": "shopify"
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "services",
+    "form"
+  ]
+}

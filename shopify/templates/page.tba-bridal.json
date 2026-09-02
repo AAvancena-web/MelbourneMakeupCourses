@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "intro": {
+      "type": "tba-page-intro",
+      "settings": {
+        "eyebrow": "Weddings",
+        "heading": "Bridal Enquiry",
+        "intro": "Congratulations on your engagement — I'd be honoured to be part of your wedding day.",
+        "body": "Maggie is an award-winning bridal makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, supportive approach to every bride. She listens closely to your vision and translates it into a personalised, timeless look that makes you feel confident and beautiful. Planning and getting ready can feel overwhelming — she'll guide you through trials, timelines and on-the-day styling to ensure a relaxed, memorable morning.",
+        "highlight": "Packages start from $1200",
+        "background": ""
+      }
+    },
+    "form": {
+      "type": "tba-enquiry-form",
+      "settings": {
+        "layout": "bridal",
+        "heading": "Bridal Enquiry",
+        "subheading": "Please provide the below information to receive Maggie's bridal offerings and book a consultation.",
+        "anchor": "enquire",
+        "background": "tba-section--sand",
+        "button": "Send Bridal Enquiry",
+        "note": "We'll only use your details to reply to your enquiry. Bridal bookings can be cancelled up to 7 days before the appointment for a 12-month credit.",
+        "success": "Thank you — your enquiry is on its way. Maggie will be in touch shortly with her bridal offerings.",
+        "inspiration": "link",
+        "inspiration_placeholder": "Link to a Pinterest board, Instagram saves or shared album",
+        "sources": "Website\nInstagram\nFacebook\nReferral",
+        "form_provider": "shopify"
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "form"
+  ]
+}

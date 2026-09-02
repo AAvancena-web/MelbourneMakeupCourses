@@ -1,0 +1,267 @@
+{%- comment -%}
+  Service cards with prices, then policy panels, then an optional booking CTA.
+  Every card and panel is a block, so this one section covers both the
+  Makeup & Tan Services page and anything similar added later.
+
+  A panel's copy takes one bullet per line; a line is rendered as a plain
+  paragraph if the panel has only one.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="tba-scope">
+<section class="tba-section {{ s.background }}" {% if s.anchor != blank %}id="{{ s.anchor }}"{% endif %}>
+  <div class="tba-shell">
+    {%- if s.heading != blank or s.eyebrow != blank -%}
+      <div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)">
+        {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        {%- if s.heading != blank -%}<h2 class="tba-h-lg">{{ s.heading }}</h2>{%- endif -%}
+        <hr class="tba-rule tba-rule--center">
+        {%- if s.lede != blank -%}<p class="tba-lede">{{ s.lede }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign services = section.blocks | where: "type", "service" -%}
+    {%- if services.size > 0 -%}
+      <div class="tba-svc">
+        {%- for block in services -%}
+          {%- assign b = block.settings -%}
+          <article class="tba-svc__card" {{ block.shopify_attributes }}>
+            <h3>{{ b.title }}</h3>
+            <p>{{ b.description }}</p>
+            <div class="tba-svc__meta">
+              {%- if b.price != blank -%}<span class="tba-svc__price">{{ b.price }}</span>{%- endif -%}
+              {%- if b.duration != blank -%}<span class="tba-svc__dur">{{ b.duration }}</span>{%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign panels = section.blocks | where: "type", "panel" -%}
+    {%- if panels.size > 0 -%}
+      <div class="tba-panels">
+        {%- for block in panels -%}
+          {%- assign b = block.settings -%}
+          <div class="tba-panel{% if b.style == 'note' %} tba-panel--note{% endif %}" {{ block.shopify_attributes }}>
+            {%- if b.heading != blank -%}<h3>{{ b.heading }}</h3>{%- endif -%}
+            {%- comment -%} Build the list without a trailing separator, so a blank
+               line at the end of the setting can't produce an empty bullet. {%- endcomment -%}
+            {%- assign lines = b.items | strip | newline_to_br | split: '<br />' -%}
+            {%- assign kept = '' -%}
+            {%- for line in lines -%}
+              {%- assign t = line | strip | remove_first: '- ' | strip -%}
+              {%- if t != blank -%}
+                {%- if kept == blank -%}
+                  {%- assign kept = t -%}
+                {%- else -%}
+                  {%- assign kept = kept | append: '||' | append: t -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign kept = kept | split: '||' -%}
+            {%- if kept.size > 1 -%}
+              <ul>
+                {%- for t in kept -%}<li>{{ t }}</li>{%- endfor -%}
+              </ul>
+            {%- elsif kept.size == 1 -%}
+              <p>{{ kept[0] }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if s.cta_label != blank -%}
+      <div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
+        <a class="tba-btn tba-btn--gold" href="{{ s.cta_url | default: '#' }}">{{ s.cta_label }}</a>
+        {%- if s.cta_note != blank -%}
+          <p class="tba-lede" style="margin-top:18px;font-size:14.5px">{{ s.cta_note }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "TBA services",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Intro line"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor id",
+      "info": "Lets a button link to this section, e.g. book."
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        {
+          "value": "",
+          "label": "White"
+        },
+        {
+          "value": "tba-section--cream",
+          "label": "Cream"
+        },
+        {
+          "value": "tba-section--blush",
+          "label": "Blush"
+        },
+        {
+          "value": "tba-section--sand",
+          "label": "Sand"
+        }
+      ],
+      "default": "tba-section--cream"
+    },
+    {
+      "type": "header",
+      "content": "Booking button"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "Button link",
+      "info": "Point this at your booking app's page once it is set up."
+    },
+    {
+      "type": "text",
+      "id": "cta_note",
+      "label": "Note under the button"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Service name"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "duration",
+          "label": "Duration"
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "name": "Info panel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Copy",
+          "info": "One bullet per line. A single line renders as a paragraph."
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            {
+              "value": "solid",
+              "label": "Filled"
+            },
+            {
+              "value": "note",
+              "label": "Outlined note"
+            }
+          ],
+          "default": "solid"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TBA services",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "title": "Spray Tan",
+            "price": "$50",
+            "duration": "15 minutes",
+            "description": "Achieve a flawless, natural-looking glow every time. Choose from subtle sun-kissed tones to a deep, bronzed radiance — custom colour selection and professional application for even, streak-free results."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Special Occasion Makeup",
+            "price": "$200",
+            "duration": "75 minutes",
+            "description": "Perfect for formals, engagements, birthdays, or a night out. Receive a polished, camera-ready look tailored to your features and outfit, including skin prep and false lashes for a long-lasting finish."
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "heading": "Deposits & Payments",
+            "style": "solid",
+            "items": "- Spray tan: full payment of $50 is required to book.\n- Special occasion makeup: $100 deposit is required at booking; remaining balance of $100 payable in studio on the day."
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "heading": "Cancellations & Credits",
+            "style": "solid",
+            "items": "- Standard bookings (spray tan & special occasion makeup): cancel at least 72 hours before your appointment to receive your payment/deposit as a credit toward a future booking (valid for 12 months). Cancellations within 72 hours forfeit the payment/deposit.\n- Bridal bookings: cancel at least 7 days before the appointment to receive the deposit as a credit (valid for 12 months). Cancellations within 7 days forfeit the deposit."
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "heading": "Exceptions",
+            "style": "note",
+            "items": "Exceptions for documented emergencies can be considered at our discretion."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

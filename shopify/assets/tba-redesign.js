@@ -199,6 +199,28 @@
     });
   }
 
+  /* ---------- upload box on the bridal form ----------
+     Cosmetic only: lists the chosen files so the box doesn't look inert.
+     Shopify's own contact form cannot carry attachments — the box is meant
+     to sit alongside an app form. */
+  function uploadBox() {
+    document.querySelectorAll("[data-tba-drop]").forEach(function (drop) {
+      if (bound(drop)) return;
+      var input = drop.querySelector('input[type="file"]');
+      var list = drop.parentNode.querySelector("[data-tba-filelist]");
+      if (!input || !list) return;
+      input.addEventListener("change", function () {
+        list.innerHTML = "";
+        Array.prototype.forEach.call(input.files, function (f) {
+          var li = document.createElement("li");
+          li.textContent = f.name + " (" + Math.round(f.size / 1024) + " KB)";
+          list.appendChild(li);
+        });
+        drop.classList.toggle("tba-is-open", input.files.length > 0);
+      });
+    });
+  }
+
   /* ---------- one-time document listeners ---------- */
   function documentListeners() {
     if (docBound) return;
@@ -231,6 +253,7 @@
     footerAcc();
     readMore();
     marquee();
+    uploadBox();
   }
 
   if (document.readyState === "loading") {
