@@ -3,8 +3,8 @@
     "hero": {
       "type": "tba-page-hero",
       "settings": {
-        "fallback": "tba-banner1.webp",
-        "image_alt": "Bridal makeup and hair by Tamarua Beauty Academy, Melbourne",
+        "fallback": "tba-bridal-banner.webp",
+        "image_alt": "Bride having her makeup finished on the wedding morning",
         "eyebrow": "Weddings",
         "heading": "Bridal Makeup",
         "body": "Congratulations on your engagement — I'd be honoured to be part of your wedding day.",
@@ -145,55 +145,215 @@
       "settings": {
         "eyebrow": "Portfolio",
         "heading": "Recent Work",
-        "lede": "",
+        "lede": "A sample of bridal makeup and hair, from the getting-ready morning through to the last photograph.",
         "columns": "4",
         "background": "tba-section--sand",
         "anchor": "portfolio",
         "note": ""
       },
       "blocks": {
-        "image-1": {
+        "image-01": {
           "type": "image",
           "settings": {
-            "fallback": "tba-hairstylingcourses.webp",
-            "width": "400",
-            "height": "400",
-            "alt": "Bridal updo with soft glam makeup and a defined eye"
+            "fallback": "tba-bridal-01.webp",
+            "width": "1134",
+            "height": "1400",
+            "alt": "Bridal makeup with a soft smoky eye and glossy nude lip"
           }
         },
-        "image-2": {
+        "image-02": {
           "type": "image",
           "settings": {
-            "fallback": "tba-eyelashextensioncourses.webp",
-            "width": "400",
-            "height": "400",
-            "alt": "Soft bridal makeup with a luminous skin finish and nude lip"
+            "fallback": "tba-bridal-02.webp",
+            "width": "1092",
+            "height": "1365",
+            "alt": "Close-up bridal makeup with luminous skin and a defined brow"
           }
         },
-        "image-3": {
+        "image-03": {
           "type": "image",
           "settings": {
-            "fallback": "tba-makeupcourses.webp",
-            "width": "400",
-            "height": "400",
-            "alt": "Natural bridal makeup with a warm smoky eye"
+            "fallback": "tba-bridal-03.webp",
+            "width": "1400",
+            "height": "1400",
+            "alt": "Bride with a classic red lip and sculpted eye"
           }
         },
-        "image-4": {
+        "image-04": {
           "type": "image",
           "settings": {
-            "fallback": "tba-banner.webp",
-            "width": "1000",
-            "height": "500",
-            "alt": "Evening bridal look with a classic red lip"
+            "fallback": "tba-bridal-04.webp",
+            "width": "1400",
+            "height": "1400",
+            "alt": "Natural bridal makeup photographed in daylight"
+          }
+        },
+        "image-05": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-05.webp",
+            "width": "1120",
+            "height": "1400",
+            "alt": "Candle-lit bridal portrait with a warm bronzed eye"
+          }
+        },
+        "image-06": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-06.webp",
+            "width": "1210",
+            "height": "1192",
+            "alt": "Outdoor bridal portrait with soft glam makeup and an updo"
+          }
+        },
+        "image-07": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-07.webp",
+            "width": "1120",
+            "height": "1400",
+            "alt": "Bride in a veil with fresh, dewy bridal makeup"
+          }
+        },
+        "image-08": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-08.webp",
+            "width": "810",
+            "height": "1013",
+            "alt": "Bridal makeup with a tiara and cathedral veil"
+          }
+        },
+        "image-09": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-09.webp",
+            "width": "960",
+            "height": "1201",
+            "alt": "Bride holding her bouquet, soft matte bridal finish"
+          }
+        },
+        "image-10": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-10.webp",
+            "width": "912",
+            "height": "1290",
+            "alt": "Seated bridal portrait with a romantic bouquet"
+          }
+        },
+        "image-11": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-11.webp",
+            "width": "1400",
+            "height": "1400",
+            "alt": "Final touches during the getting-ready morning"
+          }
+        },
+        "image-12": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-12.webp",
+            "width": "1400",
+            "height": "1400",
+            "alt": "Strapless gown with a soft neutral bridal eye"
+          }
+        },
+        "image-13": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-13.webp",
+            "width": "960",
+            "height": "1201",
+            "alt": "Garden bridal portrait with a long veil and bouquet"
+          }
+        },
+        "image-14": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-14.webp",
+            "width": "1080",
+            "height": "1350",
+            "alt": "Bride and bridesmaid laughing after makeup"
+          }
+        },
+        "image-15": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-15.webp",
+            "width": "933",
+            "height": "1400",
+            "alt": "Full-length bridal portrait at golden hour"
+          }
+        },
+        "image-16": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-16.webp",
+            "width": "1400",
+            "height": "1400",
+            "alt": "Bride and groom on the beach after the ceremony"
+          }
+        },
+        "image-17": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-17.webp",
+            "width": "1120",
+            "height": "1400",
+            "alt": "Sunset portrait of the couple on the wedding day"
+          }
+        },
+        "image-18": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-18.webp",
+            "width": "1400",
+            "height": "1400",
+            "alt": "Groom kissing the bride's forehead"
+          }
+        },
+        "image-19": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-19.webp",
+            "width": "1119",
+            "height": "1400",
+            "alt": "Close portrait of the couple after the ceremony"
+          }
+        },
+        "image-20": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-bridal-20.webp",
+            "width": "1120",
+            "height": "1400",
+            "alt": "Bridal party portrait with the whole group ready"
           }
         }
       },
       "block_order": [
-        "image-1",
-        "image-2",
-        "image-3",
-        "image-4"
+        "image-01",
+        "image-02",
+        "image-03",
+        "image-04",
+        "image-05",
+        "image-06",
+        "image-07",
+        "image-08",
+        "image-09",
+        "image-10",
+        "image-11",
+        "image-12",
+        "image-13",
+        "image-14",
+        "image-15",
+        "image-16",
+        "image-17",
+        "image-18",
+        "image-19",
+        "image-20"
       ]
     },
     "faq": {

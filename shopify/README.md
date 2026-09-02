@@ -405,12 +405,15 @@ cards and policy panels → the standard form.
 > cancellation terms all come from the brief and are accurate. Read the drafts
 > before publishing.
 
-> **Portfolio images are placeholders.** The Recent Work grid uses the most
-> bridal-looking photos already in the site's library — a soft-glam updo, a
-> luminous nude-lip look, a natural smoky eye and a classic red lip. They are
-> stand-ins for Maggie's bridal portfolio; each is an image block in the theme
-> editor, so swapping them is four clicks. The graduate award photos were
-> deliberately left out: they show another artist's work.
+> **The bridal photos are samples, and cannot go live as they are.** The hero
+> and the 20-image Recent Work grid use reference photos supplied for layout,
+> sourced from a "best bridal makeup artists" roundup. They are other artists'
+> work and other photographers' images — publishing them on a page selling
+> Maggie's services would be both a copyright problem and a misrepresentation.
+> They are renamed `tba-bridal-01…20.webp` so no one else's name ends up in the
+> page source, but that makes them tidier, not publishable. Replace them with
+> Maggie's own portfolio before this page goes live: each is an image block in
+> the theme editor, and the hero image is one setting.
 
 ### Publishing them
 
