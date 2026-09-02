@@ -682,22 +682,21 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
 
 /* ---------- testimonial quotes ---------- */
-.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:clamp(12px,1.3vw,20px)}
+.tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);align-items:start;gap:clamp(12px,1.3vw,20px)}
 .tba-quote{
   display:flex;flex-direction:column;position:relative;
-  min-height:clamp(430px,34vw,580px);
   padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
 .tba-quote::before{
   content:"\201C";position:absolute;top:14px;right:24px;
   font-family:var(--tba-serif);font-size:86px;line-height:1;color:rgba(220,162,119,.26)}
 .tba-quote .tba-stars{margin-bottom:20px}
-.tba-quote blockquote{margin:0 0 26px;font-size:clamp(17px,1.35vw,20px);line-height:1.85;color:var(--tba-ink-soft);flex:1}
+.tba-quote blockquote{margin:0 0 26px;font-size:clamp(17px,1.35vw,20px);line-height:1.85;color:var(--tba-ink-soft)}
 .tba-quote figcaption{border-top:1px solid var(--tba-line);padding-top:20px}
 .tba-quote cite{
   display:block;font-style:normal;font-family:var(--tba-sans);font-size:13px;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;color:var(--tba-black)}
 .tba-quote span{display:block;margin-top:7px;font-size:14px;color:var(--tba-ink-mute)}
-@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr;grid-auto-rows:auto}.tba-quote{min-height:0}}
+@media (max-width:1024px){.tba-quotes{grid-template-columns:1fr}}
 
 /* ---------- image gallery ---------- */
 .tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
@@ -875,14 +874,33 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   padding:clamp(30px,3vw,46px);background:#fff;border:1px solid var(--tba-line)}
 .tba-panel--card::before{
   content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tba-gold-sheen)}
-.tba-panel--card h3{
-  font-family:var(--tba-serif);font-size:clamp(20px,1.7vw,26px);font-weight:400;
-  letter-spacing:.02em;text-transform:uppercase;color:var(--tba-black);margin-bottom:22px}
-.tba-panel--card ul{flex:1;align-content:start}
 .tba-panel ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .tba-panel li{position:relative;padding-left:22px;font-size:15.5px;color:var(--tba-ink-soft);line-height:1.8}
 .tba-panel li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--tba-gold)}
 .tba-panel p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.8}
+
+/* card overrides — after the base panel rules so they win on equal specificity */
+.tba-panel--card{text-align:center}
+.tba-panel--card h3{
+  font-family:var(--tba-serif);font-size:clamp(20px,1.7vw,26px);font-weight:400;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--tba-black);margin-bottom:10px}
+.tba-panel--card ul{flex:1;align-content:start;gap:0}
+.tba-panel--card li{padding:17px 0 0;text-align:center;padding-left:0}
+/* the dash becomes a short centred hairline sitting between items, so a centred
+   list reads as a menu rather than a bulleted one hanging off the left edge */
+.tba-panel--card li::before{
+  left:50%;top:0;transform:translateX(-50%);width:46px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(220,162,119,.8),transparent)}
+/* a small gold lozenge centred on the hairline — the line alone reads as
+   nothing at this weight, the diamond makes it a deliberate separator */
+.tba-panel--card li::after{
+  content:"";position:absolute;top:-2px;left:50%;width:5px;height:5px;
+  transform:translateX(-50%) rotate(45deg);background:var(--tba-gold)}
+.tba-panel--card li:first-child{padding-top:6px}
+.tba-panel--card li:first-child::before,
+.tba-panel--card li:first-child::after{display:none}
+.tba-panel--card li>span{display:block;margin-top:17px}
+.tba-panel--card p{text-align:center}
 .tba-panel--note{background:transparent;border-style:dashed;grid-column:1/-1}
 
 /* ---------- enquiry form ---------- */
@@ -1492,7 +1510,7 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
 <div class="tba-scope">
 <section class="tba-section " id="packages">
-  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings, current availability and a quote built around your day.</p></div><div class="tba-panels tba-panels--3"><div class="tba-panel tba-panel--card" ><h3>What's Included</h3><ul><li>Personal consultation to plan the look around your dress, hair and schedule.</li><li>Skin prep with long-wear products chosen for a full day of photography.</li><li>False lashes, individual or strip, to suit your eye shape.</li><li>A running order agreed with you and your photographer before the morning.</li><li>Touch-up guidance so you can keep the look fresh through the day.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>The Trial</h3><ul><li>Held at the studio, usually 6 to 8 weeks before the wedding.</li><li>Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.</li><li>Photographed in daylight so you can see the finish the way a camera will.</li><li>Notes and product list kept on file for the morning.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Travel & Locations</h3><ul><li>Maggie comes to your getting-ready address.</li><li>Melbourne metro included; regional and interstate quoted on enquiry.</li><li>Early starts accommodated where the timeline needs one.</li><li>Tell us the address in your enquiry and it will be confirmed with your quote.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>On the Day</h3><ul><li>A timeline built backwards from your ceremony and photographer's arrival.</li><li>Bride finished last so the makeup is at its freshest for photographs.</li><li>A calm, unhurried room from first face to last.</li><li>Kit on hand for any final touch-ups before you leave.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Deposits & Payments</h3><ul><li>A deposit secures your date; the balance is payable ahead of the day.</li><li>Dates are held only once the deposit is received.</li><li>Bookings open up to 4 months in advance for studio services; bridal dates are taken further out.</li></ul></div><div class="tba-panel tba-panel--card" ><h3>Cancellations & Credits</h3><ul><li>Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 7 days forfeit the deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
+  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings, current availability and a quote built around your day.</p></div><div class="tba-panels tba-panels--3"><div class="tba-panel tba-panel--card" ><h3>What's Included</h3><ul><li><span>Personal consultation to plan the look around your dress, hair and schedule.</span></li><li><span>Skin prep with long-wear products chosen for a full day of photography.</span></li><li><span>False lashes, individual or strip, to suit your eye shape.</span></li><li><span>A running order agreed with you and your photographer before the morning.</span></li><li><span>Touch-up guidance so you can keep the look fresh through the day.</span></li></ul></div><div class="tba-panel tba-panel--card" ><h3>The Trial</h3><ul><li><span>Held at the studio, usually 6 to 8 weeks before the wedding.</span></li><li><span>Bring inspiration images, your veil or hair pieces, and a top in a similar tone to your dress.</span></li><li><span>Photographed in daylight so you can see the finish the way a camera will.</span></li><li><span>Notes and product list kept on file for the morning.</span></li></ul></div><div class="tba-panel tba-panel--card" ><h3>Travel & Locations</h3><ul><li><span>Maggie comes to your getting-ready address.</span></li><li><span>Melbourne metro included; regional and interstate quoted on enquiry.</span></li><li><span>Early starts accommodated where the timeline needs one.</span></li><li><span>Tell us the address in your enquiry and it will be confirmed with your quote.</span></li></ul></div><div class="tba-panel tba-panel--card" ><h3>On the Day</h3><ul><li><span>A timeline built backwards from your ceremony and photographer's arrival.</span></li><li><span>Bride finished last so the makeup is at its freshest for photographs.</span></li><li><span>A calm, unhurried room from first face to last.</span></li><li><span>Kit on hand for any final touch-ups before you leave.</span></li></ul></div><div class="tba-panel tba-panel--card" ><h3>Deposits & Payments</h3><ul><li><span>A deposit secures your date; the balance is payable ahead of the day.</span></li><li><span>Dates are held only once the deposit is received.</span></li><li><span>Bookings open up to 4 months in advance for studio services; bridal dates are taken further out.</span></li></ul></div><div class="tba-panel tba-panel--card" ><h3>Cancellations & Credits</h3><ul><li><span>Cancel at least 7 days before the appointment and the deposit becomes a credit, valid for 12 months.</span></li><li><span>Cancellations within 7 days forfeit the deposit.</span></li><li><span>Exceptions for documented emergencies can be considered at our discretion.</span></li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
         <a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div></div>
 </section>
 </div>
