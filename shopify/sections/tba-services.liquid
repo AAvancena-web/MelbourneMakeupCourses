@@ -21,7 +21,7 @@
 
     {%- assign services = section.blocks | where: "type", "service" -%}
     {%- if services.size > 0 -%}
-      <div class="tba-svc{% if s.columns == '3' %} tba-svc--3{% endif %}">
+      <div class="tba-svc{% if s.columns == '3' %} tba-svc--3{% endif %}{% if s.card_style == 'dark' %} tba-svc--dark{% endif %}">
         {%- for block in services -%}
           {%- assign b = block.settings -%}
           <article class="tba-svc__card" {{ block.shopify_attributes }}>
@@ -123,6 +123,22 @@
         }
       ],
       "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Service card style",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "light"
     },
     {
       "type": "select",

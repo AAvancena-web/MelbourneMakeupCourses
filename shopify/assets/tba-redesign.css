@@ -863,6 +863,20 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-svc__price{font-family:var(--tba-serif);font-size:34px;line-height:1;color:var(--tba-gold-dp)}
 .tba-svc__dur{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tba-ink-mute)}
 
+/* dark variant — declared after the light rules so it wins on equal
+   specificity. Not black: a deep roast of the brand gold, so the card reads
+   as the same family as the header bands rather than a neutral slab. */
+.tba-svc--dark .tba-svc__card{
+  background:linear-gradient(155deg,#7c5333 0%,#63401f 58%,#4f331a 100%);
+  border-color:rgba(255,255,255,.14);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 12px 34px rgba(79,51,26,.22)}
+.tba-svc--dark .tba-svc__card h3{color:#fff}
+.tba-svc--dark .tba-svc__card p{color:rgba(255,255,255,.8)}
+.tba-svc--dark .tba-svc__meta{border-top-color:rgba(255,255,255,.18)}
+.tba-svc--dark .tba-svc__price{color:var(--tba-gold-lt)}
+.tba-svc--dark .tba-svc__dur{color:rgba(255,255,255,.66)}
+
 /* ---------- policy panels ---------- */
 .tba-panels{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.4vw,34px);margin-top:clamp(24px,3vw,44px)}
 .tba-panels--3{grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr}

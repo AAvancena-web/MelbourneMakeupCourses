@@ -129,6 +129,7 @@
         "cta_url": "#enquire",
         "cta_note": "Opens the calendar to select a date and confirm.",
         "columns": "2",
+        "card_style": "dark",
         "panel_columns": "3"
       },
       "blocks": {
@@ -232,9 +233,9 @@
     "reviews": {
       "type": "tba-testimonials",
       "settings": {
-        "eyebrow": "Kind words",
+        "eyebrow": "Google reviews",
         "heading": "What Clients Say",
-        "lede": "",
+        "lede": "Reviews from our Google profile.",
         "anchor": "reviews",
         "background": "tba-section--cream",
         "cta_label": "",
@@ -246,8 +247,8 @@
           "settings": {
             "stars": 5,
             "quote": "PLACEHOLDER — replace with a real review. The colour was exactly what I asked for, and nothing transferred onto my dress that night.",
-            "name": "Client name",
-            "detail": "Occasion, month year"
+            "name": "Reviewer name",
+            "detail": "via Google · month year"
           }
         },
         "quote-2": {
@@ -255,8 +256,8 @@
           "settings": {
             "stars": 5,
             "quote": "PLACEHOLDER — replace with a real review. Fifteen minutes on my lunch break and it still looked even four days later.",
-            "name": "Client name",
-            "detail": "Occasion, month year"
+            "name": "Reviewer name",
+            "detail": "via Google · month year"
           }
         },
         "quote-3": {
@@ -264,8 +265,8 @@
           "settings": {
             "stars": 5,
             "quote": "PLACEHOLDER — replace with a real review. I was worried about looking orange in photos, and it read as a real tan instead.",
-            "name": "Client name",
-            "detail": "Occasion, month year"
+            "name": "Reviewer name",
+            "detail": "via Google · month year"
           }
         }
       },
