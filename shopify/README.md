@@ -397,7 +397,7 @@ section switched between its two layouts. All the copy is in the templates, so
 every page is fully editable from the theme editor.
 
 **Bridal Enquiry** runs seven sections: image hero → Recent Work (a sliding
-ribbon, with an Enquire button under it) → Packages & Booking → What Brides
+ribbon, with an Enquire button under it) → Packages & Booking → What People
 Say → Meet Maggie → FAQ → the bridal form. `tba-steps` is still in the pack
 and available as a preset, it is just not on this page any more. Backgrounds alternate so no two neighbouring
 sections share one.
@@ -428,12 +428,12 @@ frames on the sliding ribbon) → Services & Pricing → Your Appointment → Wh
 People Say → Meet Maggie → FAQ → the enquiry form on the feature background,
 set wide so it stays two rows rather than a long column.
 
-Its reviews are the homepage's `tba-reviews` marquee — the real Google reviews,
-same blocks, Google badge and 5.0 rating — rather than the three-card
-`tba-testimonials` the bridal page uses. Every one of those reviews is about a
-course, not a spray tan, which is why the heading is *What People Say* and the
-eyebrow names Google: nothing on the page claims they are tanning clients.
-Swap in `tba-testimonials` with real tan reviews once there are some.
+Both service pages carry the homepage's `tba-reviews` marquee — the real Google
+reviews, same blocks, Google badge and 5.0 rating. Those reviews are about
+courses rather than about a wedding or a spray tan, which is why the heading on
+each is *What People Say* and the eyebrow names Google: nothing on either page
+claims the reviewers were service clients. `tba-testimonials` is still in the
+pack, as three quote cards, for when there are real service reviews to run.
 
 Pricing and booking are two `tba-services` sections rather than one: the first
 carries the two service cards and the Book & Pay button on white, the second
@@ -450,23 +450,16 @@ background band and anchor (`#book` and `#booking`).
 > what each tier covers, the trial timing and the travel policy. It is
 > structure for a real person to fill, not fact.
 
-> **The three testimonials say PLACEHOLDER on purpose.** They are layout
-> filler, not reviews. Publishing invented testimonials is a straightforward
-> breach of Australian Consumer Law, so the placeholder text is written to be
-> impossible to miss. Replace all three with real quotes, or delete the
-> section, before this page goes live.
-
 > **Check the photo rights before publishing.** Recent Work carries twelve
 > images from a Leonards Hill Estate shoot, supplied for the page and renamed
 > `tba-bridal-01…12.webp`. They carry a visible photographer's watermark, so
 > confirm the studio is licensed to publish them — and if so, ask for
 > unwatermarked files. The hero image is a separate setting.
 
-> **Spray Tanning carries the same draft-copy caveat.** Its prep, aftercare,
+> **Spray Tanning carries a draft-copy caveat too.** Its prep, aftercare,
 > timing and FAQ copy is draft: only the $50 and $200 prices, the $100 makeup deposit,
 > the 72-hour cancellation window and the four-month booking window come from
-> the brief. Its reviews are the real Google ones, so no placeholder quotes
-> remain on it. Development time before rinsing is deliberately written as "the
+> the brief. Development time before rinsing is deliberately written as "the
 > time agreed at your appointment" rather than a number, because that depends
 > on the solution used — put the real figure in once you have it. Its nine
 > images (`tba-spraytan-01…08.webp` and `tba-spraytan-banner.webp`) were
