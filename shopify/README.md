@@ -66,17 +66,26 @@ the copy; the live site is untouched until you publish.
 
 ### Route A — Shopify admin
 
-#### Step 2 — upload the assets (26 files)
+#### Step 2 — upload the assets
 
-On the duplicate theme: **⋯ → Edit code**. In the left sidebar find **Assets**
-→ **Add a new asset** → **Upload file**. You can multi-select, so drag all 26
-files from `shopify/assets/` in at once:
+The stylesheet and script have to go in the theme; the images can go in either
+place and the sections handle both.
 
-- `tba-redesign.css` and `tba-redesign.js`
-- `tba-logo.svg`
-- the 23 `.webp` / `.jpg` photos
+**2a. The two code files → theme Assets.** On the duplicate theme:
+**⋯ → Edit code**, then **Assets → Add a new asset → Upload file**, and upload
+`tba-redesign.css` and `tba-redesign.js` from `shopify/assets/`.
 
-Uploading them again later overwrites in place, so it's safe to repeat.
+**2b. The 24 images → Content → Files** (easier: it takes a bulk drag-and-drop).
+Upload `tba-logo.svg` and the 23 `.webp` / `.jpg` photos.
+
+Keep the filenames exactly as they are — the sections look them up by name.
+
+> Prefer to keep the images in the theme's `Assets` folder instead? Upload them
+> there and everything still works: the sections request the Content → Files
+> copy first and fall back to `assets/` automatically. See **Where the images
+> live** below.
+
+Uploading again later overwrites in place, so it's safe to repeat.
 
 #### Step 3 — create the 13 sections
 
@@ -231,7 +240,7 @@ Save.
 ```bash
 shopify theme pull --theme "Copy of Turbo" --path ./turbo-copy
 
-cp shopify/assets/*   turbo-copy/assets/
+cp shopify/assets/*   turbo-copy/assets/      # images here work too; see "Where the images live"
 cp shopify/sections/* turbo-copy/sections/
 cp shopify/snippets/* turbo-copy/snippets/
 
@@ -315,6 +324,27 @@ Every image is an `image_picker` setting with the bundled photo as a fallback,
 so the sections look right the moment they're added and any photo can be swapped
 without touching code. Block images also have a **Bundled image** field — the
 filename in `assets/` used when nothing is picked.
+
+#### Where the images live
+
+Shopify has two places a file can sit, and they need different Liquid filters:
+`Content → Files` is reached with `file_url`, the theme's own `assets/` folder
+with `asset_url`. Neither can see the other, and a file in the wrong one 404s.
+
+The pack doesn't make you choose. Every bundled image is requested from
+**Content → Files first**, with the theme `assets/` URL carried alongside it:
+
+- `<img>` tags get `data-tba-fallback`, and `tba-redesign.js` swaps to it on the
+  404 (one retry, then it stops).
+- The newsletter's background is set as **two CSS layers**, Files then assets.
+  A layer whose file is missing simply isn't painted, so the right one shows
+  with no JavaScript involved.
+- The logo walks a chain: the theme-editor logo, then Files, then `assets/`,
+  then the CSS wordmark.
+
+So the sections render correctly whichever place you uploaded to, and there is
+no code edit to make either way. Only `tba-redesign.css` and `tba-redesign.js`
+*must* be in theme `Assets` — `theme.liquid` loads those with `asset_url`.
 
 `snippets/tba-image.liquid` always emits `width` and `height` on the `<img>`,
 so the browser reserves the right box before the file arrives and Theme Check's

@@ -9,7 +9,7 @@
 
   {% render 'tba-image',
        image: section.settings.hero_image,   (image_picker value, may be blank)
-       fallback: 'tba-banner1.webp',         (filename in assets/)
+       fallback: 'tba-banner1.webp',         (filename in Content > Files)
        alt: 'Alt text',
        width: 2000, height: 763,             (the bundled file's real size)
        url_width: 2000,                      (px requested from Shopify's CDN)
@@ -25,7 +25,14 @@
     assign tba_w = width | default: image.width
     assign tba_h = height | default: image.height
   else
-    assign tba_src = fallback | asset_url
+    comment
+      Bundled images live in Content > Files, so file_url is the primary source.
+      asset_url is emitted as data-tba-fallback and swapped in by
+      tba-redesign.js if the file turns out to be in the theme's assets/ folder
+      instead — so the pack works either way, with no code edit.
+    endcomment
+    assign tba_src = fallback | file_url
+    assign tba_alt_src = fallback | asset_url
     assign tba_w = width
     assign tba_h = height
   endif
@@ -45,6 +52,7 @@
   endif
 -%}
 <img src="{{ tba_src }}" alt="{{ alt | default: '' | escape }}" width="{{ tba_w }}" height="{{ tba_h }}"
+  {%- if tba_alt_src %} data-tba-fallback="{{ tba_alt_src }}"{% endif %}
   {%- if class %} class="{{ class }}"{% endif %}
   {%- if loading %} loading="{{ loading }}"{% endif %}
   {%- if fetchpriority %} fetchpriority="{{ fetchpriority }}"{% endif %}>

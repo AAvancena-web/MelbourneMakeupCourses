@@ -4,14 +4,26 @@
   Shopify way, so the address flows into Shopify Email / Klaviyo as usual.
 {%- endcomment -%}
 {%- assign s = section.settings -%}
-{%- if s.image != blank -%}
-  {%- assign bg = s.image | image_url: width: 2000 -%}
-{%- else -%}
-  {%- assign bg = 'tba-banner.webp' | asset_url -%}
-{%- endif -%}
+{%- liquid
+  comment
+    Two background layers: Content > Files first, the theme's assets/ second.
+    A layer whose file 404s simply isn't painted, so the band looks right
+    wherever the image was uploaded — no JS and no code edit needed.
+  endcomment
+  if s.image != blank
+    capture bg
+      echo s.image | image_url: width: 2000 | prepend: "url('" | append: "')"
+    endcapture
+  else
+    capture bg
+      echo 'tba-banner.webp' | file_url | prepend: "url('" | append: "'),"
+      echo 'tba-banner.webp' | asset_url | prepend: "url('" | append: "')"
+    endcapture
+  endif
+-%}
 <div class="tba-scope">
 <section class="tba-section tba-newsletter" aria-labelledby="tba-news-title"
-         style="--tba-news-bg:url('{{ bg }}')">
+         style="--tba-news-bg:{{ bg }}">
   <div class="tba-shell">
     {%- if s.eyebrow != blank -%}<p class="tba-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
     <h2 class="tba-h-lg" id="tba-news-title">{{ s.heading }}</h2>

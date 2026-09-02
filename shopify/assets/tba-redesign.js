@@ -35,19 +35,41 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
-  /* ---------- logo fallback (if the uploaded logo can't load, show the wordmark) ---------- */
+  /* ---------- logo fallback ----------
+     data-logo-fallback is a space-separated chain of URLs, tried in order:
+     Content > Files, then the theme's assets/. If every one fails, the CSS
+     wordmark takes over. */
   function logos() {
     document.querySelectorAll("[data-logo]").forEach(function (img) {
       if (bound(img)) return;
-      var tried = false;
+      var queue = (img.getAttribute("data-logo-fallback") || "").split(/\s+/).filter(Boolean);
       function degrade() {
-        var local = img.getAttribute("data-logo-fallback");
-        if (local && !tried) { tried = true; img.src = local; return; } // primary down -> bundled SVG
+        while (queue.length) {
+          var next = queue.shift();
+          if (next !== img.src) { img.src = next; return; }
+        }
         var brand = img.closest(".tba-brand");
-        if (brand) brand.classList.add("tba-is-fallback");               // both down -> CSS wordmark
+        if (brand) brand.classList.add("tba-is-fallback");
       }
       img.addEventListener("error", degrade);
       if (img.complete && img.naturalWidth === 0) degrade();
+    });
+  }
+
+  /* ---------- bundled image fallback ----------
+     The sections point at Content > Files first. If an image was uploaded to
+     the theme's assets/ folder instead, swap to that URL on the 404 so the
+     pack works either way with no code edit. */
+  function imageFallbacks() {
+    document.querySelectorAll("img[data-tba-fallback]").forEach(function (img) {
+      if (bound(img)) return;
+      function swap() {
+        var alt = img.getAttribute("data-tba-fallback");
+        img.removeAttribute("data-tba-fallback");   // one retry only
+        if (alt && img.src !== alt) img.src = alt;
+      }
+      img.addEventListener("error", swap);
+      if (img.complete && img.naturalWidth === 0) swap();
     });
   }
 
@@ -203,6 +225,7 @@
     bindInstantClick();
     year();
     logos();
+    imageFallbacks();
     sticky();
     drawer();
     footerAcc();

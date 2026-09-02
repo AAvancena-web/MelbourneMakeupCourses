@@ -634,7 +634,9 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-newsletter{position:relative;text-align:center;background:var(--tba-black);isolation:isolate;overflow:hidden}
 .tba-newsletter::before{
   content:"";position:absolute;inset:0;z-index:-2;
-  background:var(--tba-news-bg,#111) center/cover no-repeat
+  background-color:#111;
+  background-image:var(--tba-news-bg,none);
+  background-position:center;background-size:cover;background-repeat:no-repeat
 }
 .tba-newsletter::after{
   content:"";position:absolute;inset:0;z-index:-1;
