@@ -694,11 +694,18 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
    Equal-height cards with the content centred, so the slack from uneven review
    lengths splits above and below instead of pooling into one hole above the
    caption. Blush ground, gold hairline, no badge. */
+/* Wide gutters between the cards so each review reads as its own object. The
+   column gap is a percentage of the row so it tracks the page width; the row
+   gap has to be set separately, as a percentage there would resolve to zero
+   against the stacked layout's indefinite height. */
 .tba-quotes{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;
-  gap:clamp(14px,1.5vw,24px);padding-top:26px}
+  column-gap:clamp(18px,8%,130px);row-gap:clamp(20px,2.4vw,34px);padding-top:26px}
 .tba-quote{
+  /* a <figure> carries a 40px UA side margin; zeroing it keeps the gutters
+     identical whether or not the host theme resets figure margins. */
+  margin:0;
   display:flex;flex-direction:column;justify-content:center;position:relative;
-  padding:clamp(32px,2.8vw,44px) clamp(26px,2.4vw,38px);
+  padding:clamp(32px,2.8vw,44px) clamp(26px,2.6vw,42px);
   border-radius:16px;
   background:linear-gradient(168deg,#fffaf6 0%,#fdf1e6 100%);
   border:1px solid rgba(220,162,119,.45);
