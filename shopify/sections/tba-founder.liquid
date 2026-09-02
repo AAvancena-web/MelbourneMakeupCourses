@@ -4,7 +4,7 @@
 {%- endcomment -%}
 {%- assign s = section.settings -%}
 <div class="tba-scope">
-<section class="tba-section tba-section--blush" aria-labelledby="tba-founder-title">
+<section class="tba-section tba-section--blush" aria-labelledby="tba-founder-title"{% if s.anchor != blank %} id="{{ s.anchor }}"{% endif %}>
   <div class="tba-shell">
     <div class="tba-founder">
 
@@ -41,29 +41,102 @@
   "name": "TBA founder",
   "max_blocks": 8,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Meet Your Lead Trainer" },
-    { "type": "text", "id": "heading", "label": "Name", "default": "Maggie Tamarua" },
-    { "type": "text", "id": "role", "label": "Role", "default": "Founder & Master Educator" },
-    { "type": "textarea", "id": "lede", "label": "Intro",
-      "default": "A renowned makeup artist and premier trainer, Maggie completed her formal training with Napoleon in 2004 and has built a stellar reputation over two decades — creating red-carpet looks and mentoring the next generation of beauty professionals." },
-    { "type": "image_picker", "id": "image", "label": "Portrait" },
-    { "type": "text", "id": "image_alt", "label": "Portrait alt text",
-      "default": "Maggie Tamarua, founder and master educator at Tamarua Beauty Academy" },
-    { "type": "header", "content": "Button" },
-    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Book A Free Consultation" },
-    { "type": "text", "id": "cta_url", "label": "Button link", "default": "#contact" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Meet Your Lead Trainer"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Name",
+      "default": "Maggie Tamarua"
+    },
+    {
+      "type": "text",
+      "id": "role",
+      "label": "Role",
+      "default": "Founder & Master Educator"
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor id",
+      "info": "Lets a button link to this section, e.g. maggie."
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Intro",
+      "default": "A renowned makeup artist and premier trainer, Maggie completed her formal training with Napoleon in 2004 and has built a stellar reputation over two decades — creating red-carpet looks and mentoring the next generation of beauty professionals."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Portrait"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Portrait alt text",
+      "default": "Maggie Tamarua, founder and master educator at Tamarua Beauty Academy"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Book A Free Consultation"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "Button link",
+      "default": "#contact"
+    }
   ],
   "blocks": [
-    { "type": "credential", "name": "Credential", "settings": [
-      { "type": "text", "id": "text", "label": "Text", "info": "HTML is allowed — use <b> for emphasis." }
-    ]}
+    {
+      "type": "credential",
+      "name": "Credential",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "info": "HTML is allowed — use <b> for emphasis."
+        }
+      ]
+    }
   ],
   "presets": [
-    { "name": "TBA founder", "blocks": [
-      { "type": "credential", "settings": { "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 & 2014" } },
-      { "type": "credential", "settings": { "text": "Featured in <b>Vogue</b>, Girlfriend Magazine & Melbourne Bridal & Fashion World" } },
-      { "type": "credential", "settings": { "text": "Founder of a <b>Top 4-ranked academy</b> in Australia, running for over a decade" } }
-    ]}
+    {
+      "name": "TBA founder",
+      "blocks": [
+        {
+          "type": "credential",
+          "settings": {
+            "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 & 2014"
+          }
+        },
+        {
+          "type": "credential",
+          "settings": {
+            "text": "Featured in <b>Vogue</b>, Girlfriend Magazine & Melbourne Bridal & Fashion World"
+          }
+        },
+        {
+          "type": "credential",
+          "settings": {
+            "text": "Founder of a <b>Top 4-ranked academy</b> in Australia, running for over a decade"
+          }
+        }
+      ]
+    }
   ]
 }
 {% endschema %}

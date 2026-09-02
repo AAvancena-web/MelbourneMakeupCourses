@@ -1,15 +1,262 @@
 {
   "sections": {
-    "intro": {
-      "type": "tba-page-intro",
+    "hero": {
+      "type": "tba-page-hero",
       "settings": {
+        "fallback": "tba-banner1.webp",
+        "image_alt": "Bridal makeup and hair by Tamarua Beauty Academy, Melbourne",
         "eyebrow": "Weddings",
-        "heading": "Bridal Enquiry",
-        "intro": "Congratulations on your engagement — I'd be honoured to be part of your wedding day.",
-        "body": "Maggie is an award-winning bridal makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, supportive approach to every bride. She listens closely to your vision and translates it into a personalised, timeless look that makes you feel confident and beautiful. Planning and getting ready can feel overwhelming — she'll guide you through trials, timelines and on-the-day styling to ensure a relaxed, memorable morning.",
-        "highlight": "Packages start from $1200",
-        "background": ""
+        "heading": "Bridal Makeup",
+        "body": "Congratulations on your engagement — I'd be honoured to be part of your wedding day.",
+        "cta1_label": "Enquire Now",
+        "cta1_url": "#enquire",
+        "cta2_label": "Meet Maggie",
+        "cta2_url": "#maggie"
       }
+    },
+    "maggie": {
+      "type": "tba-founder",
+      "settings": {
+        "eyebrow": "Your Artist",
+        "heading": "Maggie Tamarua",
+        "role": "Award-Winning Bridal Makeup Artist",
+        "lede": "Maggie is an award-winning bridal makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, supportive approach to every bride. She listens closely to your vision and translates it into a personalised, timeless look that makes you feel confident and beautiful. Planning and getting ready can feel overwhelming — she'll guide you through trials, timelines and on-the-day styling to ensure a relaxed, memorable morning.",
+        "image_alt": "Maggie Tamarua, award-winning bridal makeup artist",
+        "cta_label": "Enquire Now",
+        "cta_url": "#enquire",
+        "anchor": "maggie"
+      },
+      "blocks": {
+        "credential-1": {
+          "type": "credential",
+          "settings": {
+            "text": "<b>Makeup Artist of the Year</b> — ABIA Awards 2013 &amp; 2014"
+          }
+        },
+        "credential-2": {
+          "type": "credential",
+          "settings": {
+            "text": "Several <b>consecutive Australian Bridal Industry Awards</b>"
+          }
+        },
+        "credential-3": {
+          "type": "credential",
+          "settings": {
+            "text": "Featured in <b>Vogue</b>, Girlfriend Magazine &amp; Melbourne Bridal &amp; Fashion World"
+          }
+        },
+        "credential-4": {
+          "type": "credential",
+          "settings": {
+            "text": "Trained with <b>Napoleon</b> in 2004 — two decades behind the brush"
+          }
+        }
+      },
+      "block_order": [
+        "credential-1",
+        "credential-2",
+        "credential-3",
+        "credential-4"
+      ]
+    },
+    "steps": {
+      "type": "tba-steps",
+      "settings": {
+        "eyebrow": "How it works",
+        "heading": "The Bridal Experience",
+        "lede": "From first enquiry to the last photograph, every step is planned so your morning stays calm.",
+        "background": "tba-section--cream",
+        "anchor": "experience"
+      },
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Enquire",
+            "text": "Send through your date, venue and the size of your bridal party. You'll receive Maggie's full bridal offerings and availability by return."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Consultation",
+            "text": "We talk through your dress, flowers, hair and the mood you're after, so the look belongs to the whole day and not just the face."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "Trial",
+            "text": "A relaxed sitting to test and refine the look, photograph it in daylight, and agree the finish you'll wear down the aisle."
+          }
+        },
+        "step-4": {
+          "type": "step",
+          "settings": {
+            "title": "Wedding Morning",
+            "text": "Maggie arrives on schedule with a timeline built around your photographer and ceremony, and keeps the room calm from first face to last."
+          }
+        }
+      },
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3",
+        "step-4"
+      ]
+    },
+    "packages": {
+      "type": "tba-services",
+      "settings": {
+        "eyebrow": "Investment",
+        "heading": "Packages & Booking",
+        "lede": "Packages start from $1200. Enquire to receive Maggie's full bridal offerings and book a consultation.",
+        "background": "",
+        "anchor": "packages",
+        "cta_label": "Enquire Now",
+        "cta_url": "#enquire",
+        "cta_note": ""
+      },
+      "blocks": {
+        "panel-1": {
+          "type": "panel",
+          "settings": {
+            "heading": "What's Included",
+            "style": "solid",
+            "items": "- A personal consultation to plan your look around your dress, hair and the day's schedule.\n- Skin prep and long-wear products chosen for a full day of photography.\n- False lashes and a finish built to last from getting ready to the last dance.\n- A running order agreed with you and your photographer ahead of the morning."
+          }
+        },
+        "panel-2": {
+          "type": "panel",
+          "settings": {
+            "heading": "Deposits & Cancellations",
+            "style": "solid",
+            "items": "- A deposit secures your date; the balance is payable ahead of the day.\n- Cancel at least 7 days before the appointment and your deposit becomes a credit, valid for 12 months.\n- Cancellations within 7 days forfeit the deposit.\n- Exceptions for documented emergencies can be considered at our discretion."
+          }
+        }
+      },
+      "block_order": [
+        "panel-1",
+        "panel-2"
+      ]
+    },
+    "gallery": {
+      "type": "tba-gallery",
+      "settings": {
+        "eyebrow": "Portfolio",
+        "heading": "Recent Work",
+        "lede": "",
+        "columns": "4",
+        "background": "tba-section--sand",
+        "anchor": "portfolio",
+        "note": ""
+      },
+      "blocks": {
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-makeupcourses.webp",
+            "width": "400",
+            "height": "400",
+            "alt": "Soft glam bridal makeup with a luminous skin finish"
+          }
+        },
+        "image-2": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-hairstylingcourses.webp",
+            "width": "400",
+            "height": "400",
+            "alt": "Bridal updo with a smoky eye and defined brow"
+          }
+        },
+        "image-3": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-eyelashextensioncourses.webp",
+            "width": "400",
+            "height": "400",
+            "alt": "Close detail of lash work and a nude lip"
+          }
+        },
+        "image-4": {
+          "type": "image",
+          "settings": {
+            "fallback": "tba-banner.webp",
+            "width": "1000",
+            "height": "500",
+            "alt": "Bridal party hair and makeup in the studio"
+          }
+        }
+      },
+      "block_order": [
+        "image-1",
+        "image-2",
+        "image-3",
+        "image-4"
+      ]
+    },
+    "faq": {
+      "type": "tba-faq",
+      "settings": {
+        "eyebrow": "Good to know",
+        "heading": "Frequently Asked Questions",
+        "anchor": "faq",
+        "open_first": false,
+        "background": ""
+      },
+      "blocks": {
+        "qa-1": {
+          "type": "qa",
+          "settings": {
+            "question": "How far in advance should I book?",
+            "answer": "As early as you can — popular dates go first, particularly through spring and autumn. Send your date through even if the rest of the planning is still up in the air."
+          }
+        },
+        "qa-2": {
+          "type": "qa",
+          "settings": {
+            "question": "Do you travel to me on the morning?",
+            "answer": "Yes. Maggie comes to your getting-ready address. Tell us the location in your enquiry and it will be confirmed with your quote."
+          }
+        },
+        "qa-3": {
+          "type": "qa",
+          "settings": {
+            "question": "Is a trial included?",
+            "answer": "Trials are covered in Maggie's bridal offerings — the details come back with your enquiry so you can see exactly what each package includes."
+          }
+        },
+        "qa-4": {
+          "type": "qa",
+          "settings": {
+            "question": "Can you look after my bridal party?",
+            "answer": "Yes. Let us know in the enquiry how many people need makeup and we'll build a timeline that gets everyone ready without a rush."
+          }
+        },
+        "qa-5": {
+          "type": "qa",
+          "settings": {
+            "question": "What if I need to change or cancel my date?",
+            "answer": "Cancel at least 7 days before the appointment and your deposit becomes a credit valid for 12 months. Within 7 days the deposit is forfeited. Exceptions for documented emergencies can be considered at our discretion."
+          }
+        },
+        "qa-6": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I secure my date?",
+            "answer": "Send the enquiry form below. You'll receive Maggie's bridal offerings and, once you've chosen, a deposit locks the date in."
+          }
+        }
+      },
+      "block_order": [
+        "qa-1",
+        "qa-2",
+        "qa-3",
+        "qa-4",
+        "qa-5",
+        "qa-6"
+      ]
     },
     "form": {
       "type": "tba-enquiry-form",
@@ -18,7 +265,7 @@
         "heading": "Bridal Enquiry",
         "subheading": "Please provide the below information to receive Maggie's bridal offerings and book a consultation.",
         "anchor": "enquire",
-        "background": "tba-section--sand",
+        "background": "tba-section--blush",
         "button": "Send Bridal Enquiry",
         "note": "We'll only use your details to reply to your enquiry. Bridal bookings can be cancelled up to 7 days before the appointment for a 12-month credit.",
         "success": "Thank you — your enquiry is on its way. Maggie will be in touch shortly with her bridal offerings.",
@@ -30,7 +277,12 @@
     }
   },
   "order": [
-    "intro",
+    "hero",
+    "maggie",
+    "steps",
+    "packages",
+    "gallery",
+    "faq",
     "form"
   ]
 }

@@ -36,6 +36,10 @@ sections/
   tba-page-intro.liquid     page header — eyebrow, H1, intro copy
   tba-services.liquid       service cards with prices + policy panels + CTA
   tba-enquiry-form.liquid   enquiry form, standard or bridal layout
+  tba-page-hero.liquid      full-bleed image hero with copy and buttons
+  tba-steps.liquid          numbered process steps (CSS counters)
+  tba-gallery.liquid        image grid, 2/3/4 columns
+  tba-faq.liquid            accordion built on <details> — no JavaScript
 snippets/
   tba-image.liquid      image with theme-editor picker + bundled fallback
   tba-logo.liquid       shared brand lockup
@@ -389,11 +393,20 @@ forms show their success line after either is submitted.
 with the form section switched between its two layouts. All the copy is in the
 templates, so both pages are fully editable from the theme editor.
 
-| | Bridal Enquiry | Makeup and Tan Services |
-|---|---|---|
-| Page intro | Congratulations line, Maggie's bio, "Packages start from $1200" | Title and the book-online line |
-| Services | — | Spray Tan $50 / Special Occasion Makeup $200, plus deposit, cancellation and exceptions panels, and the Book & Pay button |
-| Form | Bridal layout — 15 fields | Standard layout — 7 fields |
+**Bridal Enquiry** runs seven sections: image hero → Meet Maggie → The Bridal
+Experience (four steps) → Packages & Booking → Recent Work gallery → FAQ →
+the bridal form. **Makeup and Tan Services** runs three: page intro → service
+cards and policy panels → the standard form.
+
+> **Draft copy to approve.** The steps, the "What's Included" list and the six
+> FAQ answers on the bridal page are drafts written around the brief, not
+> supplied text. The award credits, the $1200 starting price and the 7-day
+> cancellation terms all come from the brief and are accurate. Read the drafts
+> before publishing.
+
+> **Portfolio images are placeholders.** The Recent Work grid uses existing
+> photos from the site's own library. Swap them for Maggie's bridal portfolio
+> — each one is an image block in the theme editor.
 
 ### Publishing them
 

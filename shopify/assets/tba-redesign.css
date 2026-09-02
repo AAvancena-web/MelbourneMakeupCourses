@@ -629,6 +629,69 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-story p{font-size:16px;color:var(--tba-ink-soft);margin-bottom:22px}
 
 /* ============================================================
+   PAGE HERO / STEPS / GALLERY / FAQ
+   ============================================================ */
+.tba-phero{position:relative;isolation:isolate;background:var(--tba-black);overflow:hidden;
+  min-height:clamp(380px,46vw,620px);display:flex;align-items:center;text-align:center}
+.tba-phero__media{position:absolute;inset:0;z-index:-2}
+.tba-phero__media img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.tba-phero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(rgba(12,10,9,.62),rgba(12,10,9,.74))}
+.tba-phero .tba-shell{padding-block:clamp(64px,7vw,110px)}
+.tba-phero__inner{max-width:840px;margin-inline:auto}
+.tba-phero .tba-eyebrow{color:var(--tba-gold-lt)}
+.tba-phero .tba-h-xl{color:#fff}
+.tba-phero .tba-rule{margin-inline:auto}
+.tba-phero p{color:rgba(255,255,255,.9);font-size:clamp(16px,1.2vw,19px);line-height:1.85;
+  margin:26px auto 0;max-width:660px}
+.tba-phero .tba-btn-row{justify-content:center;margin-top:34px}
+
+/* ---------- numbered steps ---------- */
+.tba-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,34px);
+  grid-auto-rows:1fr;counter-reset:tbastep}
+.tba-step{position:relative;padding:clamp(28px,2.8vw,40px);background:#fff;border:1px solid var(--tba-line)}
+.tba-step::before{
+  counter-increment:tbastep;content:counter(tbastep,decimal-leading-zero);
+  display:block;font-family:var(--tba-serif);font-size:30px;line-height:1;
+  color:var(--tba-gold);margin-bottom:18px}
+.tba-step h3{font-family:var(--tba-sans);font-size:14px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:14px}
+.tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
+
+/* ---------- image gallery ---------- */
+.tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
+.tba-gallery figure{margin:0;overflow:hidden;background:var(--tba-mist);position:relative}
+.tba-gallery img{aspect-ratio:4/5;width:100%;object-fit:cover;transition:transform 1s var(--tba-ease)}
+.tba-gallery figure:hover img{transform:scale(1.06)}
+.tba-gallery--3{grid-template-columns:repeat(3,1fr)}
+.tba-gallery--2{grid-template-columns:repeat(2,1fr)}
+
+/* ---------- FAQ ---------- */
+.tba-faq{max-width:900px;margin-inline:auto;border-top:1px solid var(--tba-line)}
+.tba-faq details{border-bottom:1px solid var(--tba-line)}
+.tba-faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;
+  list-style:none;padding:24px 0;font-family:var(--tba-sans);font-size:16.5px;font-weight:600;
+  letter-spacing:.01em;color:var(--tba-black);transition:color .3s}
+.tba-faq summary::-webkit-details-marker{display:none}
+.tba-faq summary:hover{color:var(--tba-gold-dp)}
+.tba-faq summary::after{
+  content:"";flex:none;width:11px;height:11px;border-right:1px solid currentColor;
+  border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .35s var(--tba-ease)}
+.tba-faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.tba-faq details[open] summary{color:var(--tba-gold-dp)}
+.tba-faq__a{padding:0 0 26px;font-size:16px;color:var(--tba-ink-soft);line-height:1.9;max-width:760px}
+
+@media (max-width:1024px){
+  .tba-steps{grid-template-columns:repeat(2,1fr)}
+  .tba-gallery{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .tba-steps{grid-template-columns:1fr;grid-auto-rows:auto}
+  .tba-phero{min-height:0}
+}
+
+/* ============================================================
    SERVICE / ENQUIRY PAGES
    Used by tba-page-intro, tba-services and tba-enquiry-form.
    ============================================================ */

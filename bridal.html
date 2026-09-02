@@ -650,6 +650,69 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 .tba-story p{font-size:16px;color:var(--tba-ink-soft);margin-bottom:22px}
 
 /* ============================================================
+   PAGE HERO / STEPS / GALLERY / FAQ
+   ============================================================ */
+.tba-phero{position:relative;isolation:isolate;background:var(--tba-black);overflow:hidden;
+  min-height:clamp(380px,46vw,620px);display:flex;align-items:center;text-align:center}
+.tba-phero__media{position:absolute;inset:0;z-index:-2}
+.tba-phero__media img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.tba-phero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(rgba(12,10,9,.62),rgba(12,10,9,.74))}
+.tba-phero .tba-shell{padding-block:clamp(64px,7vw,110px)}
+.tba-phero__inner{max-width:840px;margin-inline:auto}
+.tba-phero .tba-eyebrow{color:var(--tba-gold-lt)}
+.tba-phero .tba-h-xl{color:#fff}
+.tba-phero .tba-rule{margin-inline:auto}
+.tba-phero p{color:rgba(255,255,255,.9);font-size:clamp(16px,1.2vw,19px);line-height:1.85;
+  margin:26px auto 0;max-width:660px}
+.tba-phero .tba-btn-row{justify-content:center;margin-top:34px}
+
+/* ---------- numbered steps ---------- */
+.tba-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,34px);
+  grid-auto-rows:1fr;counter-reset:tbastep}
+.tba-step{position:relative;padding:clamp(28px,2.8vw,40px);background:#fff;border:1px solid var(--tba-line)}
+.tba-step::before{
+  counter-increment:tbastep;content:counter(tbastep,decimal-leading-zero);
+  display:block;font-family:var(--tba-serif);font-size:30px;line-height:1;
+  color:var(--tba-gold);margin-bottom:18px}
+.tba-step h3{font-family:var(--tba-sans);font-size:14px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:14px}
+.tba-step p{font-size:15.5px;color:var(--tba-ink-soft);line-height:1.85}
+
+/* ---------- image gallery ---------- */
+.tba-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
+.tba-gallery figure{margin:0;overflow:hidden;background:var(--tba-mist);position:relative}
+.tba-gallery img{aspect-ratio:4/5;width:100%;object-fit:cover;transition:transform 1s var(--tba-ease)}
+.tba-gallery figure:hover img{transform:scale(1.06)}
+.tba-gallery--3{grid-template-columns:repeat(3,1fr)}
+.tba-gallery--2{grid-template-columns:repeat(2,1fr)}
+
+/* ---------- FAQ ---------- */
+.tba-faq{max-width:900px;margin-inline:auto;border-top:1px solid var(--tba-line)}
+.tba-faq details{border-bottom:1px solid var(--tba-line)}
+.tba-faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;
+  list-style:none;padding:24px 0;font-family:var(--tba-sans);font-size:16.5px;font-weight:600;
+  letter-spacing:.01em;color:var(--tba-black);transition:color .3s}
+.tba-faq summary::-webkit-details-marker{display:none}
+.tba-faq summary:hover{color:var(--tba-gold-dp)}
+.tba-faq summary::after{
+  content:"";flex:none;width:11px;height:11px;border-right:1px solid currentColor;
+  border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .35s var(--tba-ease)}
+.tba-faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.tba-faq details[open] summary{color:var(--tba-gold-dp)}
+.tba-faq__a{padding:0 0 26px;font-size:16px;color:var(--tba-ink-soft);line-height:1.9;max-width:760px}
+
+@media (max-width:1024px){
+  .tba-steps{grid-template-columns:repeat(2,1fr)}
+  .tba-gallery{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .tba-steps{grid-template-columns:1fr;grid-auto-rows:auto}
+  .tba-phero{min-height:0}
+}
+
+/* ============================================================
    SERVICE / ENQUIRY PAGES
    Used by tba-page-intro, tba-services and tba-enquiry-form.
    ============================================================ */
@@ -1083,7 +1146,7 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 
       <div class="tba-nav tba-nav--right">
         <div class="tba-nav__item"><a class="tba-nav__link" href="/pages/contact-us">Contact Us</a></div>
-        <a class="tba-btn tba-btn--gold tba-btn--sm" href="#contact">Book A Free Consultation</a>
+        <a class="tba-btn tba-btn--gold tba-btn--sm" href="index.html#contact">Book A Free Consultation</a>
         <div class="tba-tools">
           <button class="tba-icon-btn" aria-label="Search">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
@@ -1207,7 +1270,7 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
     <a class="tba-drawer__link" href="/account/login">Login</a>
   </nav>
   <div class="tba-drawer__foot">
-    <a class="tba-btn tba-btn--gold" href="#contact">Book A Free Consultation</a>
+    <a class="tba-btn tba-btn--gold" href="index.html#contact">Book A Free Consultation</a>
     <ul class="tba-socials" style="list-style:none;margin:18px 0 0;padding:0">
       <li><a href="https://www.facebook.com/tamaruabeautyacademy/" target="_blank" rel="noopener me" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></li>
       <li><a href="https://www.instagram.com/tamaruabeautyacademy" target="_blank" rel="noopener me" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li>
@@ -1219,17 +1282,120 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
 <main>
 
 <div class="tba-scope">
-<section class="tba-section ">
+<section class="tba-phero">
+  <div class="tba-phero__media">
+    <img src="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-banner1.webp" alt="Bridal makeup and hair by Tamarua Beauty Academy, Melbourne" width="2000" height="763" data-tba-fallback="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-banner1.webp" fetchpriority="high">
+
+  </div>
   <div class="tba-shell">
-    <div class="tba-pageintro"><p class="tba-eyebrow">Weddings</p><h1 class="tba-h-xl">Bridal Enquiry</h1>
-      <hr class="tba-rule tba-rule--center"><p class="tba-lede">Congratulations on your engagement — I'd be honoured to be part of your wedding day.</p><p class="tba-lede">Maggie is an award-winning bridal makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, supportive approach to every bride. She listens closely to your vision and translates it into a personalised, timeless look that makes you feel confident and beautiful. Planning and getting ready can feel overwhelming — she'll guide you through trials, timelines and on-the-day styling to ensure a relaxed, memorable morning.</p><p class="tba-pageintro__price">Packages start from $1200</p></div>
+    <div class="tba-phero__inner"><p class="tba-eyebrow">Weddings</p><h1 class="tba-h-xl">Bridal Makeup</h1>
+      <hr class="tba-rule tba-rule--center"><p>Congratulations on your engagement — I'd be honoured to be part of your wedding day.</p><div class="tba-btn-row"><a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a><a class="tba-btn tba-btn--light" href="#maggie">Meet Maggie</a></div></div>
   </div>
 </section>
 </div>
 
 
 <div class="tba-scope">
-<section class="tba-section tba-section--sand" id="enquire">
+<section class="tba-section tba-section--blush" aria-labelledby="tba-founder-title" id="maggie">
+  <div class="tba-shell">
+    <div class="tba-founder">
+
+      <div class="tba-founder__body"><p class="tba-eyebrow tba-eyebrow--rule">Your Artist</p><h2 class="tba-h-lg" id="tba-founder-title">Maggie Tamarua</h2><p class="tba-founder__role">Award-Winning Bridal Makeup Artist</p><p class="tba-lede">Maggie is an award-winning bridal makeup artist with several consecutive Australian Bridal Industry Awards, bringing years of professional experience and a calm, supportive approach to every bride. She listens closely to your vision and translates it into a personalised, timeless look that makes you feel confident and beautiful. Planning and getting ready can feel overwhelming — she'll guide you through trials, timelines and on-the-day styling to ensure a relaxed, memorable morning.</p>
+
+        <ul class="tba-founder__list"><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span><b>Makeup Artist of the Year</b> — ABIA Awards 2013 &amp; 2014</span></li><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>Several <b>consecutive Australian Bridal Industry Awards</b></span></li><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>Featured in <b>Vogue</b>, Girlfriend Magazine &amp; Melbourne Bridal &amp; Fashion World</span></li><li ><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.4 1.1 6.2L12 16.2 6.4 19.1l1.1-6.2L3 8.5l6.4-.9L12 2z"/></svg> <span>Trained with <b>Napoleon</b> in 2004 — two decades behind the brush</span></li></ul><a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div>
+
+      <figure class="tba-founder__media">
+        <img src="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-maggie.webp" alt="Maggie Tamarua, award-winning bridal makeup artist" width="599" height="763" data-tba-fallback="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-maggie.webp" loading="lazy">
+
+      </figure>
+
+    </div>
+  </div>
+</section>
+</div>
+
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--cream" id="experience">
+  <div class="tba-shell">
+    <div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">How it works</p><h2 class="tba-h-lg">The Bridal Experience</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">From first enquiry to the last photograph, every step is planned so your morning stays calm.</p></div>
+    <div class="tba-steps"><article class="tba-step" >
+          <h3>Enquire</h3>
+          <p>Send through your date, venue and the size of your bridal party. You'll receive Maggie's full bridal offerings and availability by return.</p>
+        </article><article class="tba-step" >
+          <h3>Consultation</h3>
+          <p>We talk through your dress, flowers, hair and the mood you're after, so the look belongs to the whole day and not just the face.</p>
+        </article><article class="tba-step" >
+          <h3>Trial</h3>
+          <p>A relaxed sitting to test and refine the look, photograph it in daylight, and agree the finish you'll wear down the aisle.</p>
+        </article><article class="tba-step" >
+          <h3>Wedding Morning</h3>
+          <p>Maggie arrives on schedule with a timeline built around your photographer and ceremony, and keeps the room calm from first face to last.</p>
+        </article></div>
+  </div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section " id="packages">
+  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(34px,4vw,56px)"><p class="tba-eyebrow">Investment</p><h2 class="tba-h-lg">Packages & Booking</h2><hr class="tba-rule tba-rule--center"><p class="tba-lede">Packages start from $1200. Enquire to receive Maggie's full bridal offerings and book a consultation.</p></div><div class="tba-panels"><div class="tba-panel" ><h3>What's Included</h3><ul><li>A personal consultation to plan your look around your dress, hair and the day's schedule.</li><li>Skin prep and long-wear products chosen for a full day of photography.</li><li>False lashes and a finish built to last from getting ready to the last dance.</li><li>A running order agreed with you and your photographer ahead of the morning.</li></ul></div><div class="tba-panel" ><h3>Deposits & Cancellations</h3><ul><li>A deposit secures your date; the balance is payable ahead of the day.</li><li>Cancel at least 7 days before the appointment and your deposit becomes a credit, valid for 12 months.</li><li>Cancellations within 7 days forfeit the deposit.</li><li>Exceptions for documented emergencies can be considered at our discretion.</li></ul></div></div><div class="tba-center" style="margin-top:clamp(32px,3.6vw,52px)">
+        <a class="tba-btn tba-btn--gold" href="#enquire">Enquire Now</a></div></div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--sand" id="portfolio">
+  <div class="tba-shell"><div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)"><p class="tba-eyebrow">Portfolio</p><h2 class="tba-h-lg">Recent Work</h2><hr class="tba-rule tba-rule--center"></div><div class="tba-gallery"><figure >
+          <img src="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-makeupcourses.webp" alt="Soft glam bridal makeup with a luminous skin finish" width="400" height="400" data-tba-fallback="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-makeupcourses.webp" loading="lazy">
+
+        </figure><figure >
+          <img src="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-hairstylingcourses.webp" alt="Bridal updo with a smoky eye and defined brow" width="400" height="400" data-tba-fallback="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-hairstylingcourses.webp" loading="lazy">
+
+        </figure><figure >
+          <img src="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-eyelashextensioncourses.webp" alt="Close detail of lash work and a nude lip" width="400" height="400" data-tba-fallback="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-eyelashextensioncourses.webp" loading="lazy">
+
+        </figure><figure >
+          <img src="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-banner.webp" alt="Bridal party hair and makeup in the studio" width="1000" height="500" data-tba-fallback="file:///home/user/MelbourneMakeupCourses/shopify/assets/tba-banner.webp" loading="lazy">
+
+        </figure></div></div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section " id="faq">
+  <div class="tba-shell">
+    <div class="tba-center" style="margin-bottom:clamp(30px,3.4vw,48px)"><p class="tba-eyebrow">Good to know</p><h2 class="tba-h-lg">Frequently Asked Questions</h2><hr class="tba-rule tba-rule--center">
+    </div>
+    <div class="tba-faq"><details >
+          <summary>How far in advance should I book?</summary>
+          <div class="tba-faq__a">As early as you can — popular dates go first, particularly through spring and autumn. Send your date through even if the rest of the planning is still up in the air.</div>
+        </details><details >
+          <summary>Do you travel to me on the morning?</summary>
+          <div class="tba-faq__a">Yes. Maggie comes to your getting-ready address. Tell us the location in your enquiry and it will be confirmed with your quote.</div>
+        </details><details >
+          <summary>Is a trial included?</summary>
+          <div class="tba-faq__a">Trials are covered in Maggie's bridal offerings — the details come back with your enquiry so you can see exactly what each package includes.</div>
+        </details><details >
+          <summary>Can you look after my bridal party?</summary>
+          <div class="tba-faq__a">Yes. Let us know in the enquiry how many people need makeup and we'll build a timeline that gets everyone ready without a rush.</div>
+        </details><details >
+          <summary>What if I need to change or cancel my date?</summary>
+          <div class="tba-faq__a">Cancel at least 7 days before the appointment and your deposit becomes a credit valid for 12 months. Within 7 days the deposit is forfeited. Exceptions for documented emergencies can be considered at our discretion.</div>
+        </details><details >
+          <summary>How do I secure my date?</summary>
+          <div class="tba-faq__a">Send the enquiry form below. You'll receive Maggie's bridal offerings and, once you've chosen, a deposit locks the date in.</div>
+        </details></div>
+  </div>
+</section>
+</div>
+
+
+<div class="tba-scope">
+<section class="tba-section tba-section--blush" id="enquire">
   <div class="tba-shell"><form method="post" action="#" class="tba-eform" novalidate="novalidate">
         <div class="tba-eform__head">
           <h2 class="tba-h-lg">Bridal Enquiry</h2><p>Please provide the below information to receive Maggie's bridal offerings and book a consultation.</p></div><div class="tba-eform__row">
