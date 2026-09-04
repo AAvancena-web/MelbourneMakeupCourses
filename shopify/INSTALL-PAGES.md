@@ -150,6 +150,29 @@ Save, then open each page in the theme preview.
 
 ---
 
+## 5b. Send people to a thank-you page (optional)
+
+Each form section has an **After submit, go to** setting in the theme editor.
+Leave it empty and the form stays where it is and shows its success message;
+point it at a page and a successful submission carries on there.
+
+1. Make sure the destination page exists — **Online Store → Pages**. The theme
+   already has a `page.thank-you` template if you want to use it.
+2. **Customise → the page → the form section →  After submit, go to** → pick
+   the page. Do this for each form you want redirected: the enquiry form on
+   each service page, and on the homepage the hero form, the consultation form
+   and the newsletter.
+3. Submit a test enquiry and check you land on the thank-you page.
+
+Point it at a page that exists — an empty or mistyped URL sends a real enquiry
+to a 404. Two notes on behaviour: there is a brief flash of the form's success
+message before the redirect, because Shopify sends the browser back to the form
+page first and the hop happens from there; and a page with two contact forms on
+it redirects after either is submitted, since Shopify's `contact_posted` flag is
+not per-form.
+
+---
+
 ## 6. Link them
 
 **Online Store → Navigation.** Add both pages to the main menu, or to the

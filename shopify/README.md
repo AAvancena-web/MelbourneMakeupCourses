@@ -386,6 +386,25 @@ A successful post reloads the page with `?contact_posted=true`, which is what
 drives the success message. That flag isn't per-form, so both consultation
 forms show their success line after either is submitted.
 
+### Redirecting to a thank-you page
+
+Every form section has an **After submit, go to** setting. Leave it empty and
+the form behaves as before — it stays put and shows its success message. Point
+it at a page and a successful submission carries on there instead.
+
+Shopify's contact form always posts to `/contact` and comes back to the page it
+was sent from; the destination is not something the form can set. So the hop
+happens on the way back, inside the branch that only renders after a successful
+post: `snippets/tba-form-redirect.liquid` writes a link and a
+`location.replace()` for it. `replace` rather than an assignment, so the back
+button doesn't land people on their own submitted form; the link is rendered
+first and stays visible if the script is blocked.
+
+Two consequences worth knowing. There is a brief flash of the page with its
+success message before the redirect — unavoidable, since the browser has
+already been sent back there. And because `?contact_posted=true` is not
+per-form, a page carrying two contact forms redirects after either one.
+
 ---
 
 ## The service pages

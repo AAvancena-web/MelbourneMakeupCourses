@@ -71,6 +71,7 @@
 
           {%- if form.posted_successfully? -%}
             <p role="status">{{ s.form_success }}</p>
+            {% render 'tba-form-redirect', url: s.redirect_url, label: 'Continue to the thank-you page' %}
           {%- elsif form.errors -%}
             <p role="alert">{{ form.errors | default_errors }}</p>
           {%- endif -%}
@@ -139,6 +140,8 @@
       "default": "We'll only use your details to reply to your enquiry." },
     { "type": "text", "id": "form_success", "label": "Success message",
       "default": "Thank you — we'll be in touch shortly." },
+    { "type": "url", "id": "redirect_url", "label": "After submit, go to",
+      "info": "Leave empty to stay on the page and show the message above. Pick a page — a thank-you page, say — to send people there once the form posts." },
     { "type": "textarea", "id": "course_options", "label": "Course dropdown options",
       "info": "One course per line.",
       "default": "Make Up Courses\nHairstyling Courses\nNail Courses\nEyelash Extension Courses\nBarbering Course\nFacial Course\nSpray Tanning Course\nWaxing Course\nMaster Classes" }

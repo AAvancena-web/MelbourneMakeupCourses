@@ -43,6 +43,7 @@
 
         {%- if form.posted_successfully? -%}
           <p class="tba-eform__msg" role="status">{{ s.success }}</p>
+          {% render 'tba-form-redirect', url: s.redirect_url, label: 'Continue to the thank-you page' %}
         {%- elsif form.errors -%}
           <p class="tba-eform__msg" role="alert">{{ form.errors | default_errors }}</p>
         {%- endif -%}
@@ -285,6 +286,12 @@
       "id": "success",
       "label": "Success message",
       "default": "Thank you — your enquiry is on its way. We'll be in touch shortly."
+    },
+    {
+      "type": "url",
+      "id": "redirect_url",
+      "label": "After submit, go to",
+      "info": "Leave empty to stay on the page and show the message above. Pick a page — a thank-you page, say — to send people there once the form posts."
     },
     {
       "type": "header",

@@ -1022,6 +1022,13 @@ body.tba-theme .section-wrapper:has(.tba-scope){max-width:none;width:auto;margin
   margin:0 0 22px;padding:14px 18px;font-size:15px;border:1px solid rgba(220,162,119,.5);
   background:var(--tba-blush);color:var(--tba-gold-dp)}
 
+/* fallback link under a submitted form: only ever seen if the redirect script
+   was blocked, so it has to look like something worth clicking. */
+.tba-form-redirect{
+  display:inline-block;margin:0 0 22px;font-size:13px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--tba-gold-dp);
+  border-bottom:1px solid var(--tba-line-gold);padding-bottom:3px}
+
 @media (max-width:860px){
   /* auto rows once stacked, so a shorter card doesn't inherit the taller one's height */
   .tba-svc,.tba-panels{grid-template-columns:1fr;grid-auto-rows:auto}
